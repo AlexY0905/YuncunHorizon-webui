@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="耘存科技" http-equiv="keywords">
+	<meta name="description" content="耘存科技">
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>上海耘存科技发展有限公司</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/children.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+
+	<!-- js -->
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+
+</head>
+
+<body>
+	<div class="top_bg">
+		<div class="top_main fix">
+			<div class="top_logo">
+				<a href="index.html"><img src="images/yclogo.png" /></a>
+			</div>
+			<div class="top_search">
+				<a href="search.html"><span></span></a>
+				<!--
+				<div class="ss">
+					<form class="gg">
+						<input type="text" name="" placeholder="请输入关键词搜索">
+						<button type="submit">搜 索</button>
+					</form>
+					<i></i>
+				</div>
+				-->
+			</div>
+
+		</div>
+	</div>
+	<!-- contentbox -->
+	<div class="contentbox">
+		<!--banner-->
+		<div class="zy_banner">
+			<!-- 子页banner尺寸640x240 -->
+			<img src="images/zy_banner01.jpg">
+		</div>
+		<!-- 子页content -->
+		<div class="zy_content padding_03">
+			<div class="zy_two_nav">
+				<!-- Swiper -->
+				<div class="swiper-container two_nav">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="about.html">公司简介</a></div>
+						<div class="swiper-slide"><a href="about_item.html">公司项目</a></div>
+						<div class="swiper-slide cur_nav"><a href="about_qyfc.html">企业风采</a></div>
+						<!-- <div class="swiper-slide"><a href="about_qyfc.html">公益慈善</a></div> -->
+					</div>
+					<!-- Add button -->
+					<div class="swiper-button-next">
+						<img src="images/zy_nav_shadow.png">
+					</div>
+				</div>
+				<!-- Initialize Swiper -->
+				<script>
+					$(function () {
+						var Long = $(".zy_two_nav .swiper-slide").length
+						if (Long > 4) {
+							$(".swiper-button-next").css("display", "block")
+						} else {
+							$(".swiper-button-next").css("display", "none")
+						}
+					})
+
+					var swiper = new Swiper('.two_nav', {
+						nextButton: '.swiper-button-next',
+						slidesPerView: 4,
+						spaceBetween: 0,
+						freeMode: true,
+						initialSlide: $(".cur_nav").index(),
+					});
+				</script>
+			</div>
+			<div class="zy_about_qyfc_xq">
+				<div class="xqbox">
+					<h1>公司环境</h1>
+					<div class="swiper-container pic_xq">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="images/pic02.jpg" />
+								<p>图为公司办公环境一角</p>
+							</div>
+							<div class="swiper-slide">
+								<img src="images/pic04.jpg" />
+								<p>图为公司办公环境一角</p>
+							</div>
+							<div class="swiper-slide">
+								<img src="images/pic05.jpg" />
+								<p>图为公司办公环境一角</p>
+							</div>
+							<div class="swiper-slide">
+								<img src="images/pic06.jpg" />
+								<p>图为公司办公环境一角</p>
+							</div>
+							<div class="swiper-slide">
+								<img src="images/pic08.jpg" />
+								<p>图为公司办公环境一角</p>
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination pic-p"></div>
+						<script>
+							var swiper = new Swiper('.pic_xq', {
+								pagination: '.pic-p',
+								paginationType: 'fraction',
+								autoplay: 3000,
+								autoplayDisableOnInteraction: false,
+							});
+						</script>
+					</div>
+					<div class="txt">
+						<p>公司环境整洁装修大气，欢迎各位有兴趣的朋友前来莅临参观。这里是对整个图集的整体文字描述说明，公司环境整洁装修大气，欢迎各位有兴趣的朋友前来莅临参观。</p>
+					</div>
+				</div>
+				<div class="zy_share">
+					<div class="bdsharebuttonbox" data-tag="share_1">
+						<span>分享到：</span>
+						<a class="bds_more" data-cmd="more"></a>
+						<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+						<a class="bds_tsina" data-cmd="tsina"></a>
+						<a class="bds_baidu" data-cmd="baidu"></a>
+						<a class="bds_tqq" data-cmd="tqq"></a>
+						<a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a>
+						<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+						<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+					</div>
+					<h2>
+						<p>上一篇：<a href="#">员工2019春季户外拓展活动</a></p>
+						<p>下一篇：<a href="#">明月星辰年会晚会图集</a></p>
+					</h2>
+					<script>
+						window._bd_share_config = {
+							common: {
+								bdText: '明月星辰（贵州）文化传媒有限责任公司',
+								bdDesc: '明月星辰（贵州）文化传媒有限责任公司',
+								bdUrl: '自定义分享url地址',
+								bdPic: '自定义分享图片'
+							},
+							share: [{
+								"tag": "share_1",
+								"bdSize": 24,
+								"bdStyle": 1
+							}]
+						}
+						with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+					</script>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- slide侧边栏 -->
+	<div class="side_bar">
+		<span class="btn_top"></span>
+	</div>
+
+	<!-- footer -->
+	<div class="footbox">
+		<h2>
+			<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+		</h2>
+		<div class="txt">
+			<p>CopyRight © 上海耘存科技发展有限公司</p>
+			<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
+			<!-- <p>贵公网安备：17006594-1号&nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.wangid.com/">WangID驰通网络</a></p> -->
+		</div>
+	</div>
+
+	<!-- 底部菜单 -->
+	<div class="menubox">
+		<ul class="fix">
+			<li>
+				<a href="index.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="video.html">
+					<i>
+						<img src="images/menu_icon02.png" alt="视频中心" />
+						<img src="images/menu_icon02_1.png" alt="视频中心" />
+					</i>
+					<span>视频中心</span>
+				</a>
+			</li>
+			<li>
+				<a href="search.html">
+					<i>
+						<img src="images/icon_search2.png" alt="搜索" />
+						<img src="images/icon_search2.png" alt="搜索" />
+					</i>
+					<span>搜索</span>
+				</a>
+			</li>
+			<!--
+			<li>
+				<a href="">
+					<i>
+						<img src="images/menu_icon03.png" alt="电话咨询" />
+						<img src="images/menu_icon03_1.png" alt="电话咨询" />
+					</i>
+					<span>电话咨询</span>
+				</a>
+			</li>
+			-->
+			<li class="menubtn">
+				<i>
+					<img src="images/menu_icon04.png" alt="菜单" />
+					<img src="images/menu_icon04_1.png" alt="菜单" />
+				</i>
+				<span>菜单</span>
+			</li>
+		</ul>
+		<!-- 菜单导航 -->
+		<dl class="menu">
+			<dd><a href="login.html">登录</a></dd>
+			<dd><a href="register.html">注册</a></dd>
+			<dd><a href="video.html">视频中心</a></dd>
+			<dd><a href="about.html">关于我们</a></dd>
+			<dd><a href="contact.html">联系我们</a></dd>
+			<!-- <dd><a href="movie.html">电影制作</a></dd> -->
+			<!-- <dd><a href="yrpx.html">艺人培训</a></dd> -->
+			<!-- <dd><a href="http://demo.demohuo.top/modals/56/5656/demo/qysy.html">企业商演</a></dd> -->
+			<!-- <dd><a href="newslist.html">企业新闻</a></dd> -->
+			<!-- <dd><a href="yxch.html">营销策划</a></dd> -->
+			<!-- <dd><a href="bm.html">海选报名</a></dd> -->
+		</dl>
+	</div>
+</body>
+
+</html>

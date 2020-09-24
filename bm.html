@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="耘存科技" http-equiv="keywords">
+	<meta name="description" content="耘存科技">
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>上海耘存科技发展有限公司</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/children.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+
+	<!-- js -->
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+
+</head>
+
+<body>
+	<div class="top_bg">
+		<div class="top_main fix">
+			<div class="top_logo">
+				<a href="index.html"><img src="images/yclogo.png" /></a>
+			</div>
+			<div class="top_search">
+				<a href="search.html"><span></span></a>
+				<!--
+				<div class="ss">
+					<form class="gg">
+						<input type="text" name="" placeholder="请输入关键词搜索">
+						<button type="submit">搜 索</button>
+					</form>
+					<i></i>
+				</div>
+				-->
+			</div>
+
+		</div>
+	</div>
+	<!-- contentbox -->
+	<div class="contentbox">
+		<!--banner-->
+		<div class="zy_banner">
+			<!-- 子页banner尺寸640x240 -->
+			<img src="images/zy_banner09.jpg">
+		</div>
+		<!-- 子页content -->
+		<div class="zy_content padding_03">
+			<div class="zy_two_nav">
+				<!-- Swiper -->
+				<div class="swiper-container two_nav">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide cur_nav"><a href="bm.html">海选报名</a></div>
+						<!-- <div class="swiper-slide">
+							<a href="http://demo.demohuo.top/modals/56/5656/demo/bm_cx.html">报名查询</a>
+						</div> -->
+						<div class="swiper-slide"><a href="bm_cjcx.html">成绩查询</a></div>
+						<!-- <div class="swiper-slide">
+							<a href="http://demo.demohuo.top/modals/56/5656/demo/bm_person.html">参赛选手</a>
+						</div> -->
+					</div>
+					<!-- Add button -->
+					<div class="swiper-button-next">
+						<img src="images/zy_nav_shadow.png">
+					</div>
+				</div>
+				<!-- Initialize Swiper -->
+				<script>
+					$(function () {
+						var Long = $(".zy_two_nav .swiper-slide").length
+						if (Long > 4) {
+							$(".swiper-button-next").css("display", "block")
+						} else {
+							$(".swiper-button-next").css("display", "none")
+						}
+					})
+
+					var swiper = new Swiper('.two_nav', {
+						nextButton: '.swiper-button-next',
+						slidesPerView: 4,
+						spaceBetween: 0,
+						freeMode: true,
+						initialSlide: $(".cur_nav").index(),
+					});
+				</script>
+			</div>
+			<div class="zy_bmbox">
+				<div class="txt">
+					<p>注：为了您能顺利报名参与海选，请您如实填写以下信息，没有请填“无”；提交报名之后1个工作日内，请在报名查询栏查询是否报名成功，如有问题请联系：0851-86577898</p>
+				</div>
+				<div class="zy_wsbm">
+					<h1>演员简历档案表</h1>
+					<form>
+						<table width="100%" border="1" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="td_bg">学生姓名</td>
+								<td><input type="text" placeholder="必填"></td>
+								<td class="td_bg">性 别</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">出生年月</td>
+								<td><input type="text" placeholder="必填"></td>
+								<td class="td_bg">民 族</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">籍 贯</td>
+								<td><input type="text" placeholder="必填"></td>
+								<td class="td_bg">学 历</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">毕业院校</td>
+								<td><input type="text" placeholder="必填"></td>
+								<td class="td_bg">专 业</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">政治面貌</td>
+								<td><input type="text"></td>
+								<td class="td_bg">微 信</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">婚 否</td>
+								<td><input type="text" placeholder="必填"></td>
+								<td class="td_bg">联系电话</td>
+								<td><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">身份证号码</td>
+								<td colspan="3"><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">家庭住址</td>
+								<td colspan="3"><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">现居住地址</td>
+								<td colspan="3"><input type="text" placeholder="必填"></td>
+							</tr>
+							<tr>
+								<td colspan="4" align="center">家庭主要成员</td>
+							</tr>
+							<tr>
+								<td class="td_bg">称呼/关系</td>
+								<td class="td_bg">姓 名</td>
+								<td class="td_bg">工作单位</td>
+								<td class="td_bg">职 务</td>
+							</tr>
+							<tr>
+								<td class="td_bg">父 亲</td>
+								<td><input type="text" style="text-align: center;" placeholder="必填"></td>
+								<td><input type="text" style="text-align: center;"></td>
+								<td><input type="text" style="text-align: center;"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">母 亲</td>
+								<td><input type="text" style="text-align: center;" placeholder="必填"></td>
+								<td><input type="text" style="text-align: center;"></td>
+								<td><input type="text" style="text-align: center;"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">配 偶</td>
+								<td><input type="text" style="text-align: center;" placeholder="必填"></td>
+								<td><input type="text" style="text-align: center;"></td>
+								<td><input type="text" style="text-align: center;"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">子 女</td>
+								<td><input type="text" style="text-align: center;" placeholder="必填"></td>
+								<td><input type="text" style="text-align: center;"></td>
+								<td><input type="text" style="text-align: center;"></td>
+							</tr>
+							<tr>
+								<td class="td_bg">主要工作经历</td>
+								<td colspan="3"><textarea></textarea></td>
+							</tr>
+							<tr>
+								<td class="td_bg">所获证书</td>
+								<td colspan="3"><textarea></textarea></td>
+							</tr>
+							<tr>
+								<td class="td_bg">自我评价</td>
+								<td colspan="3"><textarea></textarea></td>
+							</tr>
+						</table>
+						<h2>
+							<input type="file" name="">
+							<span>上传一寸证件照</span>
+						</h2>
+						<div class="info">
+							<p>填表须知：<br />
+								1、此表所述内容真实有效。<br />
+								2、此表归我公司存档具有销毁和所有权。
+							</p>
+							<div class="qm fix">
+								<span>填表人（签字）：<label><input type="text" name=""></label></span>
+								<span>日期：<label><input type="text" name="">年</label>
+									<label><input type="text" name="">月</label>
+									<label><input type="text" name="">日</label>
+								</span>
+							</div>
+						</div>
+						<button type="submit">立即提交报名信息</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- slide侧边栏 -->
+	<div class="side_bar">
+		<span class="btn_top"></span>
+	</div>
+
+	<!-- footer -->
+	<div class="footbox">
+		<h2>
+			<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+		</h2>
+		<div class="txt">
+			<p>CopyRight © 上海耘存科技发展有限公司</p>
+			<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
+			<!-- <p>贵公网安备：17006594-1号&nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.wangid.com/">WangID驰通网络</a></p> -->
+		</div>
+	</div>
+
+	<!-- 底部菜单 -->
+	<div class="menubox">
+		<ul class="fix">
+			<li>
+				<a href="index.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="video.html">
+					<i>
+						<img src="images/menu_icon02.png" alt="视频中心" />
+						<img src="images/menu_icon02_1.png" alt="视频中心" />
+					</i>
+					<span>视频中心</span>
+				</a>
+			</li>
+			<li>
+				<a href="search.html">
+					<i>
+						<img src="images/icon_search2.png" alt="搜索" />
+						<img src="images/icon_search2.png" alt="搜索" />
+					</i>
+					<span>搜索</span>
+				</a>
+			</li>
+			<!--
+			<li>
+				<a href="">
+					<i>
+						<img src="images/menu_icon03.png" alt="电话咨询" />
+						<img src="images/menu_icon03_1.png" alt="电话咨询" />
+					</i>
+					<span>电话咨询</span>
+				</a>
+			</li>
+			-->
+			<li class="menubtn">
+				<i>
+					<img src="images/menu_icon04.png" alt="菜单" />
+					<img src="images/menu_icon04_1.png" alt="菜单" />
+				</i>
+				<span>菜单</span>
+			</li>
+		</ul>
+		<!-- 菜单导航 -->
+		<dl class="menu">
+			<dd><a href="login.html">登录</a></dd>
+			<dd><a href="register.html">注册</a></dd>
+			<dd><a href="video.html">视频中心</a></dd>
+			<dd><a href="about.html">关于我们</a></dd>
+			<!-- <dd><a href="movie.html">电影制作</a></dd> -->
+			<!-- <dd><a href="yrpx.html">艺人培训</a></dd> -->
+			<!-- <dd><a href="http://demo.demohuo.top/modals/56/5656/demo/qysy.html">企业商演</a></dd> -->
+			<!-- <dd><a href="newslist.html">企业新闻</a></dd> -->
+			<!-- <dd><a href="yxch.html">营销策划</a></dd> -->
+			<dd><a href="contact.html">联系我们</a></dd>
+			<!-- <dd><a href="bm.html">海选报名</a></dd> -->
+		</dl>
+	</div>
+</body>
+
+</html>

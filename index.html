@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="耘存科技" http-equiv="keywords">
+	<meta name="description" content="耘存科技">
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>首页</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/aos.css">
+	<!--内容动画样式库-->
+	<!-- js -->
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+
+</head>
+
+<body>
+	<div class="top_bg">
+		<div class="top_main fix">
+			<div class="top_logo">
+				<a href="index.html"><img src="images/yclogo.png" /></a>
+			</div>
+			<div class="top_search">
+				<a href="search.html"><span></span></a>
+				<!--
+				<div class="ss">
+					<form class="gg">
+						<input type="text" name="" placeholder="请输入关键词搜索">
+						<button type="submit">搜 索</button>
+					</form>
+					<i></i>
+				</div>
+				-->
+
+			</div>
+
+		</div>
+	</div>
+	<!-- contentbox -->
+	<div class="contentbox">
+		<!--轮播图开始-->
+		<div class="swiper-container banner">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="images/space2.jpg" /></div>
+				<div class="swiper-slide"><img src="images/space.jpg" /></div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination banner-p"></div>
+			<script>
+				var swiper = new Swiper('.banner', {
+					pagination: '.banner-p',
+					autoplay: 3000,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div>
+		<!--轮播图结束-->
+
+		<!-- icon_nav图标导航 -->
+		<div class="swiper-container nav_iconbox">
+			<ul class="swiper-wrapper">
+				<!-- 每个ul有8个li，不能多于8个 -->
+				<li class="swiper-slide">
+					<a href="movie.html">
+						<img src="images/icon01.png">
+						<span>图片检索上传</span>
+					</a>
+				</li>
+				<li class="swiper-slide">
+					<a href="yrpx.html">
+						<img src="images/icon02.png">
+						<span>视频检索上传</span>
+					</a>
+				</li>
+				<li class="swiper-slide">
+					<a href="yxch.html">
+						<img src="images/icon03.png">
+						<span>文档检索</span>
+					</a>
+				</li>
+				<li class="swiper-slide">
+					<a href="about_qyfc.html">
+						<img src="images/icon04.png">
+						<span>其他</span>
+					</a>
+				</li>
+			</ul>
+			<script>
+				var swiper = new Swiper('.nav_iconbox', {
+					slidesPerView: 4,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div>
+
+		<!-- 公告信息 -->
+		<div class="news_sj_dxs_box white_bg margin_t">
+			<div class="scrollnews">
+				<span><a href="newslist_gg.html"><img src="images/gg_tit.png"></a></span>
+				<ul>
+					<li><a href="news_xq.html">太空竞赛第二轮-Track 2 Slingshot竞赛将于9月24日开启</a></li>
+					<li><a href="news_xq.html">第一轮太空竞赛将于9月15日早上5:59落下帷幕</a></li>
+					<li><a href="news_xq.html">Filecoin太空竞赛全网算力突破100PiB!</a></li>
+				</ul>
+				<script type="text/javascript">
+					$(document).ready(function () {
+						//滚动文字
+						function runtxt() {
+							$(".scrollnews ul").animate({ marginTop: "-.4rem" }, 300,
+								function () {
+									$(".scrollnews ul li:last").after($(".scrollnews ul li:first"))
+									$(".scrollnews ul").css("margin-top", 0)
+								}
+							)
+						}
+						$(".scrollnews ul li a").mouseenter(
+							function () {
+								clearInterval(timer)
+							}
+						)
+						$(".scrollnews ul li a").mouseleave(
+							function () {
+								timer = setInterval(runtxt, 4000)
+							}
+						)
+						timer = setInterval(runtxt, 4000)
+					})
+				</script>
+			</div>
+		</div>
+
+		<!-- 电影海选报名开启及添加对应背景 -->
+		<!-- <div class="movie_bg_box">
+			<img src="images/movie_bg.jpg" alt="电影海选背景图" />
+			<div class="btn">
+				<span><a href="bm.html">点击报名</a></span>
+				<span><a href="bm_cjcx.html">成绩查询</a></span>
+			</div>
+		</div> -->
+
+		<!-- 电影制作 -->
+		<div class="sy_movie_box white_bg padding_03 margin_t">
+			<div class="sy_title" aos="fade-up">
+				<img src="images/icon_tit.png">
+				<h2>电影制作</h2>
+			</div>
+			<div class="swiper-container movies_box01 bgwh mb12">
+				<!-- 栏目 栏目 -->
+				<div class="my_page01"></div>
+				<div class="swiper-wrapper">
+					<!-- 新片速递 -->
+					<div class="swiper-slide">
+						<ul class="sy_pic_box">
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_01_290x392.jpg" />
+									<span>狄仁杰之神都龙王<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_02_290x392.jpg" />
+									<span>野长城<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_03_290x392.jpg" />
+									<span>剃头师傅<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_04_290x392.jpg" />
+									<span>同桌的你<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_01_290x392.jpg" />
+									<span>狄仁杰之神都龙王<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_02_290x392.jpg" />
+									<span>野长城<b>（2019）</b></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- 即将上映 -->
+					<!-- <div class="swiper-slide">
+						<ul class="sy_pic_box">
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_03_290x392.jpg" />
+									<span>剃头师傅<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_04_290x392.jpg" />
+									<span>同桌的你<b>（2019）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_01_290x392.jpg">
+									<span>狄仁杰之神都龙王<b>（2020）</b></span>
+								</a>
+							</li>
+							<li class="pic">
+								<a href="movie_xq.html">
+									<img src="images/movie_02_290x392.jpg">
+									<span>野长城<b>（2020）</b></span>
+								</a>
+							</li>
+						</ul>
+					</div> -->
+
+				</div>
+			</div>
+			<div class="more_btn" aos="slide-left"><a href="movie.html">查看影片库>></a></div>
+			<script>
+				var swiper = new Swiper('.movies_box01', {
+					autoHeight: true, //enable auto height
+					pagination: '.my_page01',
+					paginationClickable: true,
+					paginationBulletRender: function (swiper, index, className) {
+						switch (index) {
+							case 0: name = '检索速递'; break;
+							// case 1: name = '即将上映'; break;
+							default: name = '';
+						}
+						return '<a class="' + className + '">' + name + '</a>';
+					}
+				});
+			</script>
+		</div>
+
+		<!-- 艺人培训 -->
+		<!-- <div class="sy_yrpx_box white_bg padding_03 margin_t">
+			<div class="sy_title" aos="fade-up">
+				<img src="images/icon_tit.png">
+				<h2>艺人培训</h2>
+			</div>
+			<ul class="sy_pic_box">
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
+						<span>摄影培训</span>
+					</a>
+				</li>
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
+						<span>舞台表演培训</span>
+					</a>
+				</li>
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
+						<span>影视编导培训</span>
+					</a>
+				</li>
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic09.jpg" /></div>
+						<span>全能艺人培训</span>
+					</a>
+				</li>
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
+						<span>摄影培训</span>
+					</a>
+				</li>
+				<li class="pic" aos="fade-right">
+					<a href="about_qyfc_xq.html">
+						<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
+						<span>影视表演培训</span>
+					</a>
+				</li>
+			</ul>
+			<div class="more_btn"><a href="yrpx.html">查看更多艺人培训>></a></div>
+		</div> -->
+
+		<!-- 企业商演 -->
+		<div class="sy_qysy_box white_bg padding_03 margin_t" aos="fade-up">
+			<div class="sy_title01">
+				<img src="images/icon_tit.png">
+				<h2>企业商演</h2>
+				<a href="http://demo.demohuo.top/modals/56/5656/demo/qysy.html">查看更多></a>
+			</div>
+			<div class="swiper-container sy_pic_box slidebox01">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="about_qyfc_xq.html" class="pic">
+							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
+							<span>东联金街商演演出</span>
+						</a>
+						<a href="about_qyfc_xq.html" class="pic">
+							<div class="_picbox_w3_h2"><img src="images/pic09.jpg" /></div>
+							<span>某企业年会演出</span>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="about_qyfc_xq.html" class="pic">
+							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
+							<span>商演演出</span>
+						</a>
+						<a href="about_qyfc_xq.html" class="pic">
+							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
+							<span>年会演出</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Initialize Swiper -->
+			<script>
+				var swiper = new Swiper('.slidebox01', {
+					slidesPerView: 2,
+					slidesPerColumn: 1,
+					spaceBetween: '3%',
+					autoplay: 1,
+					loop: true,//无缝轮播条件 slidesPerView为整数, slidesPerColumn为1,
+					speed: 5000,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div>
+
+		<!-- 视频中心 -->
+		<div class="sy_qysy_box sy_video_box white_bg padding_03 margin_t" aos="fade-up">
+			<div class="sy_title01">
+				<img src="images/icon_tit.png">
+				<h2>视频中心</h2>
+				<a href="video.html">查看更多></a>
+			</div>
+			<div class="swiper-container sy_pic_box slidebox01 slidebox02">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /><i></i></div>
+							<span>选角比赛视频</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /><i></i></div>
+							<span>风光片视频</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /><i></i></div>
+							<span>驰通企业宣传片</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /><i></i></div>
+							<span>宣传视频</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /><i></i></div>
+							<span>风光片视频</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="video_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /><i></i></div>
+							<span>驰通企业宣传片</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Initialize Swiper -->
+			<script>
+				var swiper = new Swiper('.slidebox02', {
+					slidesPerView: 2,
+					slidesPerColumn: 2,
+					spaceBetween: 12,
+					autoplay: 2000,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div>
+
+		<!-- 企业新闻开始 -->
+		<!-- <div class="sy_news_box white_bg padding_03 margin_t">
+			<div class="sy_title" aos="fade-up">
+				<img src="images/icon_tit.png">
+				<h2>企业新闻</h2>
+			</div>
+
+			<div class="swiper-container news_slide" aos="zoom-in" aos-duration="1000">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="news_xq.html">
+							<img src="images/pic01.jpg" />
+							<p>明月星辰新电影《咫尺的爱》2019年开年巨制即将开拍</p>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="news_xq.html">
+							<img src="images/pic06.jpg" />
+							<p>明月星辰新电影《咫尺的爱》2019年开年巨 制即将开拍</p>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="news_xq.html">
+							<img src="images/pic04.jpg" />
+							<p>明月星辰新电影《咫尺的爱》2019年开年巨 制即将开拍</p>
+						</a>
+					</div>
+				</div>
+				<div class="swiper-pagination news_slide-p"></div>
+				<script>
+					var swiper = new Swiper('.news_slide', {
+						pagination: '.news_slide-p',
+						autoplay: 3000,
+						autoplayDisableOnInteraction: false,
+					});
+				</script>
+			</div>
+			<div class="list">
+				<ul>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic01.jpg" />
+							<h2>《咫尺的爱》电影演员海选第一轮比赛晋级名单公布</h2>
+							<span>2019-01-30</span>
+						</a>
+					</li>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic04.jpg" />
+							<h2>员工2019春季拓展活动</h2>
+							<span>2019-01-27</span>
+						</a>
+					</li>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic03.jpg" />
+							<h2>明月星辰资助开阳县贫困病人，助他们恢复健康</h2>
+							<span>2018-12-07</span>
+						</a>
+					</li>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic04.jpg" />
+							<h2>《咫尺的爱》电影演员海选第一轮比赛晋级名单公布</h2>
+							<span>2019-01-30</span>
+						</a>
+					</li>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic05.jpg" />
+							<h2>员工2019春季拓展活动</h2>
+							<span>2019-01-27</span>
+						</a>
+					</li>
+					<li aos="fade-left">
+						<a href="news_xq.html">
+							<img src="images/pic06.jpg" />
+							<h2>明月星辰资助开阳县贫困病人，助他们恢复健康</h2>
+							<span>2018-12-07</span>
+						</a>
+					</li>
+				</ul>
+				<div class="more_btn" aos="fade-up"><a href="newslist.html">查看更多新闻资讯>></a></div>
+			</div>
+		</div> -->
+		<!-- 企业新闻结束 -->
+
+		<!-- 公司简介 -->
+		<div class="sy_about_box white_bg padding_03 margin_t padding_b">
+			<div class="sy_title" aos="slide-right">
+				<img src="images/icon_tit.png">
+				<h2>公司简介</h2>
+			</div>
+			<div class="txt">
+				<video controls="controls">
+					<source src="video/vr001.mp4" type="video/mp4">
+					你的浏览器不支持video标签，请更换其他浏览器看看
+				</video>
+				<p aos="fade-up">
+					上海耘存科技发展公司立足于全国金融中心—上海， 由区块链行业资深技术人士和资深金融从业人员共同打造， 资金和技术实力雄厚，专业致力于IPFS分布式存储中国区布道！
+					同时提供专业的IPFS技术与硬件支持，以及IDC专业数据中心托管服务！<a href="about.html">查看更多>></a></p>
+			</div>
+		</div>
+		<!-- 企业风采开始 -->
+		<!-- <div class="sy_qysy_box sy_qyfc_box white_bg padding_03 margin_t" aos="fade-up">
+			<div class="sy_title01">
+				<img src="images/icon_tit.png">
+				<h2>企业风采</h2>
+				<a href="about_qyfc.html">查看更多></a>
+			</div>
+			<div class="swiper-container sy_pic_box slidebox01 slidebox03">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
+							<span>企业办公环境</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /></div>
+							<span>企业公益捐赠</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
+							<span>员工2019春季拓展活动</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
+							<span>拍摄现场</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<script>
+				var swiper = new Swiper('.slidebox03', {
+					slidesPerView: 2,
+					slidesPerColumn: 1,
+					spaceBetween: '3%',
+					autoplay: 1,
+					loop: true,//无缝轮播条件 slidesPerView为整数, slidesPerColumn为1,
+					speed: 5000,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div> -->
+		<!-- 企业风采结束 -->
+
+		<!-- 公益慈善开始 -->
+		<!-- <div class="sy_qysy_box sy_qyfc_box white_bg padding_03 margin_t" aos="fade-up">
+			<div class="sy_title01">
+				<img src="images/icon_tit.png">
+				<h2>公益慈善</h2>
+				<a href="about_qyfc.html">查看更多></a>
+			</div>
+			<div class="swiper-container sy_pic_box slidebox01 slidebox04">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /></div>
+							<span>明月星辰公益捐赠</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
+							<span>明月星辰公益电影拍摄</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
+							<span>明月星辰公益摄影</span>
+						</a>
+					</div>
+					<div class="swiper-slide pic">
+						<a href="about_qyfc_xq.html">
+							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
+							<span>公益培训</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<script>
+				var swiper = new Swiper('.slidebox04', {
+					slidesPerView: 2,
+					slidesPerColumn: 1,
+					spaceBetween: '3%',
+					autoplay: 1,
+					loop: true,//无缝轮播条件 slidesPerView为整数, slidesPerColumn为1,
+					speed: 5000,
+					autoplayDisableOnInteraction: false,
+				});
+			</script>
+		</div> -->
+		<!-- 公益慈善结束 -->
+	</div>
+
+	<!-- slide侧边栏 -->
+	<div class="side_bar">
+		<span class="btn_top"></span>
+	</div>
+
+	<!-- footer -->
+	<div class="footbox">
+		<h2>
+			<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+		</h2>
+		<div class="txt">
+			<p>CopyRight © 上海耘存科技发展有限公司</p>
+			<p>联系地址:上海市静安区平型关路108创意广场品座37号5楼</p>
+			<!-- <p>贵公网安备：17006594-1号&nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.wangid.com/">WangID驰通网络</a></p> -->
+		</div>
+	</div>
+
+	<!-- 底部菜单 -->
+	<div class="menubox">
+		<ul class="fix" style="display: flex">
+			<li>
+				<a href="index.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="video.html">
+					<i>
+						<img src="images/menu_icon02.png" alt="视频中心" />
+						<img src="images/menu_icon02_1.png" alt="视频中心" />
+					</i>
+					<span>视频中心</span>
+				</a>
+			</li>
+			<li>
+				<a href="search.html">
+					<i>
+						<img src="images/icon_search2.png" alt="搜索" />
+						<img src="images/icon_search2.png" alt="搜索" />
+					</i>
+					<span>搜索</span>
+				</a>
+			</li>
+			<!--
+			<li>
+				<a href="">
+					<i>
+						<img src="images/menu_icon03.png" alt="电话咨询" />
+						<img src="images/menu_icon03_1.png" alt="电话咨询" />
+					</i>
+					<span>电话咨询</span>
+				</a>
+			</li>
+			-->
+			<li class="menubtn">
+				<i>
+					<img src="images/menu_icon04.png" alt="菜单" />
+					<img src="images/menu_icon04_1.png" alt="菜单" />
+				</i>
+				<span>菜单</span>
+			</li>
+		</ul>
+		<!-- 菜单导航 -->
+		<dl class="menu">
+			<dd><a href="login.html">登录</a></dd>
+			<dd><a href="register.html">注册</a></dd>
+			<dd><a href="video.html">视频中心</a></dd>
+			<dd><a href="about.html">关于我们</a></dd>
+			<!-- <dd><a href="movie.html">电影制作</a></dd> -->
+			<!-- <dd><a href="yrpx.html">艺人培训</a></dd> -->
+			<!-- <dd><a href="about_qyfc.html">企业商演</a></dd> -->
+			<!-- <dd><a href="newslist.html">企业新闻</a></dd> -->
+			<!-- <dd><a href="yxch.html">营销策划</a></dd> -->
+			<dd><a href="contact.html">联系我们</a></dd>
+			<!-- <dd><a href="bm.html">海选报名</a></dd> -->
+		</dl>
+	</div>
+
+	<!--内容动画样式js-->
+	<script type="text/javascript" src="js/aos.js"></script>
+	<script>
+		AOS.init({
+			easing: 'ease-out-back',
+			duration: 1000
+		});
+	</script>
+
+</body>
+
+</html>

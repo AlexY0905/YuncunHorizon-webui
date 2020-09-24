@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="耘存科技" http-equiv="keywords">
+	<meta name="description" content="耘存科技">
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+
+	<!-- favicons -->
+	<link rel="apple-touch-icon" href="./images/favicon-apple.png">
+	<link rel="icon" href="">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!-- Material design icons CSS -->
+	<link rel="stylesheet" href="./css/static/material-icons.css">
+	<!-- aniamte CSS -->
+	<link rel="stylesheet" href="./css/static/animate.css">
+	<!-- swiper slider CSS -->
+	<link rel="stylesheet" href="./css/static/swiper.min.css">
+	<!-- app CSS -->
+	<link id="theme" rel="stylesheet" href="./css/static/purplesidebar.css" type="text/css">
+	<!-- icon -->
+	<title>用户登录</title>
+
+
+</head>
+
+<body class="fixed-header sidebar-right-close sidebar-left-close">
+	<!-- page loader -->
+	<div class="loader justify-content-center pink-gradient">
+		<div class="align-self-center text-center">
+			<div class="logo-img-loader">
+				<img src="./images/static/loader-hole.png" alt="" class="logo-image">
+				<img src="./images/static/loader-bg.png" alt="" class="logo-bg-image">
+			</div>
+			<h2 class="mt-3 font-weight-light">耘存<br><small>- 手机端 -</small></h2>
+			<p class="mt-2 text-white"></p>
+		</div>
+	</div>
+	<!--公共头部-->
+	<!-- <div id="header" style="height: 6%;"></div> -->
+	<div id="header"></div>
+
+	<!-- sidebar left ends -->
+	<!-- content page -->
+	<div class="container-fluid h-100 h-sm-auto">
+		<div class="row h-100 h-sm-auto">
+			<div class="col-12 col-md-6 h-md-100  h-sm-auto order-2 order-md-1">
+				<div class="row align-items-center h-100 h-sm-auto">
+					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+						<h1 class="font-weight-light mb-3 mt-4 content-color-secondary text-left">
+							<font size="5">我们是</font><span class="font-weight-normal content-color-primary">耘存科技</span>
+						</h1>
+						<h4 class="font-weight-light mb-4 content-color-secondary text-left">
+							<font size="4">欢迎回来,</font><br>请登录您的算力账户.
+						</h4>
+						<div class="card mb-2">
+							<div class="card-body p-0" id="name_data">
+								<label for="inputEmail" class="sr-only">用户名/邮箱/手机号</label>
+								<input type="email" id="inputEmail" oninput="preSql(this)"
+									class="form-control form-control-lg border-0 text-center" placeholder="用户名/邮箱/手机号"
+									required="" autofocus="">
+								<span id="code"></span>
+								<hr class="my-0">
+								<label for="inputPassword" class="sr-only">密码</label>
+								<input type="password" id="inputPassword" oninput="preSql(this)"
+									class="form-control form-control-lg border-0 text-center" placeholder="密码"
+									required="">
+							</div>
+							<div class="card-body p-0" id="tel_data" style="display: none;">
+								<div class="input">
+									<input type="text" id="regPhone" oninput="preSql(this)"
+										class="form-control text-center form-control-lg border-0"
+										placeholder="请输入有效的手机号码">
+									<span id="err_msgPhone"></span>
+								</div>
+								<div class="input text-center">
+									<input type="text" id="yanZM" oninput="preSql(this)"
+										class="form-control text-center form-control-lg border-0" placeholder="请输入验证码">
+									<span id="msgYanZM"></span>
+									<!--<span id="sendYzm" >免费获取验证码</span>-->
+									<input type="button" class="btn c-333 text-c js-code" value="获取验证码" id="sendYzm">
+								</div>
+							</div>
+						</div>
+						<small class="form-text text-muted">点击登录按钮，登录到算力管理页面
+							<a href="javascript:void(0)" onclick="tel()" id="tel" class="content-color-primary"
+								style="float: right;">验证码登录</a>
+							<a href="javascript:void(0)" onclick="name1()" id="name" class="content-color-primary"
+								style="float: right; display: none;">密码登录</a>
+						</small>
+						<div class="my-4 row">
+							<div class="col-6 col-md">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+									<label class="custom-control-label" for="customCheck1">记住我</label>
+								</div>
+							</div>
+							<div class="col-6 col-md text-right">
+								<a href="./forgetPassword.html" class="content-color-primary">忘记密码?</a>
+							</div>
+						</div>
+						<div class="text-left mb-4">
+							<a type="submit" class="btn btn-primary pink-gradient " onclick="telLogin()" id="tel_1"
+								style="display: none;">登录</a>
+							<a type="submit" class="btn btn-primary pink-gradient" onclick="checkLogin()"
+								id="name_1">登录</a>
+							<a href="./register.html" class="float-right btn btn-outline-primary">注册</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 h-md-100 order-1 order-md-2 min-height-300 p-0 bg-dark ">
+				<div class="carosel swiper-location-carousel h-100 h-sm-auto">
+					<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="0" data-slides-per-view="1"
+						class="swiper-container swiper-init swiper-signin h-100">
+						<div class="swiper-pagination">欢迎加入Filecoin</div>
+						<div class="swiper-wrapper">
+							<div class="swiper-slide text-center ">
+								<div class="background-img">Filecoin是最早的STO项目<img src="./images/static/title2.png"
+										alt="" class="w-auto float-right"></div>
+								<div class="row align-items-center h-100 text-white">
+									<div class="col-10 col-md-8 col-lg-6 mx-auto my-4">
+										<h1 class="font-weight-light mb-4">欢迎加入Filecoin,Filecoin是最早的STO项目</h1>
+										<p>我们致力于推广IPFS建立一个完美的IPFS交流合作平台，Filecoin最大的作用就是激励更多的人使用IPFS协议，FIlecoin设置一套激励机制来鼓励大家提供自己的资源。
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide text-center">
+								<div class="background-img"><img src="./images/static/title1.jpg" alt=""
+										class="w-auto float-right"></div>
+								<div class="row align-items-center h-100 text-white">
+									<div class="col-10 col-md-8 col-lg-6 mx-auto my-4">
+										<h1 class="font-weight-light mb-4">耘存科技携手矿工</h1>
+										<p>Filecoin测试网二阶段奖励超过100万FIL</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 底部菜单 -->
+	<!-- <div class="menubox">
+		<ul class="fix">
+			<li>
+				<a href="index.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="video.html">
+					<i>
+						<img src="images/menu_icon02.png" alt="视频中心" />
+						<img src="images/menu_icon02_1.png" alt="视频中心" />
+					</i>
+					<span>视频中心</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i>
+						<img src="images/menu_icon03.png" alt="电话咨询" />
+						<img src="images/menu_icon03_1.png" alt="电话咨询" />
+					</i>
+					<span>电话咨询</span>
+				</a>
+			</li>
+			<li class="menubtn">
+				<i>
+					<img src="images/menu_icon04.png" alt="菜单" />
+					<img src="images/menu_icon04_1.png" alt="菜单" />
+				</i>
+				<span>菜单</span>
+			</li>
+		</ul>
+		<dl class="menu">
+			<dd><a href="login.html">登录</a></dd>
+			<dd><a href="register.html">注册</a></dd>
+			<dd><a href="video.html">视频中心</a></dd>
+			<dd><a href="about.html">关于我们</a></dd>
+			<dd><a href="contact.html">联系我们</a></dd>
+		</dl>
+	</div> -->
+
+	<!-- content page ends -->
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./js/static/jquery-3.2.1.min.js"></script>
+	<script src="./js/static/popper.min.js"></script>
+	<script src="http://cdn.bootstrapmb.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<!-- Cookie jquery file -->
+	<script src="./js/static/jquery.cookie.js"></script>
+	<!-- swiper slider jquery file -->
+	<script src="./js/static/swiper.min.js"></script>
+	<!-- Application main common jquery file -->
+	<script src="./js/static/main.js"></script>
+	<!-- page specific script -->
+	<!-- 验证码 -->
+	<script src="./js/static/verification_code.js"></script>
+	<!--简单弹出框-->
+	<script src="./js/static/showTip.js"></script>
+	<!-- 过滤器SQL -->
+	<script src="./js/static/filterSQL.js"></script>
+	<script>
+		function tel() {
+			$(document).ready(function (e) {
+				//密码登录输入框
+				$('#name_data').css('display', 'none')
+				//手机登录输入框
+				$('#tel_data').css('display', 'inline')
+				//手机登录按钮
+				$('#tel_1').css('display', 'inline')
+				//密码登录输入框
+				$('#name_1').css('display', 'none')
+				//手机登录切换输入框
+				$('#tel').css('display', 'none')
+				// $('#tel').css('display','none')
+				//密码登录切换输入框
+				$('#name').css('display', 'inline')
+			})
+		}
+		function name1() {
+			$(document).ready(function (e) {
+				//密码登录输入框
+				$('#name_data').css('display', 'inline')
+				//手机登录输入框
+				$('#tel_data').css('display', 'none')
+				//手机登录按钮
+				$('#tel_1').css('display', 'none')
+				//密码登录输入框
+				$('#name_1').css('display', 'inline')
+				//手机登录切换输入框
+				$('#name').css('display', 'none')
+				//密码登录切换输入框
+				$('#tel').css('display', 'inline')
+			})
+		}
+	</script>
+	<script>
+		let uuida = "";
+		function uuid() {
+			var s = [];
+			var hexDigits = "0123456789abcdef";
+			for (var i = 0; i < 36; i++) {
+				s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+			}
+			s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+			s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+			s[8] = s[13] = s[18] = s[23] = "-";
+			uuida = s.join("");
+		}
+		// 点击登录，检查登陆成功与否
+		function telLogin() {
+			uuid();
+			//获取输入的手机号
+			var regPhone = document.getElementById("regPhone");
+			//获取输入的验证码的 值
+			var yanZM = $("#yanZM").val();
+			//获取请求验证码的ajax并赋值
+			var result_1 = result
+			//判断校验码是否为空
+			if (yanZM == null || yanZM == '') {
+				ShowFailure("验证码不能为空!");
+				return;
+			} else if (yanZM == result_1) {//判断验证码是否一致
+				//console.log("result_1",result_1)
+				if (regPhone.value.length !== 11) {
+					ShowFailure("手机号是11个数字!")
+					return;
+				} else {
+					localStorage.uuida1 = uuida;
+					$.ajax({
+						type: "GET",
+						url: "http://61.147.123.84:10080/user/user_login_by_phone",
+						data: {
+							tel: $("#regPhone").val(),
+							phoneType: uuida
+						},
+						success: function (data) {
+							// console.log("data",data);
+							if (data.msg == "手机用户不存在") {
+								ShowFailure("手机用户不存在,请注册!");
+								$("#regPhone").val("");
+								$("#yanZM").val("");
+								return false
+							} else {
+								//console.log("data",data)
+								ShowSuccess("登陆成功")
+								localStorage.obj = JSON.stringify(data);
+								localStorage.obj_power = "2";
+								setInterval(() => {
+									window.location.href = "/index.html";
+								}, 800)
+							}
+						}
+					})
+				}
+			} else {
+				ShowFailure("验证码有误,请重试!")
+				return;
+			}
+		}
+		// 点击登录，检查登陆成功与否
+		function checkLogin() {
+			uuid();
+			localStorage.uuida1 = uuida;
+			$.ajax({
+				type: "GET",
+				dataType: 'json',
+				url: "http://61.147.123.84:10080/user/user_login",
+				data: {
+					name: $("#inputEmail").val(),
+					password: $("#inputPassword").val(),
+					phoneType: uuida
+				},
+				success: function (data) {
+					if (data.msg == "用户不存在") {
+						ShowFailure("用户不存在,请注册!");
+						$("#inputEmail").val("");
+						$("#inputPassword").val("");
+					} else if (data.msg == "密码错误") {
+						ShowFailure("密码错误,请重试!");
+						$("#inputEmail").val("");
+						$("#inputPassword").val("");
+					} else if (data.msg == "该账户已登录，请重新登录") {
+						ShowFailure("该账户已登录，请重新登录");
+					} else {
+						// console.log("data",data);
+						ShowSuccess("登陆成功")
+						localStorage.obj = JSON.stringify(data);
+						localStorage.obj_power = "2";
+						setInterval(() => {
+							window.location.href = "/index.html";
+						}, 800)
+					}
+				}
+			})
+		}
+		// 登陆时，手机号 按正则格式输入 , 且检查已存在否
+		$("#regPhone").focus(function () {
+			$("#err_msgPhone").html("")
+		})
+		var result;
+		$("#regPhone").blur(function () {
+			var reg1 = /^1[3|4|5|7|8|9][0-9]\d{8}$/;
+			if (!reg1.test(this.value)) {  //如果当前用户输入的值 非真（不符合手机号规则）
+				ShowFailure("请输入正确的手机号！")
+			} else if (reg1.test(this.value)) {
+				//发送验证码  发起ajax请求,后台拦截这个请求
+				$("#sendYzm").click(function () {
+					var tel = $("#regPhone").val();
+					// console.log(name);
+					// console.log(tel);
+					$.ajax({
+						url: "http://61.147.123.84:10080/pool/forget_password_1",
+						type: "GET",
+						dataType: 'json',
+						async: false,
+						data: {
+							tel: tel
+						},
+						success: function (data) {
+							result = data
+							//console.log(result)
+						}
+					})
+				})
+			}
+		})
+
+	// 'use strict';
+	// var mySwiper = new Swiper('.swiper-signin', {
+	//     slidesPerView: 1,
+	//     spaceBetween: 0,
+	//     autoplay: true,
+	//     pagination: {
+	//         el: '.swiper-pagination',
+	//         clickable: true,
+	//     }
+	// });
+
+	// $(window).on('resize', function() {
+	//     var mySwiper = new Swiper('.swiper-signin', {
+	//         slidesPerView: 1,
+	//         spaceBetween: 0,
+	//         autoplay: true,
+	//         pagination: {
+	//             el: '.swiper-pagination',
+	//             clickable: true,
+	//         }
+	//     });
+	// });
+	</script>
+</body>
+
+</html>
