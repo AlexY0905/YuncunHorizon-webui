@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="css/aos.css">
 	<link rel="stylesheet" type="text/css" href="css/search.css">
-<!--	<link rel="stylesheet" type="text/css" href="css/static/purplesidebar.css">-->
+	<!--	<link rel="stylesheet" type="text/css" href="css/static/purplesidebar.css">-->
 	<link rel="stylesheet" type="text/css" href="css/static/jquery.easy_slides.css">
 </head>
 
@@ -25,9 +25,9 @@
 		</div>
 	</div>
 	<!--顶部背景图-->
-<!--	<div class="contentbox">-->
-<!--		-->
-<!--	</div>-->
+	<!--	<div class="contentbox">-->
+	<!--		-->
+	<!--	</div>-->
 	<!-- contentbox -->
 	<!--
 	<div class="contentbox" style="min-height: 500px">
@@ -63,42 +63,36 @@
 				<input type="text" class="keyWord_ipt"><span class="search_btn">搜索</span>
 			</div>
 			<div class="tips_box main-content">
-				<div class="htmleaf-container">
+				<div class="htmleaf-container htmleaf-container1">
 					<div class="htmleaf-content">
 						<div class="slider slider_four_in_line">
-							<div id="keyword_btn0">关键字0</div>
-							<div id="keyword_btn1">关键字1</div>
-							<div id="keyword_btn2">关键字2</div>
-							<div id="keyword_btn3">关键字3</div>
+							<div class="keyWord_btn" id="keyword_btn0">关键字0</div>
+							<div class="keyWord_btn" id="keyword_btn1">关键字1</div>
+							<div class="keyWord_btn" id="keyword_btn2">关键字2</div>
+							<div class="keyWord_btn" id="keyword_btn3">关键字3</div>
+							<div class="keyWord_btn" id="keyword_btn31">关键字31</div>
 						</div>
 					</div>
 				</div>
-				<div class="htmleaf-container">
+				<div class="htmleaf-container htmleaf-container2">
 					<div class="htmleaf-content">
 						<div class="slider slider_four_in_line">
 							<div id="keyword_btn4">关键字4</div>
 							<div id="keyword_btn5">关键字5</div>
 							<div id="keyword_btn6">关键字6</div>
 							<div id="keyword_btn7">关键字7</div>
+							<div id="keyword_btn71">关键字71</div>
 						</div>
 					</div>
 				</div>
-				<div class="htmleaf-container">
+				<div class="htmleaf-container htmleaf-container3">
 					<div class="htmleaf-content">
 						<div class="slider slider_four_in_line">
 							<div id="keyword_btn8">关键字8</div>
 							<div id="keyword_btn9">关键字9</div>
 							<div id="keyword_btn10">关键字10</div>
 							<div id="keyword_btn11">关键字11</div>
-						</div>
-					</div>
-				</div>
-				<div class="htmleaf-container">
-					<div class="htmleaf-content">
-						<div class="slider slider_four_in_line">
-							<div id="keyword_btn12">关键字12</div>
-							<div id="keyword_btn13">关键字13</div>
-							<div id="keyword_btn14">关键字14</div>
+							<div id="keyword_btn111">关键字111</div>
 						</div>
 					</div>
 				</div>
@@ -203,30 +197,9 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$('.slider_one_big_picture').EasySlides({
-				'autoplay': true,
-				'stepbystep': false,
-				'show': 5,
-				'loop': true
-			})
-			$('.slider_one_big_2').EasySlides({
-				'autoplay': false,
-				'stepbystep': true,
-				'show': 5,
-				'loop': true
-			})
-			$('.slider_circle_10').EasySlides({
-				'autoplay': true,
-				'show': 13
-			})
 			$('.slider_four_in_line').EasySlides({
-				'autoplay': true,
-				'show': 5
-			})
-			$('.slider_clock').EasySlides({
-				'autoplay': true,
-				'stepbystep': false,
-				'show': 15
+				'autoplay': true
+				// 'show': 5
 			})
 		});
 	</script>

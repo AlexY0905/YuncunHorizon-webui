@@ -33,9 +33,8 @@ Usage:
             'loop': true,
             'startslide': 0,
             'distancetochange': 10,
-            'beforeshow': function () {},
-            'aftershow': function () {},
-
+            'beforeshow': function () { },
+            'aftershow': function () { }
         }, options);
         return this.each(function () {
             var this_slider = this;
@@ -130,7 +129,7 @@ Usage:
                                 while (nextslide >= count) {
                                     nextslide = nextslide - count;
                                 }
-                                
+
                             } else {
                                 if (cur_slide < 0) {
                                     cur_slide = 0;
@@ -183,19 +182,19 @@ Usage:
                                 } else {
                                     $(this).addClass('hidden');
                                 }
-                                
+
                                 if ((Math.abs(i - nextslide) > (settings['show'] / 2)) && (settings['loop'] == false)) {
                                     var icnt = 1;
                                     while (icnt < settings['show'] / 2) {
                                         cssclass = 'next' + icnt;
-                                        if ($(this).hasClass(cssclass) ) {
+                                        if ($(this).hasClass(cssclass)) {
                                             $(this).removeClass(cssclass)
                                         };
                                         cssclass = 'prev' + icnt;
-                                        if ($(this).hasClass(cssclass) ) {
+                                        if ($(this).hasClass(cssclass)) {
                                             $(this).removeClass(cssclass)
                                         };
-                                        icnt ++;
+                                        icnt++;
                                     };
                                     $(this).addClass('hidden');
                                 }
@@ -234,7 +233,6 @@ Usage:
                         EasySlidesNext(need_slide);
                     }
                 });
-
                 $(this_slider).find('.next_button').click(function () {
                     EasySlidesCanChange = true;
                     EasySlidesNext();
@@ -322,7 +320,6 @@ Usage:
                         e.preventDefault();
                         $(this_slider).removeData('posstart');
                     });
-
                 }
             }
         });

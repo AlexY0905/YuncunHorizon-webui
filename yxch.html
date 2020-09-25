@@ -16,7 +16,42 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/public.js"></script>
+	<style>
+		.files {
+			width: 90%;
+			height: 80px;
+			margin-top: 10%;
+			text-align: center;
+		}
 
+		.search_box {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.search_box input {
+			width: 200px;
+			height: 30px;
+			padding-left: 10px;
+		}
+
+		.search_box span {
+			display: inline-block;
+			width: 60px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background: #0083c3;
+			color: #FFFFFF;
+		}
+
+		.btn {
+			margin-top: 20px;
+			width: 60px;
+			height: 30px;
+			margin-left: 11%;
+		}
+	</style>
 </head>
 
 <body>
@@ -40,8 +75,15 @@
 		</div>
 		<!-- 文档检索开始 -->
 		<div class="zy_content padding_03">
-			<div class="zy_about_yxch">
-
+			<div class="files">
+				<input type="file" alt="上传文件" />
+			</div>
+			<div class="search_box">
+				<input type="text" class="keyWord_ipt" style="background-color: #E0E0E0;" /><span
+					class="search_btn">搜索</span>
+			</div>
+			<div>
+				<button class="btn">下载</button>
 			</div>
 		</div>
 		<!-- 文档检索结束 -->

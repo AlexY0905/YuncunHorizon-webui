@@ -1,47 +1,47 @@
 /*********************************/
 
 .slider_one_big_picture {
-    position: relative;
-    width: 50vw;
-    height: 38vw;
-    margin: 0 auto;
+    position   : relative;
+    width      : 50vw;
+    height     : 38vw;
+    margin     : 0 auto;
     user-select: none;
-    /*overflow: hidden;*/
+    /*overflow : hidden;*/
 }
 
-.slider_one_big_picture > * {
+.slider_one_big_picture>* {
     transition: ease all 1s;
 }
 
 .slider_one_big_picture .hidden {
-    opacity: 0;
+    opacity : 0;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+    top     : 0px;
+    left    : 0px;
+    width   : 100%;
+    height  : 100%;
+    z-index : 0;
 }
 
 .slider_one_big_picture .active {
-    opacity: 1;
+    opacity : 1;
     position: absolute;
-    top: 0px;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    top     : 0px;
+    left    : 0%;
+    width   : 100%;
+    height  : 100%;
+    z-index : 2;
 }
 
 .slider_one_big_picture .prev1,
 .slider_one_big_picture .next1 {
-    opacity: 0;
+    opacity : 0;
     position: absolute;
-    top: 0px;
-    left: 0%;
-    width: 0px;
-    height: 100%;
-    z-index: 0;
+    top     : 0px;
+    left    : 0%;
+    width   : 0px;
+    height  : 100%;
+    z-index : 0;
 }
 
 .slider_one_big_picture .next1 {
@@ -50,13 +50,13 @@
 
 .slider_one_big_picture .prev2,
 .slider_one_big_picture .next2 {
-    opacity: 0;
+    opacity : 0;
     position: absolute;
-    top: 0px;
-    left: 0%;
-    width: 0px;
-    height: 100%;
-    z-index: 0;
+    top     : 0px;
+    left    : 0%;
+    width   : 0px;
+    height  : 100%;
+    z-index : 0;
 }
 
 .slider_one_big_picture .next2 {
@@ -66,90 +66,90 @@
 /*********************************/
 
 .slider_one_big_2 {
-    position: relative;
-    width: 50%;
-    height: 38vw;
-    max-width: 640px;
-    max-height: 480px;
-    margin: 0 auto;
+    position   : relative;
+    width      : 50%;
+    height     : 38vw;
+    max-width  : 640px;
+    max-height : 480px;
+    margin     : 0 auto;
     user-select: none;
 }
 
-.slider_one_big_2 > * {
+.slider_one_big_2>* {
     transition: ease all 1s;
 }
 
 .slider_one_big_2 .hidden {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 50%;
+    opacity    : 0;
+    position   : absolute;
+    top        : 0px;
+    left       : 50%;
     margin-left: -100%;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    z-index: 0;
+    width      : 100%;
+    max-width  : 640px;
+    height     : 100%;
+    z-index    : 0;
 }
 
 .slider_one_big_2 .active {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 50%;
+    opacity    : 1;
+    position   : absolute;
+    top        : 0px;
+    left       : 50%;
     margin-left: -50%;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    z-index: 10;
+    width      : 100%;
+    max-width  : 640px;
+    height     : 100%;
+    z-index    : 10;
 }
 
 .slider_one_big_2 .prev1,
 .slider_one_big_2 .next1 {
-    opacity: 0.5;
-    position: absolute;
-    top: 0px;
-    left: 50%;
+    opacity    : 0.5;
+    position   : absolute;
+    top        : 0px;
+    left       : 50%;
     margin-left: -150%;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    z-index: 3;
+    width      : 100%;
+    max-width  : 640px;
+    height     : 100%;
+    z-index    : 3;
 }
 
 .slider_one_big_2 .next1 {
-    left: 50%;
+    left       : 50%;
     margin-left: 50%;
 }
 
 .slider_one_big_2 .prev2,
 .slider_one_big_2 .next2 {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 50%;
+    opacity    : 0;
+    position   : absolute;
+    top        : 0px;
+    left       : 50%;
     margin-left: -250%;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    z-index: 1;
+    width      : 100%;
+    max-width  : 640px;
+    height     : 100%;
+    z-index    : 1;
 }
 
 .slider_one_big_2 .next2 {
-    left: 50%;
+    left       : 50%;
     margin-left: 150%;
 }
 
 .slider_one_big_2 .prev3,
 .slider_one_big_2 .next3 {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 50%;
+    opacity    : 0;
+    position   : absolute;
+    top        : 0px;
+    left       : 50%;
     margin-left: -50%;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    z-index: 0;
+    width      : 100%;
+    max-width  : 640px;
+    height     : 100%;
+    z-index    : 0;
 }
 
 /*********************************/
@@ -157,51 +157,51 @@
 /*********************************/
 
 .slider_circle_10 {
-    position: relative;
-    width: 70vw;
+    position   : relative;
+    width      : 70vw;
     /* 640px; */
-    height: 53.2vw;
-    margin: 0 auto;
+    height     : 53.2vw;
+    margin     : 0 auto;
     user-select: none;
 }
 
-.slider_circle_10 > * {
+.slider_circle_10>* {
     transition: ease all 1s;
 }
 
-.slider_circle_10 > div,
+.slider_circle_10>div,
 .slider_circle_10 .hidden {
-    opacity: 0;
+    opacity : 0;
     position: absolute;
-    top: 20%;
-    left: 50%;
-    width: 1px;
-    height: 1px;
-    z-index: 0;
+    top     : 20%;
+    left    : 50%;
+    width   : 1px;
+    height  : 1px;
+    z-index : 0;
     overflow: hidden;
 }
 
 .slider_circle_10 .active {
-    opacity: 1;
-    position: absolute;
-    top: 30%;
-    left: 50%;
+    opacity    : 1;
+    position   : absolute;
+    top        : 30%;
+    left       : 50%;
     margin-left: -25%;
-    width: 50%;
-    height: 50%;
-    z-index: 10;
+    width      : 50%;
+    height     : 50%;
+    z-index    : 10;
 }
 
 .slider_circle_10 .prev1,
 .slider_circle_10 .next1 {
-    opacity: 0.9;
-    position: absolute;
-    top: 60%;
-    left: 50%;
+    opacity    : 0.9;
+    position   : absolute;
+    top        : 60%;
+    left       : 50%;
     margin-left: -45%;
-    width: 25%;
-    height: 25%;
-    z-index: 9;
+    width      : 25%;
+    height     : 25%;
+    z-index    : 9;
 }
 
 .slider_circle_10 .next1 {
@@ -210,14 +210,14 @@
 
 .slider_circle_10 .prev2,
 .slider_circle_10 .next2 {
-    opacity: 0.7;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    opacity    : 0.7;
+    position   : absolute;
+    top        : 50%;
+    left       : 50%;
     margin-left: -50%;
-    width: 15%;
-    height: 15%;
-    z-index: 8;
+    width      : 15%;
+    height     : 15%;
+    z-index    : 8;
 }
 
 .slider_circle_10 .next2 {
@@ -226,14 +226,14 @@
 
 .slider_circle_10 .prev3,
 .slider_circle_10 .next3 {
-    opacity: 0.5;
-    position: absolute;
-    top: 35%;
-    left: 50%;
+    opacity    : 0.5;
+    position   : absolute;
+    top        : 35%;
+    left       : 50%;
     margin-left: -50%;
-    width: 7%;
-    height: 7%;
-    z-index: 7;
+    width      : 7%;
+    height     : 7%;
+    z-index    : 7;
 }
 
 .slider_circle_10 .next3 {
@@ -242,14 +242,14 @@
 
 .slider_circle_10 .prev4,
 .slider_circle_10 .next4 {
-    opacity: 0.3;
-    position: absolute;
-    top: 25%;
-    left: 50%;
+    opacity    : 0.3;
+    position   : absolute;
+    top        : 25%;
+    left       : 50%;
     margin-left: -40%;
-    width: 3%;
-    height: 3%;
-    z-index: 6;
+    width      : 3%;
+    height     : 3%;
+    z-index    : 6;
 }
 
 .slider_circle_10 .next4 {
@@ -258,14 +258,14 @@
 
 .slider_circle_10 .prev5,
 .slider_circle_10 .next5 {
-    opacity: 0.1;
-    position: absolute;
-    top: 20%;
-    left: 50%;
+    opacity    : 0.1;
+    position   : absolute;
+    top        : 20%;
+    left       : 50%;
     margin-left: -15%;
-    width: 2%;
-    height: 2%;
-    z-index: 5;
+    width      : 2%;
+    height     : 2%;
+    z-index    : 5;
 }
 
 .slider_circle_10 .next5 {
@@ -274,36 +274,43 @@
 
 /*********************************/
 
+.htmleaf-container {
+    z-index   : 999;
+    height    : 30px;
+    margin-top: 10px;
+}
+
 .slider_four_in_line {
     /*width: 95vw;*/
-    width: 66vw;
-    /*height: 19.5vw;*/
-    height: 4.5vw;
-    position: relative;
-    margin: 0 auto;
+    width      : 66vw;
+    /*height   : 19.5vw;*/
+    height     : 4.5vw;
+    position   : relative;
+    margin     : 0 auto;
     user-select: none;
 }
+
 .slider_four_in_line div {
-    min-width: 50px;
-    min-height: 30px;
-    display: flex;
+    min-width      : 50px;
+    min-height     : 30px;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    margin-top: 20px;
+    align-items    : center;
+    border-radius  : 50px;
+    margin-top     : 20px;
 
 }
 
-.slider_four_in_line > * {
+.slider_four_in_line>* {
     transition: ease all 1s;
-    overflow: hidden;
+    overflow  : hidden;
 }
 
 .slider_four_in_line .hidden {
     opacity: 0;
     z-index: 0;
-    top: 0px;
-    left: 50%;
+    top    : 0px;
+    left   : 50%;
 }
 
 .slider_four_in_line .active,
@@ -313,13 +320,13 @@
 .slider_four_in_line .next4,
 .slider_four_in_line .prev1 {
     position: absolute;
-    /*width: 24%;*/
-    width: 24%;
-    height: 100%;
-    top: 0px;
-    left: 25%;
-    z-index: 10;
-    margin: 0 0.5%;
+    /*width : 24%;*/
+    width   : 24%;
+    height  : 100%;
+    top     : 0px;
+    left    : 25%;
+    z-index : 10;
+    margin  : 0 0.5%;
 }
 
 .slider_four_in_line .next1 {
@@ -331,67 +338,67 @@
 }
 
 .slider_four_in_line .next3 {
-    width: 0%;
-    left: 100%;
+    width  : 0%;
+    left   : 100%;
     z-index: 0;
     opacity: 0;
 }
 
 .slider_four_in_line .next4 {
-    left: 100%;
-    width: 0%;
+    left   : 100%;
+    width  : 0%;
     z-index: 0;
     opacity: 0;
 }
 
 .slider_four_in_line .prev1 {
     position: absolute;
-    width: 24%;
-    height: 100%;
-    top: 0px;
-    left: 0%;
-    z-index: 10;
-    opacity: 1;
+    width   : 24%;
+    height  : 100%;
+    top     : 0px;
+    left    : 0%;
+    z-index : 10;
+    opacity : 1;
 }
 
 .slider_four_in_line .prev2,
 .slider_four_in_line .prev3,
 .slider_four_in_line .prev4 {
     position: absolute;
-    width: 0%;
-    height: 100%;
-    top: 0px;
-    left: 0%;
-    z-index: 0;
-    opacity: 0;
+    width   : 0%;
+    height  : 100%;
+    top     : 0px;
+    left    : 0%;
+    z-index : 0;
+    opacity : 0;
 }
 
 /*********************************/
 
 .slider_clock {
-    width: 600px;
-    height: 600px;
-    position: relative;
-    margin: 0 auto;
+    width      : 600px;
+    height     : 600px;
+    position   : relative;
+    margin     : 0 auto;
     user-select: none;
 }
 
-.slider_clock > * {
+.slider_clock>* {
     transition: ease all 1s;
 }
 
 .slider_clock .active {
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    position   : absolute;
+    left       : 50%;
+    top        : 50%;
     margin-left: -200px;
-    margin-top: -125px;
-    width: 400px;
-    height: 250px;
-    transform: rotate(0deg);
-    opacity: 1;
-    z-index: 10;
-    overflow: hidden;
+    margin-top : -125px;
+    width      : 400px;
+    height     : 250px;
+    transform  : rotate(0deg);
+    opacity    : 1;
+    z-index    : 10;
+    overflow   : hidden;
 }
 
 .slider_clock .next1,
@@ -409,17 +416,17 @@
 .slider_clock .prev6,
 .slider_clock .prev7,
 .slider_clock .hidden {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 96px;
-    height: 60px;
-    margin-top: 200px;
-    margin-left: -48px;
+    position        : absolute;
+    left            : 50%;
+    top             : 50%;
+    width           : 96px;
+    height          : 60px;
+    margin-top      : 200px;
+    margin-left     : -48px;
     transform-origin: 48px -200px;
-    transform: rotate(0deg);
-    opacity: 1;
-    overflow: hidden;
+    transform       : rotate(0deg);
+    opacity         : 1;
+    overflow        : hidden;
 }
 
 .slider_clock .next2 {
@@ -443,7 +450,7 @@
 }
 
 .slider_clock .next7 {
-    opacity: 0;
+    opacity  : 0;
     transform: rotate(-180deg);
 }
 
@@ -472,12 +479,12 @@
 }
 
 .slider_clock .prev7 {
-    opacity: 0;
+    opacity  : 0;
     transform: rotate(210deg);
 }
 
 .slider_clock .hidden {
-    opacity: 0;
+    opacity  : 0;
     transform: rotate(180deg);
 }
 
@@ -485,160 +492,175 @@
 /*********************************/
 
 .nav_indicators {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
+    position  : absolute;
+    bottom    : 0px;
+    left      : 0px;
+    width     : 100%;
     text-align: center;
-    z-index: 50000;
+    z-index   : 50000;
 }
 
 .nav_indicators ul {
     position: static;
-    display: inline-block;
-    margin: 0 auto;
-    padding: 0;
+    display : inline-block;
+    margin  : 0 auto;
+    padding : 0;
 }
 
 .nav_indicators ul li {
-    position: static;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-    padding: 0;
-    overflow: hidden;
-    background: #fff;
-    color: #fff;
-    /*border: 2px solid #000;*/
+    position     : static;
+    display      : inline-block;
+    width        : 20px;
+    height       : 20px;
+    margin       : 10px;
+    padding      : 0;
+    overflow     : hidden;
+    background   : #fff;
+    color        : #fff;
+    /*border     : 2px solid #000;*/
     border-radius: 50%;
-    cursor: pointer;
+    cursor       : pointer;
 }
 
 .nav_indicators ul li.active {
-    position: static;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-    padding: 0;
-    background: #555;
-    color: #555;
-    border: 2px solid #aaa;
+    position     : static;
+    display      : inline-block;
+    width        : 20px;
+    height       : 20px;
+    margin       : 10px;
+    padding      : 0;
+    background   : #555;
+    color        : #555;
+    border       : 2px solid #aaa;
     border-radius: 50%;
-    cursor: pointer;
+    cursor       : pointer;
 }
 
 .next_button,
 .prev_button {
-    position: absolute;
-    left: 100% !important;
-    top: 50% !important;
-    margin: -15px 0 0 -25px !important;
-    width: 50px !important;
-    height: 50px !important;
-    /*border: 1px solid #000 !important;*/
-    background: #fff !important;
-    opacity: 0.5 !important;
-    z-index: 5000 !important;
-    cursor: pointer;
-    text-align: center;
-    line-height: 30px;
+    position     : absolute;
+    left         : 100% !important;
+    top          : 50% !important;
+    margin       : -15px 0 0 -25px !important;
+    width        : 50px !important;
+    height       : 50px !important;
+    /*border     : 1px solid #000 !important;*/
+    background   : #fff !important;
+    opacity      : 0.5 !important;
+    z-index      : 5000 !important;
+    cursor       : pointer;
+    text-align   : center;
+    line-height  : 30px;
     border-radius: 50%;
-    
+
 }
 
 .prev_button {
     position: absolute;
-    left: 0% !important;
+    left    : 0% !important;
 }
 
 .next_button:hover,
 .prev_button:hover {
     opacity: 1 !important;
 }
+
 .next_button:after,
 .prev_button:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1px;
-    height: 1px;
+    content   : "";
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    width     : 1px;
+    height    : 1px;
     margin-top: -10px;
 }
 
 .next_button:after {
     /*border-left: 15px solid #000;*/
-    border-right: 15px solid transparent;
+    border-right : 15px solid transparent;
     border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    margin-left: -5px;
+    border-top   : 10px solid transparent;
+    margin-left  : -5px;
 }
 
 .prev_button:after {
     /*border-right: 15px solid #000;*/
-    border-left: 15px solid transparent;
+    border-left  : 15px solid transparent;
     border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    margin-left: -25px;
+    border-top   : 10px solid transparent;
+    margin-left  : -25px;
 }
 
 
-div.slider > div:not(.nav_indicators):not(.next_button):not(.prev_button) {
-    box-shadow: 0px 1px 3px #000;
-    /*border: 1px solid #000;*/
+div.slider>div:not(.nav_indicators):not(.next_button):not(.prev_button) {
+    box-shadow  : 0px 1px 3px #000;
+    /*border    : 1px solid #000;*/
     /*background: #fff;*/
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 14px;
-    background: #ccc;
-    color: #fff;
-    animation: rainbow 8s infinite;
+    text-align  : center;
+    box-sizing  : border-box;
+    font-size   : 14px;
+    background  : #ccc;
+    color       : #fff;
+    animation   : rainbow 8s infinite;
 }
 
 #keyword_btn0 {
     animation: rainbow 4s infinite;
 }
+
 #keyword_btn1 {
     animation: rainbow 5s infinite;
 }
+
 #keyword_btn2 {
     animation: rainbow 6s infinite;
 }
+
 #keyword_btn3 {
     animation: rainbow 7s infinite;
 }
+
 #keyword_btn4 {
     animation: rainbow 8s infinite;
 }
+
 #keyword_btn5 {
     animation: rainbow 6s infinite;
 }
+
 #keyword_btn6 {
     animation: rainbow 5s infinite;
 }
+
 #keyword_btn7 {
     animation: rainbow 4s infinite;
 }
+
 #keyword_btn8 {
     animation: rainbow 8s infinite;
 }
+
 #keyword_btn9 {
     animation: rainbow 7s infinite;
 }
+
 #keyword_btn10 {
     animation: rainbow 6s infinite;
 }
+
 #keyword_btn11 {
     animation: rainbow 5s infinite;
 }
+
 #keyword_btn12 {
     animation: rainbow 4s infinite;
 }
+
 #keyword_btn13 {
     animation: rainbow 7s infinite;
 }
+
 #keyword_btn14 {
     animation: rainbow 8s infinite;
 }
@@ -647,27 +669,35 @@ div.slider > div:not(.nav_indicators):not(.next_button):not(.prev_button) {
     0% {
         background: #1abc9c;
     }
+
     10% {
         background: #2ecc71;
     }
+
     20% {
         background: #3498db;
     }
+
     30% {
         background: #9b59b6;
     }
+
     40% {
         background: #e74c3c;
     }
+
     50% {
         background: #e67e22;
     }
+
     60% {
         background: #f1c40f;
     }
+
     70% {
         background: #2c3e50;
     }
+
     80% {
         background: #9b59b6;
     }
