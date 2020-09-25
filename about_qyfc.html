@@ -15,7 +15,42 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/public.js"></script>
+	<style>
+		.orth {
+			width: 90%;
+			height: 80px;
+			margin-top: 10%;
+			text-align: center;
+		}
 
+		.search_box {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.search_box input {
+			width: 200px;
+			height: 30px;
+			padding-left: 10px;
+		}
+
+		.search_box span {
+			display: inline-block;
+			width: 60px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background: #0083c3;
+			color: #FFFFFF;
+		}
+
+		.btn {
+			margin-top: 20px;
+			width: 60px;
+			height: 30px;
+			margin-left: 11%;
+		}
+	</style>
 </head>
 
 <body>
@@ -37,118 +72,20 @@
 			<!-- 子页banner尺寸640x240 -->
 			<img src="images/zy_banner01.jpg">
 		</div>
-		<!-- 子页content -->
+		<!-- 上传其他开始 -->
 		<div class="zy_content padding_03">
-			<div class="zy_two_nav">
-				<!-- Swiper -->
-				<div class="swiper-container two_nav">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide"><a href="about.html">公司简介</a></div>
-						<!-- <div class="swiper-slide"><a href="about_item.html">公司项目</a></div> -->
-						<!-- <div class="swiper-slide cur_nav"><a href="about_qyfc.html">企业风采</a></div> -->
-						<!-- <div class="swiper-slide"><a href="about_qyfc.html">公益慈善</a></div> -->
-					</div>
-					<div class="swiper-button-next">
-						<img src="images/zy_nav_shadow.png">
-					</div>
-				</div>
-				<script>
-					$(function () {
-						var Long = $(".zy_two_nav .swiper-slide").length
-						if (Long > 4) {
-							$(".swiper-button-next").css("display", "block")
-						} else {
-							$(".swiper-button-next").css("display", "none")
-						}
-					})
-
-					var swiper = new Swiper('.two_nav', {
-						nextButton: '.swiper-button-next',
-						slidesPerView: 4,
-						spaceBetween: 0,
-						freeMode: true,
-						initialSlide: $(".cur_nav").index(),
-					});
-				</script>
+			<div class="orth">
+				<input type="file" alt="上传文件" />
 			</div>
-			<div class="zy_about_qyfc">
-				<ul>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
-							<span>公司环境</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
-							<span>2019员工户外拓展活动</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>电影拍摄现场</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-							<span>明月星辰选角比赛图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
-							<span>摄影图展</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-							<span>摄影培训图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
-							<span>公司环境</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
-							<span>2019员工户外拓展活动</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>电影拍摄现场</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-							<span>明月星辰选角比赛图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
-							<span>摄影图展</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-							<span>摄影培训图</span>
-						</a>
-					</li>
-				</ul>
+			<div class="search_box">
+				<input type="text" class="keyWord_ipt" style="background-color: #E0E0E0;" /><span
+					class="search_btn">搜索</span>
+			</div>
+			<div>
+				<button class="btn">下载</button>
 			</div>
 		</div>
-
+		<!-- 上传其他开始 -->
 	</div>
 
 	<!-- slide侧边栏 -->
