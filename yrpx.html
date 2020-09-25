@@ -6,17 +6,51 @@
 	<meta content="耘存科技" http-equiv="keywords">
 	<meta name="description" content="耘存科技">
 	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-	<title>上海耘存科技发展有限公司</title>
+	<title>视频检索</title>
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/children.css">
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/public.js"></script>
+	<style>
+		.vr {
+			width: 90%;
+			height: 80px;
+			margin-top: 10%;
+			text-align: center;
+		}
 
+		.search_box {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.search_box input {
+			width: 200px;
+			height: 30px;
+			padding-left: 10px;
+		}
+
+		.search_box span {
+			display: inline-block;
+			width: 60px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background: #0083c3;
+			color: #FFFFFF;
+		}
+
+		.btn {
+			margin-top: 20px;
+			width: 60px;
+			height: 30px;
+			margin-left: 11%;
+		}
+	</style>
 </head>
 
 <body>
@@ -27,15 +61,6 @@
 			</div>
 			<div class="top_search">
 				<a href="search.html"><span></span></a>
-				<!--
-				<div class="ss">
-					<form class="gg">
-						<input type="text" name="" placeholder="请输入关键词搜索">
-						<button type="submit">搜 索</button>
-					</form>
-					<i></i>
-				</div>
-				-->
 			</div>
 
 		</div>
@@ -47,131 +72,20 @@
 			<!-- 子页banner尺寸640x240 -->
 			<img src="images/zy_banner01.jpg">
 		</div>
-		<!-- 子页content -->
+		<!-- 视频检索开始 -->
 		<div class="zy_content padding_03">
-			<div class="zy_two_nav">
-				<!-- Swiper -->
-				<div class="swiper-container two_nav">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide cur_nav"><a href="about_qyfc.html">艺人培训</a></div>
-						<div class="swiper-slide"><a href="about_qyfc.html">艺人包装</a></div>
-					</div>
-					<!-- Add button -->
-					<div class="swiper-button-next">
-						<img src="images/zy_nav_shadow.png">
-					</div>
-				</div>
-				<!-- Initialize Swiper -->
-				<script>
-					$(function () {
-						var Long = $(".zy_two_nav .swiper-slide").length
-						if (Long > 4) {
-							$(".swiper-button-next").css("display", "block")
-						} else {
-							$(".swiper-button-next").css("display", "none")
-						}
-					})
-
-					var swiper = new Swiper('.two_nav', {
-						nextButton: '.swiper-button-next',
-						slidesPerView: 4,
-						spaceBetween: 0,
-						freeMode: true,
-						initialSlide: $(".cur_nav").index(),
-					});
-				</script>
+			<div class="vr">
+				<input type="file" alt="上传视频">
 			</div>
-			<div class="zy_about_qyfc">
-				<ul>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
-							<span>公司环境</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
-							<span>2019员工户外拓展活动</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>电影拍摄现场</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-							<span>明月星辰选角比赛图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
-							<span>摄影图展</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-							<span>摄影培训图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
-							<span>公司环境</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
-							<span>2019员工户外拓展活动</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>电影拍摄现场</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-							<span>明月星辰选角比赛图</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
-							<span>摄影图展</span>
-						</a>
-					</li>
-					<li>
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-							<span>摄影培训图</span>
-						</a>
-					</li>
-				</ul>
-				<!-- 翻页 少于12条记录时不显示翻页 -->
-				<div class="fanye">
-					<a href="#">
-						< 上一页</a>
-							<span>
-								<a href="#" class="cur">1</a>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">...</a>
-								<a href="#">20</a>
-							</span>
-							<a href="#">下一页 ></a>
-				</div>
+			<div class="search_box">
+				<input type="text" class="keyWord_ipt" style="background-color: #E0E0E0;" /><span
+					class="search_btn">搜索</span>
+			</div>
+			<div>
+				<button class="btn">下载</button>
 			</div>
 		</div>
-
+		<!-- 视频检索结束 -->
 	</div>
 
 	<!-- slide侧边栏 -->
@@ -187,7 +101,6 @@
 		<div class="txt">
 			<p>CopyRight © 上海耘存科技发展有限公司</p>
 			<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
-			<!-- <p>贵公网安备：17006594-1号&nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.wangid.com/">WangID驰通网络</a></p> -->
 		</div>
 	</div>
 
@@ -221,17 +134,6 @@
 					<span>搜索</span>
 				</a>
 			</li>
-			<!--
-			<li>
-				<a href="">
-					<i>
-						<img src="images/menu_icon03.png" alt="电话咨询" />
-						<img src="images/menu_icon03_1.png" alt="电话咨询" />
-					</i>
-					<span>电话咨询</span>
-				</a>
-			</li>
-			-->
 			<li class="menubtn">
 				<i>
 					<img src="images/menu_icon04.png" alt="菜单" />
@@ -246,13 +148,7 @@
 			<dd><a href="register.html">注册</a></dd>
 			<dd><a href="video.html">视频中心</a></dd>
 			<dd><a href="about.html">关于我们</a></dd>
-			<!-- <dd><a href="movie.html">电影制作</a></dd> -->
-			<!-- <dd><a href="yrpx.html">艺人培训</a></dd> -->
-			<!-- <dd><a href="http://demo.demohuo.top/modals/56/5656/demo/qysy.html">企业商演</a></dd> -->
-			<!-- <dd><a href="newslist.html">企业新闻</a></dd> -->
-			<!-- <dd><a href="yxch.html">营销策划</a></dd> -->
 			<dd><a href="contact.html">联系我们</a></dd>
-			<!-- <dd><a href="bm.html">海选报名</a></dd> -->
 		</dl>
 	</div>
 </body>
