@@ -21,6 +21,9 @@
 	<!-- app CSS -->
 	<link id="theme" rel="stylesheet" href="./css/static/purplesidebar.css" type="text/css">
 	<!-- icon -->
+	<!-- 底部公共导航css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<!--内容动画样式库-->
 	<title>用户登录</title>
 
 
@@ -48,18 +51,22 @@
 		<div class="row h-100 h-sm-auto">
 			<div class="col-12 col-md-6 h-md-100  h-sm-auto order-2 order-md-1">
 				<div class="row align-items-center h-100 h-sm-auto">
-					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
-						<h1 class="font-weight-light mb-3 mt-4 content-color-secondary text-left">
+					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto" style="margin-top: 30%;">
+						<!-- <h1 class="font-weight-light mb-3 mt-4 content-color-secondary text-left">
 							<font size="5">我们是</font><span class="font-weight-normal content-color-primary">耘存科技</span>
-						</h1>
-						<h4 class="font-weight-light mb-4 content-color-secondary text-left">
+						</h1> -->
+						<!-- <h4 class="font-weight-light mb-4 content-color-secondary text-left">
 							<font size="4">欢迎回来,</font><br>请登录您的账户.
-						</h4>
+						</h4> -->
+						<!-- <h4 class="font-weight-light mb-4 content-color-secondary text-left">
+							请登录您的账户
+						</h4> -->
+						<p>请登录您的账户</p>
 						<div class="card mb-2">
 							<div class="card-body p-0" id="name_data">
-								<label for="inputEmail" class="sr-only">用户名/邮箱/手机号</label>
+								<label for="inputEmail" class="sr-only">用户名</label>
 								<input type="email" id="inputEmail" oninput="preSql(this)"
-									class="form-control form-control-lg border-0 text-center" placeholder="用户名/邮箱/手机号"
+									class="form-control form-control-lg border-0 text-center" placeholder="用户名"
 									required="" autofocus="">
 								<span id="code"></span>
 								<hr class="my-0">
@@ -84,12 +91,12 @@
 								</div>
 							</div>
 						</div>
-						<small class="form-text text-muted">点击登录按钮，登录到首页面
+						<!-- <small class="form-text text-muted">点击登录按钮，登录到首页面
 							<a href="javascript:void(0)" onclick="tel()" id="tel" class="content-color-primary"
 								style="float: right;">验证码登录</a>
 							<a href="javascript:void(0)" onclick="name1()" id="name" class="content-color-primary"
 								style="float: right; display: none;">密码登录</a>
-						</small>
+						</small> -->
 						<div class="my-4 row">
 							<div class="col-6 col-md">
 								<div class="custom-control custom-checkbox">
@@ -111,7 +118,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-md-6 h-md-100 order-1 order-md-2 min-height-300 p-0 bg-dark ">
+			<!-- <div class="col-12 col-md-6 h-md-100 order-1 order-md-2 min-height-300 p-0 bg-dark ">
 				<div class="carosel swiper-location-carousel h-100 h-sm-auto">
 					<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="0" data-slides-per-view="1"
 						class="swiper-container swiper-init swiper-signin h-100">
@@ -141,14 +148,14 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
 
 
 	<!-- 底部菜单 -->
-	<!-- <div class="menubox">
+	<div class="menubox">
 		<ul class="fix">
 			<li>
 				<a href="index.html">
@@ -169,12 +176,12 @@
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="search.html">
 					<i>
-						<img src="images/menu_icon03.png" alt="电话咨询" />
-						<img src="images/menu_icon03_1.png" alt="电话咨询" />
+						<img src="images/icon_search2.png" alt="搜索" />
+						<img src="images/icon_search2.png" alt="搜索" />
 					</i>
-					<span>电话咨询</span>
+					<span>搜索</span>
 				</a>
 			</li>
 			<li class="menubtn">
@@ -192,7 +199,7 @@
 			<dd><a href="about.html">关于我们</a></dd>
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
-	</div> -->
+	</div>
 
 	<!-- content page ends -->
 	</div>
@@ -214,6 +221,8 @@
 	<script src="./js/static/showTip.js"></script>
 	<!-- 过滤器SQL -->
 	<script src="./js/static/filterSQL.js"></script>
+	<!-- 底部公共导航js -->
+	<script type="text/javascript" src="js/public.js"></script>
 	<script>
 		function tel() {
 			$(document).ready(function (e) {
