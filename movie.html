@@ -38,6 +38,27 @@
 			background: #0083c3;
 			color: #fff;
 		}
+
+		.audio_wrap {
+			width: 100%;
+		}
+
+		.music_item {
+			position: relative;
+			width: 80%;
+			line-height: 30px;
+			margin: 15px auto;
+			background: #ccc;
+			display: flex;
+			justify-content: space-between;
+			padding: 0 10px;
+			box-sizing: border-box;
+		}
+
+		.music_item .music_date {
+			position: absolute;
+			right: 60px;
+		}
 	</style>
 </head>
 
@@ -62,7 +83,7 @@
 		<!-- 中间内容开始 -->
 		<div class="zy_content padding_03">
 			<div class="tu">
-				<input id="upLoadImgIpt" type="file" alt="上传图片" accept='image/*'>
+				<input id="upLoadImgIpt" type="file" alt="上传图片"> <!-- audio/* -->
 			</div>
 			<div class="search_box tus">
 				<input type="text" class="searchTerm keyWord_ipt" placeholder="搜索">
@@ -72,6 +93,17 @@
 			</div>
 			<div>
 				<button class="btn">下载</button>
+			</div>
+			<div class="audio_wrap">
+				<div class="music_item">
+					<span>音乐1</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+				</div>
+				<div class="music_item">
+					<span>音乐2</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+				</div>
+				<div class="music_item">
+					<span>音乐3</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+				</div>
 			</div>
 		</div>
 		<!-- 中间内容结束 -->
@@ -144,19 +176,17 @@
 		$(function () { // 图片上传
 			// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
 			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
-			// console.log(oUploadImg);
-			console.log(oFile);
-			console.log(oFile.files);
 			oFile.addEventListener('change', function () {
-				//	console.log(oUploadImg);
-				//	console.log(oFile);
-				console.log(this); //this指针指向input
-				console.log(this.files);
 				var file = this.files[0];
-				console.log(file);
+				console.log('+++++++++++', file);
+				console.log('-----------', file.name);
 				console.log(file.type);
-				console.log(file.type.indexOf("image"));//输出0的时候成立，-1的时候不成立
-				if (file.type.indexOf("image") == 0) {
+				console.log('::::::::', file.type.indexOf("audio"));//输出0的时候成立，-1的时候不成立
+
+
+
+				if (file.type.indexOf("audio") == 0) {
+					/*
 					var reader = new FileReader(); //创建FileReader对象实例reader
 					reader.readAsDataURL(file); //将图片url转换为base64码
 					reader.onload = function (e) {
@@ -177,10 +207,38 @@
 								console.log("后台处理错误");
 							}
 						})
-
 					}
-				};
+					*/
 
+					var formData = new FormData();
+					formData.append('file', file)
+					console.log(2222222222, formData.get('file'));
+
+					return
+					$.ajax({
+						type: "post",
+						url: '',
+						data: {},
+						dataType: 'json', // 返回值类型 一般设置为json
+						success: function (result) {
+							console.log(result);
+						},
+						error: function () {
+							console.log("后台处理错误");
+						}
+					})
+				} else {
+					alert('请上传mp3格式的文件')
+				}
+			})
+
+			$('.music_item').on('click', '.music_play', function () {
+				// console.log('::::::::::==========', $(this))
+				if ($(this).html() === '播放') {
+					$(this).html('暂停')
+				} else if ($(this).html() === '暂停') {
+					$(this).html('播放')
+				}
 			})
 
 		})
