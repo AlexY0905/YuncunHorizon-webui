@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/children.css">
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/search.css">
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
@@ -23,32 +24,19 @@
 			text-align: center;
 		}
 
-		.search_box {
-			margin-top: 20px;
-			text-align: center;
-		}
-
-		.search_box input {
-			width: 200px;
-			height: 30px;
-			padding-left: 10px;
-		}
-
-		.search_box span {
-			display: inline-block;
-			width: 60px;
-			height: 30px;
-			text-align: center;
-			line-height: 30px;
-			background: #0083c3;
-			color: #FFFFFF;
+		.tus {
+			width: 80%;
+			margin: 0 auto;
 		}
 
 		.btn {
 			margin-top: 20px;
-			width: 60px;
+			width: 80px;
 			height: 30px;
 			margin-left: 11%;
+			border-radius: 5px;
+			background: #0083c3;
+			color: #fff;
 		}
 	</style>
 </head>
@@ -76,9 +64,11 @@
 			<div class="tu">
 				<input id="upLoadImgIpt" type="file" alt="上传图片" accept='image/*'>
 			</div>
-			<div class="search_box">
-				<input type="text" class="keyWord_ipt" style="background-color:#E0E0E0;"><span
-					class="search_btn">搜索</span>
+			<div class="search_box tus">
+				<input type="text" class="searchTerm keyWord_ipt" placeholder="搜索">
+				<button type="submit" class="searchButton">
+					<img src="./images/search.png" alt="">
+				</button>
 			</div>
 			<div>
 				<button class="btn">下载</button>
