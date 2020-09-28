@@ -16,6 +16,8 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/public.js"></script>
+	<!--简单弹出框-->
+	<script type="text/javascript" src="./js/static/message.js"></script>
 	<style>
 		.hot_wrap {
 			width: 100%;
@@ -50,9 +52,10 @@
 			align-items: center;
 			color: #fff;
 			font-size: 16px;
-			border-radius: 5px;
+			border-radius: 30px;
 			margin-top: 40px;
 			letter-spacing: 2px;
+			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
 		}
 
 		.tu input {
@@ -82,11 +85,12 @@
 			width: 80%;
 			height: 40px;
 			/*margin-left: 11%;*/
-			border-radius: 5px;
+			border-radius: 30px;
 			background: #0083c3;
 			color: #fff;
 			font-size: 16px;
 			letter-spacing: 2px;
+			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
 		}
 
 		.audio_wrap {
@@ -121,6 +125,24 @@
 			border-radius: 3px;
 			box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
 		}
+
+		#tip {
+			display: inline-block;
+			min-width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			font-size: 14px;
+			border-radius: 5px;
+		}
+
+		.btn-audio {
+			width: 30px;
+			height: 30px;
+			background: url("./images/static/play.png") no-repeat center bottom;
+			background-size: cover;
+		}
 	</style>
 </head>
 
@@ -139,6 +161,7 @@
 	</div>
 	<!-- contentbox -->
 	<div class="contentbox" style="background: #f5f5f5">
+		<!--  style="background: #f5f5f5" -->
 		<!--顶部背景图-->
 		<div class="zy_banner">
 			<!-- 子页banner尺寸640x240 -->
@@ -159,16 +182,34 @@
 			</div>
 			<div class="audio_wrap">
 				<div class="music_item">
-					<span>音乐1</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+
+					<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+					<!--
+					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					-->
 				</div>
 				<div class="music_item">
-					<span>音乐2</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+
+					<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+					<!--
+					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					-->
 				</div>
 				<div class="music_item">
-					<span>音乐3</span><span class="music_date">03.26</span><span class="music_play">播放</span>
+
+					<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+					<!--
+					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					-->
 				</div>
 			</div>
-			<div style="margin-top: 85px">
+			<div style="margin-top: 50px">
 				<div class="tu">
 					<div class="upLoad_btn">
 						上传音乐
@@ -245,12 +286,9 @@
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
 	</div>
-
 	<script>
 		$(function () {
-			//是否登录的判断条件
 			// let isLogin = localStorage.getItem("obj")
-			// console.log(2222222, Boolean(isLogin));
 			let isLogin = true
 			if (isLogin) { // 用户已登录
 				// 音乐上传
@@ -309,6 +347,28 @@
 					}
 				})
 
+				let mp3DataList = ['./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3', './audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3', './audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3']
+				let html = ''
+				mp3DataList.forEach((item, index) => {
+					var audioElement = new Audio(item);//audio也可获取视频的时长
+					var duration;
+					var mp3Time
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						duration = audioElement.duration;
+						mp3Time = (duration / 60).toFixed(2).split('.')
+						console.log(mp3Time);
+						return mp3Time
+					});
+					// html += `
+					// 	<div class="music_item">
+					// 		<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+					// 	</div>
+					// `
+				})
+				// $('.audio_wrap').html(html)
+
+
+				/*
 				$('.music_item').on('click', '.music_play', function () {
 					// console.log('::::::::::==========', $(this))
 					if ($(this).html() === '播放') {
@@ -317,9 +377,54 @@
 						$(this).html('播放')
 					}
 				})
+				*/
+
+				/*
+				//播放完毕
+				$('.mp3Btn').on('ended', function() {
+					console.log("音频已播放完成");
+					$('.btn-audio').css({'background':'url(./images/pause.png) no-repeat center bottom','background-size':'cover'});
+				})
+				//播放器控制
+				var audio = document.getElementById('mp3Btn');
+				audio.volume = .3;
+				$('.btn-audio').click(function() {
+					event.stopPropagation();//防止冒泡
+					if(audio.paused){ //如果当前是暂停状态
+						$('.btn-audio').css({'background':'url(./images/pause.png) no-repeat center bottom','background-size':'cover'});
+						audio.play(); //播放
+						return;
+					}else{//当前是播放状态
+						$('.btn-audio').css({'background':'url(./images/play.png) no-repeat center bottom','background-size':'cover'});
+						audio.pause(); //暂停
+					}
+				});
+				*/
+
+				//播放完毕
+				$('.mp3Btn').on('ended', function () {
+					console.log("音频已播放完成");
+					$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+				})
+
+				$('.music_item').on('click', '.btn-audio', function () {
+					event.stopPropagation();//防止冒泡
+					let audio = $(this).find('audio')[0]
+					console.log(audio);
+					if (audio.paused) { //如果当前是暂停状态
+						$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+						audio.play(); //播放
+						return;
+					} else {//当前是播放状态
+						$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+						audio.pause(); //暂停
+					}
+				})
 			} else { // 用户未登录
-				alert('请先登录再来哦 ~')
-				window.location.href = './login.html'
+				ShowFailure('请先登录再来哦 ~')
+				setTimeout(() => {
+					window.location.href = './login.html'
+				}, 1500)
 			}
 
 		})
