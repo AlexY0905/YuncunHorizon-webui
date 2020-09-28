@@ -19,14 +19,16 @@
 	<!-- app CSS -->
 	<link id="theme" rel="stylesheet" href="./css/static/purplesidebar.css" type="text/css">
 	<!-- icon -->
-	<!-- 底部公共导航css -->
-	<!--	<link rel="stylesheet" type="text/css" href="css/index.css">-->
-	<!--内容动画样式库-->
 	<title>用户登录</title>
 	<style>
 		* {
 			margin: 0;
 			padding: 0;
+		}
+
+		body {
+			/* background-color: #F0F0F0; */
+			background-color: #fff;
 		}
 
 		li {
@@ -156,6 +158,20 @@
 			-moz-transform: translate(0, -50%);
 			-webkit-transform: translate(0, -50%);
 		}
+
+		/* -------------------------------------- */
+		.main {
+			background-color: #FFFFFF;
+			margin: 7em auto;
+			border-radius: 1.5em;
+			box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+		}
+
+		.btnlog {
+			width: 33%;
+			margin-left: 1.5rem;
+			margin-right: 1.5rem;
+		}
 	</style>
 
 
@@ -176,16 +192,10 @@
 		<div class="row h-100 h-sm-auto">
 			<div class="col-12 col-md-6 h-md-100  h-sm-auto order-2 order-md-1">
 				<div class="row align-items-center h-100 h-sm-auto">
-					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto" style="margin-top: 30%;">
-						<!-- <h1 class="font-weight-light mb-3 mt-4 content-color-secondary text-left">
-							<font size="5">我们是</font><span class="font-weight-normal content-color-primary">耘存科技</span>
-						</h1> -->
-						<!-- <h4 class="font-weight-light mb-4 content-color-secondary text-left">
-							<font size="4">欢迎回来,</font><br>请登录您的账户.
-						</h4> -->
-						<!-- <h4 class="font-weight-light mb-4 content-color-secondary text-left">
-							请登录您的账户
-						</h4> -->
+
+
+
+					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto main">
 						<p>请登录您的账户</p>
 						<div class="card mb-2">
 							<div class="card-body p-0" id="name_data">
@@ -200,28 +210,7 @@
 									class="form-control form-control-lg border-0 text-center" placeholder="密码"
 									required="">
 							</div>
-							<div class="card-body p-0" id="tel_data" style="display: none;">
-								<div class="input">
-									<input type="text" id="regPhone" oninput="preSql(this)"
-										class="form-control text-center form-control-lg border-0"
-										placeholder="请输入有效的手机号码">
-									<span id="err_msgPhone"></span>
-								</div>
-								<div class="input text-center">
-									<input type="text" id="yanZM" oninput="preSql(this)"
-										class="form-control text-center form-control-lg border-0" placeholder="请输入验证码">
-									<span id="msgYanZM"></span>
-									<!--<span id="sendYzm" >免费获取验证码</span>-->
-									<input type="button" class="btn c-333 text-c js-code" value="获取验证码" id="sendYzm">
-								</div>
-							</div>
 						</div>
-						<!-- <small class="form-text text-muted">点击登录按钮，登录到首页面
-							<a href="javascript:void(0)" onclick="tel()" id="tel" class="content-color-primary"
-								style="float: right;">验证码登录</a>
-							<a href="javascript:void(0)" onclick="name1()" id="name" class="content-color-primary"
-								style="float: right; display: none;">密码登录</a>
-						</small> -->
 						<div class="my-4 row">
 							<div class="col-6 col-md">
 								<div class="custom-control custom-checkbox">
@@ -234,46 +223,18 @@
 							</div>
 						</div>
 						<div class="text-left mb-4">
-							<a type="submit" class="btn btn-primary pink-gradient " onclick="telLogin()" id="tel_1"
-								style="display: none;">登录</a>
-							<a type="submit" class="btn btn-primary pink-gradient" onclick="checkLogin()"
+							<!-- <a type="submit" class="btn btn-primary pink-gradient " onclick="telLogin()" id="tel_1"
+								style="display: none;">登录</a> -->
+							<a type="submit" class="btn btn-primary pink-gradient btnlog" onclick="checkLogin()"
 								id="name_1">登录</a>
-							<a href="./register.html" class="float-right btn btn-outline-primary">注册</a>
+							<a href="./register.html" class="float-right btn btn-outline-primary btnlog">注册</a>
 						</div>
 					</div>
+
+
+
 				</div>
 			</div>
-			<!-- <div class="col-12 col-md-6 h-md-100 order-1 order-md-2 min-height-300 p-0 bg-dark ">
-				<div class="carosel swiper-location-carousel h-100 h-sm-auto">
-					<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="0" data-slides-per-view="1"
-						class="swiper-container swiper-init swiper-signin h-100">
-						<div class="swiper-pagination">欢迎加入Filecoin</div>
-						<div class="swiper-wrapper">
-							<div class="swiper-slide text-center ">
-								<div class="background-img">Filecoin是最早的STO项目<img src="./images/static/title2.png"
-										alt="" class="w-auto float-right"></div>
-								<div class="row align-items-center h-100 text-white">
-									<div class="col-10 col-md-8 col-lg-6 mx-auto my-4">
-										<h1 class="font-weight-light mb-4">欢迎加入Filecoin,Filecoin是最早的STO项目</h1>
-										<p>我们致力于推广IPFS建立一个完美的IPFS交流合作平台，Filecoin最大的作用就是激励更多的人使用IPFS协议，FIlecoin设置一套激励机制来鼓励大家提供自己的资源。
-										</p>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide text-center">
-								<div class="background-img"><img src="./images/static/title1.jpg" alt=""
-										class="w-auto float-right"></div>
-								<div class="row align-items-center h-100 text-white">
-									<div class="col-10 col-md-8 col-lg-6 mx-auto my-4">
-										<h1 class="font-weight-light mb-4">耘存科技携手矿工</h1>
-										<p>Filecoin测试网二阶段奖励超过100万FIL</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 
@@ -437,7 +398,7 @@
 								localStorage.obj = JSON.stringify(data);
 								localStorage.obj_power = "2";
 								setInterval(() => {
-									window.location.href = "/index.html";
+									window.location.href = "./index.html";
 								}, 800)
 							}
 						}
@@ -478,7 +439,7 @@
 						localStorage.obj = JSON.stringify(data);
 						localStorage.obj_power = "2";
 						setInterval(() => {
-							window.location.href = "/index.html";
+							window.location.href = "./index.html";
 						}, 800)
 					}
 				}
