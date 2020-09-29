@@ -347,9 +347,6 @@
 				oFile.addEventListener('change', function () {
 					var file = this.files[0];
 					console.log('+++++++++++', file);
-					console.log('-----------', file.name);
-					console.log(file.type);
-					console.log('::::::::', file.type.indexOf("audio"));//输出0的时候成立，-1的时候不成立
 					if (file.type.indexOf("audio") == 0) {
 						/*
 						var reader = new FileReader(); //创建FileReader对象实例reader
@@ -374,16 +371,18 @@
 							})
 						}
 						*/
-
+						/*
+						var val
 						var formData = new FormData();
 						formData.append('file', file)
 						console.log(2222222222, formData.get('file'));
+						*/
 
 						$.ajax({
 							type: "post",
 							url: '',
 							data: {},
-							dataType: 'json', // 返回值类型 一般设置为json
+							dataType: 'json',
 							beforeSend: function () {
 								// 显示loading提示
 								$('.mask_wrap').show()
