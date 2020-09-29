@@ -167,6 +167,7 @@
 
 		.jie {
 			color: #fff;
+			font-family: cursive;
 		}
 
 		/* ------------头部导航------------------- */
@@ -221,12 +222,12 @@
 	<div class="container h-100 h-sm-auto align-items-center" style="margin-top: 80px;">
 		<div class="row align-items-center h-100 h-sm-auto">
 			<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto text-center">
-				<h4 class="font-weight-light mb-4 text-white text-center">欢迎注册耘存科技</h4>
+				<h4 class="font-weight-light mb-4 text-white text-center" style="font-family: cursive;">欢迎注册耘存科技</h4>
 				<!--选择头像 开始-->
 				<label class="btn1">
 					<img id="imgLower" class="image-lower"
 						style="position: absolute; width: 130px; height: 130px; border-radius: 50%;">
-					<span>&nbsp;&nbsp;点击添加头像</span>
+					<span style="font-family: cursive;">&nbsp;&nbsp;点击添加头像</span>
 					<ul id="fileList">
 					</ul>
 					<input type="file" id="file" accept="image/gif,image/jpeg,image/jpg,image/png" />
@@ -244,7 +245,7 @@
 						<input type="name" id="name" oninput="preSql(this)" maxlength="15"
 							onkeyup="this.value=this.value.replace(/[^A-Za-z0-9_\u4e00-\u9fa5]/g,'');Checkname1(this.value)"
 							class="form-control text-center form-control-lg border-0" placeholder="用户名" required=""
-							autofocus="" style=" background-color: transparent; color:#fff; font-family: MingLiU;" />
+							autofocus="" style=" background-color: transparent; color:#fff; font-family: cursive;" />
 						<!-- <hr class="line" /> -->
 						<span id="login_err"></span>
 						<svg class="icon svg-icon" aria-hidden="true" id="aa" style="display: none;">
@@ -265,7 +266,7 @@
 									onblur="CheckEmeil(this.value)"
 									class="form-control text-center form-control-lg border-0" placeholder="邮箱"
 									maxlength="18" required=""
-									style=" background-color: transparent; color:#fff; font-family: MingLiU;">
+									style=" background-color: transparent; color:#fff; font-family: cursive;">
 								<!-- <hr class="line" /> -->
 							</div>
 							<ul class="on_changes" style="position: absolute;">
@@ -298,8 +299,8 @@
 						</table>
 						<input type="password" id="inputPassword" oninput="preSql(this)" maxlength="16"
 							onkeyup="this.value=this.value.replace(/[^A-Za-z0-9_!]/g,'');CheckQiang(this.value)"
-							class="form-control text-center form-control-lg border-0" placeholder="输入密码(6~16位字符)"
-							required="" style=" background-color: transparent; color:#fff; font-family: MingLiU;">
+							class="form-control text-center form-control-lg border-0" placeholder="密码(6~16位字符)"
+							required="" style=" background-color: transparent; color:#fff; font-family: cursive;">
 						<!-- <hr class="line" /> -->
 						<!-- <hr class="my-0"> -->
 						<div style="width: 70%; margin: 0 auto;">
@@ -320,7 +321,7 @@
 							onkeyup="this.value=this.value.replace(/[^A-Za-z0-9_!]/g,'');CheckQiang1(this.value)"
 							maxlength="16" class="form-control text-center form-control-lg border-0"
 							placeholder="再次输入密码" required=""
-							style=" background-color: transparent; color:#fff; font-family: MingLiU; margin-top: 10px;">
+							style=" background-color: transparent; color:#fff; font-family: cursive; margin-top: 10px;">
 						<!-- <hr class="line" /> -->
 						<!-- <hr class="my-0"> -->
 						<svg class="icon svg-icon" aria-hidden="true" id="dd" style="display: none;">
@@ -335,8 +336,8 @@
 							</span>
 							<input type="text" id="regPhone" oninput="preSql(this)"
 								onkeyup="this.value=this.value.replace(/[^0-9]/g,'');CheckPhone(this.value)"
-								class="form-control text-center form-control-lg border-0" placeholder="请输入有效的手机号"
-								style=" background-color: transparent; color:#fff; font-family: MingLiU;">
+								class="form-control text-center form-control-lg border-0" placeholder="输入有效的手机号"
+								style=" background-color: transparent; color:#fff; font-family: cursive;">
 							<!-- <hr class="line" /> -->
 							<!-- <hr class="my-0"> -->
 							<svg class="icon svg-icon" aria-hidden="true" id="ee" style="display: none;">
@@ -349,14 +350,14 @@
 								<img src="./images/static/code.png" alt="" class="code">
 							</span>
 							<input type="text" id="yanZM" oninput="preSql(this)"
-								class="form-control text-center form-control-lg border-0" placeholder="请输入验证码"
+								class="form-control text-center form-control-lg border-0" placeholder="输入验证码"
 								onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"
-								style=" background-color: transparent; color:#fff; font-family: MingLiU;">
+								style=" background-color: transparent; color:#fff; font-family: cursive;">
 							<!-- <hr class="line" /> -->
 							<span id="msgYanZM"></span>
 							<!--<span id="sendYzm" >免费获取验证码</span>-->
 							<input type="button" class="btn btn-outline-primary c-333 text-c js-code btncode"
-								value="获取验证码" id="sendYzm">
+								value="获取验证码" id="sendYzm" style="font-family: cursive;">
 						</div>
 						<!--输入验证码-->
 						<!-- <input type="text" id="code_input" oninput="preSql(this)" placeholder="请输入验证码" class="form-control text-center form-control-lg border-0"/>
@@ -379,8 +380,9 @@
 				</div>
 				<div class="text-center">
 					<a class=" btn btn-primary pink-gradient" onclick="mr_verify()" value="注册" id="my_button"
-						style="width: 80%; margin-bottom: 15px;">注册</a>
-					<a href="./login.html" class="btn btn-primary pink-gradient" style="width: 80%;">登录</a>
+						style="width: 80%; margin-bottom: 15px; font-family: cursive; font-size: 20px;">注册</a>
+					<a href="./login.html" class="btn btn-primary pink-gradient"
+						style="width: 80%; font-family: cursive; font-size: 20px;">登录</a>
 				</div>
 				<br>
 			</div>
