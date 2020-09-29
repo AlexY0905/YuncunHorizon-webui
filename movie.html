@@ -357,66 +357,52 @@
 						duration = audioElement.duration;
 						mp3Time = (duration / 60).toFixed(2).split('.')
 						console.log(mp3Time);
-						return mp3Time
-					});
-					// html += `
-					// 	<div class="music_item">
-					// 		<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
-					// 	</div>
-					// `
+						html += `
+								<div class="music_item">
+									<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+								</div>
+							`
+						$('.audio_wrap').html(html)
+					})
 				})
-				// $('.audio_wrap').html(html)
-
-
-				/*
-				$('.music_item').on('click', '.music_play', function () {
-					// console.log('::::::::::==========', $(this))
-					if ($(this).html() === '播放') {
-						$(this).html('暂停')
-					} else if ($(this).html() === '暂停') {
-						$(this).html('播放')
-					}
-				})
-				*/
-
-				/*
-				//播放完毕
-				$('.mp3Btn').on('ended', function() {
-					console.log("音频已播放完成");
-					$('.btn-audio').css({'background':'url(./images/pause.png) no-repeat center bottom','background-size':'cover'});
-				})
-				//播放器控制
-				var audio = document.getElementById('mp3Btn');
-				audio.volume = .3;
-				$('.btn-audio').click(function() {
-					event.stopPropagation();//防止冒泡
-					if(audio.paused){ //如果当前是暂停状态
-						$('.btn-audio').css({'background':'url(./images/pause.png) no-repeat center bottom','background-size':'cover'});
-						audio.play(); //播放
-						return;
-					}else{//当前是播放状态
-						$('.btn-audio').css({'background':'url(./images/play.png) no-repeat center bottom','background-size':'cover'});
-						audio.pause(); //暂停
-					}
-				});
-				*/
 
 				//播放完毕
 				$('.mp3Btn').on('ended', function () {
 					console.log("音频已播放完成");
 					$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
 				})
-
-				$('.music_item').on('click', '.btn-audio', function () {
+				var timer = ''
+				let cur = ''
+				let temp = ''
+				let minute = ''
+				// $('.music_item').on('click', '.btn-audio', function () {
+				$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
 					event.stopPropagation();//防止冒泡
 					let audio = $(this).find('audio')[0]
 					console.log(audio);
 					if (audio.paused) { //如果当前是暂停状态
 						$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+							timer = setInterval(function () {
+							cur = String(audio.currentTime).split('.')[0]
+							temp = cur
+							minute = parseInt(temp / 60);
+
+							console.log(22222, cur);
+							if( cur % 60 < 10 ){
+								// time.innerHTML=""+minute+":0"+cur%60+"";
+								$(audio).parent('.btn-audio').prev().html(""+minute+":0"+cur%60+"")
+							} else {
+								// time.innerHTML=""+minute+":"+cur%60+"";
+								$(audio).parent('.btn-audio').prev().html(""+minute+":"+cur%60+"")
+							}
+
+							console.log('+++++++++++::::::::', audio.currentTime / 60);
+						}, 1000)
 						audio.play(); //播放
 						return;
 					} else {//当前是播放状态
 						$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+						clearInterval(timer)
 						audio.pause(); //暂停
 					}
 				})
