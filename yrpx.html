@@ -46,7 +46,7 @@
 		.tu .upLoad_btn {
 			width: 80%;
 			height: 40px;
-			background: #0083c3;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -86,7 +86,7 @@
 			height: 40px;
 			/*margin-left: 11%;*/
 			border-radius: 30px;
-			background: #0083c3;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
 			color: #fff;
 			font-size: 16px;
 			letter-spacing: 2px;
@@ -102,7 +102,7 @@
 			width: 80%;
 			line-height: 30px;
 			margin: 15px auto;
-			background: #fff;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
 			display: flex;
 			justify-content: space-between;
 			padding: 0 10px;
@@ -406,23 +406,41 @@
 			/**
 			 * 获取音乐列表
 			 */
-			let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
-			let html = ''
-			mp3DataList.forEach((item, index) => {
-				var audioElement = new Audio(item);//audio也可获取视频的时长
-				var duration;
-				var mp3Time
-				audioElement.addEventListener("loadedmetadata", function (_event) {
-					duration = audioElement.duration;
-					mp3Time = (duration / 60).toFixed(2).split('.')
-					html += `
-								<div class="music_item">
-									<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
-								</div>
-							`
-					$('.audio_wrap').html(html)
+			function getMusicList () {
+				/*
+                $.ajax({
+                    type: "",
+                    url: '',
+                    data: {},
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result);
+
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+                */
+				let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
+				let html = ''
+				mp3DataList.forEach((item, index) => {
+					var audioElement = new Audio(item);//audio也可获取视频的时长
+					var duration;
+					var mp3Time
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						duration = audioElement.duration;
+						mp3Time = (duration / 60).toFixed(2).split('.')
+						html += `
+										<div class="music_item">
+											<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+										</div>
+									`
+						$('.audio_wrap').html(html)
+					})
 				})
-			})
+			}
+			getMusicList()
 
 			/**
 			 * 控制音乐播放和暂停

@@ -6,7 +6,7 @@
 	<meta content="耘存科技" http-equiv="keywords">
 	<meta name="description" content="耘存科技">
 	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-	<title>上传其他</title>
+	<title>其它</title>
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/children.css">
@@ -16,131 +16,500 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/public.js"></script>
+	<!--简单弹出框-->
+	<script type="text/javascript" src="./js/static/message.js"></script>
 	<style>
-		.orth {
-			width: 90%;
-			height: 80px;
+		.hot_wrap {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.hot_box {
+			width: 80%;
+			line-height: 30px;
+			font-size: 14px;
+			color: #333;
+		}
+
+		.tu {
+			position: relative;
+			width: 100%;
+			height: 42px;
 			margin-top: 10%;
-			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.tu .upLoad_btn {
+			width: 80%;
+			height: 40px;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: 16px;
+			border-radius: 30px;
+			margin-top: 40px;
+			letter-spacing: 2px;
+			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
+		}
+
+		.tu input {
+			position: absolute;
+			top: 20px;
+			left: 39px;
+			width: 80%;
+			height: 40px;
+			opacity: 0;
 		}
 
 		.tus {
 			width: 80%;
-			margin: 0 auto;
+			margin: 20px auto;
+		}
+
+		.downLoad_btn_wrap {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20px;
 		}
 
 		.btn {
 			margin-top: 20px;
-			width: 80px;
-			height: 30px;
-			margin-left: 11%;
-			border-radius: 5px;
-			background: #0083c3;
+			width: 80%;
+			height: 40px;
+			/*margin-left: 11%;*/
+			border-radius: 30px;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
 			color: #fff;
+			font-size: 16px;
+			letter-spacing: 2px;
+			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
+		}
+
+		.audio_wrap {
+			width: 100%;
+		}
+
+		.music_item {
+			position: relative;
+			width: 80%;
+			line-height: 30px;
+			margin: 15px auto;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
+			display: flex;
+			justify-content: space-between;
+			padding: 0 10px;
+			box-sizing: border-box;
+			border-radius: 10px;
+			box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
+		}
+
+		.music_item .music_date {
+			position: absolute;
+			right: 60px;
+		}
+
+		.field {
+			border: 0;
+			width: 100%;
+			height: 100%;
+			padding: 10px 20px;
+			background: white;
+			border-radius: 3px;
+			box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+		}
+
+		#tip {
+			display: inline-block;
+			min-width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			font-size: 14px;
+			border-radius: 5px;
+		}
+
+		.btn-audio {
+			width: 30px;
+			height: 30px;
+			background: url("./images/static/play.png") no-repeat center bottom;
+			background-size: cover;
+		}
+
+		.mask_wrap {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #000;
+			filter: alpha(Opacity=60);
+			-moz-opacity: 0.6;
+			opacity: 0.6;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.loader {
+			margin: 0 0 2em;
+			height: 100px;
+			width: 20%;
+			text-align: center;
+			padding: 1em;
+			margin: 0 auto 1em;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		svg path,
+		svg rect {
+			/*fill: #FF6700;*/
+			fill: #0083c3;
 		}
 	</style>
 </head>
 
 <body>
-	<div class="top_bg">
-		<div class="top_main fix">
-			<div class="top_logo">
-				<a href="index.html"><img src="images/yclogo.png" /></a>
-			</div>
-			<div class="top_search">
-				<a href="search.html"><span></span></a>
-			</div>
-
+<div class="top_bg">
+	<div class="top_main fix">
+		<div class="top_logo">
+			<a href="index.html"><img src="images/yclogo.png" /></a>
 		</div>
+		<!--
+        <div class="top_search">
+            <a href="search.html"><span></span></a>
+        </div>
+        -->
 	</div>
-	<!-- contentbox -->
-	<div class="contentbox">
-		<!--banner-->
-		<div class="zy_banner">
-			<!-- 子页banner尺寸640x240 -->
-			<img src="images/bgimg6.png">
+</div>
+<!-- contentbox -->
+<div class="contentbox" style="background: #f5f5f5">
+	<!--  style="background: #f5f5f5" -->
+	<!--顶部背景图-->
+	<div class="zy_banner">
+		<!-- 子页banner尺寸640x240 -->
+		<img src="images/bgimg6.png">
+	</div>
+	<!-- 中间内容开始 -->
+	<div class="zy_content padding_03">
+		<div class="search_box tus">
+			<input type="text" class="searchTerm keyWord_ipt" placeholder="搜索">
+			<button type="submit" class="searchButton">
+				<img src="./images/search.png" alt="">
+			</button>
 		</div>
-		<!-- 上传其他开始 -->
-		<div class="zy_content padding_03">
-			<div class="orth">
-				<input type="file" alt="上传文件" />
+		<div class="hot_wrap">
+			<div class="hot_box">
+				<span>热门检索 :</span>
 			</div>
-			<div class="search_box tus">
-				<input type="text" class="searchTerm keyWord_ipt" placeholder="搜索">
-				<button type="submit" class="searchButton">
-					<img src="./images/search.png" alt="">
-				</button>
+		</div>
+		<div class="audio_wrap">
+			<div class="music_item">
+
+				<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
 			</div>
-			<div>
+			<div class="music_item">
+
+				<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
+			</div>
+			<div class="music_item">
+
+				<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
+			</div>
+		</div>
+		<div style="margin-top: 50px">
+			<div class="tu">
+				<div class="upLoad_btn">
+					上传音乐
+					<input id="upLoadImgIpt" type="file" alt=""> <!-- audio/* -->
+				</div>
+			</div>
+			<div class="downLoad_btn_wrap">
 				<button class="btn">下载</button>
 			</div>
 		</div>
-		<!-- 上传其他开始 -->
 	</div>
+	<!-- 中间内容结束 -->
+</div>
 
-	<!-- slide侧边栏 -->
-	<div class="side_bar">
-		<span class="btn_top"></span>
+<!-- slide侧边栏 -->
+<div class="side_bar">
+	<span class="btn_top"></span>
+</div>
+
+<!-- footer -->
+<div class="footbox">
+	<h2>
+		<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+	</h2>
+	<div class="txt">
+		<p>CopyRight © 上海耘存科技发展有限公司</p>
+		<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
 	</div>
-
-	<!-- footer -->
-	<div class="footbox">
-		<h2>
-			<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
-		</h2>
-		<div class="txt">
-			<p>CopyRight © 上海耘存科技发展有限公司</p>
-			<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
-		</div>
-	</div>
-
-	<!-- 底部菜单 -->
-	<div class="menubox">
-		<ul class="fix">
-			<li>
-				<a href="index.html">
-					<i>
-						<img src="images/menu_icon01.png" alt="首页" />
-						<img src="images/menu_icon01_1.png" alt="首页" />
-					</i>
-					<span>首页</span>
-				</a>
-			</li>
-			<li>
-				<a href="video.html">
-					<i>
-						<img src="images/menu_icon02.png" alt="视频中心" />
-						<img src="images/menu_icon02_1.png" alt="视频中心" />
-					</i>
-					<span>视频中心</span>
-				</a>
-			</li>
-			<li>
-				<a href="search.html">
-					<i>
-						<img src="images/icon_search2.png" alt="搜索" />
-						<img src="images/icon_search2.png" alt="搜索" />
-					</i>
-					<span>搜索</span>
-				</a>
-			</li>
-			<li class="menubtn">
+</div>
+<!-- 底部菜单 -->
+<div class="menubox">
+	<ul class="fix">
+		<li>
+			<a href="index.html">
 				<i>
-					<img src="images/menu_icon04.png" alt="菜单" />
-					<img src="images/menu_icon04_1.png" alt="菜单" />
+					<img src="images/menu_icon01.png" alt="首页" />
+					<img src="images/menu_icon01_1.png" alt="首页" />
 				</i>
-				<span>菜单</span>
-			</li>
-		</ul>
-		<!-- 菜单导航 -->
-		<dl class="menu">
-			<dd><a href="login.html">登录</a></dd>
-			<dd><a href="register.html">注册</a></dd>
-			<dd><a href="video.html">视频中心</a></dd>
-			<dd><a href="about.html">关于我们</a></dd>
-			<dd><a href="contact.html">联系我们</a></dd>
-		</dl>
+				<span>首页</span>
+			</a>
+		</li>
+		<li>
+			<a href="video.html">
+				<i>
+					<img src="images/menu_icon02.png" alt="视频中心" />
+					<img src="images/menu_icon02_1.png" alt="视频中心" />
+				</i>
+				<span>视频中心</span>
+			</a>
+		</li>
+		<li>
+			<a href="search.html">
+				<i>
+					<img src="images/icon_search2.png" alt="搜索" />
+					<img src="images/icon_search2.png" alt="搜索" />
+				</i>
+				<span>搜索</span>
+			</a>
+		</li>
+		<li class="menubtn">
+			<i>
+				<img src="images/menu_icon04.png" alt="菜单" />
+				<img src="images/menu_icon04_1.png" alt="菜单" />
+			</i>
+			<span>菜单</span>
+		</li>
+	</ul>
+	<!-- 菜单导航 -->
+	<dl class="menu">
+		<dd><a href="login.html">登录</a></dd>
+		<dd><a href="register.html">注册</a></dd>
+		<dd><a href="video.html">视频中心</a></dd>
+		<dd><a href="about.html">关于我们</a></dd>
+		<dd><a href="contact.html">联系我们</a></dd>
+	</dl>
+</div>
+
+<!-- loading提示框 -->
+<div class="mask_wrap" style="display: none">
+	<div class="loader loader--style2" title="1">
+		<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+			 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+			 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+				<path fill="#000"
+					  d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+					<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+									  to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+				</path>
+			</svg>
 	</div>
+</div>
+
+<script>
+	$(function () {
+		// let isLogin = localStorage.getItem("obj")
+		let isLogin = true
+		if (isLogin) { // 用户已登录
+			/**
+			 * 音乐上传
+			 */
+					// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
+			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
+			oFile.addEventListener('change', function () {
+				var file = this.files[0];
+				console.log('+++++++++++', file);
+				if (file.type.indexOf("audio") == 0) {
+					/*
+                    var reader = new FileReader(); //创建FileReader对象实例reader
+                    reader.readAsDataURL(file); //将图片url转换为base64码
+                    reader.onload = function (e) {
+                        var newUrl = this.result;
+                        // 获取到了转换base64位格式后的图片
+                        console.log(11111111111, newUrl);
+                        // oUploadImg.style.backgroundImage = 'url('+newUrl+')';
+                        // 发请求, 上传图片到服务器
+                        $.ajax({
+                            type: "post",
+                            url: '',
+                            data: {},
+                            dataType: 'json', // 返回值类型 一般设置为json
+                            success: function (result) {
+                                console.log(result);
+                            },
+                            error: function () {
+                                console.log("后台处理错误");
+                            }
+                        })
+                    }
+                    */
+					/*
+                    var val
+                    var formData = new FormData();
+                    formData.append('file', file)
+                    console.log(2222222222, formData.get('file'));
+                    */
+
+					$.ajax({
+						type: "post",
+						url: '',
+						data: {},
+						dataType: 'json',
+						beforeSend: function () {
+							// 显示loading提示
+							$('.mask_wrap').show()
+						},
+						success: function (result) {
+							// 关闭loading提示
+							$('.mask_wrap').hide()
+							console.log(result);
+						},
+						error: function () {
+							// 关闭loading提示
+							$('.mask_wrap').hide()
+							ShowFailure('上传失败, 请稍后再试 !')
+						}
+					})
+				} else {
+					ShowFailure('请上传mp3格式的文件')
+				}
+			})
+
+			/**
+			 * 获取音乐列表
+			 */
+			function getMusicList () {
+				/*
+                $.ajax({
+                    type: "",
+                    url: '',
+                    data: {},
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result);
+
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+                */
+				let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
+				let html = ''
+				mp3DataList.forEach((item, index) => {
+					var audioElement = new Audio(item);//audio也可获取视频的时长
+					var duration;
+					var mp3Time
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						duration = audioElement.duration;
+						mp3Time = (duration / 60).toFixed(2).split('.')
+						html += `
+										<div class="music_item">
+											<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+										</div>
+									`
+						$('.audio_wrap').html(html)
+					})
+				})
+			}
+			getMusicList()
+
+
+			/**
+			 * 控制音乐播放和暂停
+			 */
+			//播放完毕
+			$('.mp3Btn').on('ended', function () {
+				console.log("音频已播放完成");
+				$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+			})
+			var timer = ''
+			let cur = ''
+			let temp = ''
+			let minute = ''
+			$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
+				event.stopPropagation();//防止冒泡
+				let audio = $(this).find('audio')[0]
+				console.log(audio);
+				if (audio.paused) { //如果当前是暂停状态
+					$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+					timer = setInterval(function () {
+						cur = String(audio.currentTime).split('.')[0]
+						temp = cur
+						minute = parseInt(temp / 60);
+						if (cur % 60 < 10) {
+							$(audio).parent('.btn-audio').prev().html("" + minute + ":0" + cur % 60 + "")
+						} else {
+							$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
+						}
+					}, 1000)
+					audio.play(); //播放
+					return;
+				} else {//当前是播放状态
+					$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+					clearInterval(timer)
+					audio.pause(); //暂停
+				}
+			})
+
+			/**
+			 * 搜索
+			 */
+			$('.searchButton').on('click', function () {
+				let val = $('.keyWord_ipt').val()
+				$.ajax({
+					type: "",
+					url: '',
+					data: {},
+					dataType: 'json',
+					success: function (result) {
+
+						console.log(result);
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			})
+
+
+		} else { // 用户未登录
+			ShowFailure('请先登录再来哦 ~')
+			setTimeout(() => {
+				window.location.href = './login.html'
+			}, 1500)
+		}
+
+	})
+</script>
 </body>
 
 </html>
