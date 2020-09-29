@@ -3,7 +3,7 @@ function ShowTip(tip, type) {
     var $tip = $('#tip');
     if ($tip.length == 0) {
         if (type === 'success') {
-            $tip = $('<span id="tip" style="font-weight:bold;position:fixed;top:10%;left: 50%;z-index:99999999999;background: #52c41a"></span>');
+            $tip = $('<span id="tip" style="font-weight:bold;position:fixed;top:10%;left: 50%;z-index:99999999999;background: #cff7e9;border-color: #bcf4e1;color: #08704c;"></span>');
             $('body').append($tip);
         } else if (type === 'danger') {
             $tip = $('<span id="tip" style="font-weight:bold;position:fixed;top:10%;left: 50%;z-index:99999999999;background: #fdd8dd;border-color: #fcc8cf;color: #801f2c"></span>');

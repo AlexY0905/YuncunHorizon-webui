@@ -27,7 +27,7 @@
 
 	<style>
 		body {
-			background-image: url("./images/block4.jpg");
+			background-image: url("./images/block3.jpg");
 			background-size: 100% 200%;
 		}
 
@@ -160,6 +160,7 @@
 		}
 
 		.btncode {
+			/* opacity: 0.8; */
 			color: #fff;
 			border: 1px solid #fff;
 		}
@@ -343,7 +344,7 @@
 							<!-- <label class="custom-control-label text-white" for="customCheck111">接受 <a
                                 href="">我们的权力和条款</a>.</label> -->
 							<label class="custom-control-label" for="customCheck111"> <span class="jie">接受</span> <a
-									href="" class="jie">我们的权力和条款</a></label>
+									href="">我们的权力和条款</a></label>
 						</div>
 					</div>
 				</div>
@@ -514,8 +515,8 @@
 			var result_1 = result
 			//邮箱
 			var mail_1 = $('#inputEmail').val()
-			apos = mail_1.indexOf("@")
-			dotpos = mail_1.lastIndexOf(".")
+			var apos = mail_1.indexOf("@")
+			var dotpos = mail_1.lastIndexOf(".")
 			//验证邮箱是否为空
 			// console.log("apos",apos)
 			// console.log("dotpos",dotpos)

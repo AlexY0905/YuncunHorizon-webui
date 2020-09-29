@@ -143,6 +143,38 @@
 			background: url("./images/static/play.png") no-repeat center bottom;
 			background-size: cover;
 		}
+
+		.mask_wrap {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #000;
+			filter: alpha(Opacity=60);
+			-moz-opacity: 0.6;
+			opacity: 0.6;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.loader {
+			margin: 0 0 2em;
+			height: 100px;
+			width: 20%;
+			text-align: center;
+			padding: 1em;
+			margin: 0 auto 1em;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		svg path,
+		svg rect {
+			/*fill: #FF6700;*/
+			fill: #0083c3;
+		}
 	</style>
 </head>
 
@@ -165,7 +197,7 @@
 		<!--顶部背景图-->
 		<div class="zy_banner">
 			<!-- 子页banner尺寸640x240 -->
-			<img src="images/zy_banner02.jpg">
+			<img src="images/bgimg3.png">
 		</div>
 		<!-- 中间内容开始 -->
 		<div class="zy_content padding_03">
@@ -185,27 +217,27 @@
 
 					<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
-					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					<audio src="./audio/如果当时.mp3" controls></audio>
 					-->
 				</div>
 				<div class="music_item">
 
 					<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
-					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					<audio src="./audio/如果当时.mp3" controls></audio>
 					-->
 				</div>
 				<div class="music_item">
 
 					<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3"></audio></span>
+							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
-					<audio src="./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3" controls></audio>
+					<audio src="./audio/如果当时.mp3" controls></audio>
 					-->
 				</div>
 			</div>
@@ -286,12 +318,30 @@
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
 	</div>
+
+	<!-- loading提示框 -->
+	<div class="mask_wrap" style="display: none">
+		<div class="loader loader--style2" title="1">
+			<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+				viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+				<path fill="#000"
+					d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+					<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+						to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+				</path>
+			</svg>
+		</div>
+	</div>
+
 	<script>
 		$(function () {
 			// let isLogin = localStorage.getItem("obj")
 			let isLogin = true
 			if (isLogin) { // 用户已登录
-				// 音乐上传
+				/**
+				 * 音乐上传
+				 */
 				// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
 				var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
 				oFile.addEventListener('change', function () {
@@ -329,25 +379,35 @@
 						formData.append('file', file)
 						console.log(2222222222, formData.get('file'));
 
-						return
 						$.ajax({
 							type: "post",
 							url: '',
 							data: {},
 							dataType: 'json', // 返回值类型 一般设置为json
+							beforeSend: function () {
+								// 显示loading提示
+								$('.mask_wrap').show()
+							},
 							success: function (result) {
+								// 关闭loading提示
+								$('.mask_wrap').hide()
 								console.log(result);
 							},
 							error: function () {
-								console.log("后台处理错误");
+								// 关闭loading提示
+								$('.mask_wrap').hide()
+								ShowFailure('上传失败, 请稍后再试 !')
 							}
 						})
 					} else {
-						alert('请上传mp3格式的文件')
+						ShowFailure('请上传mp3格式的文件')
 					}
 				})
 
-				let mp3DataList = ['./audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3', './audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3', './audio/ZIcBAF5dU3OAW0ebAE082kzFvcQ270.mp3']
+				/**
+				 * 获取音乐列表
+				 */
+				let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
 				let html = ''
 				mp3DataList.forEach((item, index) => {
 					var audioElement = new Audio(item);//audio也可获取视频的时长
@@ -356,7 +416,6 @@
 					audioElement.addEventListener("loadedmetadata", function (_event) {
 						duration = audioElement.duration;
 						mp3Time = (duration / 60).toFixed(2).split('.')
-						console.log(mp3Time);
 						html += `
 								<div class="music_item">
 									<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
@@ -366,6 +425,9 @@
 					})
 				})
 
+				/**
+				 * 控制音乐播放和暂停
+				 */
 				//播放完毕
 				$('.mp3Btn').on('ended', function () {
 					console.log("音频已播放完成");
@@ -375,28 +437,21 @@
 				let cur = ''
 				let temp = ''
 				let minute = ''
-				// $('.music_item').on('click', '.btn-audio', function () {
 				$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
 					event.stopPropagation();//防止冒泡
 					let audio = $(this).find('audio')[0]
 					console.log(audio);
 					if (audio.paused) { //如果当前是暂停状态
 						$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
-							timer = setInterval(function () {
+						timer = setInterval(function () {
 							cur = String(audio.currentTime).split('.')[0]
 							temp = cur
 							minute = parseInt(temp / 60);
-
-							console.log(22222, cur);
-							if( cur % 60 < 10 ){
-								// time.innerHTML=""+minute+":0"+cur%60+"";
-								$(audio).parent('.btn-audio').prev().html(""+minute+":0"+cur%60+"")
+							if (cur % 60 < 10) {
+								$(audio).parent('.btn-audio').prev().html("" + minute + ":0" + cur % 60 + "")
 							} else {
-								// time.innerHTML=""+minute+":"+cur%60+"";
-								$(audio).parent('.btn-audio').prev().html(""+minute+":"+cur%60+"")
+								$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
 							}
-
-							console.log('+++++++++++::::::::', audio.currentTime / 60);
 						}, 1000)
 						audio.play(); //播放
 						return;
@@ -406,6 +461,28 @@
 						audio.pause(); //暂停
 					}
 				})
+
+				/**
+				 * 搜索
+				 */
+				$('.searchButton').on('click', function () {
+					let val = $('.keyWord_ipt').val()
+					$.ajax({
+						type: "",
+						url: '',
+						data: {},
+						dataType: 'json',
+						success: function (result) {
+
+							console.log(result);
+						},
+						error: function () {
+							ShowFailure('网络错误, 请稍后再试 !')
+						}
+					})
+				})
+
+
 			} else { // 用户未登录
 				ShowFailure('请先登录再来哦 ~')
 				setTimeout(() => {
