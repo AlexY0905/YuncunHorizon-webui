@@ -133,7 +133,8 @@
 			top: 0;
 			left: 0;
 			width: 100%;
-			background-color: #fff;
+			/* background-color: #fff; */
+			background-color: #0083c3;
 			padding: 1rem 3%;
 		}
 
@@ -149,7 +150,7 @@
 			max-width: 100%;
 			max-height: 2.8rem;
 			position: absolute;
-			left: -20px;
+			left: -10px;
 			top: 50%;
 			border: none;
 			transform: translate(0, -50%);
@@ -172,6 +173,11 @@
 			margin-left: 1.5rem;
 			margin-right: 1.5rem;
 		}
+
+		.bgse {
+			background-color: #0083c3;
+			border-color: #0083c3;
+		}
 	</style>
 
 
@@ -181,7 +187,7 @@
 	<div class="top_bg">
 		<div class="top_main fix">
 			<div class="top_logo">
-				<a href="index.html"><img src="images/yclogo.png" /></a>
+				<a href="index.html"><img src="images/yclogo2.png" /></a>
 			</div>
 		</div>
 	</div>
@@ -222,7 +228,7 @@
 						<div class="text-left mb-4">
 							<!-- <a type="submit" class="btn btn-primary pink-gradient " onclick="telLogin()" id="tel_1"
 								style="display: none;">登录</a> -->
-							<a type="submit" class="btn btn-primary pink-gradient btnlog" onclick="checkLogin()"
+							<a type="submit" class="btn btn-primary pink-gradient btnlog bgse" onclick="checkLogin()"
 								id="name_1">登录</a>
 							<a href="./register.html" class="float-right btn btn-outline-primary btnlog">注册</a>
 						</div>
