@@ -135,7 +135,7 @@
 			width: 100%;
 			/* background-color: #fff; */
 			background-color: #0083c3;
-			padding: 1rem 3%;
+			padding: 1.1rem 3%;
 		}
 
 		.top_logo {
@@ -178,6 +178,10 @@
 			background-color: #0083c3;
 			border-color: #0083c3;
 		}
+
+		.custom-checkbox .letme:checked~.custom-control-label::before {
+			background-color: #0083c3;
+		}
 	</style>
 
 
@@ -217,7 +221,7 @@
 						<div class="my-4 row">
 							<div class="col-6 col-md">
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+									<input type="checkbox" class="custom-control-input letme" id="customCheck1" checked>
 									<label class="custom-control-label" for="customCheck1">记住我</label>
 								</div>
 							</div>

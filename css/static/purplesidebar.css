@@ -2890,10 +2890,12 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color           : #7979ff;
-  background-color: transparent;
-  background-image: none;
-  border-color    : #7979ff;
+  /* color           : #7979ff; */
+  color              : #0083c3;
+  background-color   : transparent;
+  background-image   : none;
+  /* border-color    : #7979ff; */
+  border-color       : #0083c3;
 }
 
 .btn-outline-primary:hover {
