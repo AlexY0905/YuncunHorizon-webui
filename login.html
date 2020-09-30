@@ -206,8 +206,8 @@
 						<p style="font-family: cursive; font-size: 24px;">请登录您的账户</p>
 						<div class="card mb-2">
 							<div class="card-body p-0" id="name_data">
-								<label for="inputEmail" class="sr-only">用户名</label>
-								<input type="email" id="inputEmail" oninput="preSql(this)"
+								<label for="name" class="sr-only">用户名</label>
+								<input type="text" id="name" oninput="preSql(this)"
 									class="form-control form-control-lg border-0 text-center" placeholder="用户名"
 									required="" autofocus="" style="font-family: cursive; font-size: 18px;">
 								<span id="code"></span>
@@ -227,8 +227,8 @@
 								</div>
 							</div>
 							<div class="col-6 col-md text-right">
-								<a href="./forgetPassword.html" class="content-color-primary"
-									style="font-family: cursive; font-size: 16px;">忘记密码?</a>
+								<a href="./adminLogin.html" class="content-color-primary"
+									style="font-family: cursive; font-size: 16px;">管理员登录</a>
 							</div>
 						</div>
 						<div class="text-left mb-4">
@@ -236,7 +236,8 @@
 								style="display: none;">登录</a> -->
 							<a type="submit" class="btn btn-primary pink-gradient btnlog bgse" onclick="checkLogin()"
 								id="name_1" style="font-family: cursive; font-size: 20px;">登录</a>
-							<a href="./register.html" class="float-right btn btn-outline-primary btnlog" style="font-family: cursive; font-size: 20px;">注册</a>
+							<a href="./register.html" class="float-right btn btn-outline-primary btnlog"
+								style="font-family: cursive; font-size: 20px;">注册</a>
 						</div>
 					</div>
 				</div>
@@ -261,10 +262,10 @@
 			<li>
 				<a href="video.html">
 					<i>
-						<img src="images/menu_icon02.png" alt="视频中心" />
-						<img src="images/menu_icon02_1.png" alt="视频中心" />
+						<img src="images/menu_icon02.png" alt="音频中心" />
+						<img src="images/menu_icon02_1.png" alt="音频中心" />
 					</i>
-					<span>视频中心</span>
+					<span>音频中心</span>
 				</a>
 			</li>
 			<li>
@@ -363,71 +364,29 @@
 			s[8] = s[13] = s[18] = s[23] = "-";
 			uuida = s.join("");
 		}
-		// 点击登录，检查登陆成功与否
-		function telLogin() {
-			uuid();
-			//获取输入的手机号
-			var regPhone = document.getElementById("regPhone");
-			//获取输入的验证码的 值
-			var yanZM = $("#yanZM").val();
-			//获取请求验证码的ajax并赋值
-			var result_1 = result
-			//判断校验码是否为空
-			if (yanZM == null || yanZM == '') {
-				ShowFailure("验证码不能为空!");
-				return;
-			} else if (yanZM == result_1) {//判断验证码是否一致
-				//console.log("result_1",result_1)
-				if (regPhone.value.length !== 11) {
-					ShowFailure("手机号是11个数字!")
-					return;
-				} else {
-					localStorage.uuida1 = uuida;
-					$.ajax({
-						type: "GET",
-						url: "http://61.147.123.84:10080/user/user_login_by_phone",
-						data: {
-							tel: $("#regPhone").val(),
-							phoneType: uuida
-						},
-						success: function (data) {
-							// console.log("data",data);
-							if (data.msg == "手机用户不存在") {
-								ShowFailure("手机用户不存在,请注册!");
-								$("#regPhone").val("");
-								$("#yanZM").val("");
-								return false
-							} else {
-								//console.log("data",data)
-								ShowSuccess("登陆成功")
-								localStorage.obj = JSON.stringify(data);
-								localStorage.obj_power = "2";
-								setInterval(() => {
-									window.location.href = "./index.html";
-								}, 800)
-							}
-						}
-					})
-				}
-			} else {
-				ShowFailure("验证码有误,请重试!")
-				return;
-			}
-		}
+
 		// 点击登录，检查登陆成功与否
 		function checkLogin() {
-			uuid();
-			localStorage.uuida1 = uuida;
 			$.ajax({
-				type: "GET",
+				type: "get",
 				dataType: 'json',
-				url: "http://61.147.123.84:10080/user/user_login",
+				contentType: 'application/json',
+				url: "http://192.168.1.105:9000/v1/login",
 				data: {
-					name: $("#inputEmail").val(),
-					password: $("#inputPassword").val(),
-					phoneType: uuida
+					name: $("#name").val(),
+					password: $("#inputPassword").val()
 				},
 				success: function (data) {
+					console.log('++++++--------', data)
+					if (data.msg == 'password good') {
+						ShowSuccess('登录成功')
+						localStorage.setItem('isLogin', 0)
+						setTimeout(() => {
+							window.location.href = './index.html'
+						})
+					}
+
+					/*
 					if (data.msg == "用户不存在") {
 						ShowFailure("用户不存在,请注册!");
 						$("#inputEmail").val("");
@@ -447,63 +406,11 @@
 							window.location.href = "./index.html";
 						}, 800)
 					}
+					*/
+
 				}
 			})
 		}
-		// 登陆时，手机号 按正则格式输入 , 且检查已存在否
-		$("#regPhone").focus(function () {
-			$("#err_msgPhone").html("")
-		})
-		var result;
-		$("#regPhone").blur(function () {
-			var reg1 = /^1[3|4|5|7|8|9][0-9]\d{8}$/;
-			if (!reg1.test(this.value)) {  //如果当前用户输入的值 非真（不符合手机号规则）
-				ShowFailure("请输入正确的手机号！")
-			} else if (reg1.test(this.value)) {
-				//发送验证码  发起ajax请求,后台拦截这个请求
-				$("#sendYzm").click(function () {
-					var tel = $("#regPhone").val();
-					// console.log(name);
-					// console.log(tel);
-					$.ajax({
-						url: "http://61.147.123.84:10080/pool/forget_password_1",
-						type: "GET",
-						dataType: 'json',
-						async: false,
-						data: {
-							tel: tel
-						},
-						success: function (data) {
-							result = data
-							//console.log(result)
-						}
-					})
-				})
-			}
-		})
-
-		// 'use strict';
-		// var mySwiper = new Swiper('.swiper-signin', {
-		//     slidesPerView: 1,
-		//     spaceBetween: 0,
-		//     autoplay: true,
-		//     pagination: {
-		//         el: '.swiper-pagination',
-		//         clickable: true,
-		//     }
-		// });
-
-		// $(window).on('resize', function() {
-		//     var mySwiper = new Swiper('.swiper-signin', {
-		//         slidesPerView: 1,
-		//         spaceBetween: 0,
-		//         autoplay: true,
-		//         pagination: {
-		//             el: '.swiper-pagination',
-		//             clickable: true,
-		//         }
-		//     });
-		// });
 
 		$('.menubtn').on('click', function () {
 			$('.menu').css('bottom', '41px')

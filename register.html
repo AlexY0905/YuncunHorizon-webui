@@ -224,6 +224,7 @@
 			<div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto text-center">
 				<h4 class="font-weight-light mb-4 text-white text-center" style="font-family: cursive;">欢迎注册耘存科技</h4>
 				<!--选择头像 开始-->
+				<!--
 				<label class="btn1">
 					<img id="imgLower" class="image-lower"
 						style="position: absolute; width: 130px; height: 130px; border-radius: 50%;">
@@ -232,11 +233,13 @@
 					</ul>
 					<input type="file" id="file" accept="image/gif,image/jpeg,image/jpg,image/png" />
 				</label>
+				-->
 				<!--选择头像 结束-->
 				<div class="card mb-4">
 					<div class="card-body p-0">
-						<!--图片提示-->
-						<span id="image"></span>
+						<!-- 图片提示开始 -->
+						<!-- <span id="image"></span> -->
+						<!-- 图片提示结束 -->
 						<!--用户名-->
 						<label for="name" class="sr-only">用户名</label>
 						<span style="position: relative;">
@@ -345,6 +348,7 @@
 							</svg>
 							<span id="err_msgPhone"></span>
 						</div>
+						<!--
 						<div class="input">
 							<span style="position: relative;">
 								<img src="./images/static/code.png" alt="" class="code">
@@ -353,12 +357,11 @@
 								class="form-control text-center form-control-lg border-0" placeholder="输入验证码"
 								onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"
 								style=" background-color: transparent; color:#fff; font-family: cursive;">
-							<!-- <hr class="line" /> -->
 							<span id="msgYanZM"></span>
-							<!--<span id="sendYzm" >免费获取验证码</span>-->
 							<input type="button" class="btn btn-outline-primary c-333 text-c js-code btncode"
 								value="获取验证码" id="sendYzm" style="font-family: cursive;">
 						</div>
+						-->
 						<!--输入验证码-->
 						<!-- <input type="text" id="code_input" oninput="preSql(this)" placeholder="请输入验证码" class="form-control text-center form-control-lg border-0"/>
                         <span id="code_res"></span>
@@ -368,13 +371,20 @@
 				</div>
 				<div class="my-4 row">
 					<div class="col-12  text-center">
-						<div class="custom-control custom-checkbox">
+						<div class="custom-control custom-checkbox" style="padding-left: 1.5rem;">
 							<input type="checkbox" class="custom-control-input" id="customCheck111" name="isNumeric"
 								checked>
 							<!-- <label class="custom-control-label text-white" for="customCheck111">接受 <a
                                 href="">我们的权力和条款</a>.</label> -->
 							<label class="custom-control-label" for="customCheck111"> <span class="jie">接受</span> <a
 									href="" class="jie">我们的权力和条款</a></label>
+						</div>
+					</div>
+				</div>
+				<div class="my-4 row">
+					<div class="col-12  text-center">
+						<div class="custom-control custom-checkbox" style="padding-left: .4rem;">
+							<a href="./adminRegister.html" class="jie">注册管理员账户</a>
 						</div>
 					</div>
 				</div>
@@ -387,6 +397,7 @@
 				<br>
 			</div>
 		</div>
+
 	</div>
 	<!-- content page ends -->
 	<!-- Optional JavaScript -->
@@ -435,14 +446,12 @@
 				return true;
 			}
 		}
-
+		/*
 		//创建压缩base64
 		var fileDom = document.getElementById("file");
 		var MAX_SIZE = 500;
 		var files = [];
-
 		fileDom.addEventListener("change", function () {
-
 			var fileImg = this.files;
 			console.log(fileImg);
 			for (var i = 0; i < fileImg.length; i++) {
@@ -507,30 +516,30 @@
 			image.src = src;
 			//console.log("blob",blob);
 		}
+		*/
 
 		function mr_verify() {
 			//获取表单对象
-			var chackbox = document.getElementById("customCheck111");
+			/*
 			var img = document.getElementById("file");
-
 			if (img.value === '' || img.value === null) {//验证头像是否为空
 				ShowFailure("请插入一张图片作为头像！")
 				return;
 			}
+			*/
 			//判断是否有勾选条约复选框
 			if ($("#customCheck111").is(":checked") == false) {
 				ShowMsg("请勾选 接受我们的权力和条款")
 				return;
 			}
-
+			/*
 			var data = files[0];
 			var pos = data.indexOf("4") + 2;
-
 			data = data.substring(pos, data.length - pos);
-			// console.log("data",data)
 			//将+号转码，防止传输过程中丢失
 			data.replace(/\+/g, '%2B')
-			//console.log("data",data);
+			*/
+
 			//用户名
 			var name_input_1 = $('#name').val()
 			//密码
@@ -539,7 +548,7 @@
 			var pass_input_2 = $('#inputPassword2').val()
 			//获取输入的手机号
 			var regPhone = document.getElementById("regPhone");
-			//获取输入的验证码的 值
+			//获取输入的验证码的值
 			var yanZM = $("#yanZM").val();
 			//获取请求验证码的ajax并赋值
 			var result_1 = result
@@ -548,10 +557,6 @@
 			var apos = mail_1.indexOf("@")
 			var dotpos = mail_1.lastIndexOf(".")
 			//验证邮箱是否为空
-			// console.log("apos",apos)
-			// console.log("dotpos",dotpos)
-			// console.log("mail_1",mail_1)
-
 			if (name_input_1.length >= 6 && pass_input_1.length > 5 && mail_1.length > 1) {
 				if (apos < 1 || dotpos - apos < 3) {
 					//验证邮件格式
@@ -565,51 +570,51 @@
 						return;
 					} else {
 						if (pass_input_1 === pass_input_2) {
-							//判断校验码是否为空
-							if (yanZM == null || yanZM == '') {
-								$("#msgYanZM").html("验证码不能为空!");
-								$("#msgYanZM").css("color", "red");
+							if (regPhone.value.length !== 11) {
+								$("#err_msgPhone").html("*手机号是11个数字*");
+								$("#err_msgPhone").css("color", "red");
 								return;
-							} else if (yanZM == result_1) {//判断验证码是否一致
-								//console.log("result_1",result_1)
-								if (regPhone.value.length !== 11) {
-									$("#err_msgPhone").html("*手机号是11个数字*");
-									$("#err_msgPhone").css("color", "red");
-									return;
-								} else {
-									$.ajax({
-										type: "GET",
-										url: "http://61.147.123.84:10080/user/user_regist",
-										async: false,
-										dataType: 'json',
-										data: {
-											name: $("#name").val(),
-											mail: $("#inputEmail").val(),
-											password: $("#inputPassword").val(),
-											photo: data,
-											tel: $("#regPhone").val()
-										},
-										success: function (data) {
-											if (data.msg == "该用户名已经存在") {
-												$("#xs").text("该用户名已经存在!");
-												$("#xs").css("color", "red");
-											} else if (data.msg == "该手机号已经注册") {
-												ShowFailure("该手机号已经注册!")
-												$("#regPhone").html("")
-											} else {
-												ShowSuccess("注册成功")
-												// console.log("data", data)
-												setInterval(() => {
-													window.location.href = "./login.html";//注册之后跳转到登录
-												}, 800)
-											}
-										}
-									})
-								}
 							} else {
-								$("#msgYanZM").html("验证码有误,请重试!");
-								$("#msgYanZM").css("color", "red");
-								return;
+								let user = {
+									name: $('#name').val(),
+									email: $("#inputEmail").val(),
+									password: $("#inputPassword").val(),
+									tel: $("#regPhone").val(),
+									account: 0,
+									address: ""
+								}
+								$.ajax({
+									type: "post",
+									url: "http://192.168.1.105:9000/v1/regist",
+									dataType: 'json',
+									contentType: 'application/json',
+									data: JSON.stringify(user),
+									success: function (data) {
+										console.log('+++++++++++++-------', data)
+										if (data['ok']) {
+											ShowSuccess('注册成功')
+											window.location.href = './login.html'
+										}
+										/*
+										if (data.msg == "该用户名已经存在") {
+											$("#xs").text("该用户名已经存在!");
+											$("#xs").css("color", "red");
+										} else if (data.msg == "该手机号已经注册") {
+											ShowFailure("该手机号已经注册!")
+											$("#regPhone").html("")
+										} else {
+											ShowSuccess("注册成功")
+											// console.log("data", data)
+											setInterval(() => {
+												window.location.href = "./login.html";//注册之后跳转到登录
+											}, 800)
+										}
+										 */
+									},
+									error: function (err) {
+										console.log('失败============', err)
+									}
+								})
 							}
 						} else {
 							$("#password_2").html("*密码设置前后不一致！*");
@@ -629,28 +634,6 @@
 			var reg1 = /^1[3|4|5|7|8|9][0-9]\d{8}$/;
 			if (!reg1.test(this.value)) {  //如果当前用户输入的值 非真（不符合手机号规则）
 				ShowFailure("请输入正确的手机号！")
-			} else if (reg1.test(this.value)) {
-				//发送验证码  发起ajax请求,后台拦截这个请求
-				$("#sendYzm").click(function () {
-					var name = $("#name").val();
-					var tel = $("#regPhone").val();
-					// console.log(name);
-					// console.log(tel);
-					$.ajax({
-						url: "http://61.147.123.84:10080/pool/send_verify_code",
-						type: "GET",
-						dataType: 'json',
-						async: false,
-						data: {
-							name: name,
-							tel: tel
-						},
-						success: function (data) {
-							result = data
-							// console.log(result)
-						}
-					})
-				})
 			}
 		})
 
@@ -665,6 +648,7 @@
 			}
 		});
 	</script>
+
 </body>
 
 </html>

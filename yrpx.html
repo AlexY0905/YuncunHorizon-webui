@@ -286,10 +286,10 @@
 		<li>
 			<a href="video.html">
 				<i>
-					<img src="images/menu_icon02.png" alt="视频中心" />
-					<img src="images/menu_icon02_1.png" alt="视频中心" />
+					<img src="images/menu_icon02.png" alt="音频中心" />
+					<img src="images/menu_icon02_1.png" alt="音频中心" />
 				</i>
-				<span>视频中心</span>
+				<span>音频中心</span>
 			</a>
 		</li>
 		<li>
@@ -313,7 +313,7 @@
 	<dl class="menu">
 		<dd><a href="login.html">登录</a></dd>
 		<dd><a href="register.html">注册</a></dd>
-		<dd><a href="video.html">视频中心</a></dd>
+		<dd><a href="video.html">音频中心</a></dd>
 		<dd><a href="about.html">关于我们</a></dd>
 		<dd><a href="contact.html">联系我们</a></dd>
 	</dl>
@@ -336,15 +336,14 @@
 
 <script>
 	$(function () {
-		// let isLogin = localStorage.getItem("obj")
-		let isLogin = true
-		if (isLogin) { // 用户已登录
+		let isLogin = localStorage.getItem("isLogin")
 			/**
 			 * 音乐上传
 			 */
-					// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
+			// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
 			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
 			oFile.addEventListener('change', function () {
+			if (isLogin) { // 已登录
 				var file = this.files[0];
 				console.log('+++++++++++', file);
 				if (file.type.indexOf("audio") == 0) {
@@ -377,7 +376,6 @@
                     formData.append('file', file)
                     console.log(2222222222, formData.get('file'));
                     */
-
 					$.ajax({
 						type: "post",
 						url: '',
@@ -395,13 +393,20 @@
 						error: function () {
 							// 关闭loading提示
 							$('.mask_wrap').hide()
-							ShowFailure('上传失败, 请稍后再试 !')
+							// ShowFailure('上传失败, 请稍后再试 !')
 						}
 					})
 				} else {
 					ShowFailure('请上传mp3格式的文件')
 				}
-			})
+			} else { // 未登录
+				ShowFailure('请先登录 ~')
+				setTimeout(() => {
+					window.location.href = './login.html'
+				})
+			}
+
+		})
 
 			/**
 			 * 获取音乐列表
@@ -498,14 +503,6 @@
 					}
 				})
 			})
-
-
-		} else { // 用户未登录
-			ShowFailure('请先登录再来哦 ~')
-			setTimeout(() => {
-				window.location.href = './login.html'
-			}, 1500)
-		}
 
 	})
 </script>

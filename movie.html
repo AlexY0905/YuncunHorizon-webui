@@ -286,10 +286,10 @@
 			<li>
 				<a href="video.html">
 					<i>
-						<img src="images/menu_icon02.png" alt="视频中心" />
-						<img src="images/menu_icon02_1.png" alt="视频中心" />
+						<img src="images/menu_icon02.png" alt="音频中心" />
+						<img src="images/menu_icon02_1.png" alt="音频中心" />
 					</i>
-					<span>视频中心</span>
+					<span>音频中心</span>
 				</a>
 			</li>
 			<li>
@@ -313,7 +313,7 @@
 		<dl class="menu">
 			<dd><a href="login.html">登录</a></dd>
 			<dd><a href="register.html">注册</a></dd>
-			<dd><a href="video.html">视频中心</a></dd>
+			<dd><a href="video.html">音频中心</a></dd>
 			<dd><a href="about.html">关于我们</a></dd>
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
@@ -336,15 +336,14 @@
 
 	<script>
 		$(function () {
-			// let isLogin = localStorage.getItem("obj")
-			let isLogin = true
-			if (isLogin) { // 用户已登录
-				/**
-				 * 音乐上传
-				 */
-				// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
-				var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
-				oFile.addEventListener('change', function () {
+			let isLogin = localStorage.getItem("isLogin")
+			/**
+			 * 音乐上传
+			 */
+			// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
+			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
+			oFile.addEventListener('change', function () {
+				if (isLogin) { // 已登录
 					var file = this.files[0];
 					console.log('+++++++++++', file);
 					if (file.type.indexOf("audio") == 0) {
@@ -377,7 +376,6 @@
 						formData.append('file', file)
 						console.log(2222222222, formData.get('file'));
 						*/
-
 						$.ajax({
 							type: "post",
 							url: '',
@@ -395,118 +393,117 @@
 							error: function () {
 								// 关闭loading提示
 								$('.mask_wrap').hide()
-								ShowFailure('上传失败, 请稍后再试 !')
+								// ShowFailure('上传失败, 请稍后再试 !')
 							}
 						})
 					} else {
 						ShowFailure('请上传mp3格式的文件')
 					}
-				})
-
-				/**
-				 * 获取音乐列表
-				 */
-				function getMusicList() {
-					/*
-					$.ajax({
-						type: "",
-						url: '',
-						data: {},
-						dataType: 'json',
-						success: function (result) {
-							console.log(result);
-
-						},
-						error: function () {
-							ShowFailure('网络错误, 请稍后再试 !')
-						}
-					})
-					*/
-					let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
-					let html = ''
-					mp3DataList.forEach((item, index) => {
-						var audioElement = new Audio(item);//audio也可获取视频的时长
-						var duration;
-						var mp3Time
-						audioElement.addEventListener("loadedmetadata", function (_event) {
-							duration = audioElement.duration;
-							mp3Time = (duration / 60).toFixed(2).split('.')
-							html += `
-										<div class="music_item">
-											<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
-										</div>
-									`
-							$('.audio_wrap').html(html)
-						})
+				} else { // 未登录
+					ShowFailure('请先登录 ~')
+					setTimeout(() => {
+						window.location.href = './login.html'
 					})
 				}
-				getMusicList()
 
+			})
 
-				/**
-				 * 控制音乐播放和暂停
-				 */
-				//播放完毕
-				$('.mp3Btn').on('ended', function () {
-					console.log("音频已播放完成");
-					$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
-				})
-				var timer = ''
-				let cur = ''
-				let temp = ''
-				let minute = ''
-				$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
-					event.stopPropagation();//防止冒泡
-					let audio = $(this).find('audio')[0]
-					console.log(audio);
-					if (audio.paused) { //如果当前是暂停状态
-						$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
-						timer = setInterval(function () {
-							cur = String(audio.currentTime).split('.')[0]
-							temp = cur
-							minute = parseInt(temp / 60);
-							if (cur % 60 < 10) {
-								$(audio).parent('.btn-audio').prev().html("" + minute + ":0" + cur % 60 + "")
-							} else {
-								$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
-							}
-						}, 1000)
-						audio.play(); //播放
-						return;
-					} else {//当前是播放状态
-						$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
-						clearInterval(timer)
-						audio.pause(); //暂停
+			/**
+			 * 获取音乐列表
+			 */
+			function getMusicList() {
+				/*
+				$.ajax({
+					type: "",
+					url: '',
+					data: {},
+					dataType: 'json',
+					success: function (result) {
+						console.log(result);
+
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
 					}
 				})
-
-				/**
-				 * 搜索
-				 */
-				$('.searchButton').on('click', function () {
-					let val = $('.keyWord_ipt').val()
-					$.ajax({
-						type: "",
-						url: '',
-						data: {},
-						dataType: 'json',
-						success: function (result) {
-
-							console.log(result);
-						},
-						error: function () {
-							ShowFailure('网络错误, 请稍后再试 !')
-						}
+				*/
+				let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
+				let html = ''
+				mp3DataList.forEach((item, index) => {
+					var audioElement = new Audio(item);//audio也可获取视频的时长
+					var duration;
+					var mp3Time
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						duration = audioElement.duration;
+						mp3Time = (duration / 60).toFixed(2).split('.')
+						html += `
+									<div class="music_item">
+										<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+									</div>
+								`
+						$('.audio_wrap').html(html)
 					})
 				})
-
-
-			} else { // 用户未登录
-				ShowFailure('请先登录再来哦 ~')
-				setTimeout(() => {
-					window.location.href = './login.html'
-				}, 1500)
 			}
+			getMusicList()
+
+
+			/**
+			 * 控制音乐播放和暂停
+			 */
+			//播放完毕
+			$('.mp3Btn').on('ended', function () {
+				console.log("音频已播放完成");
+				$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+			})
+			var timer = ''
+			let cur = ''
+			let temp = ''
+			let minute = ''
+			$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
+				event.stopPropagation();//防止冒泡
+				let audio = $(this).find('audio')[0]
+				console.log(audio);
+				if (audio.paused) { //如果当前是暂停状态
+					$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+					timer = setInterval(function () {
+						cur = String(audio.currentTime).split('.')[0]
+						temp = cur
+						minute = parseInt(temp / 60);
+						if (cur % 60 < 10) {
+							$(audio).parent('.btn-audio').prev().html("" + minute + ":0" + cur % 60 + "")
+						} else {
+							$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
+						}
+					}, 1000)
+					audio.play(); //播放
+					return;
+				} else {//当前是播放状态
+					$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+					clearInterval(timer)
+					audio.pause(); //暂停
+				}
+			})
+
+			/**
+			 * 搜索
+			 */
+			$('.searchButton').on('click', function () {
+				let val = $('.keyWord_ipt').val()
+				$.ajax({
+					type: "",
+					url: '',
+					data: {},
+					dataType: 'json',
+					success: function (result) {
+
+						console.log(result);
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			})
 
 		})
 	</script>
