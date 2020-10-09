@@ -285,6 +285,9 @@
 				<span>菜单</span>
 			</li>
 		</ul>
+		<!-- 菜单导航 -->
+		<span class="menu_panel"></span>
+		<!--
 		<dl class="menu">
 			<dd><a href="login.html">登录</a></dd>
 			<dd><a href="register.html">注册</a></dd>
@@ -292,6 +295,7 @@
 			<dd><a href="about.html">关于我们</a></dd>
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
+		-->
 	</div>
 
 	<!-- content page ends -->
@@ -314,7 +318,7 @@
 	<!-- 过滤器SQL -->
 	<script src="./js/static/filterSQL.js"></script>
 	<!-- 底部公共导航js -->
-	<script type="text/javascript" src="js/public.js"></script>
+	<!-- <script type="text/javascript" src="js/public.js"></script> -->
 	<script>
 		function tel() {
 			$(document).ready(function (e) {
@@ -414,6 +418,11 @@
 
 		$('.menubtn').on('click', function () {
 			$('.menu').css('bottom', '41px')
+		})
+	</script>
+	<script>
+		$(function () {
+			$('.menu_panel').load('./common/menu.html')
 		})
 	</script>
 </body>

@@ -15,7 +15,7 @@
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
-	<script type="text/javascript" src="js/public.js"></script>
+	<!-- <script type="text/javascript" src="js/public.js"></script> -->
 	<!--简单弹出框-->
 	<script type="text/javascript" src="./js/static/message.js"></script>
 	<style>
@@ -310,6 +310,8 @@
 			</li>
 		</ul>
 		<!-- 菜单导航 -->
+		<span class="menu_panel"></span>
+		<!--
 		<dl class="menu">
 			<dd><a href="login.html">登录</a></dd>
 			<dd><a href="register.html">注册</a></dd>
@@ -317,6 +319,7 @@
 			<dd><a href="about.html">关于我们</a></dd>
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
+		-->
 	</div>
 
 	<!-- loading提示框 -->
@@ -505,6 +508,11 @@
 				})
 			})
 
+		})
+	</script>
+	<script>
+		$(function () {
+			$('.menu_panel').load('./common/menu.html')
 		})
 	</script>
 </body>

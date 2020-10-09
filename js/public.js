@@ -36,6 +36,7 @@ $(function(){
 	)
 })
 
+/*
 //menu
 $(function(){
 	$(".menubox ul li").mousedown(
@@ -65,6 +66,38 @@ $(function(){
 			event.stopPropagation();//阻止冒泡事件 事件名mousedown必须相同行
 		}
 	)		
+})
+ */
+
+//menu
+$(function(){
+	$(".menubox ul li").mousedown(
+		function(){
+			$(this).addClass("cur")
+			$(this).siblings().removeClass("cur")
+		}
+	)
+	var H_nav=$(".menubox").height()+12
+	$(".menubox .menu_panel dl").css("bottom",H_nav)
+
+	$("html").mousedown(
+		function(){
+			$(".menubox .menu_panel dl").slideUp(300)
+		})
+	$(".menubox .menubtn").mousedown(
+		function(event){
+			$(".menubox .menu_panel dl.menu").slideToggle(300)
+			$(".menubox .menu_panel dl.mall").slideUp(300)
+			event.stopPropagation();//阻止冒泡事件 事件名mousedown必须相同行
+		}
+	)
+	$(".menubox .mallbtn").mousedown(
+		function(event){
+			$(".menubox .menu_panel dl.mall").slideToggle(300)
+			$(".menubox .menu_panel dl.menu").slideUp(300)
+			event.stopPropagation();//阻止冒泡事件 事件名mousedown必须相同行
+		}
+	)
 })
 
 // 宽高比为3:2

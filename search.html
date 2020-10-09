@@ -146,7 +146,7 @@
 						<img src="images/menu_icon02.png" alt="音频中心" />
 						<img src="images/menu_icon02_1.png" alt="音频中心" />
 					</i>
-					<span>视频中心</span>
+					<span>音频中心</span>
 				</a>
 			</li>
 			<li>
@@ -167,6 +167,8 @@
 			</li>
 		</ul>
 		<!-- 菜单导航 -->
+		<span class="menu_panel"></span>
+		<!--
 		<dl class="menu">
 			<dd><a href="login.html">登录</a></dd>
 			<dd><a href="register.html">注册</a></dd>
@@ -174,12 +176,13 @@
 			<dd><a href="about.html">关于我们</a></dd>
 			<dd><a href="contact.html">联系我们</a></dd>
 		</dl>
+		-->
 	</div>
 
 	<!--内容动画样式js-->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
-	<script type="text/javascript" src="js/public.js"></script>
+	<!-- <script type="text/javascript" src="js/public.js"></script> -->
 	<script type="text/javascript" src="js/aos.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/static/jquery.easy_slides.js"></script>
@@ -197,7 +200,11 @@
 			})
 		});
 	</script>
-
+	<script>
+		$(function () {
+			$('.menu_panel').load('./common/menu.html')
+		})
+	</script>
 </body>
 
 </html>
