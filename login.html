@@ -384,7 +384,10 @@
 					console.log('++++++--------', data)
 					if (data.msg == 'password good') {
 						ShowSuccess('登录成功')
+						// 本地存储设置表示当前登录用户为普通用户
 						localStorage.setItem('isLogin', '0')
+						// 本地存储设置当前登录用户的用户名
+						localStorage.setItem('userName', $("#name").val())
 						let isAdminLogin = localStorage.getItem('isAdminLogin')
 						if (isAdminLogin === '0') {
 							localStorage.removeItem('isAdminLogin')

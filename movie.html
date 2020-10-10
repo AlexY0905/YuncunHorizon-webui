@@ -126,7 +126,7 @@
 			box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
 		}
 
-		#tip {
+		#tip { /* 勿删 */
 			display: inline-block;
 			min-width: 200px;
 			height: 40px;
@@ -215,7 +215,7 @@
 			<div class="audio_wrap">
 				<div class="music_item">
 
-					<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<!-- <span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
 							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
@@ -224,7 +224,7 @@
 				</div>
 				<div class="music_item">
 
-					<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<!-- <span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
 							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
@@ -233,7 +233,7 @@
 				</div>
 				<div class="music_item">
 
-					<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+					<!-- <span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
 							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
 					<!--
@@ -245,7 +245,7 @@
 				<div class="tu">
 					<div class="upLoad_btn">
 						上传音乐
-						<input id="upLoadImgIpt" type="file" alt=""> <!-- audio/* -->
+						<input id="upLoadImgIpt" type="file" accept="audio/*" alt=""> <!-- audio/* -->
 					</div>
 				</div>
 				<div class="downLoad_btn_wrap">
@@ -339,13 +339,15 @@
 
 	<script>
 		$(function () {
+			// 获取本地存储的 isLogin 来验证当前用户是否登录了 (如果能获取到, 则说明登录了)
 			let isLogin = localStorage.getItem("isLogin")
+			// 获取本地存储的 isAdminLogin 来验证当前管理员是否登录了 (如果能获取到, 则说明登录了)
 			let isAdminLogin = localStorage.getItem("isAdminLogin")
 			/**
 			 * 音乐上传
 			 */
-			// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
-			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
+			// var oUploadImg = document.querySelector("#uploadImg") // 获取uploaImg节点,
+			var oFile = document.querySelector("#upLoadImgIpt"); // 获取input file节点
 			oFile.addEventListener('change', function () {
 				if (isLogin || isAdminLogin) { // 已登录
 					var file = this.files[0];
@@ -381,7 +383,7 @@
 						console.log(2222222222, formData.get('file'));
 						*/
 						$.ajax({
-							type: "post",
+							type: "",
 							url: '',
 							data: {},
 							dataType: 'json',
@@ -434,15 +436,17 @@
 				let mp3DataList = ['./audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3', './audio/如果当时.mp3']
 				let html = ''
 				mp3DataList.forEach((item, index) => {
-					var audioElement = new Audio(item);//audio也可获取视频的时长
-					var duration;
-					var mp3Time
+					var audioElement = new Audio(item); // audio也可获取视频的时长
+					var duration
 					audioElement.addEventListener("loadedmetadata", function (_event) {
 						duration = audioElement.duration;
-						mp3Time = (duration / 60).toFixed(2).split('.')
+						// 分钟
+						var minute = parseInt(duration / 60);
+						// 秒
+						var second = Math.round(duration % 60);
 						html += `
 									<div class="music_item">
-										<span>如果当时</span><span class="music_date">0${mp3Time[0]}:${mp3Time[1]}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
+										<span>如果当时</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item}"></audio></span>
 									</div>
 								`
 						$('.audio_wrap').html(html)
@@ -455,20 +459,16 @@
 			/**
 			 * 控制音乐播放和暂停
 			 */
-			//播放完毕
-			$('.mp3Btn').on('ended', function () {
-				console.log("音频已播放完成");
-				$('.btn-audio').css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
-			})
+
 			var timer = ''
 			let cur = ''
 			let temp = ''
 			let minute = ''
 			$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
-				event.stopPropagation();//防止冒泡
+				event.stopPropagation(); // 防止冒泡
 				let audio = $(this).find('audio')[0]
 				console.log(audio);
-				if (audio.paused) { //如果当前是暂停状态
+				if (audio.paused) { // 如果当前是暂停状态
 					$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
 					timer = setInterval(function () {
 						cur = String(audio.currentTime).split('.')[0]
@@ -480,12 +480,17 @@
 							$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
 						}
 					}, 1000)
-					audio.play(); //播放
+					audio.play(); // 播放
+					// 播放完毕
+					$(this).children('.mp3Btn').on('ended', function () {
+						console.log("音频已播放完成");
+						$(this).parent().css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+					})
 					return;
-				} else {//当前是播放状态
+				} else { // 当前是播放状态
 					$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
 					clearInterval(timer)
-					audio.pause(); //暂停
+					audio.pause(); // 暂停
 				}
 			})
 

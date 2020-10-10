@@ -391,7 +391,10 @@
                     console.log('++++++--------', data)
                     if (data.msg == 'password good') {
                         ShowSuccess('登录成功')
+                        // 本地存储设置表示此登陆者为管理员
                         localStorage.setItem('isAdminLogin', '0')
+                        // 本地存储设置当前登录用户的用户名
+                        localStorage.setItem('userName', $("#name").val())
                         let isLogin = localStorage.getItem('isLogin')
                         if (isLogin === '0') {
                             localStorage.removeItem('isLogin')

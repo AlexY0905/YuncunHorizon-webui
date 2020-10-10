@@ -11,6 +11,8 @@
     <!--内容动画样式库-->
     <!-- js -->
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <!--简单弹出框-->
+    <script type="text/javascript" src="./js/static/message.js"></script>
     <style>
         .fold_panel{margin:10px auto; width:94%; height: auto;}
         .fold_panel .user_item {
@@ -46,6 +48,16 @@
             transform: rotate(90deg);
         }
          */
+        #tip { /* 勿删 */
+            display: inline-block;
+            min-width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 5px;
+        }
         .coll_body {
             display: none;
             background: #fff;
@@ -62,6 +74,41 @@
         }
         /*.coll_body a{display:block; margin:10px; text-align: center; background: #ebebeb;}*/
         /*.current{background-image:url(images/pro_down.png);}*/
+        .search_box {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+        .tus {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .searchTerm {
+            width: 100%;
+            /* border: 3px solid #00B4CC; */
+            border: 2px solid #0083c3;
+            border-right: none;
+            padding: 6px;
+            height: 20px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .searchButton {
+            width: 40px;
+            height: 36px;
+            /* border: 1px solid #00B4CC; */
+            border: 1px solid#0083c3;
+            /* background: #00B4CC; */
+            background: #0083c3;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .searchButton img {
+            width: 20px;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +129,14 @@
         <!-- 子页banner尺寸640x240 -->
         <img src="images/space2.jpg" style="width: 100%;min-height: 3rem">
     </div>
+    <!-- 搜索 开始 -->
+    <div class="search_box tus">
+        <input type="text" class="searchTerm keyWord_ipt" placeholder="请输入手机号搜索">
+        <button type="submit" class="searchButton">
+            <img src="./images/search.png" alt="">
+        </button>
+    </div>
+    <!-- 搜索 结束 -->
     <div class="fold_panel">
         <div class="user_item">
             <div class="Collapsing current">
@@ -330,6 +385,61 @@
 </script>
 <script type="text/javascript">
     $(function(){
+        // 搜索
+        $('.searchButton').on('click', function () {
+            if ($('.keyWord_ipt').val() !== '') { // 发请求, 搜索数据
+                console.log($('.keyWord_ipt').val());
+                $.ajax({
+                    type: "",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    url: "",  // http://192.168.1.105:9000/
+                    data: {},
+                    success: function (result) {
+                        console.log('++++++--------', result)
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+            } else {
+                ShowFailure('请输入手机号')
+            }
+        })
+
+        function getUserList () {
+            $.ajax({
+                type: "get",
+                dataType: 'json',
+                contentType: 'application/json',
+                url: "http://192.168.1.105:9000/v1/showalluser",
+                data: {},
+                success: function (result) {
+                    console.log('++++++--------', result)
+                },
+                error: function () {
+                    ShowFailure('网络错误, 请稍后再试 !')
+                }
+            })
+        }
+        getUserList()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************************************************************************/
+        // 折叠面板
         $(".coll_body").eq(0).show();
         $(".Collapsing").click(function(){
             // 切换图标
