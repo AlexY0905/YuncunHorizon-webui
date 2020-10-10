@@ -138,6 +138,7 @@
     </div>
     <!-- 搜索 结束 -->
     <div class="fold_panel">
+        <!--
         <div class="user_item">
             <div class="Collapsing current">
                 <div>
@@ -312,6 +313,8 @@
                 </div>
             </div>
         </div>
+        -->
+
     </div>
 </div>
 
@@ -390,13 +393,38 @@
             if ($('.keyWord_ipt').val() !== '') { // 发请求, 搜索数据
                 console.log($('.keyWord_ipt').val());
                 $.ajax({
-                    type: "",
+                    type: "get",
                     dataType: 'json',
                     contentType: 'application/json',
-                    url: "",  // http://192.168.1.105:9000/
-                    data: {},
+                    url: "http://192.168.1.105:9000/v1/selectuserByphone",  // http://192.168.1.105:9000/
+                    data: {
+                        phone: $('.keyWord_ipt').val()
+                    },
                     success: function (result) {
                         console.log('++++++--------', result)
+                        let html = `
+                        <div class="user_item">
+                            <div class="Collapsing current">
+                                <div>
+                                    <img src="./images/static/user_icon.png" style="width: 25px">
+                                    <span>${result.Name}</span>
+                                </div>
+                                <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
+                            </div>
+                            <div class="coll_body" style="display: block">
+                                <div class="userName">
+                                    <span>用户名</span> : <span>${result.Name}</span>
+                                </div>
+                                <div class="tel">
+                                    <span>手机号</span> : <span>${result.Tel}</span>
+                                </div>
+                                <div class="email">
+                                    <span>邮箱</span> : <span>${result.Email}</span>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                        $('.fold_panel').html(html)
                     },
                     error: function () {
                         ShowFailure('网络错误, 请稍后再试 !')
@@ -406,7 +434,7 @@
                 ShowFailure('请输入手机号')
             }
         })
-
+        // 获取用户列表数据
         function getUserList () {
             $.ajax({
                 type: "get",
@@ -416,6 +444,57 @@
                 data: {},
                 success: function (result) {
                     console.log('++++++--------', result)
+                    let html = ''
+                    result.forEach((item, index) => {
+                        if (index === 0) {
+                            html += `
+                            <div class="user_item">
+                                <div class="Collapsing current">
+                                    <div>
+                                        <img src="./images/static/user_icon.png" style="width: 25px">
+                                        <span>${item.Name}</span>
+                                    </div>
+                                    <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
+                                </div>
+                                <div class="coll_body" style="display: block">
+                                    <div class="userName">
+                                        <span>用户名</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="tel">
+                                        <span>手机号</span> : <span>${item.Tel}</span>
+                                    </div>
+                                    <div class="email">
+                                        <span>邮箱</span> : <span>${item.Email}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                        } else {
+                            html += `
+                            <div class="user_item">
+                                <div class="Collapsing">
+                                    <div>
+                                        <img src="./images/static/user_icon.png" style="width: 25px">
+                                        <span>${item.Name}</span>
+                                    </div>
+                                    <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
+                                </div>
+                                <div class="coll_body">
+                                    <div class="userName">
+                                        <span>用户名</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="tel">
+                                        <span>手机号</span> : <span>${item.Tel}</span>
+                                    </div>
+                                    <div class="email">
+                                        <span>邮箱</span> : <span>${item.Email}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                        }
+                    })
+                    $('.fold_panel').html(html)
                 },
                 error: function () {
                     ShowFailure('网络错误, 请稍后再试 !')
@@ -424,24 +503,26 @@
         }
         getUserList()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /********************************************************************************************************************************************/
         // 折叠面板
-        $(".coll_body").eq(0).show();
+        /*
         $(".Collapsing").click(function(){
+            // 切换图标
+            // $(this).toggleClass("current").siblings('.Collapsing').removeClass("current");
+            // $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
+            // 切换图标
+            $(this).toggleClass("current").parent('.user_item').siblings('.user_item').children('.Collapsing').removeClass("current");
+            $(this).next(".coll_body").slideToggle(500).parent('.user_item').siblings('.user_item').children('.coll_body').slideUp(500)
+            if ($(this).hasClass('current')) {
+                $(this).children('.arrow').attr('src', './images/static/jiantou_down.png')
+                $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
+            } else {
+                $(this).children('.arrow').attr('src', './images/static/jiantou.png')
+                $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
+            }
+        });
+        */
+        $('.fold_panel').on('click', '.Collapsing', function () {
             // 切换图标
             /*
             $(this).toggleClass("current").siblings('.Collapsing').removeClass("current");
@@ -457,7 +538,7 @@
                 $(this).children('.arrow').attr('src', './images/static/jiantou.png')
                 $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
             }
-        });
+        })
     });
 </script>
 </body>
