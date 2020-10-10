@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="耘存科技" http-equiv="keywords">
+    <meta name="description" content="耘存科技">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>管理中心</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <!--内容动画样式库-->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <style>
+        .admin_panel {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
+        .admin_box ul li {
+            width: 100%;
+            min-height: 38px;
+            background: #fff;
+            box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
+            border-radius: 5px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 5px;
+        }
+        .admin_box ul li div {
+            display: flex;
+            align-items: center;
+        }
+        .admin_box ul li img {
+            width: 25px;
+        }
+        .admin_box ul li .arrow {
+            width: 20px;
+        }
+        .admin_box ul li span {
+            font-size: 14px;
+            margin-left: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="top_bg">
+    <div class="top_main fix">
+        <div class="top_logo">
+            <a href="index.html"><img src="images/yclogo.png" /></a>
+        </div>
+        <div class="top_search">
+            <a href="search.html"><span></span></a>
+        </div>
+    </div>
+</div>
+<!-- contentbox -->
+<div class="contentbox" style="min-height: 450px">
+    <!--顶部背景图-->
+    <div class="zy_banner">
+        <!-- 子页banner尺寸640x240 -->
+        <img src="images/space.jpg" style="width: 100%;min-height: 3rem">
+    </div>
+    <div class="admin_panel">
+        <div class="admin_box">
+            <ul>
+                <a href="userManage.html"><li><div><img src="./images/static/user_icon.png" alt=""><span>用户管理</span></div><img class="arrow" src="./images/static/jiantou.png"></li></a>
+                <a href="#"><li><div><img src="./images/static/file_icon.png" alt=""><span>文件管理</span></div><img class="arrow" src="./images/static/jiantou.png"></li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="footbox">
+    <h2>
+        <a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+    </h2>
+    <div class="txt">
+        <!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
+        <p>CopyRight © Shanghai Yuncun Science and Technology Development Co., LTD</p>
+        <!-- <p>联系地址:上海市静安区平型关路108创意广场品座37号5楼</p> -->
+        <p>Address: 5 / F, No.37 pingxingguan Block, 108 Pingxingguan Road, Jing 'an District, Shanghai</p>
+    </div>
+</div>
+
+<!-- 底部菜单 -->
+<div class="menubox">
+    <ul class="fix" style="display: flex">
+        <li>
+            <a href="index.html">
+                <i>
+                    <img src="images/menu_icon01.png" alt="首页" />
+                    <img src="images/menu_icon01_1.png" alt="首页" />
+                </i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="video.html">
+                <i>
+                    <img src="images/menu_icon02.png" alt="音频中心" />
+                    <img src="images/menu_icon02_1.png" alt="音频中心" />
+                </i>
+                <span>音频中心</span>
+            </a>
+        </li>
+        <li>
+            <a href="search.html">
+                <i>
+                    <img src="images/icon_search2.png" alt="搜索" />
+                    <img src="images/icon_search2.png" alt="搜索" />
+                </i>
+                <span>搜索</span>
+            </a>
+        </li>
+        <li class="menubtn">
+            <i>
+                <img src="images/menu_icon04.png" alt="菜单" />
+                <img src="images/menu_icon04_1.png" alt="菜单" />
+            </i>
+            <span>菜单</span>
+        </li>
+    </ul>
+    <!-- 菜单导航 -->
+    <span class="menu_panel"></span>
+    <!--
+    <dl class="menu">
+        <dd><a href="login.html">登录</a></dd>
+        <dd><a href="register.html">注册</a></dd>
+        <dd><a href="video.html">音频中心</a></dd>
+        <dd><a href="about.html">关于我们</a></dd>
+        <dd><a href="contact.html">联系我们</a></dd>
+    </dl>
+    -->
+</div>
+
+<!--内容动画样式js-->
+<script type="text/javascript" src="js/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-out-back',
+        duration: 1000
+    });
+    $(function () {
+        $('.menu_panel').load('./common/menu.html')
+    })
+</script>
+</body>
+</html>

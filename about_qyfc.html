@@ -340,16 +340,17 @@
 	<script>
 		$(function () {
 			let isLogin = localStorage.getItem("isLogin")
+			let isAdminLogin = localStorage.getItem('isAdminLogin')
 			/**
 			 * 音乐上传
 			 */
 			// var oUploadImg = document.querySelector("#uploadImg") //获取uploaImg节点,
 			var oFile = document.querySelector("#upLoadImgIpt"); //获取input file节点
 			oFile.addEventListener('change', function () {
-				if (isLogin) { // 已登录
+				if (isLogin || isAdminLogin) { // 已登录
 					var file = this.files[0];
 					console.log('+++++++++++', file);
-					if (file.type.indexOf("audio") == 0) {
+					if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
 						/*
 						var reader = new FileReader(); //创建FileReader对象实例reader
 						reader.readAsDataURL(file); //将图片url转换为base64码

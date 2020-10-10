@@ -384,7 +384,11 @@
 					console.log('++++++--------', data)
 					if (data.msg == 'password good') {
 						ShowSuccess('登录成功')
-						localStorage.setItem('isLogin', 0)
+						localStorage.setItem('isLogin', '0')
+						let isAdminLogin = localStorage.getItem('isAdminLogin')
+						if (isAdminLogin === '0') {
+							localStorage.removeItem('isAdminLogin')
+						}
 						setTimeout(() => {
 							window.location.href = './index.html'
 						})

@@ -390,9 +390,12 @@
                 success: function (data) {
                     console.log('++++++--------', data)
                     if (data.msg == 'password good') {
-                        ShowFailure('登录成功')
-                        localStorage.setItem('isLogin', 0)
-                        localStorage.setItem('isAdminLogin', 0)
+                        ShowSuccess('登录成功')
+                        localStorage.setItem('isAdminLogin', '0')
+                        let isLogin = localStorage.getItem('isLogin')
+                        if (isLogin === '0') {
+                            localStorage.removeItem('isLogin')
+                        }
                         setTimeout(() => {
                             window.location.href = './index.html'
                         })

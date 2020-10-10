@@ -20,17 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_qyfc_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc_xq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminRegister.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminRegister.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_xq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
@@ -43,6 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -58,11 +55,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui" />
       <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\common" />
     </key>
   </component>
@@ -74,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602208933457</updated>
-      <workItem from="1602208934516" duration="3164000" />
+      <workItem from="1602208934516" duration="27927000" />
     </task>
     <servers />
   </component>
@@ -91,5 +90,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602235902140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602235902140" />
   </component>
 </project>
