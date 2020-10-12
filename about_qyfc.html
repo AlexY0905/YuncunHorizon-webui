@@ -274,19 +274,20 @@
                     <input id="upLoadImgIpt" type="file" accept="audio/*" alt="">
                 </div>
                 -->
-					<form class="upLoad_form" action="http://127.0.0.1:9000/v2/addMusic",  method="post" enctype="multipart/form-data">
+					<form class="upLoad_form" action="http://127.0.0.1:9000/v2/addMusic",  method="post" enctype="multipart/form-data" target="target">
 						<!--
                         <input class="fileName_ipt" type="text" value="aaaaa" name="name"/>
                         <input class="userName_ipt" type="text" value="yst" name="username"/>
                         -->
-						<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px"  autocomplete="off" />
-						<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px"  autocomplete="off" />
+						<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px;display: none"  autocomplete="off" />
+						<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px;display: none"  autocomplete="off" />
 						<div style="position: relative">
 							<button class="btn">选择文件</button>
 							<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" />
 						</div>
 						<input class="btn_ipt btn" type="submit" value="确认上传" />
 					</form>
+					<iframe name="target" id="target" style="display: none"></iframe>
 				</div>
 				<div class="downLoad_btn_wrap">
 					<button class="btn">下载</button>
@@ -383,6 +384,8 @@
 			let isLogin = localStorage.getItem("isLogin")
 			// 获取本地存储的 isAdminLogin 来验证当前管理员是否登录了 (如果能获取到, 则说明登录了)
 			let isAdminLogin = localStorage.getItem('isAdminLogin')
+			// 获取本地存储的 当前用户登录的用户名
+			let localUserName = localStorage.getItem('userName')
 			/**
 			 * 音乐上传
 			 */
@@ -391,61 +394,55 @@
 			oFile.addEventListener('change', function () {
 				if (isLogin || isAdminLogin) { // 已登录
 					var file = this.files[0];
-					console.log('+++++++++++', file);
-					if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
-						/*
-						var reader = new FileReader(); //创建FileReader对象实例reader
-						reader.readAsDataURL(file); //将图片url转换为base64码
-						reader.onload = function (e) {
-							var newUrl = this.result;
-							// 获取到了转换base64位格式后的图片
-							console.log(11111111111, newUrl);
-							// oUploadImg.style.backgroundImage = 'url('+newUrl+')';
-							// 发请求, 上传图片到服务器
-							$.ajax({
-								type: "post",
-								url: '',
-								data: {},
-								dataType: 'json', // 返回值类型 一般设置为json
-								success: function (result) {
-									console.log(result);
-								},
-								error: function () {
-									console.log("后台处理错误");
-								}
-							})
-						}
-						*/
-						/*
-						var val
-						var formData = new FormData();
-						formData.append('file', file)
-						console.log(2222222222, formData.get('file'));
-						*/
-						/*
-						$.ajax({
-							type: "post",
-							url: '',
-							data: {},
-							dataType: 'json',
-							beforeSend: function () {
-								// 显示loading提示
-								$('.mask_wrap').show()
-							},
-							success: function (result) {
-								// 关闭loading提示
-								$('.mask_wrap').hide()
-								console.log(result);
-							},
-							error: function () {
-								// 关闭loading提示
-								$('.mask_wrap').hide()
-								// ShowFailure('上传失败, 请稍后再试 !')
-							}
-						})
-						*/
-					} else {
-						ShowFailure('请上传mp3格式的文件')
+					/*
+                    if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
+                        // var val
+                        // var formData = new FormData();
+                        // formData.append('file', file)
+                        // console.log(2222222222, formData.get('file'));
+                        $.ajax({
+                            type: "",
+                            url: '',
+                            data: {},
+                            dataType: 'json',
+                            beforeSend: function () {
+                                // 显示loading提示
+                                $('.mask_wrap').show()
+                            },
+                            success: function (result) {
+                                // 关闭loading提示
+                                $('.mask_wrap').hide()
+                                console.log(result);
+                            },
+                            error: function () {
+                                // 关闭loading提示
+                                $('.mask_wrap').hide()
+                                // ShowFailure('上传失败, 请稍后再试 !')
+                            }
+                        })
+                        let maxSize = 15
+                        if (file.size / 1024 / 1024 >= maxSize) { // 允许上传
+                        } else { // 不允许上传
+                            ShowFailure('上传的文件不能小于 15M!')
+                        }
+                    } else {
+                        ShowFailure('请上传mp3格式的文件!')
+                    }
+                    */
+					let maxSize = 15
+					if (file.name.indexOf("mp3") == -1) {
+						ShowFailure('请上传mp3格式的文件!')
+						return false
+					}/* else if (file.size / 1024 / 1024 < maxSize) {
+						ShowFailure("上传的文件不能小于 15M !")
+						return false
+					}*/ else { // 可以上传
+						console.log('+++++++++++', file);
+						let fileName = file.name.split('.')[0]
+						console.log('::::--------', fileName);
+						console.log('::::--------', localUserName);
+						$('.fileName_ipt').val(fileName)
+						$('.userName_ipt').val(localUserName)
 					}
 				} else { // 未登录
 					ShowFailure('请先登录 ~')
@@ -453,7 +450,11 @@
 						window.location.href = './login.html'
 					})
 				}
-
+			})
+			$('.btn_ipt').on('click', function () {
+				$('#target').load(function () {
+					console.log('++++++======', $(this));
+				})
 			})
 
 			/**
