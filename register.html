@@ -23,8 +23,9 @@
 	<!-- icon -->
 	<link rel="stylesheet" href="./css/static/demo.css">
 	<link rel="stylesheet" href="./css/static/iconfont.css">
+	<!--简单弹出框-->
+	<script type="text/javascript" src="./js/static/message.js"></script>
 	<title>用户注册</title>
-
 	<style>
 		body {
 			background-image: url("./images/block7.png");
@@ -205,6 +206,16 @@
 		}
 
 		/* -----------头部导航------------------- */
+		#tip { /* 勿删  配合简单提示框用的样式 */
+			display: inline-block;
+			min-width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 20px;
+			/*color: #fff;*/
+			font-size: 14px;
+			border-radius: 5px;
+		}
 	</style>
 
 
@@ -612,7 +623,7 @@
 										 */
 									},
 									error: function (err) {
-										console.log('失败============', err)
+										ShowFailure('网络错误, 稍后再试 !')
 									}
 								})
 							}

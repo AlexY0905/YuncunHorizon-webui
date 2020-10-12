@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminRegister.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminRegister.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
@@ -76,7 +73,7 @@
       <updated>1602208933457</updated>
       <workItem from="1602208934516" duration="27927000" />
       <workItem from="1602292993311" duration="28281000" />
-      <workItem from="1602465395015" duration="499000" />
+      <workItem from="1602465395015" duration="1734000" />
     </task>
     <servers />
   </component>
