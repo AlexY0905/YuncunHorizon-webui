@@ -21,8 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminRegister.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminRegister.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +56,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -69,7 +75,8 @@
       <option name="presentableId" value="Default" />
       <updated>1602208933457</updated>
       <workItem from="1602208934516" duration="27927000" />
-      <workItem from="1602292993311" duration="27700000" />
+      <workItem from="1602292993311" duration="28281000" />
+      <workItem from="1602465395015" duration="499000" />
     </task>
     <servers />
   </component>

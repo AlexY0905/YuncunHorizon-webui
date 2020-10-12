@@ -36,7 +36,7 @@
 		.tu {
 			position: relative;
 			width: 100%;
-			height: 42px;
+			min-height: 42px;
 			margin-top: 10%;
 			display: flex;
 			justify-content: center;
@@ -57,7 +57,7 @@
 			letter-spacing: 2px;
 			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
 		}
-
+		/*
 		.tu input {
 			position: absolute;
 			top: 20px;
@@ -66,7 +66,7 @@
 			height: 40px;
 			opacity: 0;
 		}
-
+		*/
 		.tus {
 			width: 80%;
 			margin: 20px auto;
@@ -175,6 +175,31 @@
 			/*fill: #FF6700;*/
 			fill: #0083c3;
 		}
+
+		.upLoad_form {
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+		}
+		.upLoad_form input {
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+			height: 30px;
+		}
+		.upLoad_form .btn_ipt {
+			border: none;
+		}
+		.upLoad_form .upLoad_ipt {
+			position: absolute;
+			top: 24px;
+			left: 0;
+			width: 100%;
+			opacity: 0;
+		}
+		.upLoad_form .btn {
+			width: 100%;
+			height: 40px;
+		}
 	</style>
 </head>
 
@@ -243,10 +268,25 @@
 			</div>
 			<div style="margin-top: 50px">
 				<div class="tu">
-					<div class="upLoad_btn">
-						上传音乐
-						<input id="upLoadImgIpt" type="file" accept="audio/*" alt=""> <!-- audio/* -->
-					</div>
+					<!--
+                <div class="upLoad_btn">
+                    上传音乐
+                    <input id="upLoadImgIpt" type="file" accept="audio/*" alt="">
+                </div>
+                -->
+					<form class="upLoad_form" action="http://127.0.0.1:9000/v2/addMusic",  method="post" enctype="multipart/form-data">
+						<!--
+                        <input class="fileName_ipt" type="text" value="aaaaa" name="name"/>
+                        <input class="userName_ipt" type="text" value="yst" name="username"/>
+                        -->
+						<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px"  autocomplete="off" />
+						<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px"  autocomplete="off" />
+						<div style="position: relative">
+							<button class="btn">选择文件</button>
+							<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" />
+						</div>
+						<input class="btn_ipt btn" type="submit" value="确认上传" />
+					</form>
 				</div>
 				<div class="downLoad_btn_wrap">
 					<button class="btn">下载</button>
@@ -382,6 +422,7 @@
 						formData.append('file', file)
 						console.log(2222222222, formData.get('file'));
 						*/
+						/*
 						$.ajax({
 							type: "post",
 							url: '',
@@ -402,6 +443,7 @@
 								// ShowFailure('上传失败, 请稍后再试 !')
 							}
 						})
+						*/
 					} else {
 						ShowFailure('请上传mp3格式的文件')
 					}
