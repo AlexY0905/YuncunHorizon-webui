@@ -463,12 +463,12 @@
 			})
 			*/
 			if (file != '') {
-				let maxSize = 32
+				let maxSize = 50
 				if (file.name.indexOf("mp3") == -1) {
 					ShowFailure('请上传mp3格式的文件!')
 					return false
-				} else if (file.size / 1024 / 1024 > maxSize) {
-					ShowFailure("上传的文件不能大于 32M !")
+				} else if (file.size / 1024 / 1024 < maxSize) {
+					ShowFailure("上传的文件不能小于 50M !")
 					return false
 				}
 				if ($('.fileName_ipt').val() == '') {
