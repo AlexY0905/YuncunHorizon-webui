@@ -192,7 +192,7 @@
 		}
 		.upLoad_form .upLoad_ipt {
 			position: absolute;
-			top: 24px;
+			top: 50px;
 			left: 0;
 			width: 100%;
 			opacity: 0;
@@ -203,9 +203,7 @@
 		}
 		.fileName_box {
 			width: 100%;
-			height: 30px;
 			line-height: 30px;
-			background: red;
 		}
 		.music_wrap audio {
 			width: 100%;
@@ -277,7 +275,7 @@
 			</div>
 		</div>
 		<div style="margin-top: 50px">
-<!--			<div class="fileName_box">如果当时.mp3</div>-->
+
 			<div class="tu">
 				<!--
                 <div class="upLoad_btn">
@@ -285,7 +283,7 @@
                     <input id="upLoadImgIpt" type="file" accept="audio/*" alt="">
                 </div>
                 -->
-				<form class="upLoad_form" action="http://61.147.123.84:9000/v2/addMusic", method="post" enctype="multipart/form-data">
+				<form class="upLoad_form" action="http://61.147.123.84:9000/v2/addMusic", method="post" enctype="multipart/form-data"> <!--  target="target" -->
 					<!--
                     <input class="fileName_ipt" type="text" value="aaaaa" name="name"/>
                     <input class="userName_ipt" type="text" value="yst" name="username"/>
@@ -293,8 +291,9 @@
 					<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px" autocomplete="off" oninput='this.value=this.value.replace(" ", "");'/>
 					<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px" autocomplete="off" />
 					<div style="position: relative">
+						<div class="fileName_box"><span>选择的文件 : </span><span class="upLoad_fileName"></span></div>
 						<button class="btn">选择文件</button>
-						<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" />
+						<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" style="height: 40px" />
 					</div>
 					<input class="btn_ipt btn" type="submit" value="确认上传" />
 				</form>
@@ -385,7 +384,7 @@
 					<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
 									  to="360 25 25" dur="0.6s" repeatCount="indefinite" />
 				</path>
-			</svg>
+		</svg>
 	</div>
 </div>
 <div class="music_wrap" style="width: 100px; height: 100px; background: red;"></div>
@@ -407,6 +406,7 @@
 		oFile.addEventListener('change', function () {
 			if (isLogin || isAdminLogin) { // 已登录 (允许上传)
 				file = this.files[0];
+				$('.upLoad_fileName').html(file.name)
 				/*
 				if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
                     // var val
@@ -463,7 +463,6 @@
 					return false
 				} else { $('.btn_ipt').show() }
 				*/
-
 				/*
 				else {
 					console.log('+++++++++++', file);
@@ -474,7 +473,6 @@
 					$('.userName_ipt').val(localUserName)
 				}
 				*/
-
 			} else { // 未登录 (不允许上传)
 				ShowFailure('请先登录 ~')
 				setTimeout(() => {

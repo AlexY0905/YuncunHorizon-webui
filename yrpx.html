@@ -191,7 +191,7 @@
 		}
 		.upLoad_form .upLoad_ipt {
 			position: absolute;
-			top: 24px;
+			top: 50px;
 			left: 0;
 			width: 100%;
 			opacity: 0;
@@ -199,6 +199,10 @@
 		.upLoad_form .btn {
 			width: 100%;
 			height: 40px;
+		}
+		.fileName_box {
+			width: 100%;
+			line-height: 30px;
 		}
 	</style>
 </head>
@@ -282,8 +286,9 @@
 					<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px;"  autocomplete="off" />
 					<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px;"  autocomplete="off" />
 					<div style="position: relative">
+						<div class="fileName_box"><span>选择的文件 : </span><span class="upLoad_fileName"></span></div>
 						<button class="btn">选择文件</button>
-						<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" />
+						<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" style="height: 40px" />
 					</div>
 					<input class="btn_ipt btn" type="submit" value="确认上传" />
 				</form>
@@ -395,6 +400,7 @@
 			oFile.addEventListener('change', function () {
 			if (isLogin || isAdminLogin) { // 已登录 (允许上传)
 				file = this.files[0];
+				$('.upLoad_fileName').html(file.name)
 				/*
 				if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
                     // var val
