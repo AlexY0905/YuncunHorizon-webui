@@ -166,8 +166,10 @@
 			text-align: center;
 			padding: 1em;
 			margin: 0 auto 1em;
-			display: inline-block;
-			vertical-align: top;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
 
 		svg path,
@@ -275,7 +277,7 @@
 				<!--
                 <div class="upLoad_btn">
                     上传音乐
-                    <input id="upLoadImgIpt" type="file" accept="audio/*" alt="">
+                    <input id="upLoadFileIpt" type="file" accept="audio/*" alt="">
                 </div>
                 -->
 				<form class="upLoad_form" action="http://61.147.123.84:9000/v2/addImitation",  method="post" enctype="multipart/form-data" > <!-- target="target" -->
@@ -288,9 +290,10 @@
 					<div style="position: relative">
 						<div class="fileName_box"><span>选择的文件 : </span><span class="upLoad_fileName"></span></div>
 						<button class="btn">选择文件</button>
-						<input class="upLoad_ipt" id="upLoadImgIpt" type="file" name="upload" style="height: 40px" />
+						<input class="upLoad_ipt" id="upLoadFileIpt" type="file" name="upload" style="height: 40px" />
 					</div>
-					<input class="btn_ipt btn" type="submit" value="确认上传" />
+					<!-- <input class="btn_ipt btn" type="submit" value="确认上传" /> -->
+					<input class="btn_ipt btn" type="button" value="确认上传" />
 				</form>
 				<!-- <iframe name="target" id="target" style="display: none"></iframe> -->
 			</div>
@@ -379,7 +382,9 @@
 					<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
 									  to="360 25 25" dur="0.6s" repeatCount="indefinite" />
 				</path>
-			</svg>
+		</svg>
+		<!-- 上传的进度 (百分比) -->
+		<div id="progressNumber" style="width: 50px;line-height: 30px;color: #fff"></div>
 	</div>
 </div>
 
@@ -395,7 +400,7 @@
 			 * 音乐上传
 			 */
 			// var oUploadImg = document.querySelector("#uploadImg") // 获取uploaImg节点,
-			var oFile = document.querySelector("#upLoadImgIpt"); // 获取input file节点
+			var oFile = document.querySelector("#upLoadFileIpt"); // 获取input file节点
 			var file = ''
 			oFile.addEventListener('change', function () {
 			if (isLogin || isAdminLogin) { // 已登录 (允许上传)
@@ -485,11 +490,36 @@
 					return false
 				}
 				$('.mask_wrap').show()
+				// 开始上传文件
+				uploadFile()
 			} else {
 				ShowFailure("请选择上传的文件 !")
 				return false
 			}
 		})
+		function uploadFile() {
+			var fd = new FormData();
+			fd.append('name', $('.fileName_ipt').val())
+			fd.append('username', $('.userName_ipt').val())
+			fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
+			console.log('::::::::::---------', fd.get('name'));
+			console.log('::::::::::---------', fd.get('username'));
+			console.log('::::::::::---------', fd.get('upload'));
+			var xhr = new XMLHttpRequest();
+			// 监听服务器的响应
+			xhr.addEventListener("load", uploadComplete, false);
+			xhr.addEventListener("error", uploadFailed, false);
+			xhr.open("POST", "http://61.147.123.84:9000/v2/addImitation");
+			xhr.send(fd);
+		}
+		function uploadComplete(evt) {
+			/* 当服务器响应后，这个事件就会被触发 */
+			console.log('服务器响应了++++++++++', evt.target.responseText)
+			ShowSuccess(evt.target.responseText)
+		}
+		function uploadFailed(evt) {
+			ShowFailure('文件上传错误 !')
+		}
 
 			/**
 			 * 获取音乐列表
