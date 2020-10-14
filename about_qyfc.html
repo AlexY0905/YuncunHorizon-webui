@@ -233,7 +233,8 @@
 		<!-- 中间内容开始 -->
 		<div class="zy_content padding_03">
 			<div class="search_box tus">
-				<input type="text" class="searchTerm keyWord_ipt" placeholder="搜索" style="color: #333">
+				<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;">
+				<input type="text" class="searchTerm search_fileType_ipt" placeholder="文件类型例如mp3/mp4" style="color: #333;border-right : none;">
 				<button type="submit" class="searchButton">
 					<img src="./images/search.png" alt="">
 				</button>
@@ -384,7 +385,7 @@
 				</path>
 			</svg>
 			<!-- 上传的进度 (百分比) -->
-			<div id="progressNumber" style="width: 50px;line-height: 30px;color: #fff"></div>
+			<div id="progressNumber" style="width: 50px;line-height: 30px;color: #fff">搜索中 ... </div>
 		</div>
 	</div>
 
@@ -402,9 +403,11 @@
 			// var oUploadImg = document.querySelector("#uploadImg") // 获取uploaImg节点,
 			var oFile = document.querySelector("#upLoadFileIpt"); // 获取input file节点
 			var file = ''
+			var fileType = ''
 			oFile.addEventListener('change', function () {
 				if (isLogin || isAdminLogin) { // 已登录 (允许上传)
 					file = this.files[0];
+					fileType = file.name.split('.')[1]
 					$('.upLoad_fileName').html(file.name)
 					/*
                     if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
@@ -475,8 +478,8 @@
                 */
 				if (file != '') {
 					let maxSize = 50
-					if (file.name.indexOf("mp3") == -1) {
-						ShowFailure('请上传mp3格式的文件!')
+					if (file.name.indexOf("mp3") == -1 && file.name.indexOf("mp4") == -1) {
+						ShowFailure('请上传mp3或者mp4格式的文件 !')
 						return false
 					} else if (file.size / 1024 / 1024 < maxSize) {
 						ShowFailure("上传的文件不能小于 50M !")
@@ -501,9 +504,11 @@
 				var fd = new FormData();
 				fd.append('name', $('.fileName_ipt').val())
 				fd.append('username', $('.userName_ipt').val())
+				fd.append('type', fileType)
 				fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
 				console.log('::::::::::---------', fd.get('name'));
 				console.log('::::::::::---------', fd.get('username'));
+				console.log('::::::::::---------', fd.get('type'));
 				console.log('::::::::::---------', fd.get('upload'));
 				var xhr = new XMLHttpRequest();
 				// 监听服务器的响应
@@ -604,40 +609,112 @@
 			 * 搜索
 			 */
 			$('.searchButton').on('click', function () {
-				let name = $('.keyWord_ipt').val()
-				//$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchMusic?name=${name}" controls></audio>`)
-				/*
-				var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}`); // audio也可获取视频的时长
-				console.log('lalal=====', audioElement);
-				var duration
-				audioElement.addEventListener("loadedmetadata", function (_event) {
-					duration = audioElement.duration;
-					// 分钟
-					var minute = parseInt(duration / 60);
-					// 秒
-					var second = Math.round(duration % 60);
-					let html = `
+				let name = $('.search_fileName_ipt').val()
+				let type = $('.search_fileType_ipt').val()
+				console.log('::::::::', name == '');
+				console.log('::::::::', type == '');
+				if (name == '') {
+					ShowFailure('文件名不能为空 !')
+					return false
+				} else if (type == '') {
+					ShowFailure('文件类型不能为空 !')
+					return false
+				} else if (type != 'mp3' && type != 'mp4') {
+					ShowFailure('文件类型必须是 mp3 或者 mp4 !')
+					return false
+				} else {
+					$('.mask_wrap').show()
+					if (type == 'mp3') {
+						//$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchMusic?name=${name}" controls></audio>`)
+						var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+						setTimeout(() => {
+							if ($('.mask_wrap').css('display') == 'flex') {
+								ShowFailure("没有此文件 !")
+								$('.mask_wrap').hide()
+								$('.search_fileName_ipt').val('')
+								$('.search_fileType_ipt').val('')
+							}
+						}, 15000)
+						var duration
+						audioElement.addEventListener("loadedmetadata", function (_event) {
+							duration = audioElement.duration;
+							// 分钟
+							var minute = parseInt(duration / 60);
+							// 秒
+							var second = Math.round(duration % 60);
+							let html = `
 									<div class="music_item">
-										<span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}"></audio></span>
+										<span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}"></audio></span>
 									</div>
-								`
-					$('.audio_wrap').html(html)
-					$('.keyWord_ipt').val('')
-				})
-				/*
-				$.ajax({
-					type: "",
-					url: '',
-					data: {},
-					dataType: 'json',
-					success: function (result) {
-						console.log('+++++++=======', result);
-					},
-					error: function () {
-						ShowFailure('网络错误, 请稍后再试 !')
+									`
+							$('.mask_wrap').hide()
+							$('.audio_wrap').html(html)
+							$('.search_fileName_ipt').val('')
+							$('.search_fileType_ipt').val('')
+						})
+
+					} else if (type == 'mp4') {
+						var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+						setTimeout(() => {
+							if ($('.mask_wrap').css('display') == 'flex') {
+								ShowFailure("没有此文件 !")
+								$('.mask_wrap').hide()
+								$('.search_fileName_ipt').val('')
+								$('.search_fileType_ipt').val('')
+							}
+						}, 15000)
+						audioElement.addEventListener("loadedmetadata", function (_event) {
+							let html = `
+									<div style="width: 100%;display: flex;justify-content: center">
+										<video class="" style="width: 300px;height: 200px" controls src="http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}"></video>
+									</div>
+									`
+							$('.mask_wrap').hide()
+							$('.audio_wrap').html(html)
+							$('.search_fileName_ipt').val('')
+							$('.search_fileType_ipt').val('')
+						})
 					}
-				})
-				*/
+				}
+
+
+				/*
+                //$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchMusic?name=${name}" controls></audio>`)
+
+                var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}`); // audio也可获取视频的时长
+                console.log('lalal=====', audioElement);
+                var duration
+                audioElement.addEventListener("loadedmetadata", function (_event) {
+                    duration = audioElement.duration;
+                    // 分钟
+                    var minute = parseInt(duration / 60);
+                    // 秒
+                    var second = Math.round(duration % 60);
+                    let html = `
+                                        <div class="music_item">
+                                            <span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}"></audio></span>
+                                        </div>
+                                    `
+                    $('.audio_wrap').html(html)
+                    $('.search_fileName_ipt').val('')
+                    $('.search_fileType_ipt').val('')
+                })
+                */
+
+				/*
+                $.ajax({
+                    type: "get",
+                    url: `http://61.147.123.84:9000/v2/searchMusic`,
+                    data: {name},
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log('======:::::::::', result);
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+                */
 			})
 
 		})

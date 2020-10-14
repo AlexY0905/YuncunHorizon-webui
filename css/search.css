@@ -36,13 +36,13 @@
 }
 
 .searchTerm {
-    width        : 100%;
+    width        : 50%;
     /* border    : 3px solid #00B4CC; */
     border       : 2px solid #0083c3;
-    border-right : none;
+    /* border-right : none; */
     padding      : 6px;
     height       : 20px;
-    border-radius: 5px 0 0 5px;
+    /* border-radius: 5px 0 0 5px; */
     outline      : none;
     color        : #9DBFAF;
 }

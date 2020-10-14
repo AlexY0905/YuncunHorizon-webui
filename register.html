@@ -227,7 +227,11 @@
 			<div class="top_logo">
 				<a href="index.html"><img src="images/yclogo2.png" /></a>
 			</div>
+			<div style="float: right">
+				<span class="go_back_wrap" style="color: #fff">< 返回</span>
+			</div>
 		</div>
+
 	</div>
 
 	<div class="container h-100 h-sm-auto align-items-center" style="margin-top: 80px;">
@@ -392,6 +396,7 @@
 						</div>
 					</div>
 				</div>
+				<!--
 				<div class="my-4 row">
 					<div class="col-12  text-center">
 						<div class="custom-control custom-checkbox" style="padding-left: .4rem;">
@@ -399,6 +404,7 @@
 						</div>
 					</div>
 				</div>
+				-->
 				<div class="text-center">
 					<a class=" btn btn-primary pink-gradient" onclick="mr_verify()" value="注册" id="my_button"
 						style="width: 80%; margin-bottom: 15px; font-family: cursive; font-size: 20px;">注册</a>
@@ -658,6 +664,10 @@
 				clickable: true,
 			}
 		});
+
+		$('.go_back_wrap').on('click', function () { // 返回
+			window.history.go(-1)
+		})
 	</script>
 
 </body>

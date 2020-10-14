@@ -1,4 +1,17 @@
+<style>
+    #tip { /* 勿删  配合简单提示框用的样式 */
+        display: inline-block;
+        min-width: 200px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+</style>
 <script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/static/message.js"></script>
 <!-- 菜单导航 -->
 <dl class="menu">
     <dd><a href="login.html">登录</a></dd>
@@ -7,13 +20,40 @@
     <dd><a href="about.html">关于我们</a></dd>
     <dd><a href="contact.html">联系我们</a></dd>
     <dd class="adminCenter" style="display: none"><a href="adminCenter.html">管理中心</a></dd>
+    <dd><a class="sign_out">退出登录</a></dd>
 </dl>
 <script>
  $(function () {
+     // 获取本地存储的管理员登录凭证 (如果有, 表示当前登录的是管理员, 没有, 表示登录的是普通用户)
      let isAdminLogin = localStorage.getItem('isAdminLogin')
      // console.log('+++++====', isAdminLogin)
      if (isAdminLogin === '0') { // 表示当前登录的用户是管理员
         $('.adminCenter').css('display', 'block')
      }
+     /**
+      * 退出登录
+      */
+     $('.sign_out').on('click', function () {
+         console.log('点击了退出登录----------')
+         /*
+         $.ajax({
+             type: "",
+             url: '',
+             data: {},
+             dataType: 'json',
+             success: function (result) {
+                 console.log('::::::::::::::', result);
+                 ShowSuccess('退出登录成功 !')
+                 setTimeout(() => {
+                     // 退出登录成功, 自动跳转到登录页
+                     window.location.href = 'login.html'
+                 }, 1000)
+             },
+             error: function () {
+                 ShowFailure('网络错误, 请稍后再试 !')
+             }
+         })
+         */
+     })
  })
 </script>

@@ -21,8 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_xq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/static/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/static/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -73,7 +80,7 @@
       <workItem from="1602465395015" duration="29923000" />
       <workItem from="1602552628995" duration="16144000" />
       <workItem from="1602638912924" duration="70000" />
-      <workItem from="1602639141052" duration="4659000" />
+      <workItem from="1602639141052" duration="26158000" />
     </task>
     <servers />
   </component>
@@ -93,10 +100,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602560785396">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602653917710">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602560785396" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602653917710" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602315852109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
