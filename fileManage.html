@@ -5,14 +5,12 @@
     <meta content="耘存科技" http-equiv="keywords">
     <meta name="description" content="耘存科技">
     <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-    <title>管理员管理</title>
+    <title>文件管理</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!--内容动画样式库-->
     <!-- js -->
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <!--简单弹出框-->
-    <script type="text/javascript" src="./js/static/message.js"></script>
     <style>
         .fold_panel{margin:10px auto; width:94%; height: auto;}
         .fold_panel .user_item {
@@ -43,21 +41,9 @@
             margin-left: 5px;
             color: #0083c3;
         }
-        /*
-        .Collapsing .arrow {
-            transform: rotate(90deg);
-        }
-         */
-        #tip { /* 勿删 */
-            display: inline-block;
-            min-width: 200px;
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            color: #fff;
-            font-size: 14px;
-            border-radius: 5px;
-        }
+        /*.Collapsing .arrow {*/
+        /*    transform: rotate(90deg);*/
+        /*}*/
         .coll_body {
             display: none;
             background: #fff;
@@ -66,7 +52,7 @@
             border-top: 1px solid #0083c3;
         }
         .coll_body div {
-            /* margin-bottom: 10px; */
+            /*margin-bottom: 10px;*/
             line-height: 35px;
             font-size: 16px;
             color: #337ab7;
@@ -74,27 +60,6 @@
         }
         /*.coll_body a{display:block; margin:10px; text-align: center; background: #ebebeb;}*/
         /*.current{background-image:url(images/pro_down.png);}*/
-        .add_admin_wrap {
-            width: 100%;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .add_admin_wrap a {
-            width: 94%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0083c3;
-            font-size: 16px;
-            color: #fffdef;
-        }
-        .add_admin_wrap a img {
-            width: 18px;
-            margin-right: 5px;
-        }
     </style>
 </head>
 <body>
@@ -113,10 +78,7 @@
     <!--顶部背景图-->
     <div class="zy_banner">
         <!-- 子页banner尺寸640x240 -->
-        <img src="images/space2.jpg" style="width: 100%;min-height: 3rem">
-    </div>
-    <div class="add_admin_wrap">
-        <a href="adminRegister.html"><img src="./images/static/add.png" alt=""> 添加管理员</a>
+        <img src="images/space.jpg" style="width: 100%;min-height: 3rem">
     </div>
     <div class="fold_panel">
         <!--
@@ -124,28 +86,34 @@
             <div class="Collapsing current">
                 <div>
                     <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>admin</span>
+                    <span>文件名 1</span>
                 </div>
                 <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
             </div>
             <div class="coll_body">
+                <div class="fileName">
+                    <span>文件名</span> : <span>文件名 1</span>
+                </div>
+                <div class="fileType">
+                    <span>文件类型</span> : <span>翻唱</span>
+                </div>
+                <div class="searchCount">
+                    <span>搜索次数</span> : <span>100</span>
+                </div>
+                <div class="fee">
+                    <span>花费金额</span> : <span>999999</span>
+                </div>
+                <div class="fileCheck">
+                    <span>是否审核</span> : <span>否</span>
+                </div>
                 <div class="userName">
-                    <span>管理员</span> : <span>admin</span>
+                    <span>上传用户名</span> : <span>用户 1</span>
                 </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
+                <div class="credentials">
+                    <span>上传的凭证说明</span> : <span>翻唱翻唱</span>
                 </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
+                <div class="status">
+                    <span>文件状态</span> : <span>热存储</span>
                 </div>
             </div>
         </div>
@@ -223,12 +191,14 @@
 </script>
 <script type="text/javascript">
     $(function(){
-        function getAdmin () {
+
+        // 获取文件列表数据
+        function getUserList () {
             $.ajax({
                 type: "get",
                 dataType: 'json',
                 contentType: 'application/json',
-                url: "http://61.147.123.84:9000/v3/showallmanager",
+                url: "http://61.147.123.84:9000/v1/showallfile",
                 data: {},
                 success: function (result) {
                     console.log('++++++--------', result)
@@ -245,8 +215,29 @@
                                     <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
                                 </div>
                                 <div class="coll_body" style="display: block">
+                                    <div class="fileName">
+                                        <span>文件名</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="fileType">
+                                        <span>文件类型</span> : <span>${item.Type}</span>
+                                    </div>
+                                    <div class="searchCount">
+                                        <span>搜索次数</span> : <span>${item.SearchTime}</span>
+                                    </div>
+                                    <div class="fee">
+                                        <span>花费金额</span> : <span>${item.Fee}</span>
+                                    </div>
+                                    <div class="fileCheck">
+                                        <span>是否审核</span> : <span>${item.Check == true ? '是' : '否'}</span>
+                                    </div>
                                     <div class="userName">
-                                        <span>管理员</span> : <span>${item.Name}</span>
+                                        <span>上传用户名</span> : <span>${item.UserName}</span>
+                                    </div>
+                                    <div class="credentials">
+                                        <span>上传的凭证说明</span> : <span>${item.Credentials}</span>
+                                    </div>
+                                    <div class="status">
+                                        <span>文件状态</span> : <span>${item.Stage == 'hot' ? '热存储' : '冷存储'}</span>
                                     </div>
                                 </div>
                             </div>
@@ -262,8 +253,29 @@
                                     <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
                                 </div>
                                 <div class="coll_body">
+                                    <div class="fileName">
+                                        <span>文件名</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="fileType">
+                                        <span>文件类型</span> : <span>${item.Type}</span>
+                                    </div>
+                                    <div class="searchCount">
+                                        <span>搜索次数</span> : <span>${item.SearchTime}</span>
+                                    </div>
+                                    <div class="fee">
+                                        <span>花费金额</span> : <span>${item.Fee}</span>
+                                    </div>
+                                    <div class="fileCheck">
+                                        <span>是否审核</span> : <span>${item.Check == true ? '是' : '否'}</span>
+                                    </div>
                                     <div class="userName">
-                                        <span>管理员</span> : <span>${item.Name}</span>
+                                        <span>上传用户名</span> : <span>${item.UserName}</span>
+                                    </div>
+                                    <div class="credentials">
+                                        <span>上传的凭证说明</span> : <span>${item.Credentials}</span>
+                                    </div>
+                                    <div class="status">
+                                        <span>文件状态</span> : <span>${item.Stage == 'hot' ? '热存储' : '冷存储'}</span>
                                     </div>
                                 </div>
                             </div>
@@ -278,27 +290,27 @@
                 }
             })
         }
-        getAdmin()
+        getUserList()
 
-/********************************************************************************************************************************************/
-        // 折叠面板
-        /*
-        $(".Collapsing").click(function(){
-            // 切换图标
-            // $(this).toggleClass("current").siblings('.Collapsing').removeClass("current");
-            // $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);
-            // 切换图标
-            $(this).toggleClass("current").parent('.user_item').siblings('.user_item').children('.Collapsing').removeClass("current");
-            $(this).next(".coll_body").slideToggle(500).parent('.user_item').siblings('.user_item').children('.coll_body').slideUp(500)
-            if ($(this).hasClass('current')) {
-                $(this).children('.arrow').attr('src', './images/static/jiantou_down.png')
-                $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
-            } else {
-                $(this).children('.arrow').attr('src', './images/static/jiantou.png')
-                $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
-            }
-        });
-        */
+
+
+
+
+        // $(".coll_body").eq(0).show();
+        // $(".Collapsing").click(function(){
+        //     /*$(this).toggleClass("current").siblings('.Collapsing').removeClass("current");//切换图标
+        //     $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);*/
+        //     $(this).toggleClass("current").parent('.user_item').siblings('.user_item').children('.Collapsing').removeClass("current");//切换图标
+        //     $(this).next(".coll_body").slideToggle(500).parent('.user_item').siblings('.user_item').children('.coll_body').slideUp(500)
+        //     if ($(this).hasClass('current')) {
+        //         $(this).children('.arrow').attr('src', './images/static/jiantou_down.png')
+        //         $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
+        //     } else {
+        //         $(this).children('.arrow').attr('src', './images/static/jiantou.png')
+        //         $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
+        //     }
+        // });
+
         $('.fold_panel').on('click', '.Collapsing', function () {
             // 切换图标
             /*
@@ -316,9 +328,6 @@
                 $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
             }
         })
-
-
-
 
     });
 </script>

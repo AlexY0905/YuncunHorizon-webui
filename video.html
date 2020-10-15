@@ -272,7 +272,57 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
 	<!-- <script type="text/javascript" src="js/public.js"></script> -->
+	<style>
+		.audio_wrap {
+			width: 100%;
+		}
+		.music_item {
+			position: relative;
+			width: 80%;
+			line-height: 30px;
+			margin: 15px auto;
+			background: linear-gradient(45deg, #0083c3, #f2fcfe);
+			display: flex;
+			justify-content: space-between;
+			padding: 0 10px;
+			box-sizing: border-box;
+			border-radius: 15px;
+			box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
+		}
 
+		.music_item .music_date {
+			position: absolute;
+			right: 60px;
+		}
+
+		.field {
+			border: 0;
+			width: 100%;
+			height: 100%;
+			padding: 10px 20px;
+			background: white;
+			border-radius: 3px;
+			box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+		}
+
+		#tip { /* 勿删  配合简单提示框用的样式 */
+			display: inline-block;
+			min-width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			font-size: 14px;
+			border-radius: 5px;
+		}
+
+		.btn-audio {
+			width: 30px;
+			height: 30px;
+			background: url("./images/static/play.png") no-repeat center bottom;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
@@ -297,95 +347,128 @@
 	</div>
 </div>
 <!-- contentbox -->
-<div class="contentbox">
+<div class="contentbox" style="min-height: 0;background: #f5f5f5;">
 	<!--banner-->
 	<div class="zy_banner">
 		<!-- 子页banner尺寸640x240 -->
-		<img src="images/zy_banner05.jpg">
+		<img src="images/bgimg3.png"> <!-- zy_banner05.jpg -->
 	</div>
 	<!-- 子页content -->
 	<div class="zy_content padding_03">
-		<div class="zy_two_nav">
-			<!-- Swiper -->
-			<div class="swiper-container two_nav">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide cur_nav"><a href="video.html">耘存宣传片</a></div>
-					<!-- <div class="swiper-slide cur_nav"><a href="video.html">比赛视频</a></div> -->
-					<!-- <div class="swiper-slide"><a href="video.html">广告片</a></div> -->
-					<!-- <div class="swiper-slide"><a href="video.html">风光片</a></div> -->
-					<!-- <div class="swiper-slide"><a href="video.html">动画制作片</a></div> -->
-				</div>
-				<!-- Add button -->
-				<div class="swiper-button-next">
-					<img src="images/zy_nav_shadow.png">
-				</div>
-			</div>
-			<!-- Initialize Swiper -->
-			<script>
-				$(function () {
-					var Long = $(".zy_two_nav .swiper-slide").length
-					if (Long > 4) {
-						$(".swiper-button-next").css("display", "block")
-					} else {
-						$(".swiper-button-next").css("display", "none")
-					}
-				})
+<!--		<div class="zy_two_nav">-->
+<!--			&lt;!&ndash; Swiper &ndash;&gt;-->
+<!--			<div class="swiper-container two_nav">-->
+<!--				<div class="swiper-wrapper">-->
+<!--					<div class="swiper-slide cur_nav"><a href="video.html">耘存宣传片</a></div>-->
+<!--					&lt;!&ndash; <div class="swiper-slide cur_nav"><a href="video.html">比赛视频</a></div> &ndash;&gt;-->
+<!--					&lt;!&ndash; <div class="swiper-slide"><a href="video.html">广告片</a></div> &ndash;&gt;-->
+<!--					&lt;!&ndash; <div class="swiper-slide"><a href="video.html">风光片</a></div> &ndash;&gt;-->
+<!--					&lt;!&ndash; <div class="swiper-slide"><a href="video.html">动画制作片</a></div> &ndash;&gt;-->
+<!--				</div>-->
+<!--				&lt;!&ndash; Add button &ndash;&gt;-->
+<!--				<div class="swiper-button-next">-->
+<!--					<img src="images/zy_nav_shadow.png">-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; Initialize Swiper &ndash;&gt;-->
+<!--			<script>-->
+<!--				$(function () {-->
+<!--					var Long = $(".zy_two_nav .swiper-slide").length-->
+<!--					if (Long > 4) {-->
+<!--						$(".swiper-button-next").css("display", "block")-->
+<!--					} else {-->
+<!--						$(".swiper-button-next").css("display", "none")-->
+<!--					}-->
+<!--				})-->
 
-				var swiper = new Swiper('.two_nav', {
-					nextButton: '.swiper-button-next',
-					slidesPerView: 4,
-					spaceBetween: 0,
-					freeMode: true,
-					initialSlide: $(".cur_nav").index(),
-				});
-			</script>
-		</div>
-		<div class="zy_about_qyfc_xq">
-			<div class="xqbox">
-				<h1>耘存科技</h1>
-				<div class="pic_xq">
-					<video controls="controls">
-						<!-- <source src="images/mov_bbb.mp4" type="video/mp4"> -->
-						<source src="http://61.147.123.84:9000/v2/searchMusic?name=vr001&type=mp4" type="video/mp4">
-						你的浏览器不支持video标签，请更换其他浏览器看看
-					</video>
-				</div>
-				<div class="txt">
-					<p>明月星辰《咫尺的爱》选角比赛视频，海选活动火热进行中，赶紧带上你和你的小伙伴一起来参加吧。</p>
-				</div>
+<!--				var swiper = new Swiper('.two_nav', {-->
+<!--					nextButton: '.swiper-button-next',-->
+<!--					slidesPerView: 4,-->
+<!--					spaceBetween: 0,-->
+<!--					freeMode: true,-->
+<!--					initialSlide: $(".cur_nav").index(),-->
+<!--				});-->
+<!--			</script>-->
+<!--		</div>-->
+<!--		<div class="zy_about_qyfc_xq">-->
+<!--			<div class="xqbox">-->
+<!--				<h1>耘存科技</h1>-->
+<!--				<div class="pic_xq">-->
+<!--					<video controls="controls">-->
+<!--						&lt;!&ndash; <source src="images/mov_bbb.mp4" type="video/mp4"> &ndash;&gt;-->
+<!--						<source src="http://61.147.123.84:9000/v2/searchMusic?name=vr001&type=mp4" type="video/mp4">-->
+<!--						你的浏览器不支持video标签，请更换其他浏览器看看-->
+<!--					</video>-->
+<!--				</div>-->
+<!--				<div class="txt">-->
+<!--					<p>明月星辰《咫尺的爱》选角比赛视频，海选活动火热进行中，赶紧带上你和你的小伙伴一起来参加吧。</p>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash;-->
+<!--			<div class="zy_share">-->
+<!--				<div class="bdsharebuttonbox" data-tag="share_1">-->
+<!--					<span>分享到：</span>-->
+<!--					<a class="bds_more" data-cmd="more"></a>-->
+<!--					<a class="bds_qzone" data-cmd="qzone" href="#"></a>-->
+<!--					<a class="bds_tsina" data-cmd="tsina"></a>-->
+<!--					<a class="bds_baidu" data-cmd="baidu"></a>-->
+<!--					<a class="bds_tqq" data-cmd="tqq"></a>-->
+<!--					<a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a>-->
+<!--					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>-->
+<!--					<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>-->
+<!--				</div>-->
+<!--				<h2>-->
+<!--					<p>上一篇：<a href="#">员工2019春季户外拓展活动</a></p>-->
+<!--					<p>下一篇：<a href="#">明月星辰年会晚会图集</a></p>-->
+<!--				</h2>-->
+<!--				<script>-->
+<!--					window._bd_share_config = {-->
+<!--						common: {-->
+<!--							bdText: '明月星辰（贵州）文化传媒有限责任公司',-->
+<!--							bdDesc: '明月星辰（贵州）文化传媒有限责任公司',-->
+<!--							bdUrl: '自定义分享url地址',-->
+<!--							bdPic: '自定义分享图片'-->
+<!--						},-->
+<!--						share: [{-->
+<!--							"tag": "share_1",-->
+<!--							"bdSize": 24,-->
+<!--							"bdStyle": 1-->
+<!--						}]-->
+<!--					}-->
+<!--					with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];-->
+<!--				</script>-->
+<!--			</div>-->
+<!--			&ndash;&gt;-->
+<!--		</div>-->
+
+
+		<div class="audio_wrap">
+			<div class="music_item">
+
+				<!-- <span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
 			</div>
-			<div class="zy_share">
-				<div class="bdsharebuttonbox" data-tag="share_1">
-					<span>分享到：</span>
-					<a class="bds_more" data-cmd="more"></a>
-					<a class="bds_qzone" data-cmd="qzone" href="#"></a>
-					<a class="bds_tsina" data-cmd="tsina"></a>
-					<a class="bds_baidu" data-cmd="baidu"></a>
-					<a class="bds_tqq" data-cmd="tqq"></a>
-					<a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a>
-					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-					<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-				</div>
-				<h2>
-					<p>上一篇：<a href="#">员工2019春季户外拓展活动</a></p>
-					<p>下一篇：<a href="#">明月星辰年会晚会图集</a></p>
-				</h2>
-				<script>
-					window._bd_share_config = {
-						common: {
-							bdText: '明月星辰（贵州）文化传媒有限责任公司',
-							bdDesc: '明月星辰（贵州）文化传媒有限责任公司',
-							bdUrl: '自定义分享url地址',
-							bdPic: '自定义分享图片'
-						},
-						share: [{
-							"tag": "share_1",
-							"bdSize": 24,
-							"bdStyle": 1
-						}]
-					}
-					with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
-				</script>
+			<div class="music_item">
+
+				<!-- <span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
+			</div>
+			<div class="music_item">
+
+				<!-- <span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
+				<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
+					class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+				<!--
+                <audio src="./audio/如果当时.mp3" controls></audio>
+                -->
 			</div>
 		</div>
 	</div>
@@ -400,7 +483,8 @@
 <!-- footer -->
 <div class="footbox">
 	<h2>
-		<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+		<!-- <a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a> -->
+		<a href="contact.html">联系我们</a>
 	</h2>
 	<div class="txt">
 		<p>CopyRight © 上海耘存科技发展有限公司</p>
@@ -460,6 +544,98 @@
 </div>
 <script>
 	$(function () {
+		/**
+		 * 获取音乐列表
+		 */
+		function getMusicList() {
+			/*
+            $.ajax({
+                type: "",
+                url: '',
+                data: {},
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+
+                },
+                error: function () {
+                    ShowFailure('网络错误, 请稍后再试 !')
+                }
+            })
+            */
+			let mp3DataList = [{name: '如果当时', url: './audio/如果当时.mp3'}, {name: 'KissTheRain', url: './audio/KissTheRain.mp3'}, {name: 'OneSummerDay', url: './audio/OneSummerDay.mp3'}, {name: 'Summer', url: './audio/Summer.mp3'}, {name: '卡农', url: './audio/卡农.mp3'}]
+			let html = ''
+			mp3DataList.forEach((item, index) => {
+				var audioElement = new Audio(item.url); // audio也可获取视频的时长
+				var duration
+				audioElement.addEventListener("loadedmetadata", function (_event) {
+					duration = audioElement.duration;
+					// 分钟
+					var minute = parseInt(duration / 60);
+					// 秒
+					var second = Math.round(duration % 60);
+					html += `
+									<div class="music_item">
+										<span>${item.name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item.url}"></audio></span>
+									</div>
+								`
+					$('.audio_wrap').html(html)
+				})
+			})
+		}
+		getMusicList()
+
+		/**
+		 * 控制音乐播放和暂停
+		 */
+		var timer = ''
+		let cur = ''
+		let temp = ''
+		let minute = ''
+		$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
+			event.stopPropagation(); // 防止冒泡
+			let audio = $(this).find('audio')[0]
+			let $this = $(this)
+			console.log(audio);
+			if (audio.paused) { // 如果当前是暂停状态
+				$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
+				timer = setInterval(function () {
+					cur = String(audio.currentTime).split('.')[0]
+					temp = cur
+					minute = parseInt(temp / 60);
+					if (cur % 60 < 10) {
+						$(audio).parent('.btn-audio').prev().html("" + minute + ":0" + cur % 60 + "")
+					} else {
+						$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
+					}
+				}, 1000)
+				audio.play(); // 播放
+				// 当前音乐如果在播放中, 再点击播放其它音乐时, 就把当前正在播放的音乐暂停, 播放按钮变成 play 状态, 然后播放其它的点击播放的音乐
+				$this.parent().siblings('.music_item').find('.mp3Btn').each(function () {
+					$(this)[0].pause()
+					$(this).parent().css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+				})
+				// 播放完毕
+				$(this).children('.mp3Btn').on('ended', function () {
+					console.log("音频已播放完成");
+					$(this).parent().css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+				})
+				return;
+			} else { // 当前是播放状态
+				$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+				clearInterval(timer)
+				audio.pause(); // 暂停
+			}
+		})
+
+
+
+
+
+
+
+
+
 		$('.menu_panel').load('./common/menu.html')
 	})
 </script>

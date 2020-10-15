@@ -580,6 +580,7 @@
 			$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
 				event.stopPropagation(); // 防止冒泡
 				let audio = $(this).find('audio')[0]
+				let $this = $(this)
 				console.log(audio);
 				if (audio.paused) { // 如果当前是暂停状态
 					$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
@@ -594,6 +595,11 @@
 						}
 					}, 1000)
 					audio.play(); // 播放
+					// 当前音乐如果在播放中, 再点击播放其它音乐时, 就把当前正在播放的音乐暂停, 播放按钮变成 play 状态, 然后播放其它的点击播放的音乐
+					$this.parent().siblings('.music_item').find('.mp3Btn').each(function () {
+						$(this)[0].pause()
+						$(this).parent().css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+					})
 					// 播放完毕
 					$(this).children('.mp3Btn').on('ended', function () {
 						console.log("音频已播放完成");

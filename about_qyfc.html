@@ -232,47 +232,47 @@
 		</div>
 		<!-- 中间内容开始 -->
 		<div class="zy_content padding_03">
-			<div class="search_box tus">
-				<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;">
-				<input type="text" class="searchTerm search_fileType_ipt" placeholder="文件类型例如mp3/mp4" style="color: #333;border-right : none;">
-				<button type="submit" class="searchButton">
-					<img src="./images/search.png" alt="">
-				</button>
-			</div>
-			<div class="hot_wrap">
-				<div class="hot_box">
-					<span>热门检索 :</span>
-				</div>
-			</div>
-			<div class="audio_wrap">
-				<div class="music_item">
+<!--			<div class="search_box tus">-->
+<!--				<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;">-->
+<!--				<input type="text" class="searchTerm search_fileType_ipt" placeholder="文件类型例如mp3/mp4" style="color: #333;border-right : none;">-->
+<!--				<button type="submit" class="searchButton">-->
+<!--					<img src="./images/search.png" alt="">-->
+<!--				</button>-->
+<!--			</div>-->
+<!--			<div class="hot_wrap">-->
+<!--				<div class="hot_box">-->
+<!--					<span>热门检索 :</span>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="audio_wrap">-->
+<!--				<div class="music_item">-->
 
-					<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
-					<!--
-                <audio src="./audio/如果当时.mp3" controls></audio>
-                -->
-				</div>
-				<div class="music_item">
+<!--					&lt;!&ndash;					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>&ndash;&gt;-->
+<!--					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio-->
+<!--							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>-->
+<!--					&lt;!&ndash;-->
+<!--                <audio src="./audio/如果当时.mp3" controls></audio>-->
+<!--                &ndash;&gt;-->
+<!--				</div>-->
+<!--				<div class="music_item">-->
 
-					<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
-					<!--
-                <audio src="./audio/如果当时.mp3" controls></audio>
-                -->
-				</div>
-				<div class="music_item">
+<!--					&lt;!&ndash;					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>&ndash;&gt;-->
+<!--					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio-->
+<!--							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>-->
+<!--					&lt;!&ndash;-->
+<!--                <audio src="./audio/如果当时.mp3" controls></audio>-->
+<!--                &ndash;&gt;-->
+<!--				</div>-->
+<!--				<div class="music_item">-->
 
-					<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
-					<!--
-                <audio src="./audio/如果当时.mp3" controls></audio>
-                -->
-				</div>
-			</div>
+<!--					&lt;!&ndash;					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>&ndash;&gt;-->
+<!--					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio-->
+<!--							class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>-->
+<!--					&lt;!&ndash;-->
+<!--                <audio src="./audio/如果当时.mp3" controls></audio>-->
+<!--                &ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
 			<div style="margin-top: 50px">
 				<div class="tu">
 					<!--
@@ -479,10 +479,13 @@
 				if (file != '') {
 					let maxSize = 50
 					let maxSize2 = 200
+					/*
 					if (file.name.indexOf("mp3") == -1 && file.name.indexOf("mp4") == -1) {
 						ShowFailure('请上传mp3或者mp4格式的文件 !')
 						return false
-					} else if (file.size / 1024 / 1024 < maxSize) {
+					} else
+					*/
+					if (file.size / 1024 / 1024 < maxSize) {
 						ShowFailure("上传的文件不能小于 50M !")
 						return false
 					} else if (file.size / 1024 / 1024 > maxSize2) {
@@ -508,16 +511,14 @@
 				var fd = new FormData();
 				fd.append('name', $('.fileName_ipt').val())
 				fd.append('username', $('.userName_ipt').val())
-				fd.append('type', fileType)
 				fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
 				console.log('::::::::::---------', fd.get('name'));
 				console.log('::::::::::---------', fd.get('username'));
-				console.log('::::::::::---------', fd.get('type'));
 				console.log('::::::::::---------', fd.get('upload'));
 				var xhr = new XMLHttpRequest();
 				// 监听服务器的响应
 				xhr.addEventListener("load", uploadComplete, false);
-				xhr.open("POST", "http://61.147.123.84:9000/v2/addMusic");
+				xhr.open("POST", "http://61.147.123.84:9000/v2/addOther");
 				xhr.send(fd);
 			}
 			function uploadComplete(evt) {
@@ -582,6 +583,7 @@
 			$('.audio_wrap').on('click', '.music_item .btn-audio', function () {
 				event.stopPropagation(); // 防止冒泡
 				let audio = $(this).find('audio')[0]
+				let $this = $(this)
 				console.log(audio);
 				if (audio.paused) { // 如果当前是暂停状态
 					$(this).css({ 'background': 'url(./images/static/pause.png) no-repeat center bottom', 'background-size': 'cover' });
@@ -596,6 +598,11 @@
 						}
 					}, 1000)
 					audio.play(); // 播放
+					// 当前音乐如果在播放中, 再点击播放其它音乐时, 就把当前正在播放的音乐暂停, 播放按钮变成 play 状态, 然后播放其它的点击播放的音乐
+					$this.parent().siblings('.music_item').find('.mp3Btn').each(function () {
+						$(this)[0].pause()
+						$(this).parent().css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
+					})
 					// 播放完毕
 					$(this).children('.mp3Btn').on('ended', function () {
 						console.log("音频已播放完成");
