@@ -629,7 +629,7 @@
 						var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchImitation?name=${name}&type=${type}`); // audio也可获取视频的时长
 						setTimeout(() => {
 							if ($('.mask_wrap').css('display') == 'flex') {
-								ShowFailure("没有此文件 !")
+								ShowFailure("未搜索到此文件 !")
 								$('.mask_wrap').hide()
 								$('.search_fileName_ipt').val('')
 								$('.search_fileType_ipt').val('')
@@ -657,7 +657,7 @@
 						var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchImitation?name=${name}&type=${type}`); // audio也可获取视频的时长
 						setTimeout(() => {
 							if ($('.mask_wrap').css('display') == 'flex') {
-								ShowFailure("没有此文件 !")
+								ShowFailure("未搜索到此文件 !")
 								$('.mask_wrap').hide()
 								$('.search_fileName_ipt').val('')
 								$('.search_fileType_ipt').val('')
