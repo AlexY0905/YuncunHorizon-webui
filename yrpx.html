@@ -622,6 +622,7 @@
 					return false
 				} else {
 					$('.mask_wrap').show()
+					$('#progressNumber').html('搜索中 ...')
 					if (type == 'mp3') {
 						//$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchSleep?name=${name}" controls></audio>`)
 						var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchSleep?name=${name}&type=${type}`); // audio也可获取视频的时长
