@@ -13,8 +13,8 @@
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript" src="js/static/message.js"></script>
 <!-- 菜单导航 -->
-<dl class="menu">
-    <dd><a href="login.html">登录</a></dd>
+<dl class="menu" style="padding: 0 0 1% 0">
+    <dd class="login_btn"><a href="login.html">登录</a></dd>
     <dd><a href="register.html">注册</a></dd>
     <dd><a href="video.html">音频中心</a></dd>
     <dd><a href="about.html">关于我们</a></dd>
@@ -33,6 +33,9 @@
      // console.log('+++++====', isAdminLogin)
      if (isAdminLogin === '0') { // 表示当前登录的用户是管理员
         $('.adminCenter').css('display', 'block')
+     }
+     if (userName) { // 如果当前用户登录了, 就不用再可以点击登录按钮进入登录页了
+         $('.login_btn').css('display', 'none')
      }
      /**
       * 退出登录

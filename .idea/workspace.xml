@@ -22,15 +22,9 @@
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/userManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_xq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
@@ -43,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -60,14 +54,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/audio" />
+    <property name="last_opened_file_path" value="C:/Test" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\audio" />
       <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui" />
+      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\audio" />
       <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\common" />
     </key>
   </component>
@@ -85,7 +80,8 @@
       <workItem from="1602552628995" duration="16144000" />
       <workItem from="1602638912924" duration="70000" />
       <workItem from="1602639141052" duration="26718000" />
-      <workItem from="1602724990014" duration="22571000" />
+      <workItem from="1602724990014" duration="23902000" />
+      <workItem from="1602811645746" duration="17309000" />
     </task>
     <servers />
   </component>
@@ -105,10 +101,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl" timestamp="1602733454343">
+    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl" timestamp="1602832716053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602733454343" />
+    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602832716053" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1602816175908">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602816175908" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602315852109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

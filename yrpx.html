@@ -286,8 +286,8 @@
                     <input class="fileName_ipt" type="text" value="aaaaa" name="name"/>
                     <input class="userName_ipt" type="text" value="yst" name="username"/>
                     -->
-					<input class="fileName_ipt" type="text" name="name" placeholder="输入音乐名称" style="padding-left: 10px;"  autocomplete="off" />
-					<input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px;"  autocomplete="off" />
+					<input class="fileName_ipt" type="text" name="name" placeholder="输入文件名称" style="padding-left: 10px;"  autocomplete="off" />
+					<!-- <input class="userName_ipt" type="text" name="username" placeholder="输入用户名" style="padding-left: 10px;"  autocomplete="off" /> -->
 					<div style="position: relative">
 						<div class="fileName_box"><span>选择的文件 : </span><span class="upLoad_fileName"></span></div>
 						<button class="btn">选择文件</button>
@@ -492,10 +492,13 @@
 				if ($('.fileName_ipt').val() == '') {
 					ShowFailure("音乐名不能为空 !")
 					return false
-				} else if ($('.userName_ipt').val() == '') {
+				}
+				/*
+				else if ($('.userName_ipt').val() == '') {
 					ShowFailure("用户名不能为空 !")
 					return false
 				}
+				*/
 				$('.mask_wrap').show()
 				// 开始上传文件
 				uploadFile()
@@ -507,7 +510,7 @@
 		function uploadFile() {
 			var fd = new FormData();
 			fd.append('name', $('.fileName_ipt').val())
-			fd.append('username', $('.userName_ipt').val())
+			fd.append('username', localUserName)
 			fd.append('type', fileType)
 			fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
 			console.log('::::::::::---------', fd.get('name'));
@@ -594,7 +597,7 @@
 							$(audio).parent('.btn-audio').prev().html("" + minute + ":" + cur % 60 + "")
 						}
 					}, 1000)
-					audio.play(); // 播放
+					audio.play(); // 播放音乐
 					// 当前音乐如果在播放中, 再点击播放其它音乐时, 就把当前正在播放的音乐暂停, 播放按钮变成 play 状态, 然后播放其它的点击播放的音乐
 					$this.parent().siblings('.music_item').find('.mp3Btn').each(function () {
 						$(this)[0].pause()
@@ -609,7 +612,7 @@
 				} else { // 当前是播放状态
 					$(this).css({ 'background': 'url(./images/static/play.png) no-repeat center bottom', 'background-size': 'cover' });
 					clearInterval(timer)
-					audio.pause(); // 暂停
+					audio.pause(); // 暂停音乐
 				}
 			})
 
