@@ -20,17 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio/卡农.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/audio/kanong.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio/如果当时.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/audio/ruguodangshi.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +84,7 @@
       <workItem from="1602855284850" duration="169000" />
       <workItem from="1602855765464" duration="597000" />
       <workItem from="1602858186480" duration="616000" />
-      <workItem from="1603071411468" duration="22538000" />
+      <workItem from="1603071411468" duration="23371000" />
     </task>
     <servers />
   </component>
@@ -114,10 +104,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl" timestamp="1603085517118">
+    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl" timestamp="1603107668426">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603085517118" />
+    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603107668426" />
     <state x="284" y="0" key="SettingsEditor" timestamp="1602858617754">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
