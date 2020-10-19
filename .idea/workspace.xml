@@ -22,7 +22,13 @@
     <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/卡农.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/audio/kanong.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/如果当时.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/audio/ruguodangshi.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
@@ -52,7 +58,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../project-lotusApp/lotus-app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -64,7 +70,7 @@
       <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\common" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -88,11 +94,12 @@
       <workItem from="1602855284850" duration="169000" />
       <workItem from="1602855765464" duration="597000" />
       <workItem from="1602858186480" duration="616000" />
+      <workItem from="1603071411468" duration="22538000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -107,10 +114,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl" timestamp="1602832716053">
+    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl" timestamp="1603085517118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="529" y="268" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602832716053" />
+    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603085517118" />
     <state x="284" y="0" key="SettingsEditor" timestamp="1602858617754">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

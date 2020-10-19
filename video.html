@@ -75,10 +75,7 @@
 			justify-content: center;
 			align-items: center;
 			font-size: 18px;
-			color: 	#F0F0F0;
-		}
-		.zy_banner h2 {
-			background: -webkit-linear-gradient(45deg, #0083c3, #f2fcfe);
+			color: 	#0083c3;
 		}
 	</style>
 </head>
@@ -86,8 +83,7 @@
 <body>
 <!-- contentbox -->
 <div class="contentbox" style="min-height: 0;background: #f5f5f5;">
-	<div class=''>
-		<!--
+	<div class='main' style="position: absolute;padding-top: 1rem">
 		<div class='bubble bubble-1'></div>
 		<div class='bubble bubble-2'></div>
 		<div class='bubble bubble-3'></div>
@@ -118,7 +114,6 @@
 		<div class='bubble bubble-28'></div>
 		<div class='bubble bubble-29'></div>
 		<div class='bubble bubble-30'></div>
-		-->
 		<div class="top_bg" style="width: 100%">
 			<div class="top_main fix">
 				<div class="top_logo">
@@ -135,30 +130,30 @@
 			<h2>———音频中心———</h2>
 		</div>
 		<!-- 子页content -->
-		<div class="zy_content padding_03">
+		<div class="zy_content padding_03" style="margin-bottom: 100px">
 			<div class="audio_wrap">
 				<div class="music_item">
 					<!-- <span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
 					<!--
-                    <audio src="./audio/如果当时.mp3" controls></audio>
+                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
                     -->
 				</div>
 				<div class="music_item">
 					<!-- <span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
 					<!--
-                    <audio src="./audio/如果当时.mp3" controls></audio>
+                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
                     -->
 				</div>
 				<div class="music_item">
 					<!-- <span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
 					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/如果当时.mp3"></audio></span>
+						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
 					<!--
-                    <audio src="./audio/如果当时.mp3" controls></audio>
+                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
                     -->
 				</div>
 			</div>
@@ -254,15 +249,12 @@
             })
             */
 			let mp3DataList = [
-					{name: '如果当时', url: './audio/如果当时.mp3'},
-					{name: 'KissTheRain', url: './audio/KissTheRain.mp3'},
-					{name: 'OneSummerDay', url: './audio/OneSummerDay.mp3'},
-					{name: 'Summer', url: './audio/Summer.mp3'},
-					{name: '卡农', url: './audio/卡农.mp3'},
-					{name: '卡农', url: './audio/卡农.mp3'},
-					{name: '卡农', url: './audio/卡农.mp3'},
-					{name: '卡农', url: './audio/卡农.mp3'}
-				]
+				{name: 'ruguodangshi', url: './audio/ruguodangshi.mp3'},
+				{name: 'KissTheRain', url: './audio/KissTheRain.mp3'},
+				{name: 'OneSummerDay', url: './audio/OneSummerDay.mp3'},
+				{name: 'Summer', url: './audio/Summer.mp3'},
+				{name: 'kanong', url: './audio/kanong.mp3'}
+			]
 			let html = ''
 			mp3DataList.forEach((item, index) => {
 				var audioElement = new Audio(item.url); // audio也可获取视频的时长

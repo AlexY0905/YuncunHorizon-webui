@@ -363,7 +363,7 @@
 							</svg>
 							<span id="err_msgPhone"></span>
 						</div>
-						<!--
+
 						<div class="input">
 							<span style="position: relative;">
 								<img src="./images/static/code.png" alt="" class="code">
@@ -374,9 +374,9 @@
 								style=" background-color: transparent; color:#fff; font-family: cursive;">
 							<span id="msgYanZM"></span>
 							<input type="button" class="btn btn-outline-primary c-333 text-c js-code btncode"
-								value="获取验证码" id="sendYzm" style="font-family: cursive;">
+								value="获取验证码" id="sendYzm" style="font-family: cursive;color: #fff;border-color: #fff">
 						</div>
-						-->
+
 						<!--输入验证码-->
 						<!-- <input type="text" id="code_input" oninput="preSql(this)" placeholder="请输入验证码" class="form-control text-center form-control-lg border-0"/>
                         <span id="code_res"></span>
@@ -535,7 +535,8 @@
 		}
 		*/
 
-		function mr_verify() {
+
+		async function mr_verify() {
 			//获取表单对象
 			/*
 			var img = document.getElementById("file");
@@ -587,52 +588,62 @@
 						return;
 					} else {
 						if (pass_input_1 === pass_input_2) {
-							if (regPhone.value.length !== 11) {
-								$("#err_msgPhone").html("*手机号是11个数字*");
-								$("#err_msgPhone").css("color", "red");
+							//判断校验码是否为空
+							if (yanZM == null || yanZM == '') {
+								$("#msgYanZM").html("验证码不能为空!");
+								$("#msgYanZM").css("color", "red");
 								return;
-							} else {
-								let user = {
-									name: $('#name').val(),
-									email: $("#inputEmail").val(),
-									password: $("#inputPassword").val(),
-									tel: $("#regPhone").val(),
-									account: 0,
-									address: ""
-								}
+							} else if (regPhone.value.length !== 11) {
+									$("#err_msgPhone").html("*手机号是11个数字*");
+									$("#err_msgPhone").css("color", "red");
+									return;
+								} else {
+
 								$.ajax({
 									type: "post",
-									url: "http://61.147.123.84:9000/v1/regist",
+									url: "http://61.147.123.84:9100/v1/checkphonecode",
 									dataType: 'json',
 									contentType: 'application/json',
-									data: JSON.stringify(user),
+									data: JSON.stringify({
+										Phone: $("#regPhone").val(),
+										Code: yanZM
+									}),
 									success: function (data) {
-										console.log('+++++++++++++-------', data)
-										if (data['ok']) {
-											ShowSuccess('注册成功')
-											window.location.href = './login.html'
+										if (data.Msg == 'ok') {
+											let user = {
+												name: $('#name').val(),
+												email: $("#inputEmail").val(),
+												password: $("#inputPassword").val(),
+												tel: $("#regPhone").val(),
+												account: 0,
+												address: ""
+											}
+											$.ajax({
+												type: "post",
+												url: "http://61.147.123.84:9000/v1/regist",
+												dataType: 'json',
+												contentType: 'application/json',
+												data: JSON.stringify(user),
+												success: function (data) {
+													console.log('+++++++++++++-------', data)
+													if (data['ok']) {
+														ShowSuccess('注册成功')
+														window.location.href = './login.html'
+													}
+												},
+												error: function (err) {
+													ShowFailure('网络错误, 稍后再试 !')
+												}
+											})
 										}
-										/*
-										if (data.msg == "该用户名已经存在") {
-											$("#xs").text("该用户名已经存在!");
-											$("#xs").css("color", "red");
-										} else if (data.msg == "该手机号已经注册") {
-											ShowFailure("该手机号已经注册!")
-											$("#regPhone").html("")
-										} else {
-											ShowSuccess("注册成功")
-											// console.log("data", data)
-											setInterval(() => {
-												window.location.href = "./login.html";//注册之后跳转到登录
-											}, 800)
-										}
-										 */
 									},
 									error: function (err) {
 										ShowFailure('网络错误, 稍后再试 !')
+										return err
 									}
 								})
-							}
+
+								}
 						} else {
 							$("#password_2").html("*密码设置前后不一致！*");
 							$("#password_2").css("color", "red");
@@ -652,6 +663,26 @@
 			if (!reg1.test(this.value)) {  //如果当前用户输入的值 非真（不符合手机号规则）
 				ShowFailure("请输入正确的手机号！")
 			}
+			else if (reg1.test(this.value)) {
+				//发送验证码  发起ajax请求,后台拦截这个请求
+				$("#sendYzm").click(function () {
+					var tel = $("#regPhone").val();
+					$.ajax({
+						url: "http://61.147.123.84:9100/v1/getphonecode",
+						type: "GET",
+						dataType: 'json',
+						async: false,
+						data: {
+							Phone: tel
+						},
+						success: function (data) {
+							console.log('::::::::::-----------', data)
+							ShowSuccess(data.Msg)
+						}
+					})
+				})
+			}
+
 		})
 
 		'use strict';
