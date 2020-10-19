@@ -477,18 +477,25 @@
 			})
 			*/
 			if (file != '') {
-				let maxSize = 50
-				let maxSize2 = 200
+				// let maxSize = 50
+				let maxSize2 = 500
 				if (file.name.indexOf("mp3") == -1 && file.name.indexOf("mp4") == -1) {
 					ShowFailure('请上传mp3或者mp4格式的文件 !')
 					return false
-				} else if (file.size / 1024 / 1024 < maxSize) {
+				}
+				/*
+				else if (file.size / 1024 / 1024 < maxSize) {
 					ShowFailure("上传的文件不能小于 50M !")
 					return false
-				} else if (file.size / 1024 / 1024 > maxSize2) {
-					ShowFailure("上传的文件不能大于 200M !")
+				}
+				 */
+				 else if (file.size / 1024 / 1024 > maxSize2) {
+					ShowFailure("上传的文件不能大于 500M !")
 					return false
 				}
+
+
+
 				if ($('.fileName_ipt').val() == '') {
 					ShowFailure("音乐名不能为空 !")
 					return false
