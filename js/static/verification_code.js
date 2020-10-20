@@ -16,6 +16,7 @@ $("#sendYzm").click(function settime(e){
             return;
         }else{
             e.target.setAttribute("disabled",true);
+            e.target.setAttribute("color","#fff");
             e.target.value="重新发送（"+countdown+"s)";
             countdown--;
         }

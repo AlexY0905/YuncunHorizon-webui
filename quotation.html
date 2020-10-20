@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="耘存科技" http-equiv="keywords">
+    <meta name="description" content="耘存科技">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>行情</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <!--	<link rel="stylesheet" type="text/css" href="css/static/purplesidebar.css">-->
+    <link rel="stylesheet" type="text/css" href="css/static/jquery.easy_slides.css">
+    <style>
+        .title {
+            text-align: center;
+            margin-top: 70px;
+            font-size: 20px;
+            font-weight: 900;
+        }
+        .menu_title_panel {
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            position: fixed;
+            top: 57px;
+            left: 0;
+            right: 0;
+            box-shadow: darkgrey 4px -3px 3px 3px;
+        }
+        .menu_title_panel ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu_title_panel ul li {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+        .currency_panel {
+            width: 100%;
+            margin-top: 100px;
+        }
+        .currency_panel ul {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .currency_panel ul li {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .currency_panel ul li .box_li {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .currency_panel ul li .name_txt {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .currency_panel ul li .money_div {
+            margin-top: 5px;
+        }
+        .currency_panel ul li .money_txt {
+            color: #aaaaaa;
+        }
+        .currency_panel ul li .rate_btn_box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .currency_panel ul li .rate_btn {
+            width: 90px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #00AA55;
+            color: #fff;
+            font-size: 14px;
+        }
+
+
+        
+    </style>
+</head>
+
+<body class="fixed-header sidebar-right-close sidebar-left-close" style="height: auto">
+    <div class="top_bg">
+        <div class="top_main fix">
+            <div class="top_logo">
+                <a href="index.html"><img src="images/yclogo.png" /></a>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="title">
+        <p>行情</p>
+    </div>
+    -->
+    <div class="menu_title_panel">
+        <ul>
+            <li>名称 / 24H额</li>
+            <li style="flex: 1.1">流通数量 / 流通市值(¥)</li>
+            <li>24H换手</li>
+        </ul>
+    </div>
+    <div class="currency_panel">
+        <ul>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+            <li>
+                <div class="box_li">
+                    <span class="name_span name_txt">BTC</span>
+                    <div class="money_div">
+                        <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥1134081</span>
+                    </div>
+                </div>
+                <div class="box_li">
+                    <span class="number_span name_txt">0.01162628</span>
+                    <span class="scaler_span money_txt" style="margin-top: 5px">¥29.04</span>
+                </div>
+                <div class="box_li rate_btn_box">
+                    <span class="rate_btn">+0.90%</span>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <!--
+    <ul>
+        <li>
+            <div>
+                <p>BTC</p>
+            </div>
+            <div>
+                <p>24H额￥1134081</p>
+            </div>
+            <div>
+                <p>0.0166287</p>
+                <p>￥29.04</p>
+            </div>
+            <div>
+                <p>+0.90%</p>
+            </div>
+        </li>
+    </ul>
+    -->
+    <!-- 底部菜单 -->
+    <div class="menubox">
+        <ul class="fix" style="display: flex">
+            <li>
+                <a href="index.html">
+                    <i>
+                        <img src="images/menu_icon01.png" alt="首页" />
+                        <img src="images/menu_icon01_1.png" alt="首页" />
+                    </i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="quotation.html">
+                    <i>
+                        <img src="images/menu_icon01.png" alt="行情" />
+                        <img src="images/menu_icon01_1.png" alt="行情" />
+                    </i>
+                    <span>行情</span>
+                </a>
+            </li>
+            <li>
+                <a href="video.html">
+                    <i>
+                        <img src="images/menu_icon02.png" alt="音频中心" />
+                        <img src="images/menu_icon02_1.png" alt="音频中心" />
+                    </i>
+                    <span>音频中心</span>
+                </a>
+            </li>
+            <li>
+                <a href="search.html">
+                    <i>
+                        <img src="images/icon_search2.png" alt="搜索" />
+                        <img src="images/icon_search2.png" alt="搜索" />
+                    </i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li class="menubtn">
+                <i>
+                    <img src="images/menu_icon04.png" alt="菜单" />
+                    <img src="images/menu_icon04_1.png" alt="菜单" />
+                </i>
+                <span>菜单</span>
+            </li>
+        </ul>
+        <!-- 菜单导航 -->
+        <span class="menu_panel"></span>
+        <!--
+		<dl class="menu">
+			<dd><a href="login.html">登录</a></dd>
+			<dd><a href="register.html">注册</a></dd>
+			<dd><a href="video.html">音频中心</a></dd>
+			<dd><a href="about.html">关于我们</a></dd>
+			<dd><a href="contact.html">联系我们</a></dd>
+		</dl>
+		-->
+    </div>
+    <!--内容动画样式js-->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <!-- <script type="text/javascript" src="js/public.js"></script> -->
+    <script type="text/javascript" src="js/aos.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="js/static/jquery.easy_slides.js"></script>
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slider_four_in_line').EasySlides({
+                'autoplay': true
+                // 'show': 5
+            })
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.menu_panel').load('./common/menu.html')
+        })
+    </script>
+</body>
+
+</html>

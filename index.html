@@ -15,6 +15,47 @@
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<style>
+		.fireCoin_panel {
+			width: 100%;
+			background: #fff;
+			margin-top: 2%;
+		}
+		.fireCoin_panel ul {
+			display: flex;
+			justify-content: space-between;
+		}
+		.fireCoin_panel ul li {
+			flex: 1;
+			height: 100px;
+			display: flex;
+			flex-direction: column;
+		}
+		.fireCoin_panel ul li .name_span {
+			font-size: 14px;
+			font-weight: bold;
+		}
+		.fireCoin_panel ul li .rate_span {
+			font-size: 14px;
+			font-weight: bold;
+			color: #FF0033;
+			margin-left: 10px;
+		}
+		.fireCoin_panel ul li .number_span {
+			font-size: 20px;
+			font-weight: bold;
+			color: #FF0033;
+		}
+		.fireCoin_panel ul li .money_span {
+			color: #AAAAAA;
+		}
+		.fireCoin_panel ul li div {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
 
 </head>
 
@@ -128,160 +169,28 @@
 			</div>
 		</div>
 
-		<!-- 电影海选报名开启及添加对应背景 -->
-		<!-- <div class="movie_bg_box">
-			<img src="images/movie_bg.jpg" alt="电影海选背景图" />
-			<div class="btn">
-				<span><a href="bm.html">点击报名</a></span>
-				<span><a href="bm_cjcx.html">成绩查询</a></span>
-			</div>
-		</div> -->
-
-		<!-- 电影制作 -->
-		<!-- <div class="sy_movie_box white_bg padding_03 margin_t">
-			<div class="sy_title" aos="fade-up">
-				<img src="images/icon_tit.png">
-				<h2>电影制作</h2>
-			</div>
-			<div class="swiper-container movies_box01 bgwh mb12">
-				<div class="my_page01"></div>
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<ul class="sy_pic_box">
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_01_290x392.jpg" />
-									<span>狄仁杰之神都龙王<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_02_290x392.jpg" />
-									<span>野长城<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_03_290x392.jpg" />
-									<span>剃头师傅<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_04_290x392.jpg" />
-									<span>同桌的你<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_01_290x392.jpg" />
-									<span>狄仁杰之神都龙王<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_02_290x392.jpg" />
-									<span>野长城<b>（2019）</b></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					即将上映
-					<div class="swiper-slide">
-						<ul class="sy_pic_box">
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_03_290x392.jpg" />
-									<span>剃头师傅<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_04_290x392.jpg" />
-									<span>同桌的你<b>（2019）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_01_290x392.jpg">
-									<span>狄仁杰之神都龙王<b>（2020）</b></span>
-								</a>
-							</li>
-							<li class="pic">
-								<a href="movie_xq.html">
-									<img src="images/movie_02_290x392.jpg">
-									<span>野长城<b>（2020）</b></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-			<div class="more_btn" aos="slide-left"><a href="movie.html">查看影片库>></a></div>
-			<script>
-				var swiper = new Swiper('.movies_box01', {
-					autoHeight: true,
-					pagination: '.my_page01',
-					paginationClickable: true,
-					paginationBulletRender: function (swiper, index, className) {
-						switch (index) {
-							case 0: name = '检索速递'; break;
-							default: name = '';
-						}
-						return '<a class="' + className + '">' + name + '</a>';
-					}
-				});
-			</script>
-		</div> -->
-
-		<!-- 艺人培训 -->
-		<!-- <div class="sy_yrpx_box white_bg padding_03 margin_t">
-			<div class="sy_title" aos="fade-up">
-				<img src="images/icon_tit.png">
-				<h2>艺人培训</h2>
-			</div>
-			<ul class="sy_pic_box">
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-						<span>摄影培训</span>
-					</a>
+		<!-- BTC / ETH / FIL -->
+		<div class="fireCoin_panel">
+			<ul class="fireCoin_panel_ul">
+				<!--
+				<li class="BTC_li">
+					<div><span class="name_span">BTC</span><span class="rate_span">-0.70%</span></div>
+					<div><span class="number_span">11723.57</span></div>
+					<div><span class="money_span">¥77434.17</span></div>
 				</li>
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-						<span>舞台表演培训</span>
-					</a>
+				<li class="ETH_li">
+					<div><span class="name_span">ETH</span><span class="rate_span">-1.37%</span></div>
+					<div class="number_span">378.26</div>
+					<div class="money_span">¥2498.40</div>
 				</li>
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-						<span>影视编导培训</span>
-					</a>
+				<li class="FIL_li">
+					<div><span class="name_span">FIL</span><span class="rate_span">-0.56%</span></div>
+					<div class="number_span">27723.57</div>
+					<div class="money_span">¥57434.17</div>
 				</li>
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic09.jpg" /></div>
-						<span>全能艺人培训</span>
-					</a>
-				</li>
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-						<span>摄影培训</span>
-					</a>
-				</li>
-				<li class="pic" aos="fade-right">
-					<a href="about_qyfc_xq.html">
-						<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /></div>
-						<span>影视表演培训</span>
-					</a>
-				</li>
+				-->
 			</ul>
-			<div class="more_btn"><a href="yrpx.html">查看更多艺人培训>></a></div>
-		</div> -->
-
+		</div>
 		<!-- 企业商演 -->
 		<div class="sy_qysy_box white_bg padding_03 margin_t" aos="fade-up">
 			<div class="sy_title01">
@@ -327,151 +236,6 @@
 			</script>
 		</div>
 
-		<!-- 视频中心 -->
-		<!-- <div class="sy_qysy_box sy_video_box white_bg padding_03 margin_t" aos="fade-up">
-			<div class="sy_title01">
-				<img src="images/icon_tit.png">
-				<h2>Video Center</h2>
-				<a href="video.html">See more></a>
-			</div>
-			<div class="swiper-container sy_pic_box slidebox01 slidebox02">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic06.jpg" /><i></i></div>
-							<span>Video of the casting contest</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /><i></i></div>
-							<span>Film video</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /><i></i></div>
-							<span>Chitong enterprise promotional video</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /><i></i></div>
-							<span>Promotional video</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /><i></i></div>
-							<span>Film video</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="video_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /><i></i></div>
-							<span>Chitong enterprise promotional video</span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<script>
-				var swiper = new Swiper('.slidebox02', {
-					slidesPerView: 2,
-					slidesPerColumn: 2,
-					spaceBetween: 12,
-					autoplay: 2000,
-					autoplayDisableOnInteraction: false,
-				});
-			</script>
-		</div> -->
-
-		<!-- 企业新闻开始 -->
-		<!-- <div class="sy_news_box white_bg padding_03 margin_t">
-			<div class="sy_title" aos="fade-up">
-				<img src="images/icon_tit.png">
-				<h2>企业新闻</h2>
-			</div>
-
-			<div class="swiper-container news_slide" aos="zoom-in" aos-duration="1000">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<a href="news_xq.html">
-							<img src="images/pic01.jpg" />
-							<p>明月星辰新电影《咫尺的爱》2019年开年巨制即将开拍</p>
-						</a>
-					</div>
-					<div class="swiper-slide">
-						<a href="news_xq.html">
-							<img src="images/pic06.jpg" />
-							<p>明月星辰新电影《咫尺的爱》2019年开年巨 制即将开拍</p>
-						</a>
-					</div>
-					<div class="swiper-slide">
-						<a href="news_xq.html">
-							<img src="images/pic04.jpg" />
-							<p>明月星辰新电影《咫尺的爱》2019年开年巨 制即将开拍</p>
-						</a>
-					</div>
-				</div>
-				<div class="swiper-pagination news_slide-p"></div>
-				<script>
-					var swiper = new Swiper('.news_slide', {
-						pagination: '.news_slide-p',
-						autoplay: 3000,
-						autoplayDisableOnInteraction: false,
-					});
-				</script>
-			</div>
-			<div class="list">
-				<ul>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic01.jpg" />
-							<h2>《咫尺的爱》电影演员海选第一轮比赛晋级名单公布</h2>
-							<span>2019-01-30</span>
-						</a>
-					</li>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic04.jpg" />
-							<h2>员工2019春季拓展活动</h2>
-							<span>2019-01-27</span>
-						</a>
-					</li>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic03.jpg" />
-							<h2>明月星辰资助开阳县贫困病人，助他们恢复健康</h2>
-							<span>2018-12-07</span>
-						</a>
-					</li>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic04.jpg" />
-							<h2>《咫尺的爱》电影演员海选第一轮比赛晋级名单公布</h2>
-							<span>2019-01-30</span>
-						</a>
-					</li>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic05.jpg" />
-							<h2>员工2019春季拓展活动</h2>
-							<span>2019-01-27</span>
-						</a>
-					</li>
-					<li aos="fade-left">
-						<a href="news_xq.html">
-							<img src="images/pic06.jpg" />
-							<h2>明月星辰资助开阳县贫困病人，助他们恢复健康</h2>
-							<span>2018-12-07</span>
-						</a>
-					</li>
-				</ul>
-				<div class="more_btn" aos="fade-up"><a href="newslist.html">查看更多新闻资讯>></a></div>
-			</div>
-		</div> -->
-		<!-- 企业新闻结束 -->
-
 		<!-- 公司简介 -->
 		<div class="sy_about_box white_bg padding_03 margin_t padding_b">
 			<div class="sy_title" aos="slide-right">
@@ -496,104 +260,6 @@
 					professional data center hosting services!<a href="about.html">See more>></a></p>
 			</div>
 		</div>
-		<!-- 企业风采开始 -->
-		<!-- <div class="sy_qysy_box sy_qyfc_box white_bg padding_03 margin_t" aos="fade-up">
-			<div class="sy_title01">
-				<img src="images/icon_tit.png">
-				<h2>企业风采</h2>
-				<a href="about_qyfc.html">查看更多></a>
-			</div>
-			<div class="swiper-container sy_pic_box slidebox01 slidebox03">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic02.jpg" /></div>
-							<span>企业办公环境</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /></div>
-							<span>企业公益捐赠</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic04.jpg" /></div>
-							<span>员工2019春季拓展活动</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>拍摄现场</span>
-						</a>
-					</div>
-				</div>
-			</div>
-			<script>
-				var swiper = new Swiper('.slidebox03', {
-					slidesPerView: 2,
-					slidesPerColumn: 1,
-					spaceBetween: '3%',
-					autoplay: 1,
-					loop: true,//无缝轮播条件 slidesPerView为整数, slidesPerColumn为1,
-					speed: 5000,
-					autoplayDisableOnInteraction: false,
-				});
-			</script>
-		</div> -->
-		<!-- 企业风采结束 -->
-
-		<!-- 公益慈善开始 -->
-		<!-- <div class="sy_qysy_box sy_qyfc_box white_bg padding_03 margin_t" aos="fade-up">
-			<div class="sy_title01">
-				<img src="images/icon_tit.png">
-				<h2>公益慈善</h2>
-				<a href="about_qyfc.html">查看更多></a>
-			</div>
-			<div class="swiper-container sy_pic_box slidebox01 slidebox04">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic03.jpg" /></div>
-							<span>明月星辰公益捐赠</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic05.jpg" /></div>
-							<span>明月星辰公益电影拍摄</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic07.jpg" /></div>
-							<span>明月星辰公益摄影</span>
-						</a>
-					</div>
-					<div class="swiper-slide pic">
-						<a href="about_qyfc_xq.html">
-							<div class="_picbox_w3_h2"><img src="images/pic08.jpg" /></div>
-							<span>公益培训</span>
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<script>
-				var swiper = new Swiper('.slidebox04', {
-					slidesPerView: 2,
-					slidesPerColumn: 1,
-					spaceBetween: '3%',
-					autoplay: 1,
-					loop: true,//无缝轮播条件 slidesPerView为整数, slidesPerColumn为1,
-					speed: 5000,
-					autoplayDisableOnInteraction: false,
-				});
-			</script>
-		</div> -->
-		<!-- 公益慈善结束 -->
 	</div>
 
 	<!-- slide侧边栏 -->
@@ -624,6 +290,15 @@
 						<img src="images/menu_icon01_1.png" alt="首页" />
 					</i>
 					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="quotation.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>行情</span>
 				</a>
 			</li>
 			<li>
@@ -738,8 +413,62 @@
 					document.body.removeChild(oneInner);
 				}
 			}
-			moveFrame()
+			// moveFrame()
 
+			/**
+			 * BTC ETH FIL
+			 */
+			function getThreeDta () {
+				let dataList = [
+					{
+						name: 'BTC',
+						rate: '-0.70%',
+						number: '11723.57',
+						money: '¥77434.17'
+					},
+					{
+						name: 'ETH',
+						rate: '-1.37%',
+						number: '378.26',
+						money: '¥2498.40'
+					},
+					{
+						name: 'FIL',
+						rate: '-0.56%',
+						number: '27723.57',
+						money: '¥57434.17'
+					}
+				]
+				let html = ''
+				dataList.forEach((item, index) => {
+					html += `
+						<li>
+							<div><span class="name_span">${item.name}</span><span class="rate_span">${item.rate}</span></div>
+							<div><span class="number_span">${item.number}</span></div>
+							<div><span class="money_span">${item.money}</span></div>
+						</li>
+					`
+				})
+				$('.fireCoin_panel_ul').html(html)
+				/*
+				$.ajax({
+					type: "",
+					dataType: 'json',
+					contentType: 'application/json',
+					url: "",
+					data: {
+
+					},
+					success: function (data) {
+						console.log('++++++--------', data)
+					},
+					error: function () {
+
+					}
+				})
+				 */
+			}
+			getThreeDta()
 
 
 

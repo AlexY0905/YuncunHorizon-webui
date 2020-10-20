@@ -19,7 +19,7 @@
 	<!-- app CSS -->
 	<link id="theme" rel="stylesheet" href="./css/static/purplesidebar.css" type="text/css">
 	<!-- icon -->
-	<title>用户登录</title>
+	<title>手机号登录</title>
 	<style>
 		* {
 			margin: 0;
@@ -206,16 +206,26 @@
 						<p style="font-family: cursive; font-size: 24px;">请登录您的账户</p>
 						<div class="card mb-2">
 							<div class="card-body p-0" id="name_data">
-								<label for="name" class="sr-only">用户名</label>
-								<input type="text" id="name" oninput="preSql(this)"
-									class="form-control form-control-lg border-0 text-center" placeholder="用户名"
-									required="" autofocus="" style="font-family: cursive; font-size: 18px;">
+								<label for="regPhone" class="sr-only">手机号</label>
+								<input type="text" id="regPhone" oninput="preSql(this)"
+									class="form-control form-control-lg border-0 text-center" placeholder="手机号"
+									style="font-family: cursive; font-size: 18px;">
 								<span id="code"></span>
 								<hr class="my-0">
-								<label for="inputPassword" class="sr-only">密码</label>
-								<input type="password" id="inputPassword" oninput="preSql(this)"
-									class="form-control form-control-lg border-0 text-center" placeholder="密码"
-									required="" style="font-family: cursive; font-size: 18px;">
+								<div class="input">
+									<!--
+									<span style="position: relative;">
+										<img src="./images/static/code.png" alt="" class="code">
+									</span>
+									-->
+									<input type="text" id="yanZM" oninput="preSql(this)"
+										   class="form-control text-center form-control-lg border-0" placeholder="输入验证码"
+										   onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+										   style="font-family: cursive;">
+									<span id="msgYanZM"></span>
+									<input type="button" class="btn btn-outline-primary c-333 text-c js-code btncode"
+										   value="获取验证码" id="sendYzm" style="width:100%;font-family: cursive;border-color: #fff">
+								</div>
 							</div>
 						</div>
 						<div class="my-4 row">
@@ -226,24 +236,10 @@
 										style="font-family: cursive; font-size: 16px;">记住我</label>
 								</div>
 							</div>
-							<div class="col-6 col-md text-right" style="display: flex;flex-direction: column">
-								<a href="./adminLogin.html" class="content-color-primary"
-									style="font-family: cursive; font-size: 16px;">管理员登录</a>
-							</div>
 						</div>
 						<div class="text-left mb-4" style="display: flex">
-							<!-- <a type="submit" class="btn btn-primary pink-gradient " onclick="telLogin()" id="tel_1"
-								style="display: none;">登录</a> -->
 							<a type="submit" class="btn btn-primary pink-gradient btnlog bgse" onclick="checkLogin()"
-								id="name_1" style="font-family: cursive; font-size: 20px;">登录</a>
-							<a href="./register.html" class="float-right btn btn-outline-primary btnlog"
-								style="font-family: cursive; font-size: 20px;">注册</a>
-						</div>
-						<div class="text-left mb-4" style="display: flex;justify-content: space-between;padding: 0 40px">
-							<a href="./forgetPassword.html" class="content-color-primary"
-							   style="font-family: cursive; font-size: 16px;margin-top: 10px">忘记密码?</a>
-							<a href="./phoneLogin.html" class="content-color-primary"
-							   style="font-family: cursive; font-size: 16px;margin-top: 10px">手机号登录</a>
+								id="name_1" style="font-family: cursive; font-size: 20px;width: 100%">登录</a>
 						</div>
 					</div>
 				</div>
@@ -335,39 +331,6 @@
 	<!-- 底部公共导航js -->
 	<!-- <script type="text/javascript" src="js/public.js"></script> -->
 	<script>
-		function tel() {
-			$(document).ready(function (e) {
-				//密码登录输入框
-				$('#name_data').css('display', 'none')
-				//手机登录输入框
-				$('#tel_data').css('display', 'inline')
-				//手机登录按钮
-				$('#tel_1').css('display', 'inline')
-				//密码登录输入框
-				$('#name_1').css('display', 'none')
-				//手机登录切换输入框
-				$('#tel').css('display', 'none')
-				// $('#tel').css('display','none')
-				//密码登录切换输入框
-				$('#name').css('display', 'inline')
-			})
-		}
-		function name1() {
-			$(document).ready(function (e) {
-				//密码登录输入框
-				$('#name_data').css('display', 'inline')
-				//手机登录输入框
-				$('#tel_data').css('display', 'none')
-				//手机登录按钮
-				$('#tel_1').css('display', 'none')
-				//密码登录输入框
-				$('#name_1').css('display', 'inline')
-				//手机登录切换输入框
-				$('#name').css('display', 'none')
-				//密码登录切换输入框
-				$('#tel').css('display', 'inline')
-			})
-		}
 		$(".menubox dl").css("bottom", "44px")
 	</script>
 	<script>
@@ -383,60 +346,103 @@
 			s[8] = s[13] = s[18] = s[23] = "-";
 			uuida = s.join("");
 		}
-
+		var verificationCode = '';
 		// 点击登录，检查登陆成功与否
 		function checkLogin() {
-			$.ajax({
-				type: "get",
-				dataType: 'json',
-				contentType: 'application/json',
-				url: "http://61.147.123.84:9000/v1/login",
-				data: {
-					name: $("#name").val(),
-					password: $("#inputPassword").val()
-				},
-				success: function (data) {
-					console.log('++++++--------', data)
-					if (data.msg == 'password good') {
-						ShowSuccess('登录成功')
-						// 本地存储设置表示当前登录用户为普通用户
-						localStorage.setItem('isLogin', '0')
-						// 本地存储设置当前登录用户的用户名
-						localStorage.setItem('userName', $("#name").val())
-						let isAdminLogin = localStorage.getItem('isAdminLogin')
-						if (isAdminLogin === '0') {
-							localStorage.removeItem('isAdminLogin')
+			var codeVal = $('#yanZM').val()
+			//获取输入的手机号
+			var regPhone = document.getElementById("regPhone");
+			if (codeVal == null || codeVal == '') {
+				ShowFailure('验证码不能为空 !')
+				return false;
+			} else if (verificationCode == codeVal) {
+				if (regPhone.value.length !== 11) {
+					ShowFailure('手机号是11个数字 !')
+					return false;
+				} else {
+					$.ajax({
+						type: "get",
+						dataType: 'json',
+						contentType: 'application/json',
+						url: "http://61.147.123.84:9100/v1/loginbyphone",
+						data: {
+							phone: $("#regPhone").val()
+						},
+						success: function (data) {
+							console.log('++++++--------', data)
+							if (data.Msg == '手机号未注册，请先进行注册') {
+								ShowFailure(data.Msg)
+								return false
+							} else if (data.Msg == 'ok') {
+								ShowSuccess('登录成功')
+								// 本地存储设置表示当前登录用户为普通用户
+								localStorage.setItem('isLogin', '0')
+								// 本地存储设置当前登录用户的用户名
+								localStorage.setItem('userName', data.data.Name)
+								let isAdminLogin = localStorage.getItem('isAdminLogin')
+								if (isAdminLogin === '0') {
+									localStorage.removeItem('isAdminLogin')
+								}
+								setTimeout(() => {
+									window.location.href = './index.html'
+								})
+							}
+							/*
+                            if (data.msg == "用户不存在") {
+                                ShowFailure("用户不存在,请注册!");
+                                $("#inputEmail").val("");
+                                $("#inputPassword").val("");
+                            } else if (data.msg == "密码错误") {
+                                ShowFailure("密码错误,请重试!");
+                                $("#inputEmail").val("");
+                                $("#inputPassword").val("");
+                            } else if (data.msg == "该账户已登录，请重新登录") {
+                                ShowFailure("该账户已登录，请重新登录");
+                            } else {
+                                // console.log("data",data);
+                                ShowSuccess("登陆成功")
+                                localStorage.obj = JSON.stringify(data);
+                                localStorage.obj_power = "2";
+                                setInterval(() => {
+                                    window.location.href = "./index.html";
+                                }, 800)
+                            }
+                            */
 						}
-						setTimeout(() => {
-							window.location.href = './index.html'
-						})
-					}
-
-					/*
-					if (data.msg == "用户不存在") {
-						ShowFailure("用户不存在,请注册!");
-						$("#inputEmail").val("");
-						$("#inputPassword").val("");
-					} else if (data.msg == "密码错误") {
-						ShowFailure("密码错误,请重试!");
-						$("#inputEmail").val("");
-						$("#inputPassword").val("");
-					} else if (data.msg == "该账户已登录，请重新登录") {
-						ShowFailure("该账户已登录，请重新登录");
-					} else {
-						// console.log("data",data);
-						ShowSuccess("登陆成功")
-						localStorage.obj = JSON.stringify(data);
-						localStorage.obj_power = "2";
-						setInterval(() => {
-							window.location.href = "./index.html";
-						}, 800)
-					}
-					*/
-
+					})
 				}
-			})
+			} else {
+				ShowFailure('验证码输入错误 !')
+				return false
+			}
 		}
+
+
+		$("#regPhone").blur(function () {
+			var reg1 = /^1[3|4|5|7|8|9][0-9]\d{8}$/;
+			if (!reg1.test(this.value)) {  //如果当前用户输入的值 非真（不符合手机号规则）
+				ShowFailure("请输入正确的手机号！")
+			} else if (reg1.test(this.value)) {
+				//发送验证码  发起ajax请求,后台拦截这个请求
+				$("#sendYzm").click(function () {
+					var tel = $("#regPhone").val();
+					$.ajax({
+						url: "http://61.147.123.84:9100/v1/getphonecode",
+						type: "GET",
+						dataType: 'json',
+						async: false,
+						data: {
+							phone: tel
+						},
+						success: function (data) {
+							console.log('::::::::::-----------', data)
+							verificationCode = data.Msg
+						}
+					})
+				})
+			}
+
+		})
 
 		$('.menubtn').on('click', function () {
 			$('.menu').css('bottom', '41px')
