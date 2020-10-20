@@ -593,12 +593,12 @@
 								$("#msgYanZM").html("验证码不能为空!");
 								$("#msgYanZM").css("color", "red");
 								return;
-							} else if (regPhone.value.length !== 11) {
+							} else if (yanZM == result_1) {//判断验证码是否一致
+								if (regPhone.value.length !== 11) {
 									$("#err_msgPhone").html("*手机号是11个数字*");
 									$("#err_msgPhone").css("color", "red");
 									return;
 								} else {
-
 									let user = {
 										name: $('#name').val(),
 										email: $("#inputEmail").val(),
@@ -626,6 +626,11 @@
 									})
 
 								}
+							} else {
+								$("#msgYanZM").html("验证码有误,请重试!");
+								$("#msgYanZM").css("color", "red");
+								return;
+							}
 						} else {
 							$("#password_2").html("*密码设置前后不一致！*");
 							$("#password_2").css("color", "red");
@@ -650,7 +655,7 @@
 				$("#sendYzm").click(function () {
 					var tel = $("#regPhone").val();
 					$.ajax({
-						url: "http://61.147.123.84:9100/v1/getphonecode",
+						url: "http://61.147.123.84:9000/v1/identifycode",
 						type: "GET",
 						dataType: 'json',
 						async: false,
@@ -659,8 +664,7 @@
 						},
 						success: function (data) {
 							console.log('::::::::::-----------', data)
-							ShowSuccess(data.Msg)
-							// result = data
+							result = data.Msg
 						}
 					})
 				})

@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="">
+    <list default="true" id="410771c6-f5fd-4a95-a4de-5276271a2f74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,64 +30,29 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-        <option value="CSS File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1icZeHx9QGnNBCCl5UcktlxdKkv" />
+  <component name="ProjectId" id="1j7Zxaj8kDXPZq4M4817ZBYgsS6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../project-lotusApp/lotus-app" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui" />
-      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\audio" />
-      <recent name="D:\WKQ\project-newApp\YuncunHorizon-webui\common" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c5f359de-d25c-44c1-96b9-5c3a81d027ce" name="Default Changelist" comment="" />
-      <created>1602208933457</created>
+      <changelist id="410771c6-f5fd-4a95-a4de-5276271a2f74" name="Default Changelist" comment="" />
+      <created>1603157337969</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602208933457</updated>
-      <workItem from="1602208934516" duration="27927000" />
-      <workItem from="1602292993311" duration="28281000" />
-      <workItem from="1602465395015" duration="29923000" />
-      <workItem from="1602552628995" duration="16144000" />
-      <workItem from="1602638912924" duration="70000" />
-      <workItem from="1602639141052" duration="26718000" />
-      <workItem from="1602724990014" duration="23902000" />
-      <workItem from="1602811645746" duration="17309000" />
-      <workItem from="1602852304749" duration="157000" />
-      <workItem from="1602853260940" duration="269000" />
-      <workItem from="1602855284850" duration="169000" />
-      <workItem from="1602855765464" duration="597000" />
-      <workItem from="1602858186480" duration="616000" />
-      <workItem from="1603071411468" duration="23371000" />
+      <updated>1603157337969</updated>
+      <workItem from="1603157339488" duration="434000" />
     </task>
     <servers />
   </component>
@@ -101,21 +69,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl" timestamp="1603107668426">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="715" y="269" width="440" height="498" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603107668426" />
-    <state x="284" y="0" key="SettingsEditor" timestamp="1602858617754">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1602858617754" />
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602816175908" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602315852109">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602315852109" />
   </component>
 </project>
