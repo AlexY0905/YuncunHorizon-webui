@@ -261,15 +261,15 @@
 					<span>首页</span>
 				</a>
 			</li>
-			<li>
-				<a href="quotation.html">
-					<i>
-						<img src="images/menu_icon01.png" alt="首页" />
-						<img src="images/menu_icon01_1.png" alt="首页" />
-					</i>
-					<span>行情</span>
-				</a>
-			</li>
+<!--			<li>-->
+<!--				<a href="quotation.html">-->
+<!--					<i>-->
+<!--						<img src="images/menu_icon05.png" alt="行情" />-->
+<!--&lt;!&ndash;						<img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
+<!--					</i>-->
+<!--					<span>行情</span>-->
+<!--				</a>-->
+<!--			</li>-->
 			<li>
 				<a href="video.html">
 					<i>
@@ -364,12 +364,15 @@
 						type: "get",
 						dataType: 'json',
 						contentType: 'application/json',
-						url: "http://61.147.123.84:9100/v1/loginbyphone",
+						url: "http://61.147.123.84:9000/v1/loginbyphone",
 						data: {
 							phone: $("#regPhone").val()
 						},
 						success: function (data) {
+
+							data.data = JSON.parse(data.data)
 							console.log('++++++--------', data)
+							return
 							if (data.Msg == '手机号未注册，请先进行注册') {
 								ShowFailure(data.Msg)
 								return false
@@ -427,7 +430,7 @@
 				$("#sendYzm").click(function () {
 					var tel = $("#regPhone").val();
 					$.ajax({
-						url: "http://61.147.123.84:9100/v1/getphonecode",
+						url: "http://61.147.123.84:9000/v1/identifycode",
 						type: "GET",
 						dataType: 'json',
 						async: false,

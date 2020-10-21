@@ -109,6 +109,32 @@
         .searchButton img {
             width: 20px;
         }
+
+        /* 查看更多按钮样式 开始 */
+        .load_more {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            background: #0083c3;
+            border: none;
+            outline: 0 none;
+            width: 90%;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 3px 10px #888888;
+        }
+
+        .load_more a {
+            color: #fff;
+        }
+
+        .pp {
+            margin-top: 0rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 14px;
+        }
+        /* 查看更多按钮样式 结束 */
     </style>
 </head>
 <body>
@@ -137,184 +163,20 @@
         </button>
     </div>
     <!-- 搜索 结束 -->
+    <!--
     <div class="fold_panel">
+
+    </div>
+    -->
+    <div class="fold_panel_box">
+        <ul class="fold_panel fold_list article_list" data-v-339f8b8e="">
+            <ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
+        </ul>
         <!--
-        <div class="user_item">
-            <div class="Collapsing current">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 1</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 1</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
-        </div>
-        <div class="user_item">
-            <div class="Collapsing">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 2</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 2</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
-        </div>
-        <div class="user_item">
-            <div class="Collapsing">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 3</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 3</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
-        </div>
-        <div class="user_item">
-            <div class="Collapsing">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 4</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 4</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
-        </div>
-        <div class="user_item">
-            <div class="Collapsing">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 5</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 5</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
-        </div>
-        <div class="user_item">
-            <div class="Collapsing">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>用户 6</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="userName">
-                    <span>用户名</span> : <span>用户 6</span>
-                </div>
-                <div class="tel">
-                    <span>手机号</span> : <span>15536954874</span>
-                </div>
-                <div class="email">
-                    <span>邮箱</span> : <span>1395648741@qq.com</span>
-                </div>
-                <div class="account">
-                    <span>账户余额</span> : <span>999999</span>
-                </div>
-                <div class="address">
-                    <span>账户地址</span> : <span>上海</span>
-                </div>
-                <div class="password">
-                    <span>用户密码</span> : <span>******</span>
-                </div>
-            </div>
+        <div class="more" style="margin-top: .5rem">
+            <button class="load_more"><a href="javascript:;">查看更多</a></button>
         </div>
         -->
-
     </div>
 </div>
 
@@ -343,15 +205,15 @@
                 <span>首页</span>
             </a>
         </li>
-        <li>
-            <a href="quotation.html">
-                <i>
-                    <img src="images/menu_icon01.png" alt="首页" />
-                    <img src="images/menu_icon01_1.png" alt="首页" />
-                </i>
-                <span>行情</span>
-            </a>
-        </li>
+<!--        <li>-->
+<!--            <a href="quotation.html">-->
+<!--                <i>-->
+<!--                    <img src="images/menu_icon05.png" alt="行情" />-->
+<!--&lt;!&ndash;                    <img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
+<!--                </i>-->
+<!--                <span>行情</span>-->
+<!--            </a>-->
+<!--        </li>-->
         <li>
             <a href="video.html">
                 <i>
@@ -503,6 +365,35 @@
                         `
                         }
                     })
+
+                    var _content = [] // 临时存储文章循环内容
+                    var _default = 8 //默认显示文章个数
+                    var _loading = 8 //每次点击按钮后加载的个数
+                    function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
+                        var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
+                        $(".fold_panel .list").html(""); // 默认清空存放文章列表数据的dom容器
+                        for (var n = 0; n < _default; n++) { // 循环页面加载完毕默认展示的文章列表数
+                            lis.eq(n).appendTo(".fold_panel .list"); // 拿到每一项文章列表的dom节点, 并追加到指定的dom节点中
+                        }
+                        for (var i = _default; i < lis.length; i++) { // 循环所有文章列表数, 并从默认展示的文章列表数的下一个数开始, 将所有后面的文章列表dom节点数据添加到 _content数组中
+                            _content.push(lis.eq(i));
+                        }
+                    }
+                    init() // 调用此函数, 初始化页面
+                    function loadMore() { // 点击加载更多按钮, 加载更多文章列表数据
+                        for (var i = 0; i < _loading; i++) { // 循环指定的加载文章列表数
+                            var target = _content.shift(); // 用 shift() 删除_content这个函数的第一项, 并把删除的第一项返回出来, 以此判断 _content 这个函数中是否有数据, 有数据证明可以加载更多数据, 没有数据不能加载更多数据
+                            if (!target) { // 没有数据, 提示信息
+                                $('.fold_panel_box .more').html("<p class='pp'>全部加载完毕...</p>");
+                                break;
+                            }
+                            $(".fold_panel .list").append(target); // 有数据, 就将数据逐条追加到指定的dom元素中
+                        }
+                    }
+                    $(".more").on("click", function () { // 给加载更多数据按钮添加点击事件
+                        loadMore() // 执行加载更多文章列表数据
+                    })
+
                     $('.fold_panel').html(html)
                 },
                 error: function () {

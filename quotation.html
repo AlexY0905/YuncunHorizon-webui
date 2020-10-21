@@ -26,7 +26,7 @@
             height: 40px;
             background: #fff;
             position: fixed;
-            top: 57px;
+            top: 60px;
             left: 0;
             right: 0;
             box-shadow: darkgrey 4px -3px 3px 3px;
@@ -43,11 +43,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 14px;
+            font-size: 13px;
         }
         .currency_panel {
             width: 100%;
-            margin-top: 100px;
+            margin-top: 1.8rem;
         }
         .currency_panel ul {
             width: 100%;
@@ -75,7 +75,7 @@
             font-weight: bold;
         }
         .currency_panel ul li .money_div {
-            margin-top: 5px;
+            margin-top: 8px;
         }
         .currency_panel ul li .money_txt {
             color: #aaaaaa;
@@ -88,14 +88,20 @@
         }
         .currency_panel ul li .rate_btn {
             width: 90px;
-            height: 40px;
-            border-radius: 8px;
+            height: 35px;
+            border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #00AA55;
             color: #fff;
             font-size: 14px;
+        }
+        .hangqing-txt {
+            min-height: 16px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 900;
         }
 
 
@@ -110,21 +116,18 @@
                 <a href="index.html"><img src="images/yclogo.png" /></a>
             </div>
         </div>
+        <div class="hangqing-txt">行情</div>
     </div>
-    <!--
-    <div class="title">
-        <p>行情</p>
-    </div>
-    -->
     <div class="menu_title_panel">
         <ul>
             <li>名称 / 24H额</li>
             <li style="flex: 1.1">流通数量 / 流通市值(¥)</li>
-            <li>24H换手</li>
+            <li>24H涨幅</li>
         </ul>
     </div>
     <div class="currency_panel">
-        <ul>
+        <ul class="currency_panel_ul">
+            <!--
             <li>
                 <div class="box_li">
                     <span class="name_span name_txt">BTC</span>
@@ -215,6 +218,7 @@
                     <span class="rate_btn">+0.90%</span>
                 </div>
             </li>
+            -->
 
         </ul>
     </div>
@@ -249,15 +253,15 @@
                     <span>首页</span>
                 </a>
             </li>
-            <li>
-                <a href="quotation.html">
-                    <i>
-                        <img src="images/menu_icon01.png" alt="行情" />
-                        <img src="images/menu_icon01_1.png" alt="行情" />
-                    </i>
-                    <span>行情</span>
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a href="quotation.html">-->
+<!--                    <i>-->
+<!--                        <img src="images/menu_icon05.png" alt="行情" />-->
+<!--&lt;!&ndash;                        <img src="images/menu_icon01_1.png" alt="行情" />&ndash;&gt;-->
+<!--                    </i>-->
+<!--                    <span>行情</span>-->
+<!--                </a>-->
+<!--            </li>-->
             <li>
                 <a href="video.html">
                     <i>
@@ -303,6 +307,7 @@
     <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/static/jquery.easy_slides.js"></script>
+    <script type="text/javascript" src="js/static/message.js"></script>
     <script>
         AOS.init({
             easing: 'ease-out-back',
@@ -319,6 +324,182 @@
     </script>
     <script>
         $(function () {
+
+            /**
+             * 获取行情列表数据  9位数 亿
+             */
+            function moneyDataFormat (money, formatMoney) {
+                let tempNum = ''
+                if (String(money).length == 9) { // 亿
+                    tempNum = String(money).substr(1, 2)
+                    formatMoney = String(money).substr(0, 1) + '.' + tempNum
+                    return formatMoney
+                } else if (String(money).length == 10) { // 十亿
+                    tempNum = String(money).substr(2, 2)
+                    formatMoney = String(money).substr(0, 2) + '.' + tempNum
+                    return formatMoney
+                } else if (String(money).length == 11) { // 百亿
+                    tempNum = String(money).substr(3, 2)
+                    formatMoney = String(money).substr(0, 3) + '.' + tempNum
+                    return formatMoney
+                } else if (String(money).length == 12) { // 千亿
+                    tempNum = String(money).substr(4, 2)
+                    formatMoney = String(money).substr(0, 4) + '.' + tempNum
+                    return formatMoney
+                } else if (String(money).length == 13) { // 万亿
+                    tempNum = String(money).substr(5, 2)
+                    formatMoney = String(money).substr(0, 5) + '.' + tempNum
+                    return formatMoney
+                }
+            }
+            let allResData = []
+            async function getQuotationDataList () {
+                await $.ajax({
+                    type: "get",
+                    url: 'https://dncapi.bqrank.net/api/coin/web-coinrank',
+                    data: {
+                        page: 1,
+                        type: -1,
+                        pagesize: 100,
+                        webp: 1
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(1111111111, result)
+                        /*
+                        for (let i = 1; i <= result.maxpage; i++) {
+                            $.ajax({
+                                type: "get",
+                                url: 'https://dncapi.bqrank.net/api/coin/web-coinrank',
+                                data: {
+                                    page: i,
+                                    type: -1,
+                                    pagesize: 100,
+                                    webp: 1
+                                },
+                                dataType: 'json',
+                                success: function (result) {
+                                    console.log(result);
+                                    let resData = result.data
+                                    resData.forEach((item, index) => {
+                                        allResData.push(item)
+                                    })
+                                },
+                                error: function () {
+                                    ShowFailure('网络错误, 请稍后再试 !')
+                                }
+                            })
+                        }
+                        */
+
+                        allPages = result.maxpage
+                        let data = result.data
+                        let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'USDT' || item.name == 'BCH' || item.name == 'BNB' || item.name == 'FIL' })
+                        console.log(':::::::::---------', res);
+                        let html = ''
+                        res.forEach((item, index) => {
+                            let vol = moneyDataFormat(item.vol)
+                            let market_value = moneyDataFormat(item.market_value)
+                            if (item.change_percent > 0) {
+                                html += `
+                                    <li>
+                                        <div class="box_li">
+                                            <span class="name_span name_txt">${item.name}</span>
+                                            <div class="money_div">
+                                                <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥${vol}亿</span>
+                                            </div>
+                                        </div>
+                                        <div class="box_li">
+                                            <span class="number_span name_txt">${item.supply}</span>
+                                            <span class="scaler_span money_txt" style="margin-top: 8px">¥${market_value}亿</span>
+                                        </div>
+                                        <div class="box_li rate_btn_box">
+                                            <span class="rate_btn">+${item.change_percent}%</span>
+                                        </div>
+                                    </li>
+                                `
+                            } else if (item.change_percent < 0) {
+                                html += `
+                                    <li>
+                                        <div class="box_li">
+                                            <span class="name_span name_txt">${item.name}</span>
+                                            <div class="money_div">
+                                                <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥${vol}亿</span>
+                                            </div>
+                                        </div>
+                                        <div class="box_li">
+                                            <span class="number_span name_txt">${item.supply}</span>
+                                            <span class="scaler_span money_txt" style="margin-top: 8px">¥${market_value}亿</span>
+                                        </div>
+                                        <div class="box_li rate_btn_box">
+                                            <span class="rate_btn" style="background: #FF0066;">${item.change_percent}%</span>
+                                        </div>
+                                    </li>
+                                `
+                            }
+
+                        })
+                        $('.currency_panel_ul').html(html)
+
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+
+
+
+                /*
+                let resDataList = [
+                    {
+                        name: 'BTC',
+                        money: '1134081',
+                        number: '0.01162628',
+                        numberMoney: '29.04',
+                        rate: '0.90'
+                    },
+                    {
+                        name: 'ETH',
+                        money: '2134661',
+                        number: '0.23412628',
+                        numberMoney: '43.04',
+                        rate: '1.20'
+                    },
+                    {
+                        name: 'USDT',
+                        money: '2164081',
+                        number: '0.01122632',
+                        numberMoney: '32.04',
+                        rate: '1.12'
+                    },
+                    {
+                        name: 'BCH',
+                        money: '1256081',
+                        number: '0.01675672',
+                        numberMoney: '6.04',
+                        rate: '0.12'
+                    },
+                    {
+                        name: 'BNB',
+                        money: '3216081',
+                        number: '0.01645643',
+                        numberMoney: '5.27',
+                        rate: '1.56'
+                    },
+                    {
+                        name: 'FIL',
+                        money: '7890033',
+                        number: '0.01345778',
+                        numberMoney: '3.21',
+                        rate: '2.76'
+                    }
+                ]
+                */
+            }
+            getQuotationDataList()
+            console.log(33333333333, allResData);
+
+
             $('.menu_panel').load('./common/menu.html')
         })
     </script>

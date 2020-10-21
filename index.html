@@ -38,7 +38,7 @@
 		.fireCoin_panel ul li .rate_span {
 			font-size: 14px;
 			font-weight: bold;
-			color: #FF0033;
+			color: #0083c3;
 			margin-left: 10px;
 		}
 		.fireCoin_panel ul li .number_span {
@@ -189,6 +189,11 @@
 					<div class="money_span">¥57434.17</div>
 				</li>
 				-->
+				<li class="FIL_li">
+					<div><span class="name_span">FIL</span><span class="rate_span" style="color: #FF0033">-5.33%</span></div>
+					<div class="number_span">17423847</div>
+					<div class="money_span">¥35.05亿</div>
+				</li>
 			</ul>
 		</div>
 		<!-- 企业商演 -->
@@ -292,15 +297,15 @@
 					<span>首页</span>
 				</a>
 			</li>
-			<li>
-				<a href="quotation.html">
-					<i>
-						<img src="images/menu_icon01.png" alt="首页" />
-						<img src="images/menu_icon01_1.png" alt="首页" />
-					</i>
-					<span>行情</span>
-				</a>
-			</li>
+<!--			<li>-->
+<!--				<a href="quotation.html">-->
+<!--					<i>-->
+<!--						<img src="images/menu_icon05.png" alt="首页" />-->
+<!--&lt;!&ndash;						<img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
+<!--					</i>-->
+<!--					<span>行情</span>-->
+<!--				</a>-->
+<!--			</li>-->
 			<li>
 				<a href="video.html">
 					<i>
@@ -418,38 +423,100 @@
 			/**
 			 * BTC ETH FIL
 			 */
+			function moneyDataFormat (money, formatMoney) {
+				let tempNum = ''
+				if (String(money).length == 9) { // 亿
+					tempNum = String(money).substr(1, 2)
+					formatMoney = String(money).substr(0, 1) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 10) { // 十亿
+					tempNum = String(money).substr(2, 2)
+					formatMoney = String(money).substr(0, 2) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 11) { // 百亿
+					tempNum = String(money).substr(3, 2)
+					formatMoney = String(money).substr(0, 3) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 12) { // 千亿
+					tempNum = String(money).substr(4, 2)
+					formatMoney = String(money).substr(0, 4) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 13) { // 万亿
+					tempNum = String(money).substr(5, 2)
+					formatMoney = String(money).substr(0, 5) + '.' + tempNum
+					return formatMoney
+				}
+			}
 			function getThreeDta () {
+				$.ajax({
+					type: "get",
+					dataType: 'json',
+					contentType: 'application/json',
+					url: "https://dncapi.bqrank.net/api/coin/web-coinrank",
+					data: {
+						page: 1,
+						type: -1,
+						pagesize: 100,
+						webp: 1
+					},
+					success: function (result) {
+						let data = result.data
+						let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'FIL' })
+						console.log('++++++--------', res)
+
+						let html = ''
+						res.forEach((item, index) => {
+							let market_value = moneyDataFormat(item.market_value)
+							if (item.change_percent > 0) {
+								html += `
+									<li>
+										<div><span class="name_span">${item.name}</span><span class="rate_span">${item.change_percent}</span></div>
+										<div><span class="number_span">${item.supply}</span></div>
+										<div><span class="money_span">¥${market_value}亿</span></div>
+									</li>
+								`
+							} else if (item.change_percent < 0) {
+								html += `
+									<li>
+										<div><span class="name_span">${item.name}</span><span class="rate_span" style="color: #FF0033">${item.change_percent}</span></div>
+										<div><span class="number_span">${item.supply}</span></div>
+										<div><span class="money_span">¥${market_value}亿</span></div>
+									</li>
+								`
+							}
+
+
+						})
+						$('.fireCoin_panel_ul .FIL_li').before(html)
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+				/*
 				let dataList = [
 					{
 						name: 'BTC',
-						rate: '-0.70%',
+						rate: '+0.70%',
 						number: '11723.57',
 						money: '¥77434.17'
 					},
 					{
 						name: 'ETH',
-						rate: '-1.37%',
+						rate: '+1.37%',
 						number: '378.26',
 						money: '¥2498.40'
 					},
 					{
 						name: 'FIL',
-						rate: '-0.56%',
+						rate: '+0.56%',
 						number: '27723.57',
 						money: '¥57434.17'
 					}
 				]
-				let html = ''
-				dataList.forEach((item, index) => {
-					html += `
-						<li>
-							<div><span class="name_span">${item.name}</span><span class="rate_span">${item.rate}</span></div>
-							<div><span class="number_span">${item.number}</span></div>
-							<div><span class="money_span">${item.money}</span></div>
-						</li>
-					`
-				})
-				$('.fireCoin_panel_ul').html(html)
+				*/
+
+
 				/*
 				$.ajax({
 					type: "",
