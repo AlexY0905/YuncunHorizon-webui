@@ -55,6 +55,15 @@
 			justify-content: center;
 			align-items: center;
 		}
+		.about_us_text {
+			font-weight:600;
+			font-size:15.2344px;
+			margin-bottom:0px;
+			cursor:pointer;
+			background-image: -webkit-linear-gradient(bottom,#6099EA,#6078EA,#17EAD9);
+			-webkit-background-clip:text;
+			-webkit-text-fill-color:transparent;
+		}
 	</style>
 
 </head>
@@ -133,14 +142,12 @@
 			<div class="scrollnews">
 				<span><a href="newslist_gg.html"><img src="images/gg_tit.png"></a></span>
 				<ul>
-					<!-- <li><a href="news_xq.html">太空竞赛第二轮-Track 2 Slingshot竞赛将于9月24日开启</a></li> -->
-					<li><a href="news_xq.html">The second round of the Space Race, Track 2 Slingshot, will begin on
-							September 24</a></li>
-					<!-- <li><a href="news_xq.html">第一轮太空竞赛将于9月15日早上5:59落下帷幕</a></li> -->
-					<li><a href="news_xq.html">The first round of the space race will conclude at 5:59 a.m. on Sept.
-							15</a></li>
-					<!-- <li><a href="news_xq.html">Filecoin太空竞赛全网算力突破100PiB!</a></li> -->
-					<li><a href="news_xq.html">The Filecoin space race broke 100PiB!</a></li>
+					<!-- <li><a href="news_xq.html">蚂蚁链正式宣布数字版权服务平台面向全社会开放</a></li> -->
+					<li><a href="news_xq.html">Ant chain officially announced that the digital rights service platform is open to the whole society</a></li>
+					<!-- <li><a href="news_xq.html">韩国前总理韩昇洙：未来央行采取法定数字货币的趋势不可逆转</a></li> -->
+					<li><a href="news_xq.html">Han Seung soo, former Prime Minister of South Korea</a></li>
+					<!-- <li><a href="news_xq.html">比特币链上活跃度持续回升，单日链上手续费均值达到两年内最高位</a></li> -->
+					<li><a href="news_xq.html">The activity on bitcoin chain continued to rise, and the average service charge on the single day chain reached the highest level in two years</a></li>
 				</ul>
 				<script type="text/javascript">
 					$(document).ready(function () {
@@ -188,12 +195,12 @@
 					<div class="number_span">27723.57</div>
 					<div class="money_span">¥57434.17</div>
 				</li>
-				-->
+
 				<li class="FIL_li">
 					<div><span class="name_span">FIL</span><span class="rate_span" style="color: #FF0033">-5.33%</span></div>
 					<div class="number_span">17423847</div>
 					<div class="money_span">¥35.05亿</div>
-				</li>
+				</li>-->
 			</ul>
 		</div>
 		<!-- 企业商演 -->
@@ -256,13 +263,9 @@
 				<!-- <p aos="fade-up">
 					上海耘存科技发展公司立足于全国金融中心—上海， 由区块链行业资深技术人士和资深金融从业人员共同打造， 资金和技术实力雄厚，专业致力于IPFS分布式存储中国区布道！
 					同时提供专业的IPFS技术与硬件支持，以及IDC专业数据中心托管服务！<a href="about.html">查看更多>></a></p> -->
-				<p aos="fade-up">
-					Based in Shanghai, the national financial center, Shanghai Yuncun Technology Development Company is
-					jointly created by senior technical personnel and senior financial practitioners in the blockchain
-					industry. With strong financial and technical strength, it is dedicated to preaching IPFS
-					distributed storage in China.
-					At the same time provide professional IPFS technology and hardware support, as well as IDC
-					professional data center hosting services!<a href="about.html">See more>></a></p>
+				<p aos="fade-up" class="about_us_text">
+					Based in Shanghai, the national financial center, Shanghai Yuncun Technology Development Company is jointly created by senior technical personnel and senior financial practitioners in the blockchain industry. With strong financial and technical strength, it is dedicated to preaching IPFS distributed storage in China. At the same time provide professional IPFS technology and hardware support, as well as IDC professional data center hosting services!<a href="about.html">See more>></a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -297,22 +300,22 @@
 					<span>首页</span>
 				</a>
 			</li>
-<!--			<li>-->
-<!--				<a href="quotation.html">-->
-<!--					<i>-->
-<!--						<img src="images/menu_icon05.png" alt="首页" />-->
-<!--&lt;!&ndash;						<img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
-<!--					</i>-->
-<!--					<span>行情</span>-->
-<!--				</a>-->
-<!--			</li>-->
+			<li>
+				<a href="quotation.html">
+					<i>
+						<img src="images/menu_icon05.png" alt="行情" />
+<!--						<img src="images/menu_icon01_1.png" alt="首页" />-->
+					</i>
+					<span>行情</span>
+				</a>
+			</li>
 			<li>
 				<a href="video.html">
 					<i>
-						<img src="images/menu_icon02.png" alt="音频中心" />
-						<img src="images/menu_icon02_1.png" alt="音频中心" />
+						<img src="images/menu_icon02.png" alt="文件中心" />
+						<img src="images/menu_icon02_1.png" alt="文件中心" />
 					</i>
-					<span>音频中心</span>
+					<span>文件中心</span>
 				</a>
 			</li>
 			<li>
@@ -360,13 +363,13 @@
 			function moveFrame () {
 				var oneInner = document.createElement("div");
 				var imgDom = document.createElement("img");
-				imgDom.setAttribute("src", "images/yclogo.png")
+				imgDom.setAttribute("src", "images/static/float_win.jpg")
 				imgDom.setAttribute("style", "width:100%;")
 				oneInner.setAttribute("style","background:#fff;position:absolute;width:100px;height:100px;border:solid 3px #2F74A7;cursor:pointer;z-index:999;");
 				var oneButton = document.createElement("input");
 				oneButton.setAttribute("type","button");
 				oneButton.setAttribute("value","x");
-				oneButton.setAttribute("style","width:13px");
+				oneButton.setAttribute("style","width:13px;position:absolute");
 				if (oneButton.style.cssFloat)
 				{
 					oneButton.style.cssFloat="right"
@@ -447,8 +450,8 @@
 					return formatMoney
 				}
 			}
-			function getThreeDta () {
-				$.ajax({
+			async function getTwoData () {
+				await $.ajax({
 					type: "get",
 					dataType: 'json',
 					contentType: 'application/json',
@@ -461,16 +464,14 @@
 					},
 					success: function (result) {
 						let data = result.data
-						let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'FIL' })
-						console.log('++++++--------', res)
-
+						let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' })
 						let html = ''
 						res.forEach((item, index) => {
 							let market_value = moneyDataFormat(item.market_value)
 							if (item.change_percent > 0) {
 								html += `
 									<li>
-										<div><span class="name_span">${item.name}</span><span class="rate_span">${item.change_percent}</span></div>
+										<div><span class="name_span">${item.name}</span><span class="rate_span">+${item.change_percent}</span></div>
 										<div><span class="number_span">${item.supply}</span></div>
 										<div><span class="money_span">¥${market_value}亿</span></div>
 									</li>
@@ -484,58 +485,65 @@
 									</li>
 								`
 							}
-
-
 						})
-						$('.fireCoin_panel_ul .FIL_li').before(html)
+						$('.fireCoin_panel_ul').append(html)
 					},
 					error: function () {
 						ShowFailure('网络错误, 请稍后再试 !')
 					}
 				})
-				/*
-				let dataList = [
-					{
-						name: 'BTC',
-						rate: '+0.70%',
-						number: '11723.57',
-						money: '¥77434.17'
-					},
-					{
-						name: 'ETH',
-						rate: '+1.37%',
-						number: '378.26',
-						money: '¥2498.40'
-					},
-					{
-						name: 'FIL',
-						rate: '+0.56%',
-						number: '27723.57',
-						money: '¥57434.17'
-					}
-				]
-				*/
-
-
-				/*
-				$.ajax({
-					type: "",
+			}
+			async function getOneData () {
+				await $.ajax({
+					type: "get",
 					dataType: 'json',
 					contentType: 'application/json',
-					url: "",
+					url: "https://dncapi.bqrank.net/api/search/websearch",
 					data: {
-
+						page: 1,
+						exchange_page: 1,
+						wallet_page: 1,
+						pagesize: 25,
+						code: 'FIL',
+						token: '',
+						webp: 1
 					},
 					success: function (data) {
-						console.log('++++++--------', data)
+						let dataList = data.coinlist
+						let resData = dataList.filter((item, index) => { return item.symbol == 'FIL' })
+						let html = ''
+						resData.forEach((item, index) => {
+							let market_value = moneyDataFormat(item.market_value)
+							if (item.change_percent > 0) {
+								html += `
+									<li>
+										<div><span class="name_span">${item.symbol}</span><span class="rate_span">${item.change_percent}</span></div>
+										<div><span class="number_span">${item.circulatingsupply}</span></div>
+										<div><span class="money_span">¥${market_value}亿</span></div>
+									</li>
+								`
+							} else if (item.change_percent < 0) {
+								html += `
+									<li>
+										<div><span class="name_span">${item.symbol}</span><span class="rate_span" style="color: #FF0033">${item.change_percent}</span></div>
+										<div><span class="number_span">${item.circulatingsupply}</span></div>
+										<div><span class="money_span">¥${market_value}亿</span></div>
+									</li>
+								`
+							}
+						})
+						$('.fireCoin_panel_ul').append(html)
 					},
 					error: function () {
-
+						ShowFailure('网络错误, 请稍后再试 !')
 					}
 				})
-				 */
 			}
-			getThreeDta()
+			async function getThreeData () {
+				await getTwoData()
+				await getOneData()
+			}
+			getThreeData()
 
 
 

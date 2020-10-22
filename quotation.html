@@ -253,22 +253,22 @@
                     <span>首页</span>
                 </a>
             </li>
-<!--            <li>-->
-<!--                <a href="quotation.html">-->
-<!--                    <i>-->
-<!--                        <img src="images/menu_icon05.png" alt="行情" />-->
-<!--&lt;!&ndash;                        <img src="images/menu_icon01_1.png" alt="行情" />&ndash;&gt;-->
-<!--                    </i>-->
-<!--                    <span>行情</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <li>
+                <a href="quotation.html">
+                    <i>
+                        <img src="images/menu_icon05.png" alt="行情" />
+<!--                        <img src="images/menu_icon01_1.png" alt="行情" />-->
+                    </i>
+                    <span>行情</span>
+                </a>
+            </li>
             <li>
                 <a href="video.html">
                     <i>
-                        <img src="images/menu_icon02.png" alt="音频中心" />
-                        <img src="images/menu_icon02_1.png" alt="音频中心" />
+                        <img src="images/menu_icon02.png" alt="文件中心" />
+                        <img src="images/menu_icon02_1.png" alt="文件中心" />
                     </i>
-                    <span>音频中心</span>
+                    <span>文件中心</span>
                 </a>
             </li>
             <li>
@@ -330,7 +330,10 @@
              */
             function moneyDataFormat (money, formatMoney) {
                 let tempNum = ''
-                if (String(money).length == 9) { // 亿
+                if (String(money).length == 8) { // 千万
+                    tempNum = String(money).substr(3, 2)
+                    formatMoney = String(money).substr(0, 3) + '.' + tempNum
+                } else if (String(money).length == 9) { // 亿
                     tempNum = String(money).substr(1, 2)
                     formatMoney = String(money).substr(0, 1) + '.' + tempNum
                     return formatMoney
@@ -352,7 +355,6 @@
                     return formatMoney
                 }
             }
-            let allResData = []
             async function getQuotationDataList () {
                 await $.ajax({
                     type: "get",
@@ -365,37 +367,9 @@
                     },
                     dataType: 'json',
                     success: function (result) {
-                        console.log(1111111111, result)
-                        /*
-                        for (let i = 1; i <= result.maxpage; i++) {
-                            $.ajax({
-                                type: "get",
-                                url: 'https://dncapi.bqrank.net/api/coin/web-coinrank',
-                                data: {
-                                    page: i,
-                                    type: -1,
-                                    pagesize: 100,
-                                    webp: 1
-                                },
-                                dataType: 'json',
-                                success: function (result) {
-                                    console.log(result);
-                                    let resData = result.data
-                                    resData.forEach((item, index) => {
-                                        allResData.push(item)
-                                    })
-                                },
-                                error: function () {
-                                    ShowFailure('网络错误, 请稍后再试 !')
-                                }
-                            })
-                        }
-                        */
-
                         allPages = result.maxpage
                         let data = result.data
-                        let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'USDT' || item.name == 'BCH' || item.name == 'BNB' || item.name == 'FIL' })
-                        console.log(':::::::::---------', res);
+                        let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'USDT' || item.name == 'FIL' })
                         let html = ''
                         res.forEach((item, index) => {
                             let vol = moneyDataFormat(item.vol)
@@ -437,67 +411,88 @@
                                     </li>
                                 `
                             }
-
                         })
-                        $('.currency_panel_ul').html(html)
+                        $('.currency_panel_ul').append(html)
 
                     },
                     error: function () {
                         ShowFailure('网络错误, 请稍后再试 !')
                     }
                 })
-
-
-
-                /*
-                let resDataList = [
-                    {
-                        name: 'BTC',
-                        money: '1134081',
-                        number: '0.01162628',
-                        numberMoney: '29.04',
-                        rate: '0.90'
-                    },
-                    {
-                        name: 'ETH',
-                        money: '2134661',
-                        number: '0.23412628',
-                        numberMoney: '43.04',
-                        rate: '1.20'
-                    },
-                    {
-                        name: 'USDT',
-                        money: '2164081',
-                        number: '0.01122632',
-                        numberMoney: '32.04',
-                        rate: '1.12'
-                    },
-                    {
-                        name: 'BCH',
-                        money: '1256081',
-                        number: '0.01675672',
-                        numberMoney: '6.04',
-                        rate: '0.12'
-                    },
-                    {
-                        name: 'BNB',
-                        money: '3216081',
-                        number: '0.01645643',
-                        numberMoney: '5.27',
-                        rate: '1.56'
-                    },
-                    {
-                        name: 'FIL',
-                        money: '7890033',
-                        number: '0.01345778',
-                        numberMoney: '3.21',
-                        rate: '2.76'
-                    }
-                ]
-                */
             }
-            getQuotationDataList()
-            console.log(33333333333, allResData);
+
+
+            async function getFilData () {
+                await $.ajax({
+                    type: "get",
+                    url: 'https://dncapi.bqrank.net/api/search/websearch',
+                    data: {
+                        page: 1,
+                        exchange_page: 1,
+                        wallet_page: 1,
+                        pagesize: 25,
+                        code: 'FIL',
+                        token: '',
+                        webp: 1
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        let data = result.coinlist
+                        let res = data.filter((item, index) => { return item.symbol == 'FIL' })
+                        let html = ''
+                        res.forEach((item, index) => {
+                            let vol = moneyDataFormat(item.volume)
+                            let market_value = moneyDataFormat(item.market_value)
+                            if (item.change_percent > 0) {
+                                html += `
+                                    <li>
+                                        <div class="box_li">
+                                            <span class="name_span name_txt">${item.symbol}</span>
+                                            <div class="money_div">
+                                                <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥${vol}亿</span>
+                                            </div>
+                                        </div>
+                                        <div class="box_li">
+                                            <span class="number_span name_txt">${item.circulatingsupply}</span>
+                                            <span class="scaler_span money_txt" style="margin-top: 8px">¥${market_value}亿</span>
+                                        </div>
+                                        <div class="box_li rate_btn_box">
+                                            <span class="rate_btn">+${item.change_percent}%</span>
+                                        </div>
+                                    </li>
+                                `
+                            } else if (item.change_percent < 0) {
+                                html += `
+                                    <li>
+                                        <div class="box_li">
+                                            <span class="name_span name_txt">${item.symbol}</span>
+                                            <div class="money_div">
+                                                <span class="money_span money_txt">24H额 </span><span class="money_span money_txt">¥${vol}亿</span>
+                                            </div>
+                                        </div>
+                                        <div class="box_li">
+                                            <span class="number_span name_txt">${item.circulatingsupply}</span>
+                                            <span class="scaler_span money_txt" style="margin-top: 8px">¥${market_value}亿</span>
+                                        </div>
+                                        <div class="box_li rate_btn_box">
+                                            <span class="rate_btn" style="background: #FF0066;">${item.change_percent}%</span>
+                                        </div>
+                                    </li>
+                                `
+                            }
+                        })
+                        $('.currency_panel_ul').append(html)
+                    },
+                    error: function () {
+                        ShowFailure('网络错误, 请稍后再试 !')
+                    }
+                })
+            }
+            async function getAllDataList () {
+                await getQuotationDataList()
+                await getFilData()
+            }
+            getAllDataList()
 
 
             $('.menu_panel').load('./common/menu.html')

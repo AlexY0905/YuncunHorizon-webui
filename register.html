@@ -617,8 +617,14 @@
 											console.log('+++++++++++++-------', data)
 											if (data['ok']) {
 												ShowSuccess('注册成功')
-												window.location.href = './login.html'
+												setTimeout(() => {
+													window.location.href = './login.html'
+												}, 500)
+											} else if (data.msg == '手机号已注册') {
+												ShowFailure(data.msg)
+												return false
 											}
+
 										},
 										error: function (err) {
 											ShowFailure('网络错误, 稍后再试 !')

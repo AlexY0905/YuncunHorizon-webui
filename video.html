@@ -1,26 +1,189 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta content="耘存科技" http-equiv="keywords">
 	<meta name="description" content="耘存科技">
 	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
-	<title>视频详情</title>
+	<title>文件管理</title>
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/children.css">
-	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="css/static/video.css">
-
+	<!--内容动画样式库-->
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/swiper.min.js"></script>
-	<!-- <script type="text/javascript" src="js/public.js"></script> -->
+	<!--简单弹出框-->
+	<script type="text/javascript" src="./js/static/message.js"></script>
 	<style>
+		.fold_panel{margin:10px auto; width:94%; height: auto;}
+		.fold_panel .user_item {
+			margin-bottom: 5px;
+		}
+		.Collapsing {
+			width: 100%;
+			height: 35px;
+			cursor: pointer;
+			border-bottom: 1px solid white;
+			/*background-repeat: no-repeat;*/
+			/*background-position: center right no-repeat;*/
+			/*background-image: url(images/jiantou);*/
+			background-color: #FFFFFF;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-sizing: border-box;
+			padding: 0 10px;
+			box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
+		}
+		.Collapsing div {
+			width: 100%;
+			display: flex;
+			align-items: center;
+		}
+		.Collapsing span {
+			font-size: 16px;
+			margin-left: 5px;
+			color: #0083c3;
+		}
+		/*.Collapsing .arrow {*/
+		/*    transform: rotate(90deg);*/
+		/*}*/
+		.coll_body {
+			display: none;
+			background: #fff;
+			box-sizing: border-box;
+			padding: 10px;
+			border-top: 1px solid #0083c3;
+		}
+		.coll_body div {
+			/*margin-bottom: 10px;*/
+			line-height: 35px;
+			font-size: 16px;
+			color: #337ab7;
+			border-bottom: 1px dashed #cccccc;
+		}
+		/*.coll_body a{display:block; margin:10px; text-align: center; background: #ebebeb;}*/
+		/*.current{background-image:url(images/pro_down.png);}*/
+		/* 搜索框样式开始 */
+		.search_wrap {
+			width          : 100%;
+			height         : 100%;
+			display        : flex;
+			justify-content: center;
+			flex-direction : column;
+			text-align     : center;
+			box-sizing     : border-box;
+			padding        : 30px 35px 0 35px;
+		}
+
+		.search_box {
+			width   : 100%;
+			position: relative;
+			display : flex;
+			padding: 0 10px;
+			box-sizing: border-box;
+			margin: 10px 0;
+		}
+
+		.searchTerm {
+			width        : 50%;
+			/* border    : 3px solid #00B4CC; */
+			border       : 2px solid #0083c3;
+			/* border-right : none; */
+			padding      : 6px;
+			height       : 20px;
+			/* border-radius: 5px 0 0 5px; */
+			outline      : none;
+			color        : #9DBFAF;
+		}
+
+		.searchTerm:focus {
+			color: #00B4CC;
+		}
+
+		.searchButton {
+			width              : 40px;
+			height             : 36px;
+			/* border          : 1px solid #00B4CC; */
+			border             : 1px solid#0083c3;
+			/* background      : #00B4CC; */
+			background         : #0083c3;
+			text-align         : center;
+			color              : #fff;
+			border-radius      : 0 5px 5px 0;
+			cursor             : pointer;
+			font-size          : 20px;
+		}
+
+		.searchButton img {
+			width: 20px;
+		}
+
+		/* 搜索框样式结束 */
+
+		/* 查看更多按钮样式 开始 */
+		.load_more {
+			display: block;
+			margin: 0 auto;
+			padding: 10px;
+			background: #0083c3;
+			border: none;
+			outline: 0 none;
+			width: 90%;
+			border-radius: 5px;
+			font-size: 14px;
+			box-shadow: 0 3px 10px #888888;
+		}
+
+		.load_more a {
+			color: #fff;
+		}
+
+		.pp {
+			margin-top: 0rem;
+			margin-bottom: 1rem;
+			text-align: center;
+			font-size: 14px;
+		}
+		/* 查看更多按钮样式 结束 */
+
+		.mask_wrap {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: #000;
+			filter: alpha(Opacity=60);
+			-moz-opacity: 0.6;
+			opacity: 0.6;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.loader {
+			margin: 0 0 2em;
+			height: 100px;
+			width: 20%;
+			text-align: center;
+			padding: 1em;
+			margin: 0 auto 1em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		svg path,
+		svg rect {
+			/*fill: #FF6700;*/
+			fill: #0083c3;
+		}
+
 		.audio_wrap {
 			width: 100%;
 		}
+
 		.music_item {
 			position: relative;
 			width: 80%;
@@ -31,7 +194,7 @@
 			justify-content: space-between;
 			padding: 0 10px;
 			box-sizing: border-box;
-			border-radius: 15px;
+			border-radius: 10px;
 			box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
 		}
 
@@ -67,116 +230,68 @@
 			background: url("./images/static/play.png") no-repeat center bottom;
 			background-size: cover;
 		}
-		.zy_banner {
-			width: 100%;
-			height: 100px;
-			background: transparent;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 18px;
-			color: 	#0083c3;
-		}
 	</style>
 </head>
-
 <body>
+<div class="top_bg">
+	<div class="top_main fix">
+		<div class="top_logo">
+			<a href="index.html"><img src="images/yclogo.png" /></a>
+		</div>
+		<div class="top_search">
+			<a href="search.html"><span></span></a>
+		</div>
+	</div>
+</div>
 <!-- contentbox -->
-<div class="contentbox" style="min-height: 0;background: #f5f5f5;">
-	<div class='main' style="position: absolute;padding-top: 1rem">
-		<div class='bubble bubble-1'></div>
-		<div class='bubble bubble-2'></div>
-		<div class='bubble bubble-3'></div>
-		<div class='bubble bubble-4'></div>
-		<div class='bubble bubble-5'></div>
-		<div class='bubble bubble-6'></div>
-		<div class='bubble bubble-7'></div>
-		<div class='bubble bubble-8'></div>
-		<div class='bubble bubble-9'></div>
-		<div class='bubble bubble-10'></div>
-		<div class='bubble bubble-11'></div>
-		<div class='bubble bubble-12'></div>
-		<div class='bubble bubble-13'></div>
-		<div class='bubble bubble-14'></div>
-		<div class='bubble bubble-15'></div>
-		<div class='bubble bubble-16'></div>
-		<div class='bubble bubble-17'></div>
-		<div class='bubble bubble-18'></div>
-		<div class='bubble bubble-19'></div>
-		<div class='bubble bubble-20'></div>
-		<div class='bubble bubble-21'></div>
-		<div class='bubble bubble-22'></div>
-		<div class='bubble bubble-23'></div>
-		<div class='bubble bubble-24'></div>
-		<div class='bubble bubble-25'></div>
-		<div class='bubble bubble-26'></div>
-		<div class='bubble bubble-27'></div>
-		<div class='bubble bubble-28'></div>
-		<div class='bubble bubble-29'></div>
-		<div class='bubble bubble-30'></div>
-		<div class="top_bg" style="width: 100%">
-			<div class="top_main fix">
-				<div class="top_logo">
-					<a href="index.html"><img src="images/yclogo.png" /></a>
-				</div>
-				<div class="top_search">
-					<a href="search.html"><span></span></a>
-				</div>
+<div class="contentbox">
+	<!--顶部背景图-->
+	<div class="zy_banner">
+		<!-- 子页banner尺寸640x240 -->
+		<img src="images/space.jpg" style="width: 100%;min-height: 3rem">
+	</div>
+	<!-- 搜索 开始 -->
+	<div class="search_box tus">
+		<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;">
+		<input type="text" class="searchTerm search_fileType_ipt" placeholder="文件类型例如mp3/mp4" style="color: #333;border-right : none;">
+		<button type="submit" class="searchButton">
+			<img src="./images/search.png" alt="">
+		</button>
+	</div>
+	<!-- 搜索 结束 -->
+	<!--
+	<div class="fold_panel">
 
-			</div>
-		</div>
-		<!--banner-->
-		<div class="zy_banner">
-			<h2>———音频中心———</h2>
-		</div>
-		<!-- 子页content -->
-		<div class="zy_content padding_03" style="margin-bottom: 100px">
-			<div class="audio_wrap">
-				<div class="music_item">
-					<!-- <span>音乐1</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐1</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
-					<!--
-                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
-                    -->
-				</div>
-				<div class="music_item">
-					<!-- <span>音乐2</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐2</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
-					<!--
-                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
-                    -->
-				</div>
-				<div class="music_item">
-					<!-- <span>音乐3</span><span class="music_date">03:26</span><span class="music_play">播放</span>-->
-					<span>音乐3</span><span class="music_date">03:26</span><span class="music_play btn-audio"><audio
-						class="mp3Btn" src="./audio/ruguodangshi.mp3"></audio></span>
-					<!--
-                    <audio src="./audio/ruguodangshi.mp3" controls></audio>
-                    -->
-				</div>
-			</div>
-		</div>
-		<!-- footer -->
-		<!--
-		<div class="footbox" style="background-color: transparent">
-			<h2 style="border-bottom: none">
-				<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
-				<a href="contact.html">联系我们</a>
-			</h2>
-			<div class="txt">
-				<p>CopyRight © 上海耘存科技发展有限公司</p>
-				<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
-			</div>
-		</div>
-		-->
+	</div>
+	-->
+	<!-- 存放音乐 -->
+	<div class="audio_wrap">
+
+	</div>
+
+	<div class="fold_panel_box">
+		<ul class="fold_panel fold_list article_list" data-v-339f8b8e="">
+			<ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
+		</ul>
+
+        <div class="more" style="margin-top: .5rem;margin-bottom: .5rem;">
+            <button class="load_more"><a href="javascript:;">查看更多</a></button>
+        </div>
+
 	</div>
 </div>
 
-<!-- slide侧边栏 -->
-<div class="side_bar">
-	<span class="btn_top"></span>
+<!-- footer -->
+<div class="footbox">
+	<h2>
+		<a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+	</h2>
+	<div class="txt">
+		<!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
+		<p>CopyRight © Shanghai Yuncun Science and Technology Development Co., LTD</p>
+		<!-- <p>联系地址:上海市静安区平型关路108创意广场品座37号5楼</p> -->
+		<p>Address: 5 / F, No.37 pingxingguan Block, 108 Pingxingguan Road, Jing 'an District, Shanghai</p>
+	</div>
 </div>
 
 <!-- 底部菜单 -->
@@ -191,15 +306,15 @@
 				<span>首页</span>
 			</a>
 		</li>
-<!--		<li>-->
-<!--			<a href="quotation.html">-->
-<!--				<i>-->
-<!--					<img src="images/menu_icon05.png" alt="行情" />-->
-<!--&lt;!&ndash;					<img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
-<!--				</i>-->
-<!--				<span>行情</span>-->
-<!--			</a>-->
-<!--		</li>-->
+		<li>
+			<a href="quotation.html">
+				<i>
+					<img src="images/menu_icon05.png" alt="行情" />
+					<!--                    <img src="images/menu_icon01_1.png" alt="首页" />-->
+				</i>
+				<span>行情</span>
+			</a>
+		</li>
 		<li>
 			<a href="video.html">
 				<i>
@@ -232,60 +347,222 @@
     <dl class="menu">
         <dd><a href="login.html">登录</a></dd>
         <dd><a href="register.html">注册</a></dd>
-        <dd><a href="video.html">视频中心</a></dd>
+        <dd><a href="video.html">音频中心</a></dd>
         <dd><a href="about.html">关于我们</a></dd>
         <dd><a href="contact.html">联系我们</a></dd>
     </dl>
     -->
 </div>
+
+<!-- loading提示框 -->
+<div class="mask_wrap" style="display: none">
+	<div class="loader loader--style2" title="1">
+		<svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+			 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+			 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+				<path fill="#000"
+					  d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+					<animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+									  to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+				</path>
+		</svg>
+		<!-- 上传的进度 (百分比) -->
+		<div id="progressNumber" style="width: 50px;line-height: 30px;color: #fff"></div>
+	</div>
+</div>
 <script>
 	$(function () {
-		/**
-		 * 获取音乐列表
-		 */
-		function getMusicList() {
-			/*
-            $.ajax({
-                type: "",
-                url: '',
-                data: {},
-                dataType: 'json',
-                success: function (result) {
-                    console.log(result);
-
-                },
-                error: function () {
-                    ShowFailure('网络错误, 请稍后再试 !')
-                }
-            })
-            */
-			let mp3DataList = [
-				{name: 'ruguodangshi', url: './audio/ruguodangshi.mp3'},
-				{name: 'KissTheRain', url: './audio/KissTheRain.mp3'},
-				{name: 'OneSummerDay', url: './audio/OneSummerDay.mp3'},
-				{name: 'Summer', url: './audio/Summer.mp3'},
-				{name: 'kanong', url: './audio/kanong.mp3'}
-			]
-			let html = ''
-			mp3DataList.forEach((item, index) => {
-				var audioElement = new Audio(item.url); // audio也可获取视频的时长
-				var duration
-				audioElement.addEventListener("loadedmetadata", function (_event) {
-					duration = audioElement.duration;
-					// 分钟
-					var minute = parseInt(duration / 60);
-					// 秒
-					var second = Math.round(duration % 60);
-					html += `
+		$('.menu_panel').load('./common/menu.html')
+	})
+</script>
+<script type="text/javascript">
+	$(function(){
+		// 搜索
+		$('.searchButton').on('click', function () {
+			$('.audio_wrap').html('')
+			let name = $('.search_fileName_ipt').val()
+			let type = $('.search_fileType_ipt').val()
+			var timer = null
+			if (name == '') {
+				ShowFailure('文件名不能为空 !')
+				return false
+			} else if (type == '') {
+				ShowFailure('文件类型不能为空 !')
+				return false
+			} else if (type != 'mp3' && type != 'mp4') {
+				ShowFailure('文件类型必须是 mp3 或者 mp4 !')
+				return false
+			} else {
+				$('.mask_wrap').show()
+				$('#progressNumber').html('搜索中 ...')
+				if (type == 'mp3') {
+					var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+					timer = setTimeout(() => {
+						if ($('.mask_wrap').css('display') == 'flex') {
+							ShowFailure("未搜索到此文件 !")
+							$('.mask_wrap').hide()
+							$('.search_fileName_ipt').val('')
+							$('.search_fileType_ipt').val('')
+							clearTimeout(timer)
+						}
+					}, 15000)
+					var duration
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						duration = audioElement.duration;
+						// 分钟
+						var minute = parseInt(duration / 60);
+						// 秒
+						var second = Math.round(duration % 60);
+						let html = `
 									<div class="music_item">
-										<span>${item.name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="${item.url}"></audio></span>
+										<span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}"></audio></span>
 									</div>
-								`
-					$('.audio_wrap').html(html)
-				})
+									`
+						$('.mask_wrap').hide()
+						$('.audio_wrap').html(html)
+						$('.search_fileName_ipt').val('')
+						$('.search_fileType_ipt').val('')
+					})
+
+				} else if (type == 'mp4') {
+					var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+					timer = setTimeout(() => {
+						if ($('.mask_wrap').css('display') == 'flex') {
+							ShowFailure("未搜索到此文件 !")
+							$('.mask_wrap').hide()
+							$('.search_fileName_ipt').val('')
+							$('.search_fileType_ipt').val('')
+							clearTimeout(timer)
+						}
+					}, 35000)
+					audioElement.addEventListener("loadedmetadata", function (_event) {
+						let html = `
+									<div style="width: 100%;display: flex;justify-content: center">
+										<video class="" style="width: 300px;height: 200px" controls src="http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}"></video>
+									</div>
+									`
+						$('.mask_wrap').hide()
+						$('.audio_wrap').html(html)
+						$('.search_fileName_ipt').val('')
+						$('.search_fileType_ipt').val('')
+					})
+				}
+			}
+		})
+
+
+		// 获取文件列表数据
+		function getUserList () {
+			$.ajax({
+				type: "get",
+				dataType: 'json',
+				contentType: 'application/json',
+				url: "http://61.147.123.84:9000/v1/showhotfile",
+				data: {},
+				success: function (result) {
+					let resData = JSON.parse(result.msg)
+					console.log(22222222222, resData);
+					let html = ''
+					resData.forEach((item, index) => {
+						if (index == 0) {
+							html += `
+                            <div class="user_item">
+                                <div class="Collapsing current">
+                                    <div>
+                                        <img src="./images/static/user_icon.png" style="width: 25px">
+                                        <span>${item.Name}</span>
+                                    </div>
+                                    <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
+                                </div>
+                                <div class="coll_body" style="display: block">
+                                    <div class="fileName">
+                                        <span>name</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="type">
+                                        <span>type</span> : <span>${item.Type}</span>
+                                    </div>
+                                    <div class="file_type">
+                                        <span>file_type</span> : <span>${item.FileType}</span>
+                                    </div>
+                                    <div class="lotuscid">
+                                        <span>lotuscid</span> : <span>${item.LotusCid}</span>
+                                    </div>
+                                    <div class="user_name">
+                                        <span>user_name</span> : <span>${item.UserName}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+						} else {
+							html += `
+                            <div class="user_item">
+                                <div class="Collapsing">
+                                    <div>
+                                        <img src="./images/static/user_icon.png" style="width: 25px">
+                                        <span>${item.Name}</span>
+                                    </div>
+                                    <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
+                                </div>
+                                <div class="coll_body">
+                                    <div class="fileName">
+                                        <span>name</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="type">
+                                        <span>type</span> : <span>${item.Type}</span>
+                                    </div>
+                                    <div class="file_type">
+                                        <span>file_type</span> : <span>${item.FileType}</span>
+                                    </div>
+                                    <div class="lotuscid">
+                                        <span>lotuscid</span> : <span>${item.LotusCid}</span>
+                                    </div>
+                                    <div class="user_name">
+                                        <span>user_name</span> : <span>${item.UserName}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+						}
+
+					})
+
+					var _content = [] // 临时存储文章循环内容
+					var _default = 40 //默认显示文章个数
+					var _loading = 40 //每次点击按钮后加载的个数
+					function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
+						var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
+						$(".fold_panel .list").html(""); // 默认清空存放文章列表数据的dom容器
+						for (var n = 0; n < _default; n++) { // 循环页面加载完毕默认展示的文章列表数
+							lis.eq(n).appendTo(".fold_panel .list"); // 拿到每一项文章列表的dom节点, 并追加到指定的dom节点中
+						}
+						for (var i = _default; i < lis.length; i++) { // 循环所有文章列表数, 并从默认展示的文章列表数的下一个数开始, 将所有后面的文章列表dom节点数据添加到 _content数组中
+							_content.push(lis.eq(i));
+						}
+					}
+					init() // 调用此函数, 初始化页面
+					function loadMore() { // 点击加载更多按钮, 加载更多文章列表数据
+						for (var i = 0; i < _loading; i++) { // 循环指定的加载文章列表数
+							var target = _content.shift(); // 用 shift() 删除_content这个函数的第一项, 并把删除的第一项返回出来, 以此判断 _content 这个函数中是否有数据, 有数据证明可以加载更多数据, 没有数据不能加载更多数据
+							if (!target) { // 没有数据, 提示信息
+								$('.fold_panel_box .more').html("<p class='pp'>全部加载完毕...</p>");
+								break;
+							}
+							$(".fold_panel .list").append(target); // 有数据, 就将数据逐条追加到指定的dom元素中
+						}
+					}
+					$(".more").on("click", function () { // 给加载更多数据按钮添加点击事件
+						loadMore() // 执行加载更多文章列表数据
+					})
+					// $('.fold_panel').html(html)
+				},
+				error: function () {
+					ShowFailure('网络错误, 请稍后再试 !')
+				}
 			})
+
 		}
-		getMusicList()
+		getUserList()
+
 
 		/**
 		 * 控制音乐播放和暂停
@@ -330,12 +607,21 @@
 			}
 		})
 
-		/**
-		 * 加载底部菜单选项
-		 */
-		$('.menu_panel').load('./common/menu.html')
-	})
+
+		$('.fold_panel').on('click', '.Collapsing', function () {
+			// 切换图标
+			$(this).toggleClass("current").parent('.user_item').siblings('.user_item').children('.Collapsing').removeClass("current");
+			$(this).next(".coll_body").slideToggle(500).parent('.user_item').siblings('.user_item').children('.coll_body').slideUp(500)
+			if ($(this).hasClass('current')) {
+				$(this).children('div .arrow').attr('src', './images/static/jiantou_down.png')
+				$(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('div .arrow').attr("src", './images/static/jiantou.png');//切换图标
+			} else {
+				$(this).children('div .arrow').attr('src', './images/static/jiantou.png')
+				$(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('div .arrow').attr("src", './images/static/jiantou.png');//切换图标
+			}
+		})
+
+	});
 </script>
 </body>
-
 </html>

@@ -172,11 +172,11 @@
         <ul class="fold_panel fold_list article_list" data-v-339f8b8e="">
             <ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
         </ul>
-        <!--
+
         <div class="more" style="margin-top: .5rem">
             <button class="load_more"><a href="javascript:;">查看更多</a></button>
         </div>
-        -->
+
     </div>
 </div>
 
@@ -205,22 +205,22 @@
                 <span>首页</span>
             </a>
         </li>
-<!--        <li>-->
-<!--            <a href="quotation.html">-->
-<!--                <i>-->
-<!--                    <img src="images/menu_icon05.png" alt="行情" />-->
-<!--&lt;!&ndash;                    <img src="images/menu_icon01_1.png" alt="首页" />&ndash;&gt;-->
-<!--                </i>-->
-<!--                <span>行情</span>-->
-<!--            </a>-->
-<!--        </li>-->
+        <li>
+            <a href="quotation.html">
+                <i>
+                    <img src="images/menu_icon05.png" alt="行情" />
+<!--                    <img src="images/menu_icon01_1.png" alt="首页" />-->
+                </i>
+                <span>行情</span>
+            </a>
+        </li>
         <li>
             <a href="video.html">
                 <i>
-                    <img src="images/menu_icon02.png" alt="音频中心" />
-                    <img src="images/menu_icon02_1.png" alt="音频中心" />
+                    <img src="images/menu_icon02.png" alt="文件中心" />
+                    <img src="images/menu_icon02_1.png" alt="文件中心" />
                 </i>
-                <span>音频中心</span>
+                <span>文件中心</span>
             </a>
         </li>
         <li>
@@ -394,7 +394,7 @@
                         loadMore() // 执行加载更多文章列表数据
                     })
 
-                    $('.fold_panel').html(html)
+                    // $('.fold_panel').html(html)
                 },
                 error: function () {
                     ShowFailure('网络错误, 请稍后再试 !')
