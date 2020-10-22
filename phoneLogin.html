@@ -369,10 +369,7 @@
 							phone: $("#regPhone").val()
 						},
 						success: function (data) {
-
-							data.data = JSON.parse(data.data)
 							console.log('++++++--------', data)
-							return
 							if (data.Msg == '手机号未注册，请先进行注册') {
 								ShowFailure(data.Msg)
 								return false
