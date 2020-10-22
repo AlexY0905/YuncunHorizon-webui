@@ -20,40 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="410771c6-f5fd-4a95-a4de-5276271a2f74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about_qyfc_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc_xq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminCenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminRegister.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminRegister.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bm.html" beforeDir="false" afterPath="$PROJECT_DIR$/bm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bm_cjcx.html" beforeDir="false" afterPath="$PROJECT_DIR$/bm_cjcx.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/mov_bbb.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/images/mov_bbb.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/static/gundong1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/static/gundong1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/static/gundong2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/static/gundong2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie_xq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/news_xq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newslist.html" beforeDir="false" afterPath="$PROJECT_DIR$/newslist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newslist_gg.html" beforeDir="false" afterPath="$PROJECT_DIR$/newslist_gg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoneLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/phoneLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotation.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/userManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_copy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_xq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +56,7 @@
       <updated>1603157337969</updated>
       <workItem from="1603157339488" duration="22214000" />
       <workItem from="1603243875885" duration="22518000" />
-      <workItem from="1603330207631" duration="28760000" />
+      <workItem from="1603330207631" duration="29419000" />
     </task>
     <servers />
   </component>
