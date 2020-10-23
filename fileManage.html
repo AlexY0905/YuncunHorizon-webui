@@ -60,6 +60,34 @@
         }
         /*.coll_body a{display:block; margin:10px; text-align: center; background: #ebebeb;}*/
         /*.current{background-image:url(images/pro_down.png);}*/
+
+        /* 查看更多按钮样式 开始 */
+        .load_more {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            background: #0083c3;
+            border: none;
+            outline: 0 none;
+            width: 90%;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 3px 10px #888888;
+        }
+
+        .load_more a {
+            color: #fff;
+        }
+
+        .pp {
+            margin-top: 0rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 14px;
+        }
+        /* 查看更多按钮样式 结束 */
+
+
     </style>
 </head>
 <body>
@@ -80,42 +108,18 @@
         <!-- 子页banner尺寸640x240 -->
         <img src="images/space.jpg" style="width: 100%;min-height: 3rem">
     </div>
+    <!--
     <div class="fold_panel">
+
+    </div>
+    -->
+    <div class="fold_panel_box">
+        <ul class="fold_panel fold_list article_list" data-v-339f8b8e="">
+            <ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
+        </ul>
         <!--
-        <div class="user_item">
-            <div class="Collapsing current">
-                <div>
-                    <img src="./images/static/user_icon.png" style="width: 25px">
-                    <span>文件名 1</span>
-                </div>
-                <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
-            </div>
-            <div class="coll_body">
-                <div class="fileName">
-                    <span>文件名</span> : <span>文件名 1</span>
-                </div>
-                <div class="fileType">
-                    <span>文件类型</span> : <span>翻唱</span>
-                </div>
-                <div class="searchCount">
-                    <span>搜索次数</span> : <span>100</span>
-                </div>
-                <div class="fee">
-                    <span>花费金额</span> : <span>999999</span>
-                </div>
-                <div class="fileCheck">
-                    <span>是否审核</span> : <span>否</span>
-                </div>
-                <div class="userName">
-                    <span>上传用户名</span> : <span>用户 1</span>
-                </div>
-                <div class="credentials">
-                    <span>上传的凭证说明</span> : <span>翻唱翻唱</span>
-                </div>
-                <div class="status">
-                    <span>文件状态</span> : <span>热存储</span>
-                </div>
-            </div>
+        <div class="more" style="margin-top: .5rem;margin-bottom: .5rem;">
+            <button class="load_more"><a href="javascript:;">查看更多</a></button>
         </div>
         -->
     </div>
@@ -124,7 +128,7 @@
 <!-- footer -->
 <div class="footbox">
     <h2>
-        <a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+        <a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
     </h2>
     <div class="txt">
         <!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
@@ -158,8 +162,8 @@
         <li>
             <a href="video.html">
                 <i>
-                    <img src="images/menu_icon02.png" alt="文件中心" />
-                    <img src="images/menu_icon02_1.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
                 </i>
                 <span>文件中心</span>
             </a>
@@ -210,9 +214,10 @@
                 url: "http://61.147.123.84:9000/v1/showallfile",
                 data: {},
                 success: function (result) {
-                    console.log('++++++--------', result)
+                    console.log('++++++--------', JSON.parse(result.msg))
+                    let resDataList = JSON.parse(result.msg)
                     let html = ''
-                    result.forEach((item, index) => {
+                    resDataList.forEach((item, index) => {
                         if (index == 0) {
                             html += `
                             <div class="user_item">
@@ -290,8 +295,40 @@
                             </div>
                         `
                         }
-
                     })
+
+                    var _content = [] // 临时存储文章循环内容
+                    var _default = 40 //默认显示文章个数
+                    var _loading = 40 //每次点击按钮后加载的个数
+                    function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
+                        var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
+                        $(".fold_panel .list").html(""); // 默认清空存放文章列表数据的dom容器
+                        for (var n = 0; n < _default; n++) { // 循环页面加载完毕默认展示的文章列表数
+                            lis.eq(n).appendTo(".fold_panel .list"); // 拿到每一项文章列表的dom节点, 并追加到指定的dom节点中
+                        }
+                        for (var i = _default; i < lis.length; i++) { // 循环所有文章列表数, 并从默认展示的文章列表数的下一个数开始, 将所有后面的文章列表dom节点数据添加到 _content数组中
+                            _content.push(lis.eq(i));
+                        }
+                    }
+                    init() // 调用此函数, 初始化页面
+                    function loadMore() { // 点击加载更多按钮, 加载更多文章列表数据
+                        for (var i = 0; i < _loading; i++) { // 循环指定的加载文章列表数
+                            var target = _content.shift(); // 用 shift() 删除_content这个函数的第一项, 并把删除的第一项返回出来, 以此判断 _content 这个函数中是否有数据, 有数据证明可以加载更多数据, 没有数据不能加载更多数据
+                            if (!target) { // 没有数据, 提示信息
+                                $('.fold_panel_box .more').html("<p class='pp'>全部加载完毕...</p>");
+                                break;
+                            }
+                            $(".fold_panel .list").append(target); // 有数据, 就将数据逐条追加到指定的dom元素中
+                        }
+                    }
+                    $(".more").on("click", function () { // 给加载更多数据按钮添加点击事件
+                        loadMore() // 执行加载更多文章列表数据
+                    })
+
+                    /**
+                     *  ok
+                     */
+
                     $('.fold_panel').html(html)
                 },
                 error: function () {
@@ -301,24 +338,6 @@
         }
         getUserList()
 
-
-
-
-
-        // $(".coll_body").eq(0).show();
-        // $(".Collapsing").click(function(){
-        //     /*$(this).toggleClass("current").siblings('.Collapsing').removeClass("current");//切换图标
-        //     $(this).next(".coll_body").slideToggle(500).siblings(".coll_body").slideUp(500);*/
-        //     $(this).toggleClass("current").parent('.user_item').siblings('.user_item').children('.Collapsing').removeClass("current");//切换图标
-        //     $(this).next(".coll_body").slideToggle(500).parent('.user_item').siblings('.user_item').children('.coll_body').slideUp(500)
-        //     if ($(this).hasClass('current')) {
-        //         $(this).children('.arrow').attr('src', './images/static/jiantou_down.png')
-        //         $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
-        //     } else {
-        //         $(this).children('.arrow').attr('src', './images/static/jiantou.png')
-        //         $(this).parent('.user_item').siblings('.user_item').children('.Collapsing').children('.arrow').attr("src", './images/static/jiantou.png');//切换图标
-        //     }
-        // });
 
         $('.fold_panel').on('click', '.Collapsing', function () {
             // 切换图标

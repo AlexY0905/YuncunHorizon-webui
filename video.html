@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<!--简单弹出框-->
 	<script type="text/javascript" src="./js/static/message.js"></script>
+	
 	<style>
 		.fold_panel{margin:10px auto; width:94%; height: auto;}
 		.fold_panel .user_item {
@@ -60,6 +61,24 @@
 			font-size: 16px;
 			color: #337ab7;
 			border-bottom: 1px dashed #cccccc;
+		}
+		.coll_body .lotuscid_txt {
+			display: block;
+			width: 100%;
+			overflow-x: scroll;
+			padding-right: 10px;
+			box-sizing: border-box;
+		}
+		.coll_body .search_btn {
+			width: 80px;
+			height: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			background: #0083c3;
+			border-bottom: none;
+			margin-top: 10px;
 		}
 		/*.coll_body a{display:block; margin:10px; text-align: center; background: #ebebeb;}*/
 		/*.current{background-image:url(images/pro_down.png);}*/
@@ -281,10 +300,15 @@
 	</div>
 </div>
 
+<!-- 侧边栏 -->
+<div class="side_bar">
+	<span class="btn_top"></span>
+</div>
+
 <!-- footer -->
 <div class="footbox">
 	<h2>
-		<a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+		<a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
 	</h2>
 	<div class="txt">
 		<!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
@@ -318,10 +342,10 @@
 		<li>
 			<a href="video.html">
 				<i>
-					<img src="images/menu_icon02.png" alt="音频中心" />
-					<img src="images/menu_icon02_1.png" alt="音频中心" />
+					<img src="images/static/file_menu_icon.png" alt="文件中心" />
+					<img src="images/static/file_menu_icon.png" alt="文件中心" />
 				</i>
-				<span>音频中心</span>
+				<span>文件中心</span>
 			</a>
 		</li>
 		<li>
@@ -379,10 +403,12 @@
 	$(function(){
 		// 搜索
 		$('.searchButton').on('click', function () {
+			clearTimeout(timer)
+			var audioElement = null
+			var timer = null
 			$('.audio_wrap').html('')
 			let name = $('.search_fileName_ipt').val()
 			let type = $('.search_fileType_ipt').val()
-			var timer = null
 			if (name == '') {
 				ShowFailure('文件名不能为空 !')
 				return false
@@ -396,7 +422,7 @@
 				$('.mask_wrap').show()
 				$('#progressNumber').html('搜索中 ...')
 				if (type == 'mp3') {
-					var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+					audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
 					timer = setTimeout(() => {
 						if ($('.mask_wrap').css('display') == 'flex') {
 							ShowFailure("未搜索到此文件 !")
@@ -405,7 +431,7 @@
 							$('.search_fileType_ipt').val('')
 							clearTimeout(timer)
 						}
-					}, 15000)
+					}, 30000)
 					var duration
 					audioElement.addEventListener("loadedmetadata", function (_event) {
 						duration = audioElement.duration;
@@ -425,7 +451,7 @@
 					})
 
 				} else if (type == 'mp4') {
-					var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
+					audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}&type=${type}`); // audio也可获取视频的时长
 					timer = setTimeout(() => {
 						if ($('.mask_wrap').css('display') == 'flex') {
 							ShowFailure("未搜索到此文件 !")
@@ -474,21 +500,22 @@
                                     <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
                                 </div>
                                 <div class="coll_body" style="display: block">
-                                    <div class="fileName">
+                                    <div class="fileName" data-filename="${item.Name}">
                                         <span>name</span> : <span>${item.Name}</span>
                                     </div>
                                     <div class="type">
                                         <span>type</span> : <span>${item.Type}</span>
                                     </div>
-                                    <div class="file_type">
+                                    <div class="file_type" data-filetype="${item.FileType}">
                                         <span>file_type</span> : <span>${item.FileType}</span>
                                     </div>
                                     <div class="lotuscid">
-                                        <span>lotuscid</span> : <span>${item.LotusCid}</span>
+                                        <span>lotuscid</span> : <span class="lotuscid_txt">${item.LotusCid}</span>
                                     </div>
                                     <div class="user_name">
                                         <span>user_name</span> : <span>${item.UserName}</span>
                                     </div>
+                                    <div class="search_btn">搜索</div>
                                 </div>
                             </div>
                         `
@@ -503,21 +530,22 @@
                                     <img class="arrow" src="./images/static/jiantou.png" style="width: 20px">
                                 </div>
                                 <div class="coll_body">
-                                    <div class="fileName">
+                                    <div class="fileName" data-filename="${item.Name}">
                                         <span>name</span> : <span>${item.Name}</span>
                                     </div>
                                     <div class="type">
                                         <span>type</span> : <span>${item.Type}</span>
                                     </div>
-                                    <div class="file_type">
+                                    <div class="file_type" data-filetype="${item.FileType}">
                                         <span>file_type</span> : <span>${item.FileType}</span>
                                     </div>
                                     <div class="lotuscid">
-                                        <span>lotuscid</span> : <span>${item.LotusCid}</span>
+                                        <span>lotuscid</span> : <span class="lotuscid_txt">${item.LotusCid}</span>
                                     </div>
                                     <div class="user_name">
                                         <span>user_name</span> : <span>${item.UserName}</span>
                                     </div>
+                                    <div class="search_btn">搜索</div>
                                 </div>
                             </div>
                         `
@@ -561,6 +589,13 @@
 
 		}
 		getUserList()
+
+		$('.fold_panel').on('click', '.search_btn', function () {
+			let fileName = $(this).siblings('.fileName').data('filename')
+			let fileType = $(this).siblings('.file_type').data('filetype')
+			$('.search_fileName_ipt').val(fileName)
+			$('.search_fileType_ipt').val(fileType)
+		})
 
 
 		/**

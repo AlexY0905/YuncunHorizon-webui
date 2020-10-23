@@ -173,7 +173,7 @@
             <ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
         </ul>
 
-        <div class="more" style="margin-top: .5rem">
+        <div class="more" style="margin-top: .5rem;margin-bottom: .5rem">
             <button class="load_more"><a href="javascript:;">查看更多</a></button>
         </div>
 
@@ -183,7 +183,7 @@
 <!-- footer -->
 <div class="footbox">
     <h2>
-        <a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+        <a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
     </h2>
     <div class="txt">
         <!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
@@ -217,8 +217,8 @@
         <li>
             <a href="video.html">
                 <i>
-                    <img src="images/menu_icon02.png" alt="文件中心" />
-                    <img src="images/menu_icon02_1.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
                 </i>
                 <span>文件中心</span>
             </a>
@@ -367,8 +367,8 @@
                     })
 
                     var _content = [] // 临时存储文章循环内容
-                    var _default = 8 //默认显示文章个数
-                    var _loading = 8 //每次点击按钮后加载的个数
+                    var _default = 20 //默认显示文章个数
+                    var _loading = 20 //每次点击按钮后加载的个数
                     function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
                         var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
                         $(".fold_panel .list").html(""); // 默认清空存放文章列表数据的dom容器

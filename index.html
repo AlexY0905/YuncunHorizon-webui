@@ -64,6 +64,13 @@
 			-webkit-background-clip:text;
 			-webkit-text-fill-color:transparent;
 		}
+		.yuncun_title_txt {
+			display: block;
+			text-align: center;
+			font-size: .22rem;
+			color: #999;
+			text-indent: 0;
+		}
 	</style>
 
 </head>
@@ -85,8 +92,9 @@
 		<!--轮播图开始-->
 		<div class="swiper-container banner">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="images/space2.jpg" /></div>
 				<div class="swiper-slide"><img src="images/space.jpg" /></div>
+				<div class="swiper-slide"><img src="images/space2.jpg" /></div>
+				<div class="swiper-slide"><img src="images/space3.jpg" /></div>
 			</div>
 			<!-- Add Pagination -->
 			<div class="swiper-pagination banner-p"></div>
@@ -140,7 +148,7 @@
 		<!-- 公告信息 -->
 		<div class="news_sj_dxs_box white_bg margin_t">
 			<div class="scrollnews">
-				<span><a href="newslist_gg.html"><img src="images/gg_tit.png"></a></span>
+				<span><a href="news_xq.html"><img src="images/gg_tit.png"></a></span>
 				<ul>
 					<!-- <li><a href="news_xq.html">蚂蚁链正式宣布数字版权服务平台面向全社会开放</a></li> -->
 					<li><a href="news_xq.html">Ant chain officially announced that the digital rights service platform is open to the whole society</a></li>
@@ -260,6 +268,7 @@
 					<!-- 你的浏览器不支持video标签，请更换其他浏览器看看 -->
 					Your browser does not support video tags, please change other browsers to have a look
 				</video>
+				<span class="yuncun_title_txt">Yun Cun science and technology promotional video</span>
 				<!-- <p aos="fade-up">
 					上海耘存科技发展公司立足于全国金融中心—上海， 由区块链行业资深技术人士和资深金融从业人员共同打造， 资金和技术实力雄厚，专业致力于IPFS分布式存储中国区布道！
 					同时提供专业的IPFS技术与硬件支持，以及IDC专业数据中心托管服务！<a href="about.html">查看更多>></a></p> -->
@@ -268,6 +277,7 @@
 				</p>
 			</div>
 		</div>
+
 	</div>
 
 	<!-- slide侧边栏 -->
@@ -278,7 +288,7 @@
 	<!-- footer -->
 	<div class="footbox">
 		<h2>
-			<a href="about_item.html">Company projects</a>丨<a href="contact.html">contact us</a>
+			<a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
 		</h2>
 		<div class="txt">
 			<!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
@@ -312,8 +322,8 @@
 			<li>
 				<a href="video.html">
 					<i>
-						<img src="images/menu_icon02.png" alt="文件中心" />
-						<img src="images/menu_icon02_1.png" alt="文件中心" />
+						<img src="images/static/file_menu_icon.png" alt="文件中心" />
+						<img src="images/static/file_menu_icon.png" alt="文件中心" />
 					</i>
 					<span>文件中心</span>
 				</a>
@@ -365,7 +375,7 @@
 				var imgDom = document.createElement("img");
 				imgDom.setAttribute("src", "images/static/float_win.jpg")
 				imgDom.setAttribute("style", "width:100%;")
-				oneInner.setAttribute("style","background:#fff;position:absolute;width:100px;height:100px;border:solid 3px #2F74A7;cursor:pointer;z-index:999;");
+				oneInner.setAttribute("style","background:#fff;position:absolute;width:100px;height:100px;cursor:pointer;z-index:999;"); // border:solid 3px #2F74A7;
 				var oneButton = document.createElement("input");
 				oneButton.setAttribute("type","button");
 				oneButton.setAttribute("value","x");

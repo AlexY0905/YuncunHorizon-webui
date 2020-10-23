@@ -319,11 +319,13 @@
 <!-- footer -->
 <div class="footbox">
 	<h2>
-		<a href="about_item.html">公司项目</a>丨<a href="contact.html">联系我们</a>
+		<a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
 	</h2>
 	<div class="txt">
-		<p>CopyRight © 上海耘存科技发展有限公司</p>
-		<p>联系地址: 上海市静安区平型关路108创意广场品座37号5楼</p>
+		<!-- <p>CopyRight © 上海耘存科技发展有限公司</p> -->
+		<p>CopyRight © Shanghai Yuncun Science and Technology Development Co., LTD</p>
+		<!-- <p>联系地址:上海市静安区平型关路108创意广场品座37号5楼</p> -->
+		<p>Address: 5 / F, No.37 pingxingguan Block, 108 Pingxingguan Road, Jing 'an District, Shanghai</p>
 	</div>
 </div>
 <!-- 底部菜单 -->
@@ -350,8 +352,8 @@
 		<li>
 			<a href="video.html">
 				<i>
-					<img src="images/menu_icon02.png" alt="文件中心" />
-					<img src="images/menu_icon02_1.png" alt="文件中心" />
+					<img src="images/static/file_menu_icon.png" alt="文件中心" />
+					<img src="images/static/file_menu_icon.png" alt="文件中心" />
 				</i>
 				<span>文件中心</span>
 			</a>
@@ -590,7 +592,7 @@
                 }
             })
             */
-			let mp3DataList = ['./audio/ruguodangshi.mp3', './audio/ruguodangshi.mp3', './audio/ruguodangshi.mp3', './audio/ruguodangshi.mp3']
+			let mp3DataList = ['./audio/ruguodangshi.mp3']
 			let html = ''
 			mp3DataList.forEach((item, index) => {
 				var audioElement = new Audio(item); // audio也可获取视频的时长
