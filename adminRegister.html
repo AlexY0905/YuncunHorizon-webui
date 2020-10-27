@@ -212,6 +212,9 @@
             <div class="top_logo">
                 <a href="index.html"><img src="images/yclogo2.png" /></a>
             </div>
+            <div style="float:right">
+                <span class="go_back_wrap" style="color: #fff;"> < 返回 </span>
+            </div>
         </div>
     </div>
 
@@ -469,6 +472,9 @@
 
         $('.menubtn').on('click', function () {
             $('.menu').css('bottom', '41px')
+        })
+        $('.go_back_wrap').on('click',function () { // 返回
+            window.history.go(-1)
         })
     </script>
     <script>

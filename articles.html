@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="耘存科技" http-equiv="keywords">
+    <meta name="description" content="耘存科技">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>文章中心</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <!--内容动画样式库-->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <style>
+        * {
+            list-style: none;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .contentbox {
+            background-color: #fff;
+        }
+
+        .article_list {
+            background-color: #fff;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        .article_list li[data-v-339f8b8e] {
+            background-color: #fff;
+            border-bottom: .02667rem solid #f0f0f0;
+            padding: .26667rem 0;
+        }
+
+        .article_list li a[data-v-339f8b8e] {
+            display: flex;
+            justify-content: center;
+            color: #333;
+            margin-top: .2rem;
+        }
+
+        .article_list li a .desc[data-v-339f8b8e] {
+            position: relative;
+            width: 65%;
+        }
+
+        .article_list li a .desc .title[data-v-339f8b8e] {
+            font-size: .28rem;
+            font-weight: 900;
+            height: 2.5rem;
+            line-height: .4rem;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article_list li a .desc .info[data-v-339f8b8e] {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            padding-right: 0;
+        }
+
+        .article_list li a .desc .info>img[data-v-339f8b8e] {
+            width: 0.4rem;
+            height: 0.4rem;
+            vertical-align: middle;
+            border-radius: 50%;
+            margin-right: .6rem;
+        }
+
+        .article_list li a .img_area[data-v-339f8b8e] {
+            width: 44%;
+            height: 2.1rem;
+            position: relative;
+        }
+
+        .article_list li a .desc .time[data-v-339f8b8e] {
+            font-size: .25rem;
+            color: rgba(0, 0, 0, .56);
+            margin-left: -.5rem;
+        }
+
+        .article_list li a .desc .info .view[data-v-339f8b8e] {
+            font-size: .3rem;
+            color: rgba(0, 0, 0, .56);
+            margin-left: auto;
+            transform: scale(.8);
+            padding-right: .2rem;
+        }
+
+        .bbt-icon {
+            line-height: 1;
+            font-size: .32rem;
+        }
+
+        .bbt-icon-eye:before {
+            content: "\e622";
+        }
+
+        .article_list li a .img_area img[data-v-339f8b8e] {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin-top: .2rem;
+            border-radius: .1rem;
+        }
+
+        /* 查看更多按钮样式 */
+        .load_more {
+            display: block;
+            margin: 0 auto;
+            padding: .15rem;
+            background: #f0f0f0;
+            border: none;
+            outline: 0 none;
+            width: 90%;
+            border-radius: .2rem;
+            font-size: .2rem;
+            margin-bottom: 50px;
+        }
+
+        .load_more a {
+            color: black;
+        }
+
+        .pp {
+            margin-top: 0rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: .2rem;
+        }
+    </style>
+
+</head>
+
+<body id="body" style="position: relative">
+<div class="top_bg">
+    <div class="top_main fix">
+        <div class="top_logo">
+            <a href="index.html"><img src="images/yclogo.png" /></a>
+        </div>
+        <div class="top_search">
+            <a href="search.html"><span></span></a>
+        </div>
+
+    </div>
+</div>
+<!-- contentbox -->
+<div class="contentbox">
+    <!--轮播图开始-->
+    <div class="swiper-container banner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/space.jpg" /></div>
+            <div class="swiper-slide"><img src="images/space2.jpg" /></div>
+            <div class="swiper-slide"><img src="images/space3.jpg" /></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination banner-p"></div>
+        <script>
+            var swiper = new Swiper('.banner', {
+                pagination: '.banner-p',
+                autoplay: 3000,
+                autoplayDisableOnInteraction: false,
+            });
+        </script>
+    </div>
+    <!--轮播图结束-->
+    <!-- 文章列表开始 -->
+    <ul class="article_list" data-v-339f8b8e="">
+        <ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
+        <div class="more" style="margin-top: .4rem; margin-bottom: 1.2rem;"><button class="load_more"><a
+                href="javascript:;">查看更多</a></button>
+        </div>
+    </ul>
+    <!-- 文章列表结束 -->
+</div>
+
+<!-- slide侧边栏 回到顶部按钮 -->
+<!-- <div class="side_bar">
+    <span class="btn_top"></span>
+</div> -->
+
+<!-- 底部菜单 -->
+<div class="menubox">
+    <ul class="fix" style="display: flex">
+        <li>
+            <a href="index.html">
+                <i>
+                    <img src="images/menu_icon01.png" alt="首页" />
+                    <img src="images/menu_icon01_1.png" alt="首页" />
+                </i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="quotation.html">
+                <i>
+                    <img src="images/menu_icon05.png" alt="行情" />
+                </i>
+                <span>行情</span>
+            </a>
+        </li>
+        <li>
+            <a href="video.html">
+                <i>
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                </i>
+                <span>文件中心</span>
+            </a>
+        </li>
+        <li>
+            <a href="search.html">
+                <i>
+                    <img src="images/icon_search2.png" alt="搜索" />
+                    <img src="images/icon_search2.png" alt="搜索" />
+                </i>
+                <span>搜索</span>
+            </a>
+        </li>
+        <li class="menubtn">
+            <i>
+                <img src="images/menu_icon04.png" alt="菜单" />
+                <img src="images/menu_icon04_1.png" alt="菜单" />
+            </i>
+            <span>菜单</span>
+        </li>
+    </ul>
+    <!-- 菜单导航 -->
+    <span class="menu_panel"></span>
+</div>
+<div class="move_frame"></div>
+
+<!--内容动画样式js-->
+<script type="text/javascript" src="js/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-out-back',
+        duration: 1000
+    });
+
+
+    //文章数据展示
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://61.147.123.84:10080/article/get_articlelist",
+            data: '',
+            dataType: "json",
+            success: function (result) {
+                console.log(222222222222, result);
+                if (result.code == 0) {
+                    let data = result.data
+                    let html = ''
+                    data.forEach(item => {
+                        html += `
+                                <li>
+                                    <a href="./articlelist.html?id=${item.id}" data-v-339f8b8e="" class="">
+                                        <div class="desc" data-v-339f8b8e="">
+                                            <p class="title" data-v-339f8b8e="">${item.title}</p>
+
+                                            <p class="info" data-v-339f8b8e="">
+                                                <img src="${item.picture}"
+                                                    data-v-339f8b8e=""
+                                                    data-src="${item.picture}"
+                                                    lazy="loaded">
+                                                <span class="time" data-v-339f8b8e="">${item.date}</span>
+
+                                                <span class="view" data-v-339f8b8e="">
+                                                    ${item.actor}
+                                                </span>
+                                            </p>
+
+                                        </div>
+                                        <div class="img_area" data-v-339f8b8e="">
+                                            <img src="${item.picture}"
+                                                data-v-339f8b8e=""
+                                                data-src="${item.picture}"
+                                                lazy="loaded">
+                                        </div>
+                                    </a>
+                                </li>
+                                `
+                    });
+                    var _content = [] // 临时存储文章循环内容
+                    var _default = 8 //默认显示文章个数
+                    var _loading = 8 //每次点击按钮后加载的个数
+                    function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
+                        var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
+                        $(".article_list ul.list").html(""); // 默认清空存放文章列表数据的dom容器
+                        for (var n = 0; n < _default; n++) { // 循环页面加载完毕默认展示的文章列表数
+                            lis.eq(n).appendTo(".article_list ul.list"); // 拿到每一项文章列表的dom节点, 并追加到指定的dom节点中
+                        }
+                        /*
+                        $(".jq22 ul.list img").each(function() {
+                            $(this).attr('src', $(this).attr('realSrc'));
+                        })
+                        */
+                        for (var i = _default; i < lis.length; i++) { // 循环所有文章列表数, 并从默认展示的文章列表数的下一个数开始, 将所有后面的文章列表dom节点数据添加到 _content数组中
+                            _content.push(lis.eq(i));
+                        }
+                        // $(".article_list").html("");
+                    }
+                    init() // 调用此函数, 初始化页面
+                    function loadMore() { // 点击加载更多按钮, 加载更多文章列表数据
+                        // var mLis = $(".article_list ul.list li").length;
+                        // console.log("--------", mLis);
+
+                        for (var i = 0; i < _loading; i++) { // 循环指定的加载文章列表数
+                            var target = _content.shift(); // 用 shift() 删除_content这个函数的第一项, 并把删除的第一项返回出来, 以此判断 _content 这个函数中是否有数据, 有数据证明可以加载更多数据, 没有数据不能加载更多数据
+                            if (!target) { // 没有数据, 提示信息
+                                $('.article_list .more').html("<p class='pp'>全部加载完毕...</p>");
+                                break;
+                            }
+                            $(".article_list ul.list").append(target); // 有数据, 就将数据逐条追加到指定的dom元素中
+                            // $(".article_list ul.list img").eq(mLis + i).each(function() {
+                            //     $(this).attr('src', $(this).attr('realSrc'));
+                            // });
+                        }
+                    }
+                    $(".more").on("click", function () { // 给加载更多数据按钮添加点击事件
+                        loadMore() // 执行加载更多文章列表数据
+                    })
+                    // $(".article_list").html(html)
+                } else {
+
+                }
+            },
+            error: function () {
+                alert("网络错误, 稍后再试 !")
+            }
+
+        });
+
+
+        $('.menu_panel').load('./common/menu.html')
+    })
+
+
+
+</script>
+</body>
+
+</html>

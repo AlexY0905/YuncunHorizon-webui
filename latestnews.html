@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+    <!-- favicons -->
+    <!-- <link type="text/css" rel="apple-touch-icon" href="static/bootstrap/img/favicon-apple.png"> -->
+    <!-- <link type="text/css" rel="icon" href="/static/img/favicon.png"> -->
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Material design icons CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/material-icons.css">
+    <!-- aniamte CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/animate.css">
+    <!-- swiper carousel CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/swiper.min.css">
+    <!-- daterange CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/daterangepicker.css">
+    <!-- footable CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/footable.bootstrap.min.css">
+    <!-- Bootstra tour CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/bootstrap-tour-standalone.css">
+    <!-- jvector map CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/static/jquery-jvectormap-2.0.3.css">
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="./css/static/purplesidebar.css" type="text/css">
+
+    <link rel="stylesheet" href="./css/static/mobileSelect.css">
+<!--    <link rel="stylesheet" href="./css/index.css">-->
+    <!-- <link href="/static/css_/mui.min.css" rel="stylesheet" /> -->
+    <script type="text/javascript" src="./js/static/mobileSelect.min.js"></script>
+
+    <title>最新快讯</title>
+    <!--滚动日期样式-->
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            color: rgb(143, 140, 140);
+            margin-top: 22px;
+            text-align: center;
+        }
+        .list>li{
+            list-style: none;
+            border: #CCCCCC solid 1px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 5px;
+
+        }
+    </style>
+    <style>
+        .time1{
+
+            background-color: rgb(201, 15, 15);
+            text-align: center;
+            font-size: 15px;
+            border-radius: 25% 25% 0 0;
+        }
+        .time2{
+            background-color: rgb(219, 215, 215);
+            text-align: center;
+        }
+        #time3{
+            text-align: center;
+        }
+        #time4{
+            text-align: center;
+        }
+    </style>
+    <!--滚动数据-->
+    <style>
+        body{
+            background-color: #F5F4F4
+        }
+        .ui-timeLine {
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ui-timeLine>.item {
+            display: block;
+            position: relative;
+            text-align: justify;
+            text-justify: newspaper;
+            word-break: break-all;
+            padding-left: 50px;
+            color: #fff;
+            padding-right: 10px;
+        }
+
+        .ui-timeLine>.item>.box {
+            padding: 5px 0;
+        }
+
+        .ui-timeLine>.item .cbox {
+            position: relative;
+            left: 100vw;
+            transition: left 1s;
+            padding: 10px;
+            border-radius: 10px;
+            background-image: linear-gradient(45deg, rgba(0, 200, 255, 0.4) 0%, rgba(132, 43, 171, 0.4) 100%);
+            box-shadow: 3px 3px 8px #ccc;
+        }
+
+        .ui-timeLine>.item::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .ui-timeLine .dot {
+            z-index: 2;
+            display: inline-block;
+            position: absolute;
+            left: 25px;
+            top: 0;
+            padding: 3px;
+            border: 3px solid #eee;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 3px 3px 8px #ccc;
+            transition: .5s;
+        }
+
+        .ui-timeLine .active {
+            border: 3px solid rgba(132, 43, 171, .8);
+        }
+
+        .ui-timeLine .line,
+        .ui-timeLine>.activeLine {
+            position: absolute;
+            left: 29px;
+            width: 4px;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        .ui-timeLine .date {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .ui-timeLine .title {
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 30px;
+        }
+
+        /* .ui-timeLine .types>span {
+            font-size: 10px;
+            border-radius: 5px;
+            padding: 2px 10px;
+            margin-right: 10px;
+            border: 1px solid #fff;
+        } */
+
+        .ui-timeLine>.activeLine {
+            background-color: rgba(0, 200, 255, .8);
+            z-index: 1;
+            top: 50px;
+            height: 0;
+            max-height: calc(100% - 80px);
+            transition: height 1s;
+            box-shadow: 3px 3px 2px #eee;
+        }
+    </style>
+    <!--显示全部样式-->
+    <style>
+        .aaaa{
+            margin-left: 40%;
+            margin-top: 10%;;
+        }
+    </style>
+    <!-- 弹出框css -->
+    <style>
+        .ccsp-area{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            overflow: auto;
+            z-index: 9999991;
+            display: none;
+        }
+        .v-modal{
+            z-index: 999999;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            display: none;
+        }
+    </style>
+    <!-- 保存图片样式 -->
+    <style>
+        .btn-close{
+            text-align: center;
+            margin: 0 auto;
+            padding: 5px 0 5px 0;
+            border-top: 1px rgb(168, 168, 168) solid;
+        }
+        .top_bg {
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 101%;
+            background-color: #fff;
+            padding: 1.3rem 3%;
+        }
+        .top_logo {
+            float: left;
+            width: 80%;
+            height: 0.68rem;
+            position: relative;
+        }
+        .top_search {
+            float: right;
+        }
+        .top_logo img {
+            display: block;
+            max-width: 100%;
+            max-height: 2.5rem;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translate(0,-50%);
+            -o-transform: translate(0,-50%);
+            -ms-transform: translate(0,-50%);
+            -moz-transform: translate(0,-50%);
+            -webkit-transform: translate(0,-50%);
+        }
+        .container {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        .media p {
+            line-height: 1.2em;
+            margin-bottom: 0;
+            color: #888888;
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+            font-size: 14px;
+            margin-top: 0;
+        }
+        .media p span {
+            line-height: 1.3rem;
+        }
+        /* 底部菜单 */
+        .menubox {
+            background-color: #0083c3;
+            position: relative;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 999;
+            width: 100%;
+            padding: 6px 0;
+        }
+        .menubox ul li {
+            float: left;
+            width: 25%;
+            text-align: center;
+            list-style: none;
+        }
+        .menubox ul li i {
+            display: block;
+            margin: 1% auto;
+            min-width: 0.38rem;
+            min-height: 0.38rem;
+        }
+        .menubox ul li span {
+            display: block;
+            font-size: .9rem;
+            color: #fff;
+            line-height: 150%;
+        }
+        .menubox ul li i img:first-child {
+            display: block;
+        }
+        .menubox ul li i img {
+            display: none;
+            margin: 0 auto;
+            width: 1.4rem;
+        }
+        .fix:after {
+            display: table;
+            content: '';
+            clear: both;
+        }
+        .menubox dl {
+            position: absolute;
+            right: 0;
+            width: 36%;
+            background-color: #0083c3;
+            text-align: center;
+            padding: 0 !important;
+            border: rgba(255,255,255,.3) solid 1px;
+            border-bottom: 0;
+            display: none;
+            border-radius: 4px 4px 0 0;
+            overflow: hidden;
+        }
+        .menubox dl dd:first-child {
+            border: 0;
+        }
+        .menubox dl dd {
+            line-height: 1.5rem;
+            border-top: rgba(255,255,255,.3) solid 1px;
+            padding: .3rem 0 !important;
+            margin-bottom: 0;
+        }
+        .menubox dl a {
+            display: block;
+            color: #fff !important;
+            font-size: 1rem;
+        }
+        /* 底部菜单 */
+    </style>
+</head>
+
+<body class="fixed-header sidebar-right-close sidebar-left-close">
+<!-- page loader -->
+<!--
+<div class="loader justify-content-center pink-gradient">
+    <div class="align-self-center text-center">
+        <div class="logo-img-loader">
+            <img src="/static/img/loader-hole.png" alt="" class="logo-image">
+            <img src="/static/img/loader-bg.png" alt="" class="logo-bg-image">
+        </div>
+        <h2 class="mt-3 font-weight-light">耘存<br><small>- 手机端 -</small></h2>
+        <p class="mt-2 text-white"></p>
+    </div>
+</div>
+-->
+<!-- page loader ends  -->
+
+<!-- sidebar left ends -->
+<!-- content page title -->
+<!--
+<div class="container-fluid bg-light-opac">
+    <div class="row">
+        <div class="container my-3 main-container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h2 class="content-color-primary page-title" id="userName">Latestnews</h2>
+                    <p class="content-color-secondary page-sub-title">耘存快讯</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- content page title ends -->
+
+
+<div class="top_bg">
+    <div class="top_main fix">
+        <div class="top_logo">
+            <a href="index.html"><img src="images/yclogo.png" /></a>
+        </div>
+        <!--
+        <div class="top_search">
+            <a href="search.html"><span></span></a>
+        </div>
+        -->
+    </div>
+</div>
+
+<!-- content page -->
+<div class="container mt-4 main-container" style="margin-top: 3.5rem !important;">
+
+    <div class="ccsp-area bb" id="box">
+        <div style="padding-top: 10vh; width: 320px; margin: 0 auto;">
+            <div style="position: relative; width: 320px; margin: 0 auto; ">
+                <canvas id="canvas" class="bb" width="320px" height="500px" style=" border-radius: 10px;"></canvas>
+                <div style="position: fixed; bottom: 0; left: 0; right: 0; width: 100%; background-color: #fff;" class="show_none">
+                    <div style=" margin-top: 10px; margin-bottom: 10px;">
+                        <a id="clickimg">
+                            <div style="background-color: coral; width: 35px; height: 35px; border-radius: 50%; margin: 0 auto;">
+                                <i class="material-icons icon" style="font-size: 25px; color: #fff; margin-left: 5px; margin-top: 5px;">insert_photo</i>
+                            </div>
+                            <div style="font-size: 8px; text-align: center;" >保存相册</div>
+                        </a>
+                    </div>
+                    <div class="btn-close" id="hidediv">关闭</div>
+                </div>
+                <div id="bg"></div>
+                <br><br><br><br><br><br>
+            </div>
+
+        </div>
+    </div>
+    <div class="v-modal cc" tabindex="0"></div>
+    <!-- 禁止滚动 -->
+    <div id="show"></div>
+
+    <div class="row">
+        <div class="col-12 ">
+            <div class="card mb-4" style="width: 100%">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <p class="content-color-secondary mb-0 time1" style=" color: snow; " id="time1"></p>
+                            <h4 class="content-color-primary mb-3 time2"  style=" font-size: 30px;" id="time2"></h4>
+                        </div>
+                        <div class="media-body">
+                            <div class="content-color-primary mb-3" style=" margin-top: 28px; color: rgb(143, 140, 140);" id="time3"></div>
+
+                        </div>
+                        <div class="media-body">
+                            <div class="content-color-primary mb-3" style=" margin-top: 28px; color: rgb(143, 140, 140);" id="time4"></div>
+
+                        </div>
+                        <div class="col-xs-6"></div>
+                        <ul class="list">
+                            <li id="select_2" @click="datatiem">选择日期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-body">
+                        <div class="ui-timeLine">
+                            <a v-for="(item,index) in sites " class="item" v-show="index<num">
+                                <div class="line"></div>
+                                <div class="dot"></div>
+                                <div class="box">
+                                    <div class="cbox">
+                                        <input  name="id" v-bind:id="item.id"  v-bind:value="item.id" type="hidden"></input>
+                                        <div class="date" >{{item.date}}</div>
+                                        <div class="title">{{item.title}}</div>
+                                        <div class="content"  v-html="item.content">
+                                            <span>{{item.content}}</span>
+                                        </div>
+                                        <div v-bind:id="item.id+'yinchang'"></div>
+
+                                        <div v-bind:id="item.id+'tanchuang'" name="tanchuang"></div>
+                                        <div id="com" class="sx"></div>
+                                        <textarea style="width: 100%; height: 120px; display: none;" id="comment" v-bind:id="item.id+'comment'"></textarea>
+                                        <div style="overflow: hidden; "><span style="float: right; display: none;" id="pinlun" v-bind:id="item.id+'pinlun'" class="btn btn-primary pink-gradient">评论</span></div>
+                                        <br/>
+
+                                        <div v-bind:id="item.id+'pinglun'" style="display:none;"></div>
+
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="activeLine"></div>
+                            <span @click="showMore" class="btn btn-primary pink-gradient aaaa">{{txt}}</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+<!-- content page ends -->
+</div>
+
+<!-- 底部菜单 -->
+<div class="menubox">
+    <ul class="fix" style="display: flex;margin-bottom: 0">
+        <li>
+            <a href="index.html">
+                <i>
+                    <img src="images/menu_icon01.png" alt="首页" />
+                    <img src="images/menu_icon01_1.png" alt="首页" />
+                </i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="quotation.html">
+                <i>
+                    <img src="images/menu_icon05.png" alt="行情" />
+                    <!--                    <img src="images/menu_icon01_1.png" alt="首页" />-->
+                </i>
+                <span>行情</span>
+            </a>
+        </li>
+        <li>
+            <a href="video.html">
+                <i>
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                </i>
+                <span>文件中心</span>
+            </a>
+        </li>
+        <li>
+            <a href="search.html">
+                <i>
+                    <img src="images/icon_search2.png" alt="搜索" />
+                    <img src="images/icon_search2.png" alt="搜索" />
+                </i>
+                <span>搜索</span>
+            </a>
+        </li>
+        <li class="menubtn">
+            <i>
+                <img src="images/menu_icon04.png" alt="菜单" />
+                <img src="images/menu_icon04_1.png" alt="菜单" />
+            </i>
+            <span>菜单</span>
+        </li>
+    </ul>
+    <!-- 菜单导航 -->
+    <span class="menu_panel"></span>
+    <!--
+    <dl class="menu">
+        <dd><a href="login.html">登录</a></dd>
+        <dd><a href="register.html">注册</a></dd>
+        <dd><a href="video.html">音频中心</a></dd>
+        <dd><a href="about.html">关于我们</a></dd>
+        <dd><a href="contact.html">联系我们</a></dd>
+    </dl>
+    -->
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="./js/static/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./js/static/popper.min.js"></script>
+<script type="text/javascript" src="http://cdn.bootstrapmb.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- Cookie jquery file -->
+<script type="text/javascript" src="./js/static/jquery.cookie.js"></script>
+<!-- sparklines chart jquery file -->
+<script type="text/javascript" src="./js/static/jquery.sparkline.min.js"></script>
+<!-- Circular progress gauge jquery file -->
+<script type="text/javascript" src="./js/static/circle-progress.min.js"></script>
+<!-- Swiper carousel jquery file -->
+<script type="text/javascript" src="./js/swiper.min.js"></script>
+<!-- Chart js jquery file -->
+<script type="text/javascript" src="./js/static/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="./js/static/utils.js"></script>
+<!-- Footable jquery file -->
+<script type="text/javascript" src="./js/static/footable.min.js"></script>
+<!-- datepicker jquery file -->
+<script type="text/javascript" src="./js/static/moment.js"></script>
+<script type="text/javascript" src="./js/static/daterangepicker.js"></script>
+<!-- jVector map jquery file -->
+<script type="text/javascript" src="./js/static/jquery-jvectormap.js"></script>
+<script type="text/javascript" src="./js/static/jquery-jvectormap-world-mill-en.js"></script>
+<!-- Bootstrap tour jquery file -->
+<script type="text/javascript" src="./js/static/bootstrap-tour-standalone.min.js"></script>
+<!-- jquery toast message file -->
+<script type="text/javascript" src="./js/static/jquery.toast.min.js"></script>
+<!-- Application main common jquery file -->
+<script type="text/javascript" src="./js/static/main.js"></script>
+<!-- page specific script -->
+<!-- <script type="text/javascript" src="/static/js/dashboard.js"></script> -->
+<!--datetimepicker-->
+<!-- <script type="text/javascript" src="/static/vendor/bootstrap-daterangepicker-master/jquery.min.js"></script>
+<script type="text/javascript" src="/static/vendor/bootstrap-daterangepicker-master/jquery.min copy.js"></script> -->
+<script type="text/javascript" src="./js/static/daterangepicker.min.js"></script>
+<script src="https://www.jq22.com/jquery/vue.min.js"></script>
+<script type="text/javascript" src="./js/static/selectDate.js"></script>
+<!-- page specific script -->
+<!--简单弹出框-->
+<script src="./js/static/message.js"></script>
+
+<script src="./js/static/mui.min.js"></script>
+<!--内容动画样式js-->
+<script type="text/javascript" src="js/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-out-back',
+        duration: 1000
+    });
+</script>
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function(){
+        $("input[name='id']").each(function(j,item){
+            $('#'+ item.id +'tanchuang').click(function(){
+                $.ajax({
+                    url: 'http://61.147.123.84:10080/news/get_news',
+                    type: 'GET',
+                    data: {id:item.id},
+                    dataType: 'json',
+                    async:false,
+                    success:function(json){
+                        // console.log("data",json.data)
+                        var aa = document.getElementById('canvas');
+                        var bb = aa.getContext('2d');
+
+                        document.getElementById("canvas").height = aa.height;
+
+                        var new_content_1 =json.data.content.replace(/<[^>]+>/g, "")
+
+                        // console.log(new_content_2)
+                        var str = new_content_1
+
+                        var height_new=(str.length*1.5)
+                        if(json.data.title.length >25){
+                            var height_new=(str.length*1.7)
+                        }
+
+                        //console.log(json.data.content.length)
+                        if(json.data.content.length>250){
+                            var height_new=(str.length*1.55)
+                        }
+                        if(json.data.content.length>300){
+                            var height_new=(str.length*1.60)
+                        }
+                        if(json.data.content.length>350){
+                            var height_new=(str.length*1.65)
+                        }
+                        if(json.data.content.length>400){
+                            var height_new=(str.length*1.7)
+                        }
+                        if(json.data.content.length>450){
+                            var height_new=(str.length*1.75)
+                        }
+                        if(json.data.content.length>500){
+                            var height_new=(str.length*1.8)
+                        }
+                        // console.log(height_new)
+                        var img_height = 160
+                        document.getElementById("canvas").height = aa.height+height_new+img_height;
+                        bb.fillStyle='#fff'
+                        bb.fillRect(0,0,320, aa.height+height_new)
+
+
+                        var imgone = new Image;
+                        var imgone1 = new Image;
+                        var imgone2 = new Image;
+
+                        imgone1.src = './images/static/3.png';
+                        imgone2.src = './images/static/a-botton.png';
+                        imgone.src = './images/static/a-title.png'
+
+
+                        var color='rgb(128, 126, 126)'
+                        imgone.onload = function () {
+                            bb.fillStyle = color;   // 文字填充颜色
+                            bb.font = '16px Adobe Ming Std';
+                            var weekDay = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                            var dateStr = json.data.date;
+                            var myDate = new Date(Date.parse(dateStr.replace(/-/g, "/")));
+                            var txt1=weekDay[myDate.getDay()]+"   "+json.data.date;
+                            bb.fillText(txt1,55,190);
+
+                            bb.drawImage(imgone, 0,0,320,160);
+                            bb.drawImage(imgone1, 25,172,25,25);
+                            // console.log("aaa",height_new)
+
+                            bb.drawImage(imgone2, 0, aa.height-160 , 320 , img_height);
+
+                            bb.fillStyle = 'black';
+                            bb.font = '20px Adobe Ming Std';
+                            bb.lineWidth1=1;
+                            var txt= json.data.title
+                            // console.log(txt.length)
+                            // bb.fillText(txt,40,320);
+                            var lineWidth1 = 0;
+                            var canvasWidth1 = aa.width-50;//计算canvas的宽度
+                            var initHeight1=230;//绘制字体距离canvas顶部初始的高度
+                            var lastSubStrIndex1= 0; //每次开始截取的字符串的索引
+                            for(let i=0;i<txt.length;i++){
+                                lineWidth1+=bb.measureText(txt[i]).width;
+                                if(lineWidth1>canvasWidth1){
+                                    bb.fillText(txt.substring(lastSubStrIndex1,i),25,initHeight1);//绘制截取部分
+                                    initHeight1+=30;//40为字体的高度
+                                    lineWidth1=25;
+                                    lastSubStrIndex1=i;
+                                }
+                                if(i==txt.length-1){//绘制剩余部分
+                                    bb.fillText(txt.substring(lastSubStrIndex1,i+1),25,initHeight1);
+                                }
+                            }
+
+                            bb.fillStyle = color;
+                            bb.font = '18px Adobe Ming Std';
+                            bb.lineWidth=1;
+
+                            //bb.fillText(str,65,750);
+                            var lineWidth = 0;
+                            var canvasWidth = aa.width-51;//计算canvas的宽度
+                            var initHeight=305;//绘制字体距离canvas顶部初始的高度
+                            if(json.data.title.length >25){
+                                initHeight+=25
+                            }
+                            var lastSubStrIndex= 0; //每次开始截取的字符串的索引
+                            for(let i=0;i<str.length;i++){
+                                lineWidth+=bb.measureText(str[i]).width;
+                                if(lineWidth>canvasWidth){
+                                    bb.fillText(str.substring(lastSubStrIndex,i),25,initHeight);//绘制截取部分
+                                    initHeight+=30;//40为字体的高度
+                                    lineWidth=25;
+                                    lastSubStrIndex=i;
+                                }
+                                if(i==str.length-1){//绘制剩余部分
+                                    bb.fillText(str.substring(lastSubStrIndex,i+1),25,initHeight);
+                                }
+                            }
+                            let base64 = aa.toDataURL("image/png");
+                            let success = 200;
+                            let error = 100;
+
+                            // console.log(base64)
+                            // $("#userName").html(base64);
+
+                            $('#clickimg').click(function(){
+                                // alert("1")
+                                downLoad(base64, success, error)
+                            })
+
+                            function downLoad(base64, success, error){
+
+                                // base64 = aa.toDataURL("image/png");
+                                plus.nativeUI.showWaiting('loading...');
+                                var bitmap = new window.plus.nativeObj.Bitmap('image'); // 创建Bitmap对象
+                                var that = this;
+                                // 调用load/loadBase64Data方法加载图片
+                                bitmap.loadBase64Data(base64, function (i) {
+
+                                    bigmapToSave(bitmap,success,error);
+
+                                }, function (err) {
+                                    plus.nativeUI.closeWaiting()
+                                    window.plus.nativeUI(err.message)
+                                })
+                            }
+                            // 调用保存bitmap的图片到本机系统文件，为之后相册保存提供路径
+                            const bigmapToSave =function(bitmap, success, error) {
+                                // alert(1)
+                                var name =randomString(10)
+                                var that = this;
+                                bitmap.save(`_doc/${name}.png`, { overwrite: false }, function (event) {
+                                    console.log(event.target)
+                                    imageSaveByGallery(event.target, success, error)
+                                }, function (err) {
+                                    plus.nativeUI.closeWaiting()
+                                    window.plus.nativeUI(err.message)
+                                })
+                            }
+                            // 图片保存
+                            const imageSaveByGallery = function(url, success, error) {
+                                window.plus.gallery.save(url, function (event) {
+                                    const tarbitmap = window.plus.nativeObj.Bitmap.getBitmapById('image')
+                                    tarbitmap.clear()
+                                    plus.nativeUI.closeWaiting()
+
+                                    plus.nativeUI.toast('<div>已保存到手机相册</div>',{
+                                        type:'richtext'
+                                    });
+
+                                }, function (err) {
+                                    plus.nativeUI.closeWaiting()
+                                    plus.nativeUI.toast('<div>下载失败，请重试</div>',{
+                                        type:'richtext'
+                                    });
+                                })
+                            }
+                            const randomString = function(e) {
+                                var d = e || 32
+                                var t = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'
+                                var a = t.length
+                                var n = ''
+                                for (var i = 0; i < d; i++) n += t.charAt(Math.floor(Math.random() * a))
+                                return n
+                            }
+                        }
+                    }
+                })
+                // console.log(item.id)
+                $('.bb').css("display","inline")
+                $('.cc').css("display","inline")
+                $('.btn_1').css("display","inline")
+                $(".show_none").stop(true,true).animate({height:"112px"});
+                document.getElementById("bg").style.display ="block";
+                $("body").css({
+                    position: "fixed",
+                    width: "100%"
+                });
+                document.body.addEventListener("touchmove", bodyScroll, false);
+
+                function bodyScroll(event) {
+                    event.preventDefault();
+                }
+                $('body').css("overflow", "hidden")
+
+            })
+        })
+    })
+    $('#hidediv').click(function(){
+        clearCanvas();
+        $('.bb').css("display","none")
+        $('.cc').css("display","none")
+        $('.btn_1').css("display","none")
+        $(".show_none").stop(true,true).animate({height:"0%"},0);
+        document.getElementById("bg").style.display = 'none';
+        $("body").on('touchmove',function(event) { event.preventDefault(); }, false);
+        $("body").css({
+            position: "absolute",
+            width: "100%"
+        });
+        $("body").unbind("touchmove");
+        document.body.addEventListener("touchmove", bodyScroll, false);
+        function bodyScroll(event) {
+            event.preventDefault();
+
+        }
+        $('body').css("overflow", "auto")
+
+    })
+    function clearCanvas()
+    {
+        var c=document.getElementById("canvas");
+        var cxt=c.getContext("2d");
+        c.height=500;
+    }
+</script>
+<script>
+
+
+</script>
+<!--滚动时间线js-->
+<script>
+    (function($) {
+
+        $.fn.uiTimeLine = function() {
+            var $timeLine = $(".ui-timeLine");
+            var $activeLine = $(".ui-timeLine .activeLine");
+            var $dots = $(".ui-timeLine .dot");
+            var $cboxs = $(".ui-timeLine .item .cbox");
+            return this.each(function() {
+                function setActiveLineHeight() {
+                    let height = $(document).scrollTop() + window.screen.height;
+                    let j = 0;
+                    for (let i = 0; i < $dots.length; i++) {
+                        if ($($dots[i]).offset().top < height) {
+                            $($($dots[i])).addClass("active");
+                            $($cboxs[i]).css({
+                                "left": 0
+                            });
+                            j = i;
+                        } else {
+                            $($($dots[i])).removeClass("active")
+                            $($cboxs[i]).css({
+                                "left": "100vw"
+                            });
+                        }
+                    }
+                    $activeLine.css({
+                        "height": $($dots[j]).offset().top - $timeLine.offset().top + 80 + "px"
+                    })
+                }
+                $(window).on('scroll', setActiveLineHeight);
+                setActiveLineHeight();
+            })
+        }
+    })(jQuery);
+</script>
+<!--日期控件js-->
+<script type="text/javascript">
+    //显示全部js
+    var result;
+    var vue_data = new Vue({
+        el: ".ui-timeLine",
+        data: {
+            sites: 1000,
+            isShow:true,
+            txt: '显示全部',
+            num: 5,
+        },created: function(){
+            var self = this;
+            $.ajax({
+                url: 'http://61.147.123.84:10080/news/get_newslist',
+                type: 'GET',
+                data: {},
+                dataType: 'json',
+                contentType: "",
+                async:false,
+            }).then(function (res) {
+                result =res.data
+                // console.log("result",result)
+                //console.log("res.data",res.data);
+                //把从json获取的数据赋值给数组
+                self.sites = res.data;
+
+                /*默认全部参数*/
+                $.selectDate("#select_2",{},function (data) {
+                    //console.log(data);
+                    $("#select_2").html(data.year+"-"+data.month+"-"+data.day);
+                    var datatiem=data.year + "-" + (data.month.toString().length>1?data.month:'0'+data.month) + "-" + (data.day.toString().length>1? data.day : '0' +data.day)
+                    var datatimes=data.day
+                    // console.log(datatiem);
+                    //显示全部js
+                    $.ajax({
+                        url: 'http://61.147.123.84:10080/news/get_newslist_by_date',
+                        type: 'GET',
+                        data: {date:datatiem},
+                        dataType: 'json',
+                        contentType: ""
+                    }).then(function (res) {
+                        //console.log("data",data);
+                        if(res.msg=="没有得到消息的数据，为0或者服务器内部出现问题"){
+                            ShowFailure("没有为您查找到"+datatimes+"号的讯息");
+                        }else{
+                            ShowSuccess("已为您展示"+datatimes+"号的讯息")
+                            self.sites = res.data;
+                            //console.log("data",res.data)
+                        }
+                    }).fail(function () {
+                        ShowFailure("失败")
+                        // console.log('失败');
+                    })
+                });
+            }).fail(function () {
+                ShowFailure("失败")
+                //console.log('失败');
+            })
+        },mounted: function() {
+            $(".ui-timeLine").uiTimeLine();
+        },methods: {
+            showMore(){
+                this.isShow = !this.isShow;
+                this.num = this.isShow? 5: this.sites.length;
+                // if(this.sites.length == this.num){
+                // }
+                // console.log(this.sites.length == this.num)
+                // console.log("sites",this.sites,"num",this.num)
+                this.txt = this.isShow?  '显示全部':'收起'
+            }
+        },
+        components: {},
+    });
+
+    //alert(GetQueryString('artid'));
+    $(document).ready(function(){
+        var str = window.location.href;
+        var sta = str.lastIndexOf("/");
+        var end = str.lastIndexOf(".");
+        var artid = str.substring(sta+1,end);//返回url中的artid的值
+        var lock = false; //声明lock为false
+        getcomment();
+
+        //登录之后回调用户数据
+        var str = localStorage.userName;
+        if(str==null){
+
+        }else{
+            // obj = $.parseJSON(str);
+            //console.log("obj",obj)
+            var name =str
+            // $("#username_1").html(obj.data.name);
+
+            // $("#email_1").html(obj.data.mail);
+
+            // image = "data:image/jpeg;base64,"+obj.data.photo
+            // image =image.replace('data:image/jpeg;base64,',"data:image/jpeg;base64,")
+            // $("#photo_1").attr('src',image);
+
+        }
+        $("input[name='id']").each(function(j,item){
+            $('#'+ item.value +'pinlun').click(function(){
+                //console.log("item.value",item.value)
+                // console.log("下标:"+j);
+                // console.log("value值:"+item.value);
+                if(name == null || name ==""){
+                    // layer.
+                    alert('你还没有登录！', {icon: 5});
+                    return false;
+                }else{
+                    var content = $('#'+ item.value +'comment').val();
+                    //console.log("content",content);
+                    if(content==null || content== ""){
+                        // layer.
+                        alert('评论内容不能为空!', {icon: 2});
+                        return false;
+                    }else if(content.length >50){
+                        alert('输入不能超过50个字!', {icon: 2});
+                        return false;
+                    }else{
+                        $.ajax({
+                            type:"GET",
+                            dataType:"json",
+                            url:"http://61.147.123.84:10080/comment/save_comment",
+                            data:{
+                                id:item.value,
+                                name:name,
+                                content:content
+                            },
+                            success:function(data){
+                                //console.log("data",data)
+                                if(data.msg=="成功"){
+                                    alert('评论成功！', {icon: 1});
+                                    // $('#'+ item.value+'yinchang').load('#'+ item.value+'yinchang');
+                                    window.location.href="";
+                                }else{
+                                    alert('评论失败！', {icon: 2});
+                                    return false;
+                                }
+                                getcomment();
+                            }
+                        });
+                    }
+                }
+
+            });
+        })
+        function getcomment(){
+            $("input[name='id']").each(function(j,item){
+                // console.log("下标:"+j);
+                // console.log("value值:"+item.value);
+                //评论显示隐藏
+                $('#'+ item.value +'yinchang').click(function(){
+                    if($('#'+ item.value +'pinglun').css("display")=="none"){
+                        $('#'+ item.value +'pinglun').show(100);
+                        $('#'+ item.value +'comment').show(100);
+                        $('#'+ item.value +'pinlun').show(100);
+                    }else{
+                        $('#'+ item.value +'pinglun').hide(100);
+                        $('#'+ item.value +'comment').hide(100);
+                        $('#'+ item.value +'pinlun').hide(100);
+                    }
+                });
+
+                $.ajax({
+                    type:"GET",
+                    url:"http://61.147.123.84:10080/comment/get_comment",
+                    dataType:"json",
+                    data:{id:item.value},
+                    success:function(res){
+                        // console.log("data",res.data)
+                        // console.log("data",res.data.length)
+
+                        //jquery有缓存，清空
+                        $('#pinglunqu').empty();
+                        //多少条评论
+
+                        var txst = '<div style="float: right; font-size: 15px;font-weight: 800; color:#CC00FF">评论共'+res.data.length+'条</div>';
+                        $('#'+ item.value+'yinchang').append(txst);
+
+                        //判断是什么类型手机
+                        var u = navigator.userAgent;
+                        //Android终端
+                        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+                        //iOS终端
+                        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                        if(isAndroid){
+                            //如果为Android
+                            console.log("Android")
+                            var txst = '<div style="float: left; font-size: 15px;font-weight: 800; color:#CC00FF; margin-top: 3px"><i class="material-icons icon" style="font-size: 18px; float: left;margin-top: 3px;">wallpaper</i>&nbsp;生成图片</div><br/>';
+                            $('#'+ item.value+'tanchuang').append(txst);
+                        }
+                        if(isiOS){
+                            //如果为iOS
+                            console.log("iOS")
+                        }
+                        $.each(res.data, function (index, val) {
+                            // console.log("data",val.news_id)
+                            var str=val.date
+                            if(val.id==0){
+                                var txt = '<div><div style="height: 90px;display: flex;padding: 0 5px;" id="pinglun'+val.news_id+'"><div style="flex: 8;border-bottom: 1px solid #CC00FF;display: flex;flex-direction: column;font-family:initial;padding: 5px;"><div style="display: flex;justify-content: space-between;"><div style="width:100%"><span style="font-size: 13px;font-weight: 800;">'+"用户："+val.name+'</span><span style="float:right; font-size: 13px;font-weight: 800;">'+str.substring(0,10)+'</span></div></div><br/><span style="font-size: 18px; height:130px;">'+val.content+'</span></div></div></div>';
+                                $('#'+ item.value +'pinglun').append(txt);
+                            }else{
+                                //console.log("val.content",val.content.length)
+                                if(val.content.length >= 15){
+                                    var txt = '<div><div style="height: 150px;display: flex;padding: 0 5px;" id="pinglun'+val.news_id+'"><div style="flex: 8;;display: flex;flex-direction: column;padding: 5px;font-family:initial;border-bottom: 1px solid #CC00FF;"><div style="display: flex;justify-content: space-between;"><div style="width:100%"><span style="font-size: 13px;font-weight: 800;">'+"用户："+val.name+'</span><span style="float:right; font-size: 13px;font-weight: 800;">'+str.substring(0,10)+'</span></div></div><br/><span style="font-size: 18px;">'+val.content+'</span></div></div></div>';
+                                    $('#'+ item.value+'pinglun').append(txt);
+                                }else{
+                                    var txt = '<div><div style="height: 90px;display: flex;padding: 0 5px;" id="pinglun'+val.news_id+'"><div style="flex: 8;;display: flex;flex-direction: column;padding: 5px;font-family:initial;border-bottom: 1px solid #CC00FF;"><div style="display: flex;justify-content: space-between;"><div style="width:100%"><span style="font-size: 13px;font-weight: 800;">'+"用户："+val.name+'</span><span style="float:right; font-size: 13px;font-weight: 800;">'+str.substring(0,10)+'</span></div></div><br/><span style="font-size: 18px;">'+val.content+'</span></div></div></div>';
+                                    $('#'+ item.value+'pinglun').append(txt);
+                                }
+
+
+                            }
+
+
+                            $('.last').on('click','#submit'+val.id+'',function(){
+                                //$('#submit'+val.id+'').attr('disabled',true);
+                                if(lock){
+                                    layer.alert('你的评论太频繁了，请稍后再试！', {icon: 5});
+                                    return false;
+                                }
+                                lock = true;
+                                //30秒后lock值改为false时，才可以继续评论
+                                setTimeout(function(){
+                                    lock = false;
+                                },30000)
+                                if($('#session').text()==''){
+                                    layer.alert('你还没有登录！', {icon: 5});
+                                    return false;
+                                }else{
+                                    var contents = $('#comment'+val.id+'').serialize();
+                                    if(""==$('#context'+val.id+'').val()){
+                                        layer.alert('评论内容不能为空！', {icon: 2});
+                                        return false;
+                                    }else{
+                                        $.ajax({
+                                            type:"post",
+                                            dataType:"json",
+                                            data:contents,
+                                            url:"http://61.147.123.84:10080/comment/save_comment",
+                                            success:function(data){
+                                                if(data==1){
+                                                    $('#pinglun'+val.id+'').next().remove();
+                                                    $('#plnum').text(parseInt($('#plnum').text())+1);
+                                                    layer.alert('评论成功！', {icon: 1});
+                                                }else{
+                                                    layer.alert('评论失败！', {icon: 2});
+                                                }
+                                                getcomment();
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+
+                            $('.last').on('click','#quxiao'+val.id+'',function(){
+                                $('#pinglun'+val.id+'').next().remove();
+                                return false;
+                            });
+                        });
+                    }
+                });
+            });
+        }
+    });
+</script>
+<script type="text/javascript">
+    //获取当前时间
+    var myDate = new Date();
+    //时间格式化
+    Date.prototype.Format = function (fmt) { // author: meizz
+        var o = {
+            "X+": this.getDay(), //星期
+            "M+": this.getMonth() + 1, // 月份
+            "d+": this.getDate(), // 日
+            "h+": this.getHours(), // 小时
+            "m+": this.getMinutes(), // 分
+            "s+": this.getSeconds(), // 秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), // 季度
+            "S": this.getMilliseconds() // 毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    //获取月
+    setInterval(() => {
+        var time1 = new Date().Format("M"+"月");
+        $("#time1").html(time1)
+        //获取日
+        var time2 = new Date().Format("dd");
+        $("#time2").html(time2)
+        //获取星期
+        var time3 = new Date().Format("X");
+        switch(time3){
+            case "0":
+                $("#time3").html("星期天")
+                break;
+            case "1":
+                $("#time3").html("星期一")
+                break;
+            case "2":
+                $("#time3").html("星期二")
+                break;
+            case "3":
+                $("#time3").html("星期三")
+                break;
+            case "4":
+                $("#time3").html("星期四")
+                break;
+            case "5":
+                $("#time3").html("星期五")
+                break;
+            case "6":
+                $("#time3").html("星期六")
+                break;
+        }
+        //获取 时 分 秒
+        var time4 = new Date().Format("hh:mm:ss");
+        $("#time4").html(time4)
+    }, 0);
+
+
+
+    //var asd = new Date().Format("yyyy-MM-dd hh:mm:ss");
+
+
+    "use script";
+    $(window).on('load', function () {
+        var tour = new Tour({
+            steps: [
+                // {
+                //     element: "#left-menu",
+                //     title: "Main Menu",
+                //     content: "Access the demo pages from sidebar",
+                //     smartPlacement: true,
+                //     storage: false
+                // }, {
+                //     element: "button[data-target='#createOrder']",
+                //     title: "Creative Form",
+                //     content: "See beautifully designed form in modal",
+                //     smartPlacement: true,
+                //     placement: "left",
+                //     storage: false
+
+                // }
+                // , {
+                //     element: ".close-sidebar",
+                //     title: "Customizaton Menu",
+                //     content: "Customize your Layout style",
+                //     smartPlacement: true,
+                //     placement: "left",
+                //     storage: false
+
+                // }
+            ]
+
+        });
+        // Initialize the tour
+        tour.init();
+
+        // Start the tour
+        tour.start();
+
+
+        $('.menubtn').on('click', function () {
+            $('.menu').css('bottom', '41px')
+        })
+        $('.menu_panel').load('./common/menu.html')
+    });
+</script>
+</body>
+
+</html>

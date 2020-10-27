@@ -552,10 +552,6 @@
 			fd.append('username', localUserName)
 			fd.append('type', fileType)
 			fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
-			console.log('::::::::::---------', fd.get('name'));
-			console.log('::::::::::---------', fd.get('username'));
-			console.log('::::::::::---------', fd.get('type'));
-			console.log('::::::::::---------', fd.get('upload'));
 			var xhr = new XMLHttpRequest();
 			// 监听服务器的响应
 			xhr.addEventListener("load", uploadComplete, false);

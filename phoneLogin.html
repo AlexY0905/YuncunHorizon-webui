@@ -193,6 +193,9 @@
 			<div class="top_logo">
 				<a href="index.html"><img src="images/yclogo2.png" /></a>
 			</div>
+			<div style="float:right">
+				<span class="go_back_wrap" style="color: #fff;"> < 返回 </span>
+			</div>
 		</div>
 	</div>
 
@@ -203,7 +206,7 @@
 			<div class="col-12 col-md-6 h-md-100  h-sm-auto order-2 order-md-1">
 				<div class="row align-items-center h-100 h-sm-auto">
 					<div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto main">
-						<p style="font-family: cursive; font-size: 24px;">请登录您的账户</p>
+						<p style="font-family: cursive; font-size: 24px;">请输入您的手机号</p>
 						<div class="card mb-2">
 							<div class="card-body p-0" id="name_data">
 								<label for="regPhone" class="sr-only">手机号</label>
@@ -446,6 +449,9 @@
 
 		$('.menubtn').on('click', function () {
 			$('.menu').css('bottom', '41px')
+		})
+		$('.go_back_wrap').on('click',function () { // 返回
+			window.history.go(-1)
 		})
 	</script>
 	<script>

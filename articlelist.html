@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="耘存科技" http-equiv="keywords">
+    <meta name="description" content="耘存科技">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+    <title>文章详情</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <!--内容动画样式库-->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <style>
+        * {
+            list-style: none;
+        }
+
+        body {
+            background-color: #fff;
+        }
+
+        .contentbox {
+            background-color: #fff;
+        }
+
+        /* 文章标题样式开始 */
+        .article_lists {
+            /* padding: 1.53333rem 1rem; */
+            padding: .3rem .6rem;
+        }
+
+        .goback {
+            display: block;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-bottom: 30px;
+        }
+
+        .return {
+            width: .5rem;
+        }
+
+        .title[data-v-0cf605c3] {
+            font-size: .4rem;
+            color: #333;
+            font-weight: 700;
+            height: .5rem;
+            line-height: .5rem;
+        }
+
+        p,
+        ul {
+            margin: 0;
+        }
+
+        p {
+            display: block;
+            margin-block-start: -1.5em;
+            margin-block-end: 3em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        /* 文章标题样式结束 */
+
+        /* 作者头像时间样式开始 */
+        .author_top[data-v-543f2bc7] {
+            display: flex;
+            align-items: center;
+            padding: .13333rem;
+            margin-top: 1.5rem;
+            margin-left: -0.2rem;
+        }
+
+        Style Attribute {
+            font-size: 12px;
+        }
+
+        .author_top .img_area[data-v-543f2bc7] {
+            margin-right: 0.2rem;
+        }
+
+        .author_top .img_area img[data-v-543f2bc7] {
+            display: block;
+            width: .5rem;
+            height: .5rem;
+            border-radius: 50%;
+            margin-top: -.7rem;
+        }
+
+        div {
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .author_top .info_area .name[data-v-543f2bc7] {
+            font-size: .3rem;
+            color: #000;
+        }
+
+        .author_top .info_area span[data-v-543f2bc7] {
+            font-size: .37333rem;
+            color: #878787;
+        }
+
+        .author_top .info_area .views[data-v-543f2bc7] {
+            color: #878787;
+            font-weight: 400;
+            font-size: .3rem;
+        }
+
+        /* 作者头像时间样式结束 */
+
+        /* 文章内容样式开始 */
+        .bbt-html {
+            font-size: .5rem;
+            color: rgba(0, 0, 0, .88);
+            line-height: 1rem;
+            word-break: break-all;
+            overflow: hidden;
+            white-space: pre-wrap;
+            margin-top: -160px;
+        }
+
+        .bbt-html p {
+            margin: .7rem 0;
+        }
+
+
+        .bbt-html .aligncenter {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .bbt-html img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .bbt-html h2 {
+            line-height: .5rem;
+            font-size: .3rem;
+        }
+
+        /* 文章内容样式结束 */
+    </style>
+
+</head>
+
+<body id="body" style="position: relative">
+<div class="top_bg">
+    <div class="top_main fix">
+        <div class="top_logo">
+            <a href="index.html"><img src="images/yclogo.png" /></a>
+        </div>
+        <div class="top_search">
+            <a href="search.html"><span></span></a>
+        </div>
+
+    </div>
+</div>
+<!-- contentbox -->
+<div class="contentbox">
+    <span class="goback"><img src="images/return.png" alt="" class="return"></span>
+    <!-- 文章详情开始 -->
+    <div class="article_lists">
+
+    </div>
+    <!-- 文章详情结束 -->
+</div>
+
+
+<!-- 底部菜单 -->
+<!--
+<div class="menubox">
+    <ul class="fix" style="display: flex">
+        <li>
+            <a href="index.html">
+                <i>
+                    <img src="images/menu_icon01.png" alt="首页" />
+                    <img src="images/menu_icon01_1.png" alt="首页" />
+                </i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="quotation.html">
+                <i>
+                    <img src="images/menu_icon05.png" alt="行情" />
+                </i>
+                <span>行情</span>
+            </a>
+        </li>
+        <li>
+            <a href="video.html">
+                <i>
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                    <img src="images/static/file_menu_icon.png" alt="文件中心" />
+                </i>
+                <span>文件中心</span>
+            </a>
+        </li>
+        <li>
+            <a href="search.html">
+                <i>
+                    <img src="images/icon_search2.png" alt="搜索" />
+                    <img src="images/icon_search2.png" alt="搜索" />
+                </i>
+                <span>搜索</span>
+            </a>
+        </li>
+        <li class="menubtn">
+            <i>
+                <img src="images/menu_icon04.png" alt="菜单" />
+                <img src="images/menu_icon04_1.png" alt="菜单" />
+            </i>
+            <span>菜单</span>
+        </li>
+    </ul>
+    <span class="menu_panel"></span>
+</div>
+-->
+<div class="move_frame"></div>
+
+<!--内容动画样式js-->
+<script type="text/javascript" src="js/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-out-back',
+        duration: 1000
+    });
+    $('.goback').on('click', function () { // 返回
+        // console.log("00000", 1211221);
+        window.history.go(-1)
+    })
+</script>
+<script>
+    $(function () {
+        function getRequestParams(param) {
+            var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        var id = getRequestParams("id");
+        $.ajax({//文章内容展示
+            type: "GET",
+            url: "http://61.147.123.84:10080/article/get_article",
+            data: { id },
+            dataType: "json",
+            success: function (result) {
+                console.log("-------------", result);
+                if (result.code == 0) {
+                    let data = result.data
+                    let html = `<div>
+                                <p class="title" data-v-0cf605c3="">${data.title}</p>
+
+                                <div class="author_top" data-v-543f2bc7="" data-v-0cf605c3="">
+                                    <div class="img_area" data-v-543f2bc7="">
+                                        <a href="" target="_blank" data-v-543f2bc7="">
+                                            <img src="${data.picture}"
+                                                data-v-543f2bc7=""
+                                                data-src="${data.picture}"
+                                                lazy="loaded">
+                                        </a>
+                                    </div>
+                                    <div class="info_area" data-v-543f2bc7="">
+                                        <a href="" target="_blank" data-v-543f2bc7="">
+                                            <span class="name" data-v-543f2bc7="">${data.actor}</span>
+                                            <p class="views" data-v-543f2bc7="">
+                                                ${data.date}
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="bbt-html hide_content" data-v-0cf605c3="">
+                                    ${data.content}
+                                </div>
+                            </div>`
+
+                    $(".article_lists").html(html)
+
+                } else {
+
+                }
+
+            },
+            error: function () {
+                alert("网络错误, 稍后再试 !")
+            }
+
+        });
+
+
+    })
+
+
+</script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 	<!--简单弹出框-->
 	<script type="text/javascript" src="./js/static/message.js"></script>
-	
+
 	<style>
 		.fold_panel{margin:10px auto; width:94%; height: auto;}
 		.fold_panel .user_item {
@@ -36,7 +36,7 @@
 			box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
 		}
 		.Collapsing div {
-			width: 100%;
+			width: 60%;
 			display: flex;
 			align-items: center;
 		}
@@ -69,6 +69,7 @@
 			padding-right: 10px;
 			box-sizing: border-box;
 		}
+
 		.coll_body .search_btn {
 			width: 80px;
 			height: 35px;
@@ -119,7 +120,7 @@
 			color: #00B4CC;
 		}
 
-		.searchButton {
+		.searchButton,.search_button {
 			width              : 40px;
 			height             : 36px;
 			/* border          : 1px solid #00B4CC; */
@@ -133,7 +134,7 @@
 			font-size          : 20px;
 		}
 
-		.searchButton img {
+		.searchButton img,.search_button img {
 			width: 20px;
 		}
 
@@ -269,15 +270,23 @@
 		<!-- 子页banner尺寸640x240 -->
 		<img src="images/space.jpg" style="width: 100%;min-height: 3rem">
 	</div>
-	<!-- 搜索 开始 -->
+	<!-- 搜索文件 开始 -->
 	<div class="search_box tus">
-		<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;">
+		<input type="text" class="searchTerm keyWord_ipt" style="width: 100%;color: #333" placeholder="请输入文件名搜索" oninput='this.value=this.value.replace(" ", "");'> <!--  oninput='this.value=this.value.replace(" ", "");' 禁止输入框中输入空格 -->
+		<button type="submit" class="search_button">
+			<img src="./images/search.png" alt="">
+		</button>
+	</div>
+	<!-- 搜索文件 结束 -->
+	<!-- 搜索音频 开始 -->
+	<div class="search_box tus">
+		<input type="text" class="searchTerm search_fileName_ipt" placeholder="文件名" style="color: #333;margin-right: 2px;" oninput='this.value=this.value.replace(" ", "");'>
 		<input type="text" class="searchTerm search_fileType_ipt" placeholder="文件类型例如mp3/mp4" style="color: #333;border-right : none;">
 		<button type="submit" class="searchButton">
 			<img src="./images/search.png" alt="">
 		</button>
 	</div>
-	<!-- 搜索 结束 -->
+	<!-- 搜索音频 结束 -->
 	<!--
 	<div class="fold_panel">
 
@@ -292,11 +301,9 @@
 		<ul class="fold_panel fold_list article_list" data-v-339f8b8e="">
 			<ul class="list" style="padding-left: 0;">数据加载中，请稍后...</ul>
 		</ul>
-
         <div class="more" style="margin-top: .5rem;margin-bottom: .5rem;">
             <button class="load_more"><a href="javascript:;">查看更多</a></button>
         </div>
-
 	</div>
 </div>
 
@@ -401,7 +408,7 @@
 </script>
 <script type="text/javascript">
 	$(function(){
-		// 搜索
+		// 搜索音频
 		$('.searchButton').on('click', function () {
 			clearTimeout(timer)
 			var audioElement = null
@@ -476,6 +483,66 @@
 			}
 		})
 
+		// 搜索文件
+		$('.search_button').on('click', function () {
+			if ($('.keyWord_ipt').val() != '') {
+				let keyWord = $('.keyWord_ipt').val()
+				// console.log(':::::::::::::', keyWord)
+				$.ajax({
+					type: "get",
+					url: 'http://61.147.123.84:9000/v2/searchFile',
+					data: {
+						name: keyWord
+					},
+					dataType: 'json',
+					success: function (result) {
+						console.log(222222222, result);
+						let resData = result.msg
+						let html = ''
+						resData.forEach((item, index) => {
+							html += `
+                            <div class="user_item">
+                                <div class="Collapsing current">
+                                    <div>
+                                        <img src="./images/static/user_icon.png" style="width: 25px">
+                                        <span>${item.Name}</span>
+                                    </div>
+                                    <img class="arrow" src="./images/static/jiantou_down.png" style="width: 20px">
+                                </div>
+                                <div class="coll_body" style="display: block">
+                                    <div class="fileName" data-filename="${item.Name}">
+                                        <span>name</span> : <span>${item.Name}</span>
+                                    </div>
+                                    <div class="type">
+                                        <span>type</span> : <span>${item.Type}</span>
+                                    </div>
+                                    <div class="file_type" data-filetype="${item.FileType}">
+                                        <span>file_type</span> : <span>${item.FileType}</span>
+                                    </div>
+                                    <div class="lotuscid">
+                                        <span>lotuscid</span> : <span class="lotuscid_txt">${item.LotusCid}</span>
+                                    </div>
+                                    <div class="user_name">
+                                        <span>user_name</span> : <span>${item.UserName}</span>
+                                    </div>
+									<div class="search_btn">搜索</div>
+                                </div>
+                            </div>
+                        `
+						})
+						$('.fold_panel').html(html)
+						$('.fold_panel_box .more').hide()
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+
+			} else {
+				ShowFailure('请输入文件名 !')
+			}
+		})
+
 
 		// 获取文件列表数据
 		function getUserList () {
@@ -515,7 +582,7 @@
                                     <div class="user_name">
                                         <span>user_name</span> : <span>${item.UserName}</span>
                                     </div>
-                                    <div class="search_btn">搜索</div>
+									<div class="search_btn">搜索</div>
                                 </div>
                             </div>
                         `
@@ -545,7 +612,7 @@
                                     <div class="user_name">
                                         <span>user_name</span> : <span>${item.UserName}</span>
                                     </div>
-                                    <div class="search_btn">搜索</div>
+									<div class="search_btn">搜索</div>
                                 </div>
                             </div>
                         `
@@ -590,13 +657,21 @@
 		}
 		getUserList()
 
+
 		$('.fold_panel').on('click', '.search_btn', function () {
 			let fileName = $(this).siblings('.fileName').data('filename')
 			let fileType = $(this).siblings('.file_type').data('filetype')
 			$('.search_fileName_ipt').val(fileName)
 			$('.search_fileType_ipt').val(fileType)
 		})
-
+		/*
+		$('.fold_panel').on('click', '.search_btn', function () {
+			let fileName = $(this).parent().siblings('.coll_body').children('.fileName').data('filename')
+			let fileType = $(this).parent().siblings('.coll_body').children('.file_type').data('filetype')
+			$('.search_fileName_ipt').val(fileName)
+			$('.search_fileType_ipt').val(fileType)
+		})
+		*/
 
 		/**
 		 * 控制音乐播放和暂停
