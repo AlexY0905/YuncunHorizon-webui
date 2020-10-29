@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta content="耘存科技" http-equiv="keywords">
+	<meta name="description" content="耘存科技">
+	<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+	<title>数据趋势</title>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/children.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+
+	<!-- js -->
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript" src="js/static/echarts.js"></script>
+	<script type="text/javascript" src="js/static/message.js"></script>
+	<!-- <script type="text/javascript" src="js/public.js"></script> -->
+	<style>
+		.contentbox {
+			background-color: #f5f5f5;
+		}
+
+		.data_num_panel {
+			width: 100%;
+		}
+
+		.data_num_panel .data_num_ul {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 5px;
+		}
+
+		.data_num_panel .data_num_ul li {
+			width: 90%;
+			height: 40px;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			background: #fff;
+			border-bottom: 1px solid #ccc;
+			padding: 0 10px;
+			box-sizing: border-box;
+			font-size: 14px;
+			margin-bottom: 5px;
+		}
+		.data_num_ul li span {
+			color: #555555;
+		}
+
+		.data_Increase_panel {
+			width: 100%;
+			/*margin-top: 20px;*/
+		}
+		.breve_data_panel {
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		.title_panel {
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			font-size: 18px;
+			font-weight: 700;
+			text-align: center;
+			color: #0083c3;
+		}
+
+		.data_content_panel {
+			width: 100%;
+		}
+
+		.data_content_ul {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.data_content_panel .data_content_ul li {
+			width: 90%;
+			height: 40px;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			background: #fff;
+			border-bottom: 1px solid #ccc;
+			padding: 0 10px;
+			box-sizing: border-box;
+			font-size: 14px;
+			margin-bottom: 5px;
+		}
+		.echarts_panel {
+			width: 100%;
+			min-height: 200px;
+		}
+		.echarts_panel .echarts_box {
+			width: 100% !important;
+		}
+		#tip { /* 勿删  配合简单提示框用的样式 */
+			display: inline-block;
+			min-width: 200px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			font-size: 14px;
+			border-radius: 5px;
+		}
+		.breve_text_box {
+			width: 100%;
+			height: 200px;
+			box-sizing: border-box;
+			padding: 20px;
+		}
+		.breve_text_box div {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			padding: 8px 10px;
+			border: 1px solid #ccc;
+			overflow-y: scroll;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 5px 6px rgba(10, 16, 20, .24), 0 0 3px rgba(10, 16, 20, .12);
+		}
+		.breve_text_box div p {
+			font-size: 14px;
+			line-height: .3rem;
+			color: #555555;
+		}
+		.data_content_ul li span {
+			color: #555555;
+		}
+	</style>
+</head>
+
+<body style="background: #f5f5f5;">
+	<div class="top_bg">
+		<div class="top_main fix">
+			<div class="top_logo">
+				<a href="index.html"><img src="images/yclogo.png" /></a>
+			</div>
+			<div style="float:right">
+				<span class="go_back_wrap"
+					  style="color: rgb(0, 0, 0); font-size: 16px; display: block; margin-top: 12px;">
+					返回 > </span>
+			</div>
+
+		</div>
+	</div>
+	<!-- 中间内容部分 -->
+	<div class="contentbox">
+		<div class="data_num_panel">
+			<ul class="data_num_ul">
+				<!--
+				<li>
+					<span>名称 : </span><span>BTC</span>
+				</li>
+				<li>
+					<span>流通数量 : </span><span>18527062</span>
+				</li>
+				<li>
+					<span>流通市值 : </span><span>¥16259.5亿</span>
+				</li>
+				<li>
+					<span>24H涨幅 : </span><span>+0.23</span>
+				</li>
+				-->
+			</ul>
+		</div>
+		<div class="data_Increase_panel">
+			<!--
+			<div class="title_panel">BTC阶段涨幅</div>
+			<div class="data_content_panel">
+				<ul class="data_content_ul">
+					<li>
+						<span>24小时</span><span>111</span>
+					</li>
+					<li>
+						<span>近7天</span><span>111</span>
+					</li>
+					<li>
+						<span>近30天</span><span>111</span>
+					</li>
+					<li>
+						<span>近3月</span><span>111</span>
+					</li>
+					<li>
+						<span>近6月</span><span>111</span>
+					</li>
+					<li>
+						<span>近1年</span><span>111</span>
+					</li>
+					<li>
+						<span>今年来</span><span>111</span>
+					</li>
+					<li>
+						<span>所有</span><span>111</span>
+					</li>
+				</ul>
+			</div>
+			-->
+		</div>
+		<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+		<div class="echarts_panel">
+			<div class="echarts_box" id="main" style="width: 600px;height:400px;"></div>
+		</div>
+		<div class="breve_data_panel">
+			<!--
+			<div class="title_panel">简况</div>
+			<div class="data_content_panel">
+				<div class="breve_text_box">
+					<div>
+						<p>比特币（<a href="https://www.feixiaohao.com/currencies/bitcoin/" target="_blank">BitCoin</a>）的概念最初由中本聪在2008年提出，根据中本聪的思路设计发布的开源软件以及建构其上的P2P网络。比特币是一种P2P形式的数字货币。点对点的传输意味着一个去中心化的支付系统。</p>↵↵<p>与大多数货币不同，比特币不依靠特定货币机构发行，它依据特定算法，通过大量的计算产生，比特币经济使用整个p2p网络中众多节点构成的分布式数据库来确认并记录所有的交易行为，并使用密码学的设计来确保货币流通各个环节安全性。</p>↵↵<p>p2p的去中心化特性与算法本身可以确保无法通过大量制造比特币来人为操控币值。基于密码学的设计可以使比特币只能被真实的拥有者转移或支付。这同样确保了货币所有权与流通交易的匿名性。比特币与其他虚拟货币最大的不同，是其总数量非常有限，具有极强的稀缺性。该货币系统曾在4年内只有不超过1050万个，之后的总数量将被永久限制在2100万个。<br />↵ <br />↵比特，是一种计算机专业术语，是信息量单位，是由英文BIT音译而来。二进制数的一位所包含的信息就是一比特，如二进制数0100就是4比特。那么，比特这个概念和货币联系到一起，不难看出，比特币非现实货币，而是一种计算机电子虚拟货币，存储在你的电脑上。</p>↵↵<p><br />↵目前，这种崭新的虚拟货币不受任何政府、任何银行控制。因此，它还未被合法化。</p>↵↵<p> </p>↵↵<hr />↵<h2> </h2>↵↵<h2>如何得到比特币</h2>↵↵<p> <br />↵如果你对它产生兴趣，那么非小号可以告诉您，你不仅可以在交易市场买到比特币，在很早期，比特币算力难度非常低时，还可以使用计算机依照算法进行大量的运算来“开采”比特币。<br />↵ <br />↵在用户“开采”比特币时，需要用电脑搜寻64位的数字就行，然后通过反 复解谜与其他淘金者相互竞争，为比特币网络提供所需的数字，如果用户的电脑成功地创造出一组数字，那么就将会获得区块所奖励的比特币。</p>↵↵<p>但是<meta charset="utf-8" />由于比特币价值不断升高，目前比特币挖矿的用户数量非常庞大，有上百万的专业矿机在同时挖矿，而每10分钟产出的比特币又十分有限，形成了千万人抢1个区块的情况出现，所以，如果你用个人电脑单独挖矿，有可能一整年也抢不到一个区块，在这种情况下，人们就想出了一种组队挖矿的方法，于是矿池(mining pool)诞生了。</p>↵↵<p>矿池是一个通过特定算法而设计的服务器，所有连接到矿池服务器的用户，会组队进行挖矿，个人电脑的性能虽然渺小，但是成千上万的人进行组队挖矿，总体性能就会变得十分强大，在这种情况，挖矿的成功率会大大提升，一旦矿池中的队伍成功制造了一个区块，那么所有队伍中的人会根据每个人的电脑性能进行分红。</p>↵↵<p> <br />↵比特币目前全网算力56.48 EH/s，全网难度7,409,399,249,090 - 7.41 T，每T收益1T * 24H = 0.00003394 BTC（2019年6月20日数据）。</p>↵↵<p>预计到2020-05-05，比特币产量会减半，而到2140年，流通的比特币上限将会达到2100万。换句话说，比特币系统是能够实现自给自足的，通过编码来抵御通胀，并防止他人对这些代码进行破坏。</p>↵↵<p> </p>↵↵<hr />↵<h2><br />↵<strong>比特币的特点</strong></h2>↵↵<p> </p>↵↵<p><strong>去中心化</strong><br />↵比特币是第一种分布式的虚拟货币，整个网络由用户构成，没有中央银行。去中心化是比特币安全与自由的保证。</p>↵↵<p><strong>全世界流通</strong><br />↵比特币可以在任意一台接入互联网的电脑上管理。不管身处何方，任何人都可以挖掘、购买、出售或收取比特币</p>↵↵<p><strong>专属所有权</strong><br />↵操控你的比特币需要你的私钥，它可以被隔离保存在任何存储介质。除了你之外无人可以获取。<br />↵<br />↵<strong>低交易费用</strong><br />↵目前可以免费汇出比特币，但最终对每笔交易将收取约1比特分的交易费以确保交易更快执行。关于交易费的详情。</p>↵↵<p><strong>无隐藏成本</strong><br />↵作为由A到B的支付手段，比特币没有繁琐的额度与手续限制。知道对方比特币地址就可以进行支付。</p>↵↵<p><strong>跨平台挖掘</strong><br />↵比特币是技术人士的热爱！可以在众多平台上发掘不同硬件的计算能力。非小号的极客用户们应该会很有同感：这本身已构成一种乐趣。<br />↵ </p>↵↵<hr />↵<h2><br />↵<strong>比特币Q&A</strong></h2>↵↵<p><br />↵<strong>比特币是如何运作的?</strong><br />↵比特币使用了公开密钥系统。每一个钱币都包括了其拥有者的公开密匙。当钱币从用户A支付给用户B时, A将B的公开密匙添加到钱币中, 然后这个钱币又被A用私人密码匙来签封。B现在即拥有了这个钱币并且可以将来使用，而A就不可能再次使用这个钱币，因为以前的交易记录以被全体网络计算机收录维护。在每笔交易前，钱币的有效性都必须经过检验确认。<br />↵ <br />↵<strong>比特币值多少钱？</strong><br />↵在比特币刚诞生的时候，几乎一文不值，1美元平均能够买到1309.03个比特币，但比特币价格曾一度飙升至15000美元，感兴趣的朋友可以在非小号网站，了解比特币的实时行情。<br />↵ <br />↵<strong>比特币能否兑换现金？</strong><br />↵答案是肯定的。你只需与比特币交易机构取得联系即可完成兑换，其中火币网、币安（看到这里请给小号编编打广告费？），是目前最为流行的比特币交易平台。除此之外还有许多规模不等的交易所，都能够进行比特币兑换和交易。<br />↵ <br />↵<strong>比特币是匿名的吗？</strong><br />↵比特币不是匿名的，相反，严格来讲，比特币是完全公开而且可追踪的。与其说比特币是匿名，不如说是非实名的。举个例子，如果在非小号上，你不用真名注册，不填写个人信息，你的唯一代号是你的id，这叫非实名；你发帖选择匿名用户，这才叫匿名。<br />↵在比特币世界里的地址的所有转账记录都可追踪，简单说，如果你从交易所转一笔钱到比特币，然后拿来黑市交易，不管你进行多少次交易，想查的话很快就能查到你钱的来路从而追踪到你。就如同你用同样的ID上非小号，只要你暴露过个人信息，总能人肉到你。<br />↵所以比特币不是匿名的，而是非实名。</p>↵↵<p>真正的匿名的有门罗币（<a href="https://www.feixiaohao.com/currencies/monero/" target="_blank">XMR</a>）、大零币（<a href="https://www.feixiaohao.com/currencies/zcash/" target="_blank">ZEC</a>）、达世币（<a href="https://www.feixiaohao.com/currencies/dash/" target="_blank">DASH</a>）等，非小号一共收录了40种匿名货币，其中XMR，DASH，ZEC产生较早，市值较大，应用较广，并称为三大匿名货币。大家可以点击进行比较哦。</p>↵↵<p> </p>↵↵<p><strong>比特币能做什么？</strong><br />↵智能合约、信息公开、投资避险、支付汇款、炒作标的、价值储存、货币发行与社会公平、洗钱、赌博等，哦对了，还有买披萨。<br />↵非小号提醒投资者，比特币千万好，守法第一要。<br />↵ <br />↵<strong>为何要关注比特币？</strong><br />↵比特币代表了一种完全匿名而且无需成本的交易方式，比特币不属于任何国家，并且不受地域限制，是一种用户能够随时随地进行自由兑换的货币。对于这种新鲜且前景一片大好的货币形式，我们没有理由不去关注它。<br />↵<br />↵非小号发现，有些人总是看着看着我们的行情，就打开了交易所...请理智炒币！<br />↵ <br />↵<strong>比特币交易合法吗？</strong><br />↵2013 年 12 月，中国人民银行等五部委联合发布的《关于防范比特币风险的通知》中，禁止金融机构介入比特币，但同时认为：<br />↵“比特币是一种特定的虚拟商品，不具有与货币等同的法律地位，不能且不应作为货币在市场上流通使用。但是，比特币交易作为一种互联网上的商品买卖行为，普通民众在自担风险的前提下拥有参与的自由。”<br />↵根据国家相关法律法规，买卖比特币是属于合法的。<br />↵据目前五部委的声明，比特币是商品，是交易合法的。<br />↵非小号在这里补充一下，ICO是违法的，注意不要把ICO/传销与比特币交易弄混。</p>↵↵<p> </p>↵↵<hr />↵<h2><br />↵ <strong>比特币的分叉币们</strong></h2>↵↵<p><br />↵硬分叉所分裂出的比特币（又名分叉币）是由改变区块链协议及共享比特币截至某日期时间的交易纪录而产生。比特币首次硬分叉发生于2017年8月1日，导致了比特币现金（<a href="https://www.feixiaohao.com/currencies/bitcoin-cash/" target="_blank">BCH</a>）的出现。</p>↵↵<p>以下按日期／区块列出分裂比特币比较重要的3次硬分叉：<br />↵比特币现金：分叉区块：478558，日期：2017年8月1日，客户每持有1个比特币可以得到1个比特币现金<br />↵<a href="https://www.feixiaohao.com/currencies/bitcoin-gold/" target="_blank">比特币黄金</a>：分叉区块：491407，日期：2017年10月24日，客户每持有1个比特币可以得到1个比特币黄金<br />↵<a href="https://www.feixiaohao.com/currencies/bitcoin-cash-sv/" target="_blank">比特币SV</a>：分叉区块：556766，日期：2018年11月15日，客户每持有1个比特币现金可以得到1个比特币SV<br />↵非小号通过收集整理发现，目前比特币可统计的分叉项目达到了105个。其中，有45个比特币分叉币仍可进行交易。<br />↵ <br />↵在这105个比特币分叉项目中，一些项目仅在比特币一词后加上了一些简单的词汇后缀，如比特币披萨（Bitcoin Pizza）、比特币男孩（Bitcoin Boy）、比特币热（Bitcoin Hot）等，非小号平台上一共收录了16个比特币的分叉币。<br />↵ <br />↵截至目前，大部分比特币分叉币的币价已接近归零。按市值计算，在BCH、BSV之外，排名最靠前的比特币分叉币，是比特现金（BCH）、比特币SV（BSV）和比特黄金（BTG）。</p>↵↵<p> </p>↵↵<p><span style="color:#999999;">*以上内容由非小号官方整理，如若转载，请注明出处。</span></p>↵↵<p>       </p>↵
+					</div>
+				</div>
+				<ul class="data_content_ul">
+					<li>
+						<span class="data_content_span">24小时</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">近7天</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">近30天</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">近3月</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">近6月</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">近1年</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">今年来</span><span>111</span>
+					</li>
+					<li>
+						<span class="data_content_span">所有</span><span>111</span>
+					</li>
+				</ul>
+			</div>
+			-->
+
+		</div>
+	</div>
+
+	<!-- slide侧边栏 -->
+	<!--
+	<div class="side_bar">
+		<span class="btn_top"></span>
+	</div>
+	-->
+	<!-- footer -->
+	<!--
+	<div class="footbox">
+		<h2>
+			<a href="about.html">Company projects</a>丨<a href="contact.html">contact us</a>
+		</h2>
+		<div class="txt">
+			<p>CopyRight © Shanghai Yuncun Science and Technology Development Co., LTD</p>
+			<p>Address: 5 / F, No.37 pingxingguan Block, 108 Pingxingguan Road, Jing 'an District, Shanghai</p>
+		</div>
+	</div>
+	-->
+	<!-- 底部菜单 -->
+	<!--
+	<div class="menubox">
+		<ul class="fix" style="display: flex">
+			<li>
+				<a href="index.html">
+					<i>
+						<img src="images/menu_icon01.png" alt="首页" />
+						<img src="images/menu_icon01_1.png" alt="首页" />
+					</i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="quotation.html">
+					<i>
+						<img src="images/menu_icon05.png" alt="行情" />
+						 <img src="images/menu_icon05.png" alt="行情" />
+					</i>
+					<span>行情</span>
+				</a>
+			</li>
+			<li>
+				<a href="video.html">
+					<i>
+						<img src="images/static/file_menu_icon.png" alt="文件中心" />
+						<img src="images/static/file_menu_icon.png" alt="文件中心" />
+					</i>
+					<span>文件中心</span>
+				</a>
+			</li>
+			<li>
+				<a href="search.html">
+					<i>
+						<img src="images/icon_search2.png" alt="搜索" />
+						<img src="images/icon_search2.png" alt="搜索" />
+					</i>
+					<span>搜索</span>
+				</a>
+			</li>
+			<li class="menubtn">
+				<i>
+					<img src="images/menu_icon04.png" alt="菜单" />
+					<img src="images/menu_icon04_1.png" alt="菜单" />
+				</i>
+				<span>菜单</span>
+			</li>
+		</ul>
+		<span class="menu_panel"></span>
+	</div>
+	-->
+	<script>
+		$(function () {
+			/**
+			 * 获取行情列表数据
+			 */
+			function moneyDataFormat (money, formatMoney) {
+				let tempNum = ''
+				if (String(money).length == 8) { // 千万
+					tempNum = String(money).substr(3, 2)
+					formatMoney = String(money).substr(0, 3) + '.' + tempNum
+				} else if (String(money).length == 9) { // 亿
+					tempNum = String(money).substr(1, 2)
+					formatMoney = String(money).substr(0, 1) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 10) { // 十亿
+					tempNum = String(money).substr(2, 2)
+					formatMoney = String(money).substr(0, 2) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 11) { // 百亿
+					tempNum = String(money).substr(3, 2)
+					formatMoney = String(money).substr(0, 3) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 12) { // 千亿
+					tempNum = String(money).substr(4, 2)
+					formatMoney = String(money).substr(0, 4) + '.' + tempNum
+					return formatMoney
+				} else if (String(money).length == 13) { // 万亿
+					tempNum = String(money).substr(5, 2)
+					formatMoney = String(money).substr(0, 5) + '.' + tempNum
+					return formatMoney
+				}
+			}
+			function getRequestParams(param) { // 获取浏览器地址栏中传入的参数
+				var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]); return null;
+			}
+			function chunk(array, size) {
+				//获取数组的长度，如果你传入的不是数组，那么获取到的就是undefined
+				const length = array.length
+				//判断不是数组，或者size没有设置，size小于1，就返回空数组
+				if (!length || !size || size < 1) {
+					return []
+				}
+
+				//核心部分
+				let index = 0 //用来表示切割元素的范围start
+				let resIndex = 0 //用来递增表示输出数组的下标
+
+				//根据length和size算出输出数组的长度，并且创建它。
+				let result = new Array(Math.ceil(length / size))
+				//进行循环
+				while (index < length) {
+					//循环过程中设置result[0]和result[1]的值。该值根据array.slice切割得到。
+					result[resIndex++] = array.slice(index, (index += size))
+				}
+				//输出新数组
+				return result
+			}
+			let name = getRequestParams("name");
+			let increaseName = ''
+			switch (name) {
+				case 'BTC':
+					increaseName = 'bitcoin'
+					break
+				case 'ETH':
+					increaseName = 'ethereum'
+					break
+				case 'USDT':
+					increaseName = 'tether'
+					break
+				case 'FIL':
+					increaseName = 'filecoinnew'
+					break
+			}
+			// console.log(11111111, name);
+			function getDataNumList () {
+				$.ajax({
+					type: "get",
+					url: 'https://dncapi.bqrank.net/api/coin/web-coinrank',
+					data: {
+						page: 1,
+						type: -1,
+						pagesize: 100,
+						webp: 1
+					},
+					dataType: 'json',
+					success: function (result) {
+						let data = result.data
+						let res = data.filter((item, index) => { return item.name == name })
+						let html = ''
+						res.forEach((item, index) => {
+							let vol = moneyDataFormat(item.vol)
+							let market_value = moneyDataFormat(item.market_value)
+							if (item.change_percent > 0) {
+								html += `
+                                    <li>
+										<span>名称 : </span><span>${item.name}</span>
+									</li>
+									<li>
+										<span>24H额 : </span><span>¥${vol}亿</span>
+									</li>
+									<li>
+										<span>流通数量 : </span><span>${item.supply}</span>
+									</li>
+									<li>
+										<span>流通市值 : </span><span>¥${market_value}亿</span>
+									</li>
+									<li>
+										<span>24H涨幅 : </span><span style="color: #00AA55">+${item.change_percent}%</span>
+									</li>
+                                `
+							} else if (item.change_percent < 0) {
+								html += `
+                                    <li>
+										<span>名称 : </span><span>${item.name}</span>
+									</li>
+									<li>
+										<span>24H额 : </span><span>¥${vol}亿</span>
+									</li>
+									<li>
+										<span>流通数量 : </span><span>${item.supply}</span>
+									</li>
+									<li>
+										<span>流通市值 : </span><span>¥${market_value}亿</span>
+									</li>
+									<li>
+										<span>24H涨幅 : </span><span style="color: #FF0066">${item.change_percent}%</span>
+									</li>
+                                `
+							}
+						})
+
+						$('.data_num_ul').html(html)
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			function getFilData () {
+				$.ajax({
+					type: "get",
+					url: 'https://dncapi.bqrank.net/api/search/websearch',
+					data: {
+						page: 1,
+						exchange_page: 1,
+						wallet_page: 1,
+						pagesize: 25,
+						code: 'FIL',
+						token: '',
+						webp: 1
+					},
+					dataType: 'json',
+					success: function (result) {
+						let data = result.coinlist
+						let res = data.filter((item, index) => { return item.symbol == name })
+						// console.log(1111111111, res);
+						let html = ''
+						res.forEach((item, index) => {
+							let vol = moneyDataFormat(item.volume)
+							let market_value = moneyDataFormat(item.market_value)
+							if (item.change_percent > 0) {
+								html += `
+                                    <li>
+										<span>名称 : </span><span>${item.symbol}</span>
+									</li>
+									<li>
+										<span>24H额 : </span><span>¥${vol}亿</span>
+									</li>
+									<li>
+										<span>流通数量 : </span><span>${item.circulatingsupply}</span>
+									</li>
+									<li>
+										<span>流通市值 : </span><span>¥${market_value}亿</span>
+									</li>
+									<li>
+										<span>24H涨幅 : </span><span style="color: #00AA55">+${item.change_percent}%</span>
+									</li>
+                                `
+							} else if (item.change_percent < 0) {
+								html += `
+                                    <li>
+										<span>名称 : </span><span>${item.symbol}</span>
+									</li>
+									<li>
+										<span>24H额 : </span><span>¥${vol}亿</span>
+									</li>
+									<li>
+										<span>流通数量 : </span><span>${item.circulatingsupply}</span>
+									</li>
+									<li>
+										<span>流通市值 : </span><span>¥${market_value}亿</span>
+									</li>
+									<li>
+										<span>24H涨幅 : </span><span style="color: #FF0066">${item.change_percent}%</span>
+									</li>
+                                `
+							}
+						})
+						$('.data_num_ul').html(html)
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			function getIncreaseList () {
+				$.ajax({
+					type: "get",
+					url: 'https://dncapi.bqrank.net/api/coin/coinchange',
+					data: {
+						code: increaseName,
+						webp: 1
+					},
+					dataType: 'json',
+					success: function (result) {
+						// console.log(6666666666, result);
+						let data = result.data
+						let html = ''
+						if (data.change_day > 0) {
+							html = `
+									<div class="title_panel">${name}阶段涨幅</div>
+									<div class="data_content_panel">
+										<ul class="data_content_ul">
+											<li>
+												<span>24小时</span><span>${data.change_day}</span>
+											</li>
+											<li>
+												<span>近7天</span><span>${data.change_week}</span>
+											</li>
+											<li>
+												<span>近30天</span><span>${data.change_month}</span>
+											</li>
+											<li>
+												<span>近3月</span><span>${data.change_threemonth}</span>
+											</li>
+											<li>
+												<span>近6月</span><span>${data.change_sixmonth}</span>
+											</li>
+											<li>
+												<span>近1年</span><span>${data.change_year}</span>
+											</li>
+											<li>
+												<span>今年来</span><span>${data.change_thisyear}</span>
+											</li>
+											<li>
+												<span>所有</span><span>${data.change_ico}</span>
+											</li>
+										</ul>
+									</div>
+                                `
+						} else if (data.change_day < 0) {
+							html = `
+                                    <div class="title_panel">${name}阶段涨幅</div>
+									<div class="data_content_panel">
+										<ul class="data_content_ul">
+											<li>
+												<span>24小时</span><span style="color: #FF0066">${data.change_day}</span>
+											</li>
+											<li>
+												<span>近7天</span><span>${data.change_week}</span>
+											</li>
+											<li>
+												<span>近30天</span><span>${data.change_month}</span>
+											</li>
+											<li>
+												<span>近3月</span><span>${data.change_threemonth}</span>
+											</li>
+											<li>
+												<span>近6月</span><span>${data.change_sixmonth}</span>
+											</li>
+											<li>
+												<span>近1年</span><span>${data.change_year}</span>
+											</li>
+											<li>
+												<span>今年来</span><span>${data.change_thisyear}</span>
+											</li>
+											<li>
+												<span>所有</span><span>${data.change_ico}</span>
+											</li>
+										</ul>
+									</div>
+                                `
+						}
+
+						$('.data_Increase_panel').html(html)
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			getIncreaseList()
+			if (name != 'FIL') {
+				getDataNumList()
+			} else {
+				getFilData()
+			}
+
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'));
+			let echartDate = []
+			let echartDates = null
+			function getEchartsDate () {
+				$.ajax({
+					type: "get",
+					url: 'https://dncapi.bqrank.net/api/coin/coinhisrank',
+					data: {
+						code: increaseName,
+						webp: 1
+					},
+					dataType: 'json',
+					success: function (result) {
+						// console.log(':::::::::----------1232', result);
+						result.data.forEach((item, index) => {
+							echartDate.push(item.ticker_time)
+						})
+						// console.log(6666666666, echartDate);
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			getEchartsDate()
+			function getEchartsData () {
+				$.ajax({
+					type: "get",
+					url: 'https://dncapi.bqrank.net/api/coin/web-charts',
+					data: {
+						code: increaseName,
+						type: 'all',
+						webp: 1
+					},
+					dataType: 'json',
+					success: function (result) {
+						// console.log(':::::::::::::---------', result);
+						if (result.code == 200) {
+							let allData = JSON.parse(`[${result.value}]`)
+							let dollarList = []
+							let marketValue = []
+							let price = allData[0][2]
+							// console.log(3333333333, allData);
+							allData.forEach((item, index) => {
+								dollarList.push(item[0])
+								marketValue.push(item[3] * result.marketcap_changerate)
+							})
+							echartDates = chunk(echartDate, marketValue.length)
+							/*
+							marketValue.forEach((item, index) => {
+								dollarList.push(item / 100)
+							})
+							*/
+							// console.log('55555555555-----美元', dollarList);
+							// console.log('55555555555-----流通市值', marketValue);
+							// console.log('000000000000000', echartDates);
+
+							myChart.setOption(option = {
+								title: {
+									// text: `${name}阶段`
+								},
+								tooltip: {
+									trigger: 'axis',
+									showContent:false
+								},
+								grid: {
+									bottom: '20%',
+									// containLabel: true
+								},
+								xAxis: {
+									splitLine: {
+										show: false
+									},
+									data: echartDates[6] && echartDates[6].length > 0 ? echartDates[6] : echartDates[0]
+								},
+								yAxis: {
+									splitLine: {
+										show: true
+									},
+									axisLabel: {
+										show: false
+									},
+									axisTick: {
+										show: false
+									},
+									axisLine: {
+										show: false
+									}
+								},
+								dataZoom: [{
+									startValue: '2016-12-31'
+								}, {
+									type: 'inside'
+								}],
+								series: [
+									/*
+										{
+											type: 'line',
+											data: dollarList
+											markLine: {
+												silent: true,
+												data: [{
+													yAxis: ''
+												}]
+											}
+
+										},
+
+									{
+										type: 'line',
+										data: marketValue,
+										itemStyle : {
+											normal : {
+												lineStyle:{
+													color:'#0083c3'
+												}
+											}
+										}
+									},
+									*/
+									{
+										type: 'line',
+										data: marketValue,
+										itemStyle : {
+											normal : {
+												lineStyle:{
+													color:'#0083c3'
+												}
+											}
+										}
+									},
+								]
+							});
+						}
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			getEchartsData()
+			function getBreveData () {
+				$.ajax({
+					type: "post",
+					url: 'https://dncapi.bqrank.net/api/coin/web-coininfo',
+					data: JSON.stringify({
+						addlink: 1,
+						code: increaseName,
+						webp: 1
+					}),
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function (result) {
+						// console.log(':::::::::::----------123321', result);
+						let data = result.data
+						if (result.code == 200) {
+							let html = `
+								<div class="title_panel">简况</div>
+								<div class="data_content_panel">
+									<div class="breve_text_box">
+										<div>${data.coindesc}</div>
+									</div>
+									<ul class="data_content_ul">
+										<li>
+											<span>发行时间</span><span>${data.online_time}</span>
+										</li>
+										<li>
+											<span>最大供应量</span><span>${data.maxsupply} ${name}</span>
+										</li>
+										<li>
+											<span>总供应量</span><span>${data.supply} ${name}</span>
+										</li>
+										<li>
+											<span>上架交易所</span><span>${data.exchange_listcount} 家</span>
+										</li>
+										<li>
+											<span>核心算法</span><span>${data.algorithm}</span>
+										</li>
+										<li>
+											<span>激励机制</span><span>${data.prooftype}</span>
+										</li>
+									</ul>
+								</div>
+							`
+							$('.breve_data_panel').html(html)
+						} else {
+							ShowFailure('获取数据失败, 请稍后再试 !')
+						}
+
+					},
+					error: function () {
+						ShowFailure('网络错误, 请稍后再试 !')
+					}
+				})
+			}
+			getBreveData()
+
+
+
+
+			$('.go_back_wrap').on('click', function () { // 返回
+				window.history.go(-1)
+			})
+
+			$('.menu_panel').load('./common/menu.html')
+		})
+	</script>
+</body>
+
+</html>

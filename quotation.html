@@ -376,7 +376,7 @@
                             let market_value = moneyDataFormat(item.market_value)
                             if (item.change_percent > 0) {
                                 html += `
-                                    <li>
+                                    <li class="data-item" data-name="${item.name}">
                                         <div class="box_li">
                                             <span class="name_span name_txt">${item.name}</span>
                                             <div class="money_div">
@@ -394,7 +394,7 @@
                                 `
                             } else if (item.change_percent < 0) {
                                 html += `
-                                    <li>
+                                    <li class="data-item" data-name="${item.name}">
                                         <div class="box_li">
                                             <span class="name_span name_txt">${item.name}</span>
                                             <div class="money_div">
@@ -445,7 +445,7 @@
                             let market_value = moneyDataFormat(item.market_value)
                             if (item.change_percent > 0) {
                                 html += `
-                                    <li>
+                                    <li class="data-item" data-name="${item.symbol}">
                                         <div class="box_li">
                                             <span class="name_span name_txt">${item.symbol}</span>
                                             <div class="money_div">
@@ -463,7 +463,7 @@
                                 `
                             } else if (item.change_percent < 0) {
                                 html += `
-                                    <li>
+                                    <li class="data-item" data-name="${item.symbol}">
                                         <div class="box_li">
                                             <span class="name_span name_txt">${item.symbol}</span>
                                             <div class="money_div">
@@ -494,6 +494,10 @@
             }
             getAllDataList()
 
+            $('.currency_panel_ul').on('click', '.data-item', function () {
+                let name = $(this).data('name')
+                window.location.href = `./dataTrends.html?name=${name}`
+            })
 
             $('.menu_panel').load('./common/menu.html')
         })
