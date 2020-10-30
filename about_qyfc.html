@@ -411,7 +411,6 @@
 			/**
 			 * 音乐上传
 			 */
-			// var oUploadImg = document.querySelector("#uploadImg") // 获取uploaImg节点,
 			var oFile = document.querySelector("#upLoadFileIpt"); // 获取input file节点
 			var file = ''
 			var fileType = ''
@@ -420,59 +419,6 @@
 					file = this.files[0];
 					fileType = file.name.split('.')[1]
 					$('.upLoad_fileName').html(file.name)
-					/*
-                    if (file.name.indexOf("mp3") != -1) { // 说明上传的是 mp3后缀的音频
-                        // var val
-                        // var formData = new FormData();
-                        // formData.append('file', file)
-                        // console.log(2222222222, formData.get('file'));
-                        $.ajax({
-                            type: "",
-                            url: '',
-                            data: {},
-                            dataType: 'json',
-                            beforeSend: function () {
-                                // 显示loading提示
-                                $('.mask_wrap').show()
-                            },
-                            success: function (result) {
-                                // 关闭loading提示
-                                $('.mask_wrap').hide()
-                                console.log(result);
-                            },
-                            error: function () {
-                                // 关闭loading提示
-                                $('.mask_wrap').hide()
-                                // ShowFailure('上传失败, 请稍后再试 !')
-                            }
-                        })
-                        let maxSize = 15
-                        if (file.size / 1024 / 1024 >= maxSize) { // 允许上传
-                        } else { // 不允许上传
-                            ShowFailure('上传的文件不能小于 15M!')
-                        }
-                    } else {
-                        ShowFailure('请上传mp3格式的文件!')
-                    }
-                    */
-					/*
-					let maxSize = 15
-					if (file.name.indexOf("mp3") == -1) {
-						ShowFailure('请上传mp3格式的文件!')
-						return false
-					} else if (file.size / 1024 / 1024 < maxSize) {
-						ShowFailure("上传的文件不能小于 15M !")
-						return false
-					} else {
-						console.log('+++++++++++', file);
-						let fileName = file.name.split('.')[0]
-						console.log('::::--------', fileName);
-						console.log('::::--------', localUserName);
-						$('.fileName_ipt').val(fileName)
-						$('.userName_ipt').val(localUserName)
-					}
-					*/
-
 				} else { // 未登录 (不允许上传)
 					ShowFailure('请先登录 ~')
 					setTimeout(() => {
@@ -530,9 +476,6 @@
 				fd.append('name', $('.fileName_ipt').val())
 				fd.append('username', localUserName)
 				fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
-				console.log('::::::::::---------', fd.get('name'));
-				console.log('::::::::::---------', fd.get('username'));
-				console.log('::::::::::---------', fd.get('upload'));
 				var xhr = new XMLHttpRequest();
 				// 监听服务器的响应
 				xhr.addEventListener("load", uploadComplete, false);
@@ -640,8 +583,6 @@
 			$('.searchButton').on('click', function () {
 				let name = $('.search_fileName_ipt').val()
 				let type = $('.search_fileType_ipt').val()
-				console.log('::::::::', name == '');
-				console.log('::::::::', type == '');
 				if (name == '') {
 					ShowFailure('文件名不能为空 !')
 					return false
@@ -706,45 +647,6 @@
 						})
 					}
 				}
-
-
-				/*
-                //$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchMusic?name=${name}" controls></audio>`)
-
-                var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}`); // audio也可获取视频的时长
-                console.log('lalal=====', audioElement);
-                var duration
-                audioElement.addEventListener("loadedmetadata", function (_event) {
-                    duration = audioElement.duration;
-                    // 分钟
-                    var minute = parseInt(duration / 60);
-                    // 秒
-                    var second = Math.round(duration % 60);
-                    let html = `
-                                        <div class="music_item">
-                                            <span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}"></audio></span>
-                                        </div>
-                                    `
-                    $('.audio_wrap').html(html)
-                    $('.search_fileName_ipt').val('')
-                    $('.search_fileType_ipt').val('')
-                })
-                */
-
-				/*
-                $.ajax({
-                    type: "get",
-                    url: `http://61.147.123.84:9000/v2/searchMusic`,
-                    data: {name},
-                    dataType: 'json',
-                    success: function (result) {
-                        console.log('======:::::::::', result);
-                    },
-                    error: function () {
-                        ShowFailure('网络错误, 请稍后再试 !')
-                    }
-                })
-                */
 			})
 
 		})

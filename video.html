@@ -496,7 +496,7 @@
 					},
 					dataType: 'json',
 					success: function (result) {
-						console.log(222222222, result);
+						// console.log(222222222, result);
 						let resData = result.msg
 						let html = ''
 						resData.forEach((item, index) => {
@@ -664,14 +664,6 @@
 			$('.search_fileName_ipt').val(fileName)
 			$('.search_fileType_ipt').val(fileType)
 		})
-		/*
-		$('.fold_panel').on('click', '.search_btn', function () {
-			let fileName = $(this).parent().siblings('.coll_body').children('.fileName').data('filename')
-			let fileType = $(this).parent().siblings('.coll_body').children('.file_type').data('filetype')
-			$('.search_fileName_ipt').val(fileName)
-			$('.search_fileType_ipt').val(fileType)
-		})
-		*/
 
 		/**
 		 * 控制音乐播放和暂停

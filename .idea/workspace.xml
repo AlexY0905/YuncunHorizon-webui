@@ -21,7 +21,33 @@
   <component name="ChangeListManager">
     <list default="true" id="410771c6-f5fd-4a95-a4de-5276271a2f74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_qyfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about_qyfc_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/about_qyfc_xq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminCenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminCenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminRegister.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminRegister.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articlelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/articlelist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataTrends.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataTrends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/fileManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/forgetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latestnews.html" beforeDir="false" afterPath="$PROJECT_DIR$/latestnews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phoneLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/phoneLogin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quotation.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/userManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/video.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_copy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_xq.html" beforeDir="false" afterPath="$PROJECT_DIR$/video_xq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yrpx.html" beforeDir="false" afterPath="$PROJECT_DIR$/yrpx.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yxch.html" beforeDir="false" afterPath="$PROJECT_DIR$/yxch.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +100,9 @@
       <workItem from="1603416906442" duration="25063000" />
       <workItem from="1603675844581" duration="54816000" />
       <workItem from="1603849221181" duration="21563000" />
+      <workItem from="1603934952763" duration="609000" />
+      <workItem from="1603936982847" duration="4485000" />
+      <workItem from="1604021430603" duration="20255000" />
     </task>
     <servers />
   </component>
@@ -93,10 +122,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603877225918">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604037016886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603877225918" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604037016886" />
     <state x="557" y="245" width="920" height="664" key="find.popup" timestamp="1603700251223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

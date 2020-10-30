@@ -614,7 +614,7 @@
 										contentType: 'application/json',
 										data: JSON.stringify(user),
 										success: function (data) {
-											console.log('+++++++++++++-------', data)
+											// console.log('+++++++++++++-------', data)
 											if (data['ok']) {
 												ShowSuccess('注册成功')
 												setTimeout(() => {
@@ -669,7 +669,7 @@
 							phone: tel
 						},
 						success: function (data) {
-							console.log('::::::::::-----------', data)
+							// console.log('::::::::::-----------', data)
 							result = data.Msg
 						}
 					})

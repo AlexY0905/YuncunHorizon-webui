@@ -262,7 +262,7 @@
         // 搜索
         $('.searchButton').on('click', function () {
             if ($('.keyWord_ipt').val() !== '') { // 发请求, 搜索数据
-                console.log($('.keyWord_ipt').val());
+                // console.log($('.keyWord_ipt').val());
                 $.ajax({
                     type: "get",
                     dataType: 'json',
@@ -272,7 +272,7 @@
                         phone: $('.keyWord_ipt').val()
                     },
                     success: function (result) {
-                        console.log('++++++--------', result)
+                        // console.log('++++++--------', result)
                         let html = `
                         <div class="user_item">
                             <div class="Collapsing current">
@@ -314,7 +314,7 @@
                 url: "http://61.147.123.84:9000/v1/showalluser",
                 data: {},
                 success: function (result) {
-                    console.log('++++++--------', result)
+                    // console.log('++++++--------', result)
                     let html = ''
                     result.forEach((item, index) => {
                         if (index === 0) {

@@ -439,28 +439,13 @@
                         contentType: 'application/json',
                         data: JSON.stringify(user),
                         success: function (data) {
-                            console.log('+++++++++++++-------', data)
+                            // console.log('+++++++++++++-------', data)
                             if (data['ok']) {
                                 ShowSuccess('注册成功 !')
                                 setTimeout(() => {
                                     window.location.href = './adminLogin.html'
                                 }, 500)
                             }
-                            /*
-                            if (data.msg == "该用户名已经存在") {
-                                $("#xs").text("该用户名已经存在!");
-                                $("#xs").css("color", "red");
-                            } else if (data.msg == "该手机号已经注册") {
-                                ShowFailure("该手机号已经注册!")
-                                $("#regPhone").html("")
-                            } else {
-                                ShowSuccess("注册成功")
-                                // console.log("data", data)
-                                setInterval(() => {
-                                    window.location.href = "./login.html";//注册之后跳转到登录
-                                }, 800)
-                            }
-                             */
                         },
                         error: function (err) {
                             ShowFailure('网络错误, 稍后再试 !')

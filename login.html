@@ -305,15 +305,6 @@
 		</ul>
 		<!-- 菜单导航 -->
 		<span class="menu_panel"></span>
-		<!--
-		<dl class="menu">
-			<dd><a href="login.html">登录</a></dd>
-			<dd><a href="register.html">注册</a></dd>
-			<dd><a href="video.html">视频中心</a></dd>
-			<dd><a href="about.html">关于我们</a></dd>
-			<dd><a href="contact.html">联系我们</a></dd>
-		</dl>
-		-->
 	</div>
 
 	<!-- content page ends -->
@@ -399,7 +390,7 @@
 					password: $("#inputPassword").val()
 				},
 				success: function (data) {
-					console.log('++++++--------', data)
+					// console.log('++++++--------', data)
 					if (data.msg == 'password good') {
 						ShowSuccess('登录成功')
 						// 本地存储设置表示当前登录用户为普通用户
@@ -414,29 +405,6 @@
 							window.location.href = './index.html'
 						}, 500)
 					}
-
-					/*
-					if (data.msg == "用户不存在") {
-						ShowFailure("用户不存在,请注册!");
-						$("#inputEmail").val("");
-						$("#inputPassword").val("");
-					} else if (data.msg == "密码错误") {
-						ShowFailure("密码错误,请重试!");
-						$("#inputEmail").val("");
-						$("#inputPassword").val("");
-					} else if (data.msg == "该账户已登录，请重新登录") {
-						ShowFailure("该账户已登录，请重新登录");
-					} else {
-						// console.log("data",data);
-						ShowSuccess("登陆成功")
-						localStorage.obj = JSON.stringify(data);
-						localStorage.obj_power = "2";
-						setInterval(() => {
-							window.location.href = "./index.html";
-						}, 800)
-					}
-					*/
-
 				}
 			})
 		}

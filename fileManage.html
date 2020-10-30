@@ -187,15 +187,6 @@
     </ul>
     <!-- 菜单导航 -->
     <span class="menu_panel"></span>
-    <!--
-    <dl class="menu">
-        <dd><a href="login.html">登录</a></dd>
-        <dd><a href="register.html">注册</a></dd>
-        <dd><a href="video.html">音频中心</a></dd>
-        <dd><a href="about.html">关于我们</a></dd>
-        <dd><a href="contact.html">联系我们</a></dd>
-    </dl>
-    -->
 </div>
 <script>
     $(function () {
@@ -214,7 +205,7 @@
                 url: "http://61.147.123.84:9000/v1/showallfile",
                 data: {},
                 success: function (result) {
-                    console.log('++++++--------', JSON.parse(result.msg))
+                    // console.log('++++++--------', JSON.parse(result.msg))
                     let resDataList = JSON.parse(result.msg)
                     let html = ''
                     resDataList.forEach((item, index) => {
@@ -298,8 +289,8 @@
                     })
 
                     var _content = [] // 临时存储文章循环内容
-                    var _default = 40 //默认显示文章个数
-                    var _loading = 40 //每次点击按钮后加载的个数
+                    var _default = 40 // 默认显示文章个数 (只显示此数的二分之一)
+                    var _loading = 40 // 每次点击按钮后加载的个数 (只显示此数的二分之一)
                     function init() { // 初始化页面, 页面第一次进来, 默认展示的文章列表数
                         var lis = $(html); // 拿到所有文章列表dom节点数据, 并转换成 jquery 对象
                         $(".fold_panel .list").html(""); // 默认清空存放文章列表数据的dom容器

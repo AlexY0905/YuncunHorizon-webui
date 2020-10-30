@@ -505,8 +505,6 @@
 					return false
 				}
 
-
-
 				if ($('.fileName_ipt').val() == '') {
 					ShowFailure("音乐名不能为空 !")
 					return false
@@ -531,10 +529,6 @@
 			fd.append('username', localUserName)
 			fd.append('type', fileType)
 			fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
-			console.log('::::::::::---------', fd.get('name'));
-			console.log('::::::::::---------', fd.get('username'));
-			console.log('::::::::::---------', fd.get('type'));
-			console.log('::::::::::---------', fd.get('upload'));
 			var xhr = new XMLHttpRequest();
 			// 监听服务器的响应
 			xhr.addEventListener("load", uploadComplete, false);
@@ -707,47 +701,7 @@
 						})
 					}
 				}
-
-
-				/*
-                //$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchImitation?name=${name}" controls></audio>`)
-
-                var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchImitation?name=${name}`); // audio也可获取视频的时长
-                console.log('lalal=====', audioElement);
-                var duration
-                audioElement.addEventListener("loadedmetadata", function (_event) {
-                    duration = audioElement.duration;
-                    // 分钟
-                    var minute = parseInt(duration / 60);
-                    // 秒
-                    var second = Math.round(duration % 60);
-                    let html = `
-                                        <div class="music_item">
-                                            <span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchImitation?name=${name}"></audio></span>
-                                        </div>
-                                    `
-                    $('.audio_wrap').html(html)
-                    $('.search_fileName_ipt').val('')
-                    $('.search_fileType_ipt').val('')
-                })
-                */
-
-				/*
-                $.ajax({
-                    type: "get",
-                    url: `http://61.147.123.84:9000/v2/searchImitation`,
-                    data: {name},
-                    dataType: 'json',
-                    success: function (result) {
-                        console.log('======:::::::::', result);
-                    },
-                    error: function () {
-                        ShowFailure('网络错误, 请稍后再试 !')
-                    }
-                })
-                */
 			})
-
 	})
 </script>
 <script>

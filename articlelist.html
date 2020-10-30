@@ -240,7 +240,6 @@
         duration: 1000
     });
     $('.goback').on('click', function () { // 返回
-        // console.log("00000", 1211221);
         window.history.go(-1)
     })
 </script>
@@ -258,7 +257,7 @@
             data: { id },
             dataType: "json",
             success: function (result) {
-                console.log("-------------", result);
+                // console.log("-------------", result);
                 if (result.code == 0) {
                     let data = result.data
                     let html = `<div>

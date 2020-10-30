@@ -746,7 +746,7 @@
                                 var name =randomString(10)
                                 var that = this;
                                 bitmap.save(`_doc/${name}.png`, { overwrite: false }, function (event) {
-                                    console.log(event.target)
+                                    // console.log(event.target)
                                     imageSaveByGallery(event.target, success, error)
                                 }, function (err) {
                                     plus.nativeUI.closeWaiting()

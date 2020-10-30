@@ -660,8 +660,6 @@
 		$('.searchButton').on('click', function () {
 			let name = $('.search_fileName_ipt').val()
 			let type = $('.search_fileType_ipt').val()
-			console.log('::::::::', name == '');
-			console.log('::::::::', type == '');
 			if (name == '') {
 				ShowFailure('文件名不能为空 !')
 				return false
@@ -727,44 +725,6 @@
 				}
 			}
 
-
-			/*
-			//$('.music_wrap').html(`<audio src="http://61.147.123.84:9000/v2/searchMusic?name=${name}" controls></audio>`)
-
-			var audioElement = new Audio(`http://61.147.123.84:9000/v2/searchMusic?name=${name}`); // audio也可获取视频的时长
-			console.log('lalal=====', audioElement);
-			var duration
-			audioElement.addEventListener("loadedmetadata", function (_event) {
-				duration = audioElement.duration;
-				// 分钟
-				var minute = parseInt(duration / 60);
-				// 秒
-				var second = Math.round(duration % 60);
-				let html = `
-									<div class="music_item">
-										<span>${name}</span><span class="music_date">${minute}:${second}</span><span class="music_play btn-audio"><audio class="mp3Btn" src="http://61.147.123.84:9000/v2/searchMusic?name=${name}"></audio></span>
-									</div>
-								`
-				$('.audio_wrap').html(html)
-				$('.search_fileName_ipt').val('')
-				$('.search_fileType_ipt').val('')
-			})
-			*/
-
-			/*
-			$.ajax({
-				type: "get",
-				url: `http://61.147.123.84:9000/v2/searchMusic`,
-				data: {name},
-				dataType: 'json',
-				success: function (result) {
-					console.log('======:::::::::', result);
-				},
-				error: function () {
-					ShowFailure('网络错误, 请稍后再试 !')
-				}
-			})
-			*/
 		})
 	})
 </script>
