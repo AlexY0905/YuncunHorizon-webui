@@ -245,6 +245,7 @@
                     return formatMoney
                 }
             }
+            let isFil = []
             async function getQuotationDataList () {
                 await $.ajax({
                     type: "get",
@@ -261,6 +262,7 @@
                         let data = result.data
                         let res = data.filter((item, index) => { return item.name == 'BTC' || item.name == 'ETH' || item.name == 'USDT' || item.name == 'FIL' })
                         let html = ''
+                        isFil = res
                         res.forEach((item, index) => {
                             let vol = moneyDataFormat(item.vol)
                             let market_value = moneyDataFormat(item.market_value)
@@ -380,9 +382,22 @@
             }
             async function getAllDataList () {
                 await getQuotationDataList()
-                await getFilData()
+                let timer = setInterval(() => {
+                    isFil.forEach((item, index) => {
+                        console.log(3333333333, item);
+                        if (item.name = 'FIL') {
+                            clearInterval(timer)
+                            return false
+                        } else {
+                            getFilData()
+                            clearInterval(timer)
+                            return false
+                        }
+                    })
+                }, 1000)
             }
             getAllDataList()
+
 
             $('.currency_panel_ul').on('click', '.data-item', function () {
                 let name = $(this).data('name')
