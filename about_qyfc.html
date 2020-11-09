@@ -475,6 +475,7 @@
 				var fd = new FormData();
 				fd.append('name', $('.fileName_ipt').val())
 				fd.append('username', localUserName)
+				fd.append('type', fileType)
 				fd.append("upload", document.getElementById('upLoadFileIpt').files[0]);
 				var xhr = new XMLHttpRequest();
 				// 监听服务器的响应

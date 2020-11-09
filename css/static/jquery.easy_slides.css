@@ -288,6 +288,7 @@
     position   : relative;
     margin     : 0 auto;
     user-select: none;
+    /*display: flex;*/
 }
 
 .slider_four_in_line div {
@@ -321,7 +322,7 @@
 .slider_four_in_line .prev1 {
     position: absolute;
     /*width : 24%;*/
-    width   : 24%;
+    width   : max-content;
     height  : 100%;
     top     : 0px;
     left    : 25%;
