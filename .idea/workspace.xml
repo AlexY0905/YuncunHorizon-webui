@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="410771c6-f5fd-4a95-a4de-5276271a2f74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotation.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataTrends.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataTrends.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +79,15 @@
       <workItem from="1604021430603" duration="22864000" />
       <workItem from="1604280305128" duration="289000" />
       <workItem from="1604646137475" duration="1460000" />
-      <workItem from="1604912114341" duration="5462000" />
+      <workItem from="1604912114341" duration="7021000" />
+      <workItem from="1604971916676" duration="210000" />
+      <workItem from="1604984272039" duration="3403000" />
+      <workItem from="1604992844883" duration="199000" />
+      <workItem from="1605062190396" duration="97000" />
+      <workItem from="1605081139400" duration="3702000" />
+      <workItem from="1605144880084" duration="24000" />
+      <workItem from="1605231188781" duration="2013000" />
+      <workItem from="1605690763456" duration="791000" />
     </task>
     <servers />
   </component>
@@ -99,10 +107,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604280592822">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605144902757">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604280592822" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605144902757" />
     <state x="557" y="245" width="920" height="664" key="find.popup" timestamp="1603700251223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
